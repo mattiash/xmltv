@@ -1,6 +1,6 @@
 > Standard interface to listings grabbers
 > 
-> $Id: grabber_interface,v 1.1 2001/12/11 18:18:10 epaepa Exp $
+> $Id: grabber_interface,v 1.1 2002/02/22 18:06:30 epaepa Exp $
 > 
 > There are various programs to get listings data from websites and
 > output it in XMLTV format.  We want them all to have the same

@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.1 2002/02/05 17:00:34 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.1 2002/02/22 18:06:30 epaepa Exp $
 #
 # tv_pick.cgi
 #

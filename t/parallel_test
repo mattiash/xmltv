@@ -14,7 +14,7 @@
 # source tarball.
 #
 # -- Ed Avis, epa98@doc.ic.ac.uk, 2002-01-31
-# $Id: parallel_test,v 1.2 2002/02/14 12:16:22 epaepa Exp $
+# $Id: parallel_test,v 1.1 2002/02/22 18:06:30 epaepa Exp $
 #
 use strict;
 
