@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.4 2002/03/22 05:20:42 rmeden Exp $
+# $Id: tv_check,v 1.5 2002/04/29 04:37:59 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use Lingua::Preferred qw(which_lang);
 
 use XMLTV;
 use XMLTV::Usage
-' tv_check v $Revision: 1.4 $ ' . <<END
+' tv_check v $Revision: 1.5 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -567,7 +567,7 @@ for my $start (sort keys %SHOW_TIME)
         {
             my $delta = abs( substr($show->{hhmm},0,2) -
                              substr(  $ep->{hhmm},0,2) );
-            next unless $delta < 3;
+            next unless $delta < 2;
         }
 
 #
@@ -986,7 +986,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.4 $
+tv_check $Revision: 1.5 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
