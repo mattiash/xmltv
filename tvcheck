@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tvcheck,v 2.2 2002/01/11 05:36:02 rmeden Exp $
+# $Id: tvcheck,v 2.3 2002/01/11 07:05:57 rmeden Exp $
 #
 # tvcheck
 #
@@ -210,7 +210,6 @@ $SHOW_TABLE->bind('<1>', sub {
             else
             {
                 $SHOW_SORT = ($SHOW_SORT == $col ? -$col : $col);
-print "Show sort $SHOW_SORT\n";
                 load_show_table();
             }
 }); # show table click bind
@@ -799,7 +798,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tvcheck $Revision: 2.2 $
+tvcheck $Revision: 2.3 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
