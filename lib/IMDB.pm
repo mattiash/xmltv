@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.19 2003/05/30 20:47:46 epaepa Exp $
+# $Id: IMDB.pm,v 1.20 2003/06/24 04:32:05 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1804,6 +1804,8 @@ sub invokeStage($$)
 		    $nkey=~s/\"(\s*\()/$1/o; #"
 		    $nkey.=" (tv_series)";
 		}
+		# how rude, some entries have (TV) appearing more than once.
+		$nkey=~s/\(TV\)\s*\(TV\)$/(TV)/o;
 		
 		$nkey=~s/\(mini\) \(tv_series\)$/(tv_mini_series)/o;
 		$nkey=~s/\(mini\)$/(tv-mini-series)/o;
