@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.222 2004/09/27 19:18:44 epaepa Exp $
+# $Id: Makefile.PL,v 1.223 2004/09/27 20:02:27 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -28,15 +28,7 @@ $SIG{__WARN__} = sub {
 #
 unless ($ExtUtils::MakeMaker::VERSION >= 6.21) {
     if (not grep /^PREFIX=/, @ARGV) {
-	my $dir = '/usr/local';
-	if (-d $dir) {
-	    my $arg = 'PREFIX=/usr/local';
-	    push @ARGV, $arg;
-	    warn "assuming $arg\n";
-	}
-	else {
-	    warn "You may want to explicitly give PREFIX to work around MakeMaker bugs.\n";
-	}
+	warn "You may want to explicitly give PREFIX to work around MakeMaker bugs.\n";
     }
 }
 
