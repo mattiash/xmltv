@@ -1,4 +1,4 @@
-XMLTV 0.3
+XMLTV 0.3.1
 
 Suite of programs for processing TV listings and organizing your
 viewing.
@@ -21,4 +21,4 @@ you would like to use the code under some other conditions, please do
 ask.  Most of the code is by Ed Avis, Jerry Veldhuis and Gottfried Szing.
 
 -- Ed Avis, epa98@doc.ic.ac.uk, 2001-11-14
-$Id: README,v 1.19 2001/11/14 16:32:23 epaepa Exp $
+$Id: README,v 1.20 2001/11/24 22:25:28 jveldhuis Exp $
