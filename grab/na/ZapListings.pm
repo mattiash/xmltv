@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.48 2003/07/19 16:15:57 epaepa Exp $
+# $Id: ZapListings.pm,v 1.49 2003/07/19 16:28:57 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -9,9 +9,7 @@ package XMLTV::ZapListings::ScrapeRow;
 
 use strict;
 
-our @ISA = qw(HTML::Parser);
-
-require HTML::Parser;
+use base 'HTML::Parser';
 
 sub start($$$$$)
 {
@@ -140,9 +138,7 @@ use HTTP::Request::Common;
 
 # include LWP separately to verify minimal requirements on version #
 use LWP 5.62;
-use LWP::UserAgent;
-
-our @ISA = qw(LWP::UserAgent);
+use base 'LWP::UserAgent';
 
 #
 # add env_proxy flag to constructed UserAgent.
