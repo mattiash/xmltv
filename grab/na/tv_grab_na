@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.36 2003/01/01 21:15:38 epaepa Exp $
+# $Id: tv_grab_na,v 1.37 2003/01/15 20:51:37 jveldhuis Exp $
 
 =head1 NAME
 
@@ -147,7 +147,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/01/01 21:15:38 $;
+my $Date = q$Date: 2003/01/15 20:51:37 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -2042,7 +2042,7 @@ sub writeOutPrograms($$$$$$)
 	    if ( defined($prog->{qualifiers}->{PartInfo}) ) {
 		# nowhere to put this
 		# comes in the form of "Part 1 of 2"
-		$writer->dataElement('episode-num', $prog->{qualifiers}->{PartInfo});
+		$writer->dataElement('episode-num', $prog->{qualifiers}->{PartInfo}, system => 'onscreen');
 		delete($prog->{qualifiers}->{PartInfo});
 	    }
 	    if ( defined($prog->{qualifiers}->{HDTV}) ) {
