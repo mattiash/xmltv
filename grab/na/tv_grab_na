@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.58 2003/03/11 17:22:59 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.59 2003/03/20 13:13:03 jveldhuis Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/03/11 17:22:59 $;
+my $Date = q$Date: 2003/03/20 13:13:03 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -415,7 +415,10 @@ sub save($$)
 	    print FD "#channel: $station\n";
 	}
     }
-    close(FD) || return(-1);
+    if ( !close(FD) ) {
+	unlink("$file.new");
+	return(-1);
+    }
     rename("$file.new", "$file") || return(-1);
     return(0);
 }
