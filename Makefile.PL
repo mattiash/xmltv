@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.229 2004/11/27 10:25:08 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.230 2004/11/29 08:00:58 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -63,7 +63,7 @@ GetOptions(nodeps         => \$opt_nodeps,
 	  );
 
 our $VERSION;
-$VERSION = '0.5.36';
+$VERSION = '0.5.37';
 
 # Fragment of Makefile text to give the directory where files should
 # be installed.  The extra '.' in the middle of the path is to avoid
