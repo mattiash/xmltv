@@ -70,7 +70,7 @@ First release. Not aware of any bugs yet. But I'm sure there are some.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_no,v 1.15 2004/12/16 12:57:39 christianw Exp $ ';
+use XMLTV::Version '$Id: tv_grab_no,v 1.16 2004/12/16 14:37:51 christianw Exp $ ';
 use Getopt::Long;
 use HTML::Entities; # parse entities
 use IO::File;
@@ -360,13 +360,17 @@ sub process_listings_page ( $$$$ ){
 	my @elements = split(/<hr.*>/, $listingspage);
 
 	foreach my $element (@elements) {
+		#print "\n$element";
+		#print $1 if $element =~ m!</b><br>\n(.*)!;
 		my ($newstart, $newstop, $newtitle, $newdesc, $rerun, $normalsubs, $teletextsubs, $eptotal, $ep, $epall);
 		if ($element =~ m/[0-9][0-9]\.[0-9][0-9] - [0-9][0-9]\.[0-9][0-9]/) {
+			#print "---\n$element\n---";
 			($newstart, $newstop) = ($1, $2) if $element =~ m/([0-9][0-9]\.[0-9][0-9]) - ([0-9][0-9]\.[0-9][0-9])/;
 			$newtitle = $1 if $element =~ m!<b>(.*)</b>!;
-			$newdesc = $1 if $element =~ m/<\/b><br>(.*)/;
+			$newdesc = $1 if $element =~ m!</b><br>\n(.*)!;
 			#$newdesc = encode_entities($newdesc) if $newdesc;
-			
+			#print $1 if $element =~ m!</b><br>\n(.*)!;
+			#print $newdesc;
 			$rerun = {} if $newtitle =~ s/\([Rr]\)//;
 			$normalsubs = 1 if $newtitle =~ s/\(t\)//;
 			$teletextsubs = 1 if $newtitle =~ s/\(ttv\)//;
