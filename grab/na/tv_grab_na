@@ -172,12 +172,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.75 2003/06/02 05:54:21 jveldhuis Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.76 2003/06/21 20:16:36 epaepa Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/06/02 05:54:21 $;
+my $Date = q$Date: 2003/06/21 20:16:36 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -2268,11 +2268,20 @@ sub writeOutPrograms($$$$$$$)
 		delete($prog->{qualifiers}->{Language});
 	    }
 	    
-	    if ( defined($prog->{qualifiers}->{PartInfo}) ) {
-		# nowhere to put this
-		# comes in the form of "Part 1 of 2"
-		$writer->dataElement('episode-num', $prog->{qualifiers}->{PartInfo}, system => 'onscreen');
-		delete($prog->{qualifiers}->{PartInfo});
+	    for ( my $pi = delete($prog->{qualifiers}->{PartInfo}) ) {
+		if ( defined ) {
+		    if ( /^Part (\d+) of (\d+)$/
+			 and $1 > 0
+			 and $1 <= $2 ) {
+			my ($from_zero, $out_of) = ($1 - 1, $2);
+			$writer->dataElement('episode-num',
+					     " .  . $from_zero/$out_of",
+					     system => 'xmltv_ns');
+		    }
+		    else {
+			warn "discarding unrecognized part information: $_\n";
+		    }
+		}
 	    }
 	    if ( defined($prog->{qualifiers}->{HDTV}) ) {
 		# nowhere to put this 
