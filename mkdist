@@ -1,6 +1,6 @@
 #!/bin/sh
 # 
-# $Id: mkdist,v 1.8 2001/11/24 22:27:57 jveldhuis Exp $
+# $Id: mkdist,v 1.9 2001/11/24 22:29:57 jveldhuis Exp $
 #
 # Make a distribution tarball from a working copy.  Not very well
 # written; all those rm -rfs might be dangerous.
@@ -26,5 +26,6 @@ rm -f tvprefs      || exit 1
 rm -f uk.xml       || exit 1
 rm -f tv.xml       || exit 1
 rm -f web_cache.db || exit 1
+rm -f ChangeLog.old|| exit 1
 echo ../$dir
 echo 'You did remember to update the ChangeLog?'
