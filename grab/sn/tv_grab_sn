@@ -62,7 +62,7 @@ recommended by the XMLTV DTD.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_sn,v 1.49 2003/10/26 17:21:31 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_sn,v 1.50 2003/10/26 18:47:55 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::TableExtract; # parse html better than regular expressions.
 use Date::Manip;
@@ -148,6 +148,7 @@ my %char_map
      8211 => chr(241),		# LATIN SMALL LETTER N WITH TILDE
      8240 => chr(226),		# LATIN SMALL LETTER A WITH CIRCUMFLEX
      8226 => chr(239),		# LATIN SMALL LETTER I WITH DIAERESIS
+     8249 => chr(227),		# LATIN SMALL LETTER A WITH TILDE
      8218 => 'i',
      2014 => '--',
      382  => chr(251),		# LATIN SMALL LETTER U WITH CIRCUMFLEX
