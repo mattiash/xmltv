@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.10 2003/03/10 06:59:47 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.11 2003/04/06 20:34:01 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1657,9 +1657,6 @@ sub invokeStage($$)
 		}
 		my $year;
 		if ( $title=~s/\s+\((\d\d\d\d|\?\?\?\?)\)$//o ) {
-		    $year=$1;
-		}
-		elsif ( $title=~s/\s+\((\d\d\d\d|\?\?\?\?)\)$//o ) {
 		    $year=$1;
 		}
 		elsif ( $title=~s/\s+\((\d\d\d\d|\?\?\?\?)\/[IVX]+\)$//o ) {
