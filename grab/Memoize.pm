@@ -2,7 +2,7 @@
 # more than one place in XMLTV.  But not general enough to merge back
 # into Memoize.
 #
-# $Id: Memoize.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+# $Id: Memoize.pm,v 1.13 2005/02/06 20:15:11 epaepa Exp $
 #
 
 package XMLTV::Memoize;
@@ -85,33 +85,16 @@ sub check_argv( @ ) {
 	}
     };
 
-    my @r;
-    if ($Memoize::VERSION !~ /^[0-9.]+$/ or $Memoize::VERSION > 0.62) {
-	# It's a newer-than-0.62 or just plain wacky version of
-	# Memoize.  Use HASH instead of deprecated TIE.
-	#
-	my %cache;
-
-	# Annoyingly tie(%cache, @tie_args) doesn't work
-	tie %cache, 'DB_File', $filename,
-	  POSIX::O_RDWR() | POSIX::O_CREAT(), 0666;
-	foreach (@_) {
-	    my $r = Memoize::memoize($from_caller->($_),
-				     SCALAR_CACHE => [ HASH => \%cache ],
-				     LIST_CACHE => 'MERGE');
-	    die "could not memoize $_" if not $r;
-	    push @r, $r;
-	}
-    }
-    else {
-	# Old version of Memoize.
-	foreach (@_) {
-	    my $r = Memoize::memoize($from_caller->($_),
-				     SCALAR_CACHE => [ 'TIE', @tie_args ],
-				     LIST_CACHE => 'MERGE');
-	    die "could not memoize $_" if not $r;
-	    push @r, $r;
-	}
+    # Annoyingly tie(%cache, @tie_args) doesn't work
+    my %cache;
+    tie %cache, 'DB_File', $filename,
+      POSIX::O_RDWR() | POSIX::O_CREAT(), 0666;
+    foreach (@_) {
+	my $r = Memoize::memoize($from_caller->($_),
+				 SCALAR_CACHE => [ HASH => \%cache ],
+				 LIST_CACHE => 'MERGE');
+	die "could not memoize $_" if not $r;
+	push @r, $r;
     }
     return \@r;
 }
