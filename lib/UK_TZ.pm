@@ -5,7 +5,7 @@
 #
 # Actually, now there is some other general time stuff in here too.
 #
-# $Id: UK_TZ.pm,v 1.5 2002/09/13 14:32:13 epaepa Exp $
+# $Id: UK_TZ.pm,v 1.1 2002/10/27 09:28:10 epaepa Exp $
 #
 
 package XMLTV::UK_TZ;
