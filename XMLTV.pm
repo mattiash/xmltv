@@ -1,5 +1,5 @@
 #
-# $Id: XMLTV.pm,v 1.20 2002/02/02 13:46:58 epaepa Exp $
+# $Id: XMLTV.pm,v 1.21 2002/02/04 17:37:30 epaepa Exp $
 #
 # Routines for reading and writing XMLTV files from Perl.
 #
@@ -373,8 +373,10 @@ sub read_data( $ ) {
 # Parameters:
 #   listref of four elements as returned by read_data()
 #   arguments to be passed on to XMLTV::Writer's constructor
-# 
-# For example write_data($data, OUTPUT => 'out.xml');
+#
+# For example:
+#   my $f = new IO::File '>out.xml'; die if not $f;
+#   write_data($data, OUTPUT => $f);
 #
 sub write_data( $;@ ) {
     my $data = shift;
