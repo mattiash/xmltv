@@ -68,7 +68,7 @@ Dansk dokumentar. - convert to <country> and <category>, sometimes <date>
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_dk,v 1.6 2003/11/29 12:31:01 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_dk,v 1.7 2003/12/07 22:08:05 epaepa Exp $ ';
 use Getopt::Long;
 use LWP::Simple ();
 use HTML::TreeBuilder;
@@ -450,7 +450,7 @@ sub process_listings_page ( $$$$ ){
 	    if (/\(TTV\)/) {
 		$teletext_sub = 1;
 	    } elsif (/\(TH\)/) {
-		$sub_title = 1;
+#		$sub_title = 1;
 	    } elsif (/\((\d+)\)/) {
 		$episode_num = $1;
 	    } elsif (/\(G\)/) {
