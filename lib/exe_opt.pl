@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.3 2003/09/11 05:43:46 rmeden Exp $
+# $Id: exe_opt.pl,v 1.4 2003/12/09 06:46:42 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -14,7 +14,7 @@
 #
 print '-nologo
 -force
--trim="Convert::EBCDIC;DB_File;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm"
+-trim="Convert::EBCDIC;DB_File;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm;PerlIO/gzip.pm"
 -info CompanyName="XMLTV Project http://membled.com/work/apps/xmltv/"
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
 -info InternalName=xmltv.exe
