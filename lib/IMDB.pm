@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.2 2003/03/03 21:19:24 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.3 2003/03/03 22:58:50 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -716,7 +716,7 @@ sub new
     for ('imdbDir', 'verbose') {
 	die "invalid usage - no $_" if ( !defined($self->{$_}));
     }
-    if ( ! -d $self->{imdbDir} ) {
+    if ( ! -d "$self->{imdbDir}" ) {
 	die "$self->{imdbDir}:does not exist" ;
     }
     my $missingListFiles=0;
