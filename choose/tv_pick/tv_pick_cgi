@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.7 2002/09/13 14:24:37 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.8 2002/10/02 19:21:08 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -109,6 +109,7 @@ sub my_ordinate {
 BEGIN {
     eval { require Lingua::EN::Numbers::Ordinate };
     if ($@) { *ordinate = \&my_ordinate }
+    else { *ordinate = \&Lingua::EN::Numbers::Ordinate::ordinate }
 }
 
 # Load CGI last of all so that harmless failures in loading
