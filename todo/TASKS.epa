@@ -1,8 +1,8 @@
-$Id: TASKS.epa,v 1.23 2002/05/27 08:54:37 epaepa Exp $
+$Id: TASKS.epa,v 1.24 2002/10/11 15:14:08 epaepa Exp $
 
 As World Service - wontfix
 Pink Panther film vs cartoon
-Gareth Hale guests
+Gareth Hale guests - done
 blank lines in tv_sort output - done now it uses XMLTV.pm
 50 poundsbillion - fixed
 Columbo: Foo
