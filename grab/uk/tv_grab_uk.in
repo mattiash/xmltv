@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.36 2002/09/15 17:11:50 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.37 2002/09/16 20:53:55 epaepa Exp $
 
 =head1 NAME
 
@@ -304,6 +304,10 @@ sub configure() {
 	    warn "default region '$default_region' seems to have disappeared\n";
 	    $default_region = $region_dns[0];
 	}
+
+	# FIXME commonize showing one name to the user and another
+	# internally.
+	#
 	my $region_dn = askQuestion
 	  ('Which terrestrial region?', $default_region, @region_dns);
 	my $aid;
