@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.42 2003/09/28 20:17:55 jveldhuis Exp $
+# $Id: mkdist,v 1.43 2003/12/10 21:37:20 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -149,7 +149,6 @@ my %check_ver = ('README'                 => q{^XMLTV\s+([^, ]+)},
 		 'doc/README.win32'       => q{^XMLTV\s+([^, ]+)},
 		 'Makefile.PL'            => q{^(?:our )?\$VERSION\s*=\s*'(\S+)';},
 		 'lib/XMLTV.pm.in'        => q{^(?:our )?\$VERSION\s*=\s*'(\S+)';},
-		 'grab/na/ZapListings.pm' => q{agent\('xmltv/(\S+)'\)},
 		);
 foreach my $f (keys %check_ver) {
     my $re = $check_ver{$f};
