@@ -55,7 +55,6 @@ Lingua::EN::Numbers::Ordinate
 Memoize
 Storable
 Tk::TableMatrix
-Compress::Zlib
 XML::Simple
 Unicode::String
 
@@ -77,4 +76,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, epa98@doc.ic.ac.uk, 2002-05-23
-$Id: README,v 1.35 2002/05/27 16:48:47 epaepa Exp $
+$Id: README,v 1.36 2002/05/27 16:49:31 epaepa Exp $
