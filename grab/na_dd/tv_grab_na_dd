@@ -240,7 +240,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.47 2004/04/21 06:35:49 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.48 2004/04/21 14:36:44 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -359,7 +359,7 @@ $config_file = XMLTV::Config_file::filename($opt_config_file, 'tv_grab_na_dd', $
 #
 # Load config file
 #
-if (-e $config_file)
+if (-e $config_file && ( !$opt_configure || -s $config_file ))
 {
     foreach (XMLTV::Config_file::read_lines($config_file))
     {
