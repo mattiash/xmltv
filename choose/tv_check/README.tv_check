@@ -1,4 +1,4 @@
-$Id: README.tv_check,v 1.11 2003/05/13 05:40:30 rmeden Exp $
+$Id: README.tv_check,v 1.12 2004/03/22 22:04:25 epaepa Exp $
 
 This file describes the tv_check module of XMLTV.
 
@@ -30,9 +30,9 @@ Windows EXE users should add "xmltv.exe" to the beginning of each tv_ command
             set TZ=CST6CDT
             
 2. download listings using any XMLTV grabber, for example using
-   tv_grab_na for North American listings:
-            tv_grab_na --configure
-            tv_grab_na --listings=guide.xml
+   tv_grab_fi for Finnish listings:
+            tv_grab_fi --configure
+            tv_grab_fi --output guide.xml
 
 
 3. (non-ReplayTV users) use tv_check to create a "show file"
