@@ -301,7 +301,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.18 2004/11/03 06:22:55 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.19 2004/11/07 20:06:39 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -592,7 +592,7 @@ else
 #
 # Fetch data
 # 
-    my $bar = new XMLTV::ProgressBar( 'Fetching from DataDirect', 1 );
+    $bar = new XMLTV::ProgressBar( 'Fetching from DataDirect', 1 ) unless $opt_quiet;
     print STDERR "    dd_data is in $dd_data_name\n" if $DEBUG || $opt_dd_data;   
 
     sub SOAP::Transport::HTTP::Client::get_basic_credentials
@@ -629,10 +629,14 @@ else
     $dd_data->flush;
     $dd_data_size= -s $dd_data;
     die 'ERROR: got empty result from SOAP call' if $dd_data_size == 0;
-    $time = int(time() - $time);
-    printf STDERR "    Fetched %d k/bytes in %d seconds\n",$dd_data_size/1024,$time;
-    $bar->update();
-    $bar->finish();
+    unless ($opt_quiet)
+    {
+        $time = int(time() - $time);
+        printf STDERR "    Fetched %d k/bytes in %d seconds\n",$dd_data_size/1024,$time;
+        $bar->update();
+        $bar->finish();
+        $bar=undef;
+    }
 } # get data
 
 #
