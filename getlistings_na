@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_na,v 1.40 2002/01/29 15:39:32 jveldhuis Exp $
+# $Id: getlistings_na,v 1.41 2002/01/29 17:21:43 epaepa Exp $
 #
 # This script scrapes www.zap2it.com tv listings, producing
 # xmltv.dtd and channels.dtd compliant output. Zap2it supports
@@ -23,7 +23,7 @@ my $VersionMajor=2;
 my $VersionMinor;
 
 my $Id="";
-my $ID='$Id: getlistings_na,v 1.40 2002/01/29 15:39:32 jveldhuis Exp $';
+my $ID=q[$Id: getlistings_na,v 1.41 2002/01/29 17:21:43 epaepa Exp $];
 if ( !($ID=~m;([0-9]+)\.([0-9]+);) ) {
    die "can't decipher id line ($ID)";
 }
