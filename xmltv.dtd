@@ -78,7 +78,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.27 2003/08/09 22:40:35 epaepa Exp $
+$Id: xmltv.dtd,v 1.28 2003/12/14 09:44:11 epaepa Exp $
 
 -->
 
@@ -163,8 +163,7 @@ elements sorted by ASCII order of their ids.
 
 <!-- A user-friendly name for the channel - maybe even a channel
 number.  List the most canonical / common ones first and the most
-obscure names last.  The lang attribute corresponds to abbreviations
-mentioned in ISO 3316.
+obscure names last.  The lang attribute follows RFC 1766.
 -->
 <!ELEMENT display-name (#PCDATA)>
 <!ATTLIST display-name lang CDATA #IMPLIED>
