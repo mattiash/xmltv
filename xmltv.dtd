@@ -69,7 +69,7 @@ explicit timezone is given, UT is assumed.  Examples:
 
 Version 0.5 (xmltv-0.4).  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
-$Id: xmltv.dtd,v 1.18 2002/09/01 11:53:50 epaepa Exp $
+$Id: xmltv.dtd,v 1.19 2002/09/28 11:39:17 epaepa Exp $
 
 -->
 
@@ -363,7 +363,7 @@ describing the system you use.
 <!ELEMENT episode-num (#PCDATA)>
 <!ATTLIST episode-num system CDATA "onscreen">
 
-<!-- Video details: the sub-elements describe the picture quality as
+<!-- Video details: the subelements describe the picture quality as
 follows:
 
 present: whether this programme has a picture (no, in the
