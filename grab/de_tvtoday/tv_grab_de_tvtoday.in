@@ -92,7 +92,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.22 2004/09/19 16:24:14 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.23 2004/10/16 10:50:02 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -388,7 +388,8 @@ foreach my $channel (@requests) {
 	update $bar if not $opt_quiet;
     }
 }
-$bar->finish();
+$bar->finish()
+    if not $opt_quiet;
 
 #-- write out <channel> tags
 foreach(@requests) {
