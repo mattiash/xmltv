@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.51 2003/08/05 15:34:47 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.52 2003/08/13 06:17:43 rmeden Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -10,6 +10,7 @@ package XMLTV::ZapListings::ScrapeRow;
 use strict;
 
 use base 'HTML::Parser';
+my $got500error;
 
 sub start($$$$$)
 {
@@ -906,7 +907,8 @@ sub getChannelList($$)
     }
 
     my $res=&doRequest($self->{ua}, $req, $self->{Debug});
-    if ( !$res->is_success || $res->content()=~m/your session has timed out/i ) {
+    warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500' and !$got500error++;
+    if ( !(   $res->is_success || $res->code eq '500') || $res->content()=~m/your session has timed out/i ) {
 	# again.
 	$res=&doRequest($self->{ua}, $req, $self->{Debug});
 
@@ -919,7 +921,8 @@ sub getChannelList($$)
 	}
     }
 
-    if ( !$res->is_success ) {
+warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500' and !$got500error++ ;
+    if ( !($res->is_success || $res->code eq '500') ) {
 	main::errorMessage("zap2it failed to give us a page: ".$res->code().":".
 			 HTTP::Status::status_message($res->code())."\n");
 	main::errorMessage("check postal/zip code or www site (maybe they're down)\n");
@@ -948,7 +951,9 @@ sub getChannelList($$)
     $req = $self->Form2Request($self->{GridForm});
 
     $res=&doRequest($self->{ua}, $req, $self->{Debug});
-    if ( !$res->is_success || $res->content()=~m/your session has timed out/i ) {
+
+    warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500' and !$got500error++;
+    if ( !($res->is_success || $res->code eq '500') || $res->content()=~m/your session has timed out/i ) {
 	# again.
 	$res=&doRequest($self->{ua}, $req, $self->{Debug});
 
@@ -961,7 +966,8 @@ sub getChannelList($$)
 	}
     }
 
-    if ( !$res->is_success ) {
+    warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500 and !$got500error++';
+    if ( !($res->is_success || $res->code eq '500') ) {
 	main::errorMessage("zap2it failed to give us a page: ".$res->code().":".
 			 HTTP::Status::status_message($res->code())."\n");
 	main::errorMessage("check postal/zip code or www site (maybe they're down)\n");
@@ -2050,12 +2056,14 @@ sub readSchedule($$$$$)
 	# looks like some requests require two identical calls since
 	# the zap2it server gives us a cookie that works with the second
 	# attempt after the first fails
-	if ( !$res->is_success || $res->content()=~m/your session has timed out/i ) {
+    warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500' and !$got500error++;
+    if ( !($res->is_success || $res->code eq '500') || $res->content()=~m/your session has timed out/i ) {
 	    # again.
 	    $res=&doRequest($self->{ua}, $req, $self->{Debug});
 	}
 
-	if ( !$res->is_success ) {
+	warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code eq '500' and !$got500error++;
+    if ( !($res->is_success || $res->code eq '500') ) {
 	    main::errorMessage("zap2it failed to give us a page: ".$res->code().":".
 			     HTTP::Status::status_message($res->code())."\n");
 	    main::errorMessage("check postal/zip code or www site (maybe they're down)\n");
