@@ -62,7 +62,7 @@ recommended by the XMLTV DTD.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_sn,v 1.44 2003/07/20 16:22:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_sn,v 1.45 2003/08/28 20:56:58 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::TableExtract; # parse html better than regular expressions.
 use Date::Manip;
@@ -328,7 +328,7 @@ sub configure() {
     }
 
     close CONF or warn "cannot close $config_file: $!";
-    print "All done, run with no arguments to grab listings.\n";
+    say("Finished configuration.");
 }
 
 # get the channels for a country

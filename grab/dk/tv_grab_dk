@@ -68,7 +68,7 @@ Dansk dokumentar. - convert to <country> and <category>, sometimes <date>
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_dk,v 1.4 2003/07/20 16:22:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_dk,v 1.5 2003/08/28 20:56:57 epaepa Exp $ ';
 use Getopt::Long;
 use LWP::Simple ();
 use HTML::TreeBuilder;
@@ -184,7 +184,7 @@ if ($mode eq 'configure') {
     }
 
     close CONF or warn "cannot close $config_file: $!";
-    print "All done, run with no arguments to grab listings.\n";
+    say("Finished configuration.");
 
     exit();
 }

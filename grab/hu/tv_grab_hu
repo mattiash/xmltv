@@ -67,7 +67,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_hu,v 1.6 2003/07/20 16:22:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_hu,v 1.7 2003/08/28 20:56:58 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -187,7 +187,7 @@ if ($mode eq 'configure') {
     }
 
     close CONF or warn "cannot close $config_file: $!";
-    print "All done, run with no arguments to grab listings.\n";
+    say("Finished configuration.");
 
     exit();
 }

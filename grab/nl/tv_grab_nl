@@ -72,7 +72,7 @@ channels the site has.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.47 2003/07/20 16:22:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.48 2003/08/28 20:56:58 epaepa Exp $ ';
 use Getopt::Long;
 use Data::Dumper;
 use HTML::TreeBuilder;
@@ -195,7 +195,7 @@ if ($mode eq 'configure') {
     }
 
     close CONF or warn "cannot close $config_file: $!";
-    print "All done, run with no arguments to grab listings.\n";
+    say("Finished configuration.");
 
     exit();
 }
