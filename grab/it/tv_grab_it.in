@@ -67,7 +67,7 @@ recommended by the XMLTV DTD.
 ######################################################################
 # initializations
 use strict;
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.11 2003/05/19 19:31:33 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.12 2003/06/22 17:54:49 epaepa Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;
@@ -136,7 +136,7 @@ GetOptions('days=i'        => \$opt_days,
 	   'output=s'      => \$opt_output,
 	   'quiet'         => \$opt_quiet,
 	   'slow'	   => \$opt_slow,
-	   'share'         => \$opt_share,       # undocumented
+	   'share=s'       => \$opt_share,       # undocumented
 	  )
   or usage(0);
 die 'number of days must not be negative'
