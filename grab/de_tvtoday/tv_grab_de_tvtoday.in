@@ -93,7 +93,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.6 2004/03/27 22:10:00 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.7 2004/04/03 14:27:14 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -416,7 +416,7 @@ sub grab_data($$$) {
 	'lastday'   => $lday,
     };
 
-    print "grabbing channel $channels{$ch} (offset=$offset) ...\n"
+    print STDERR "grabbing channel $channels{$ch} (offset=$offset) ...\n"
       unless(Have_bar || $opt_quiet);
 	    
     while (defined($grab->{url})) {
