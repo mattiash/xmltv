@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.230 2004/11/29 08:00:58 rmeden Exp $
+# $Id: Makefile.PL,v 1.231 2004/12/05 10:47:51 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -368,6 +368,7 @@ my @opt_components
        prereqs => { 'XML::LibXML' => 0,
                     'Compress::Zlib' => 0,
                     'IO::Stringy' => 0,
+		    'HTTP::Cache::Transparent' => 0,
                   },
      },
 
