@@ -5,11 +5,11 @@
 #
 # Actually, now there is some other general time stuff in here too.
 #
-# $Id: UK_TZ.pm,v 1.2 2002/03/06 16:01:54 epaepa Exp $
+# $Id: UK_TZ.pm,v 1.3 2002/03/06 17:20:11 epaepa Exp $
 #
 
 package XMLTV::UK_TZ;
-use Date::Manip;
+use Date::Manip; # no Date_Init(), that can be done by the app
 use XMLTV::TZ qw(gettz);
 
 # Memoize some of our own routines as well as gettz() from

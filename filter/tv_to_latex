@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.4 2002/03/06 16:01:53 epaepa Exp $
+# $Id: tv_to_latex,v 1.5 2002/03/06 17:20:10 epaepa Exp $
 
 =head1 NAME
 
@@ -34,7 +34,7 @@ spurious blank lines in the output.
 use strict;
 use XML::DOM;
 use IO::File;
-use Date::Manip;
+use Date::Manip; Date_Init('TZ=UT');
 use POSIX 'tmpnam';
 use XMLTV qw(best_name);
 use XMLTV::TZ qw(gettz ParseDate_PreservingTZ);

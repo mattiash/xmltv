@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.4 2002/02/24 19:52:48 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.5 2002/03/06 17:20:10 epaepa Exp $
 
 =head1 NAME
 
@@ -60,7 +60,7 @@ with every source of anglophone TV listings.
 
 use strict;
 use Log::TraceMessages qw(t d); Log::TraceMessages::check_argv();
-use Date::Manip;
+use Date::Manip; Date_Init('TZ=UT');
 use Tie::RefHash;
 use Carp;
 use Term::ProgressBar;
