@@ -84,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.40 2003/12/31 21:54:43 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.41 2004/01/01 12:31:03 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -1177,7 +1177,7 @@ sub rt_date( $$$ ) {
     my $parsed;
     if (not defined $tz) {
 	t "time $time, must guess tz";
-	$parsed = parse_eur_date("$date $time", '+0000');
+	eval { $parsed = parse_eur_date("$date $time", '+0000') };
 	t 'parse_eur_date() returned: ' . d $parsed;
     }
     else {

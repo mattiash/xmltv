@@ -181,13 +181,13 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.96 2003/12/31 18:59:36 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.97 2004/01/01 12:31:03 epaepa Exp $ ';
 sub checkCache();
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/12/31 18:59:36 $;
+my $Date = q$Date: 2004/01/01 12:31:03 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -513,6 +513,7 @@ use XMLTV::ZapListings;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV;
+use XMLTV::Date;
 
 my $xmltvSourceForgeURL="http://sourceforge.net/projects/xmltv";
 my $xmltvFreshmeatRecord="http://freshmeat.net/projects-xml/xmltv/xmltv.xml";
@@ -1525,11 +1526,11 @@ if ( defined $opt_cache ) {
     my @stat = stat($opt_cache);
     die "cannot stat $opt_cache: $!" if not @stat;
     my $ctime = $stat[10];
-    $now = ParseDateString("epoch $ctime");
+    $now = parse_date("epoch $ctime");
     warn 'using date ' . UnixDate($now, '%q') . " from $opt_cache\n";
 }
 else {
-    $now = ParseDateString("now");
+    $now = parse_date("now");
 }
 
 # TODO make the grabber independent of the local timezone.
