@@ -7,7 +7,7 @@
 # documentation.  The input file tv_grep.in is also a legal Perl
 # program, so debugging should not be any harder than it was.
 #
-# $Id: tv_grep.PL,v 1.3 2002/04/25 20:03:26 epaepa Exp $
+# $Id: tv_grep.PL,v 1.4 2002/12/17 15:32:39 epaepa Exp $
 #
 
 use IO::File;
@@ -42,7 +42,8 @@ while (<$in_fh>) {
  		print $out_fh "B<--$_ REGEXP>\n\n";
  	    }
 	    else {
- 		# Cannot query on this.
+		# Can query, but only if you ignore the content.
+		print $out_fh "B<--$_ ''>\n\n";
  	    }
  	}
     }
