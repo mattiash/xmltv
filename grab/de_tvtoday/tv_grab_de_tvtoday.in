@@ -81,7 +81,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.10 2004/04/27 18:32:20 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.11 2004/04/27 19:04:13 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -1015,6 +1015,8 @@ sub get_channels() {
 	next if ($station_name eq "Haupt+Reg.");
 	next if ($station_name eq "Sparten");
 	next if ($station_name eq "Ausland");
+	next if ($station_name eq "PREMIERE/");
+	next if ($station_name eq "DIGITAL-TV");
 
 	$channels{uri_escape($_->attr("value"))} = $station_name;
     }
