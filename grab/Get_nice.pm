@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.10 2004/10/14 03:58:35 mattiasholmlund Exp $
+# $Id: Get_nice.pm,v 1.11 2004/10/24 15:07:04 mattiasholmlund Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -76,7 +76,7 @@ sub get_nice_aux( $ ) {
     return $r;
 }
 
-# Initialize HTTP::TransparentCache if the file
+# Initialize HTTP::Cache::Transparent if the file
 # ~/.xmltv/cache.conf exists.
 sub init_cache
 {
@@ -128,8 +128,8 @@ sub init_cache
     (-d $data{BasePath}) or mkdir($data{BasePath}, 0777)
       or die "cannot mkdir $data{BasePath}: $!";
 
-    require HTTP::TransparentCache;
-    HTTP::TransparentCache::init(\%data);
+    require HTTP::Cache::Transparent;
+    HTTP::Cache::Transparent::init(\%data);
 }
 
 1;
