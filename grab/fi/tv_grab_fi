@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.25 2003/09/25 22:09:22 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.26 2003/11/01 14:36:00 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -346,9 +346,14 @@ sub make_programme_hash {
     $prog{title}=[ [ $cur->{title}, $LANG ] ];
 
     my $cur_time = $cur->{time};
+    t 'raw time for programme: ' . d $cur_time;
+    t 'with base (winter) timezone: ' . d $TZ;
     my $start=parse_eur_date("$date $cur_time", $TZ);
+    t 'parse_eur_date() returned: ' . d $start;
     my ($start_base, $start_tz) = @{date_to_eur($start, $TZ)};
+    t "date_to_eur() returned time $start_base, timezone $start_tz";
     $prog{start}=UnixDate($start_base, '%q') . " $start_tz";
+    t 'set programme start time to: ' . d $prog{start};
 
     my $next_time = $next ? $next->{time} : undef;
     if (defined $next_time) {
