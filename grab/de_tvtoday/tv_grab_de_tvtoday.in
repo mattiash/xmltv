@@ -92,7 +92,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.21 2004/09/07 18:41:38 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.22 2004/09/19 16:24:14 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -425,9 +425,6 @@ sub grab_data($$$) {
     my $offset = shift @_;  #- offset we should use
     my $lday = shift @_;    #- true: last day to grab in row
 
-    print STDERR "grabbing channel $channels{$ch} (offset=$offset) ...\n"
-      unless($opt_quiet);
-	    
     #- we got to send ztag=8 to retrieve data for yesterday
     $offset = 8 if($offset < 0);
 
