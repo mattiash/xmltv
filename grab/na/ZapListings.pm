@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.15 2002/09/25 01:46:22 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.16 2002/10/20 17:02:33 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -676,6 +676,7 @@ sub scrapehtml($$$)
 			  Inuktitut
 			  Inkutitut
 			  Inukutitut
+			  Inunktitut
 			  Inuvialuktun
 			  Italian
 			  Italianate
@@ -1383,6 +1384,10 @@ sub readSchedule($$$$$)
 	print STDERR "scraping html for $year-$month-$day on station $stationid: $station_desc\n";
     }
     @{$self->{Programs}}=$self->scrapehtml($content, "$year-$month-$day on station $station_desc (id $stationid)");
+    if ( scalar(@{$self->{Programs}}) == 0 ) {
+	print STDERR "zap2it page format looks okay, but no programs found (maybe site maintenance)\n";
+	return(-1);
+    }
 
     print STDERR "Day $year-$month-$day schedule for station $station_desc has:".
 	scalar(@{$self->{Programs}})." programs\n";
