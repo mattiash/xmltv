@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.177 2004/02/01 11:46:28 epaepa Exp $
+# $Id: Makefile.PL,v 1.178 2004/02/01 20:23:49 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -18,7 +18,7 @@ $SIG{__WARN__} = sub {
     for (my $msg = shift) {
 	$_ = "warning: something's wrong" if not defined;
 	warn $_
-	  unless /Argument .+ isn't numeric in numeric lt .+MakeMaker.pm/;
+	  unless /Argument .+ isn.t numeric in numeric lt .+MakeMaker.pm/;
     }
 };
 
