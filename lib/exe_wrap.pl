@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.8 2002/12/17 12:41:43 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.9 2003/01/18 16:39:13 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -15,8 +15,10 @@
 # Robert Eden rmeden@yahoo.com
 #
 
+use File::Basename;
+
 #
-# check time zone
+# get/check time zone
 #
 unless (exists $ENV{TZ})
 {
@@ -49,29 +51,11 @@ foreach my $exe (split(/ /,$files))
     $_=$exe;
     s!^.+/!!g;
 
-    my $sub;
-    if ($exe eq 'tv_grab_uk' or $exe eq 'tv_grab_uk_rt') {
-	# These require a share/ directory.  It's included in the
-	# distribution.
-	#
-	my $dir = "share/xmltv/$exe";
-	if (not -d 'share') {
-	    die "directory $dir not found, please run me from the directory where you unpacked\n";
-	}
-	$sub=sub {
-	    push @ARGV, '--share', $dir;
-	    do $exe;
-	};
-    }
-    else {
-	$sub=sub { do $exe };
-    }
-
-    $cmds{$_}=$sub;
+    $cmds{$_}=sub {do $exe};
 }
 
 #
-# and add tv_grab_nz which is a Python program
+# add tv_grab_nz which is a Python program
 #
 $cmds{tv_grab_nz}=sub {
     die <<END
@@ -94,6 +78,23 @@ if (! exists $cmds{$cmd} )
     die "$cmd is not a valid command. Valid commands are:\n".join(" ",keys(%cmds))."\n";
 }
 
+#
+# some programs use a "share" directory
+#
+if ($cmd eq 'tv_grab_uk' or $cmd eq 'tv_grab_uk_rt')
+{
+    unless (grep(/^--share/i,@ARGV))  # don't add our --share if one supplied
+    {
+        my $dir = dirname(PerlApp::exe()); # get full program path
+        $dir =~ s!\\!/!g;      # use / not \   
+        $dir .= "/share/xmltv";
+    	unless (-d $dir )
+    	{
+	        die "directory $dir not found\n If not kept with the executable, specify with --share\n"
+	    }
+        push @ARGV,"--share",$dir;
+    }
+} # special tv_grab_uk, tv_grab_uk_rt processing
 
 #
 # call the appropriate routine (note, ARGV was shifted above)
