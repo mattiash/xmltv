@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.17 2002/10/24 15:51:18 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.18 2002/11/02 16:18:22 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -663,6 +663,7 @@ sub scrapehtml($$$)
 			  Colonial
 			  Cree
 			  Dene
+			  Diwlai
 			  English
 			  Farsi
 			  French
