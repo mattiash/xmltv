@@ -96,7 +96,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.12 2004/03/19 12:35:41 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.13 2004/03/19 12:39:15 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -497,7 +497,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( { 'date'             => scalar localtime(),
               'source-info-name'     => 'TMS Data Direct Service',
               'source-info-url'      => 'http://labs.zap2it.com/',
-              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.12 2004/03/19 12:35:41 epaepa Exp $',
+              'generator-info-name'  => 'XMLTV',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
