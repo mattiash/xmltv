@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.24 2003/08/28 20:56:58 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.25 2003/09/25 22:09:22 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -309,6 +309,7 @@ sub process_table {
     my $url = "http://www.katso.fi/tvopas/?pvm=$today&tv_kanava=$ch_katso_id";
     t "getting URL: $url";
     my $data=get_nice($url);
+    $data =~ tr/\205//d; # remove bad characters
     if (not defined $data) {
 	die "could not fetch $url, aborting\n";
     }
