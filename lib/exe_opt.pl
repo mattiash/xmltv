@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.7 2004/03/16 22:43:08 rmeden Exp $
+# $Id: exe_opt.pl,v 1.8 2004/05/14 22:21:26 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -16,6 +16,7 @@ print '-nologo
 -force
 -add="XMLTV::Ask::Term;XMLTV::ProgressBar::Term"
 -bind=libexpat.dll[file=\perl\site\lib\auto\XML\Parser\Expat\libexpat.dll,extract]
+-bind=libxml2.dll[file=\perl\bin\libxml2.dll,extract]
 -trim="Convert::EBCDIC;DB_File;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm;PerlIO/gzip.pm;HTML::FormatText"
 -info CompanyName="XMLTV Project http://membled.com/work/apps/xmltv/"
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
