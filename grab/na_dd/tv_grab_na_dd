@@ -96,7 +96,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.16 2004/03/23 15:57:00 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.17 2004/03/24 15:12:25 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -635,7 +635,7 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 }, twig_handlers => {
                      $prog{'previously-shown'}={}           if exists $_->{repeat};
                      $prog{audio}{stereo}='stereo'          if exists $_->{stereo};
                      $prog{subtitles}=[{type=>'onscreen' }] if exists $_->{subtitled};
-                     push @{ $prog{rating} }, [$_->{tvRating},'TV'] if exists $_->{tvRating};
+                     push @{ $prog{rating} }, [$_->{tvRating},'VCHIP'] if exists $_->{tvRating};
 
                      if (exists $_->{part} )
                      {
@@ -658,12 +658,19 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 }, twig_handlers => {
                         $prog{'sub-title'}  =[[$ptr->{subtitle}]] if exists $ptr->{subtitle};
                         $prog{desc}         =[[$ptr->{description}]] if exists $ptr->{description};
                         $prog{date}         =$ptr->{year}                 if exists $ptr->{year};
-                        $prog{video}{colour}=$ptr->{colorCode}            if exists $ptr->{colorCode};
 
-                        $prog{length}       =substr($ptr->{duration},2,2)*3600+
-                                             substr($ptr->{duration},5,2)*60 if exists $ptr->{runtime};
+                        $prog{length}       =substr($ptr->{runTime},2,2)*3600+
+                                             substr($ptr->{runTime},5,2)*60 if exists $ptr->{runTime};
 
                         push @{ $prog{rating} }, [$ptr->{mpaaRating},'MPAA'] if exists $ptr->{mpaaRating};
+
+                        
+                        if (exists $ptr->{colorCode})
+                        {
+                            $prog{video}{colour}=$ptr->{colorCode}; # wants boolean but try anyway
+                            $prog{video}{colour}=0 if $ptr->{colorCode} =~ /^B/i;
+                        }
+
 
                         if (exists $ptr->{starRating})
                         {
