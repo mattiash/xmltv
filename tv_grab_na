@@ -21,7 +21,7 @@ my $VersionMajor=2;
 my $VersionMinor;
 
 my $Id="";
-my $ID=q[$Id: tv_grab_na,v 1.43 2002/02/20 06:42:32 jveldhuis Exp $];
+my $ID=q[$Id: tv_grab_na,v 1.44 2002/02/20 06:45:58 jveldhuis Exp $];
 if ( !($ID=~m;([0-9]+)\.([0-9]+);) ) {
    die "can't decipher id line ($ID)";
 }
@@ -351,10 +351,10 @@ sub ConfigureUsage($)
     print $fp "   --auto_fail_on_provider_changes <boolean>\n";
     print $fp "     true/false - exit 1 if provider has changed\n";
     print $fp "\n";
-    print $fp "   --auto_new_channels <boolean>\n";
+    print $fp "   --auto_new_channels [ignore|add]\n";
     print $fp "     ignore/add - ignore or automatically add new channels in schedule listing\n";
     print $fp "\n";
-    print $fp "   --auto_missing_channels <boolean>\n";
+    print $fp "   --auto_missing_channels [ignore|remove]\n";
     print $fp "     ignore/remove - ignore or remove channels no longer in schedule listing\n";
     print $fp "\n";
     print $fp "If any neccessary options are given, interactive mode is enabled\n";
