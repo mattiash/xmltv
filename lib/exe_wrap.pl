@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.33 2004/03/21 14:51:33 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.34 2004/03/24 14:00:19 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -67,16 +67,13 @@ if (index('--version', $cmd) == 0 and length $cmd >= 3) {
 }
 
 #
-# check for tv_grab_nz
+# some grabbers aren't included
 #
-if ($cmd eq 'tv_grab_nz') {
+if ($cmd =~ /^tv_grab_(?:nz|jp|se)$/) {
     die <<END
-Sorry, tv_grab_nz is not available in this Windows binary release,
-although if you have Python installed you will be able to get it from
-the xmltv source distribution.
+Sorry, $cmd is not available in this Windows binary release, although
+it is included in xmltv source releases.
 
-It is hoped that future Windows binaries for xmltv will include a way
-to run tv_grab_nz.
 END
   ;
 };
