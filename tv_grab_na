@@ -21,7 +21,7 @@ my $VersionMajor=2;
 my $VersionMinor;
 
 my $Id="";
-my $ID=q[$Id: tv_grab_na,v 1.40 2002/02/05 17:40:01 jveldhuis Exp $];
+my $ID=q[$Id: tv_grab_na,v 1.41 2002/02/05 20:49:52 jveldhuis Exp $];
 if ( !($ID=~m;([0-9]+)\.([0-9]+);) ) {
    die "can't decipher id line ($ID)";
 }
@@ -612,7 +612,7 @@ if ( $configure ) {
 	    print "\n";
 	    my $res=askQuestionWithoutValidation("Choose a service provider by id ?", "$defaultChoice", ('id','use 0 to cancel'));
 
-	    if ( !defined($res) || $res eq $defaultChoice ) {
+	    if ( !defined($res) || $res eq "use 0 to cancel"  ) {
 		print "operation cancelled by user\n";
 		exit(0);
 	    }
