@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_uk_ananova,v 1.22 2001/12/19 16:05:21 epaepa Exp $
+# $Id: getlistings_uk_ananova,v 1.23 2001/12/19 16:47:42 epaepa Exp $
 #
 # Fetch UK television listings from the data provided by ananova.com.
 #
@@ -45,6 +45,12 @@ sub channels_output();
 # program.
 #
 my $A = 'http://www.ananova.com/tv_listings/_tv_raw.php';
+
+# On Windows Date::Manip can have trouble finding the local timezone.
+# Since the output listings shouldn't depend on the local timezone
+# anyway, we just set it here.
+#
+Date_Init('TZ=UT');
 
 # Things will go horribly wrong if Ananova change pages from one day
 # to the next while the script is running.  Assume they do it at
