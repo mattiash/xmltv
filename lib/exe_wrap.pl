@@ -1,6 +1,6 @@
 #!perl -w 
 #
-# $Id: exe_wrap.pl,v 1.4 2002/11/05 05:41:46 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.5 2002/11/12 14:56:11 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -62,4 +62,4 @@ $return = do $exe{$cmd};
 
 die "$cmd:$! $@" unless (defined $return);
 
-return $return;
+exit $return;
