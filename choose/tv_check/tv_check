@@ -67,7 +67,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.39 2003/06/29 15:53:51 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.40 2003/07/11 05:46:56 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -80,7 +80,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.39 $ ' . <<END
+' tv_check v $Revision: 1.40 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -350,9 +350,9 @@ print STDERR "\nMyReplay looking for ",join("|",$title,$chan,$hhmm,$len,$days),"
 # convert channel ID to new format if ncessary
 #
        if ( ! exists $CHAN{$chan} 
-           && exists $CHAN_NAME{"Channel ".$chan} )
+           && exists $CHAN_NAME{$chan} )
        {
-          $chan=$CHAN_NAME{"Channel ".$chan};
+          $chan=$CHAN_NAME{$chan};
        }
 
 #
@@ -1316,7 +1316,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.39 $
+tv_check $Revision: 1.40 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
