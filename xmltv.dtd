@@ -78,7 +78,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.25 2003/03/08 13:41:10 epaepa Exp $
+$Id: xmltv.dtd,v 1.26 2003/07/14 20:56:56 epaepa Exp $
 
 -->
 
@@ -363,6 +363,12 @@ they can be given in the form 'X/Y' to show series X out of Y series
 made, or episode X out of Y episodes in this series, or part X of a
 Y-part episode.  If any of these aren't known they can be omitted.
 You can put spaces whereever you like to make things easier to read.
+
+(NB 'part number' is not used when a whole programme is split in two
+for purely scheduling reasons; it's intended for cases where there
+really is a 'Part One' and 'Part Two'.  The format doesn't currently
+have a way to represent a whole programme that happens to be split
+across two or more timeslots.)
 
 Some examples will make things clearer.  The first episode of the
 second series is '1.0.0/1' .  If it were a two-part episode, then the
