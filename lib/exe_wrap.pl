@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.53 2004/11/29 08:01:00 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.54 2004/12/13 19:26:58 mnbjhguyt Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -93,6 +93,7 @@ END
 if ($cmd eq 'tv_grab_uk_rt'
  or $cmd eq 'tv_grab_uk_bleb'
  or $cmd eq 'tv_grab_it'
+ or $cmd eq 'tv_grab_it_lt'
  or $cmd eq 'tv_grab_nl'
  or $cmd eq 'tv_grab_na_dd',
  or $cmd eq 'tv_grab_na_icons',
