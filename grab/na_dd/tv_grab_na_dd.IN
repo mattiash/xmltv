@@ -267,7 +267,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.9 2004/05/05 22:24:37 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.10 2004/05/08 09:15:26 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -932,11 +932,18 @@ $writer->start( {
 #
 # write stations, removing those we don't care about
 #
+my %seen_station;
 for my $map (@{$lineups{$dd_lineup}{map}})
 {
-    my $myid = sprintf("I%d.labs.zap2it.com",$map->{station});
+    my $sid = $map->{station};
+    if ($seen_station{$sid}++)
+    {
+	warn "station id $sid seen twice in zap2it output, skipping later occurrences\n";
+	next;
+    }
+    my $myid = sprintf("I%d.labs.zap2it.com",$sid);
 
-    my $station=$station{$map->{station}};
+    my $station=$station{$sid};
     my $key=sprintf("%d %s",$map->{channel},$station->{callSign});
 
 #
@@ -1006,7 +1013,7 @@ for my $map (@{$lineups{$dd_lineup}{map}})
                              'icon'         => $icons{$station->{callSign}},
                              });
 
-    $chan_id{$map->{station}}=$myid;
+    $chan_id{$sid}=$myid;
 } # output  channels
 
 #
