@@ -82,7 +82,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.51 2004/02/12 20:20:47 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.52 2004/02/23 19:58:00 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -213,10 +213,10 @@ my $now = parse_date('now');
 Date_Init('TZ=+0000');
 
 # share/ directory for storing channel mapping files.  This next line
-# is altered by processing through tv_grab_uk.PL.  But we can use the
-# current directory instead of share/tv_grab_uk for development.
+# is altered by processing through tv_grab_uk_rt.PL.  But we can use
+# the current directory instead of share/tv_grab_uk for development.
 #
-# The 'source' file tv_grab_uk.in has $SHARE_DIR undef, which means
+# The 'source' file tv_grab_uk_rt.in has $SHARE_DIR undef, which means
 # use the current directory.  In any case the directory can be
 # overridden with the --share option (useful for testing).
 #
