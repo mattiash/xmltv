@@ -1,3 +1,4 @@
+XMLTV test
 XMLTV 0.5pre1
 
 *** This is a prerelease version!  The real 0.5 will be out soon.
@@ -77,4 +78,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, epa98@doc.ic.ac.uk, 2002-02-11
-$Id: README,v 1.30 2002/02/25 17:27:03 epaepa Exp $
+$Id: README,v 1.31 2002/02/28 12:02:13 epaepa Exp $
