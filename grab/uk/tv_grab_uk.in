@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.46 2002/12/11 00:04:30 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.47 2002/12/13 00:10:44 epaepa Exp $
 
 =head1 NAME
 
@@ -1394,7 +1394,7 @@ sub fix_zero_length( $ ) {
 	    # except that it has zero length.  Remove it.
 	    #
 	    t 'identical, removing the first';
-	    @progs[$i..$i] = ();
+	    splice(@progs, $i, 1);
 #	    t 'progs now: ' . d \@progs;
 	    -- $i;
 	    -- $last;
