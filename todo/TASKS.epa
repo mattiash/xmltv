@@ -1,4 +1,4 @@
-$Id: TASKS.epa,v 1.20 2002/03/07 12:53:53 epaepa Exp $
+$Id: TASKS.epa,v 1.21 2002/03/13 10:15:49 epaepa Exp $
 
 As World Service - wontfix
 Pink Panther film vs cartoon
@@ -141,3 +141,5 @@ video/audio/subtitles generally.
 
 Try out freeguide.
 
+Multiple languages for a programme, not just language and
+orig-language (requested by Jerry V.).
