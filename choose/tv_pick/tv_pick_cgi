@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.11 2003/07/19 16:15:52 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.12 2004/01/06 20:42:36 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -538,7 +538,7 @@ sub display_form($) {
 # and begins a new one after the date.
 #
 sub print_date_for($;$) {
-    local $Log::TraceMessages::On = 0;
+#    local $Log::TraceMessages::On = 0;
     die 'usage: print_date_for(programme, [prev programme])'
       unless 1 <= @_ and @_ < 3;
     my ($prog, $prev) = @_;

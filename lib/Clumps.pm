@@ -24,7 +24,7 @@
 #
 # Again, this all works but a better mechanism is needed.
 #
-# $Id: Clumps.pm,v 1.14 2004/01/03 14:52:53 epaepa Exp $
+# $Id: Clumps.pm,v 1.15 2004/01/06 20:42:36 epaepa Exp $
 #
 
 package XMLTV::Clumps;
@@ -217,7 +217,7 @@ sub fix_clumps( $$$ ) {
 
     my @relatives = @{relatives($rel, $orig)};
     if (not @relatives) {
-	local $Log::TraceMessages::On = 1;
+#	local $Log::TraceMessages::On = 1;
 	t 'programme without relatives: ' . d $orig;
 	warn "programme has clumpidx of $orig->{clumpidx}, but cannot find others in same clump\n";
 	return;
