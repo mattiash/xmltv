@@ -72,7 +72,7 @@ channels the site has.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl.in,v 1.4 2004/03/22 15:44:09 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl.in,v 1.5 2004/03/30 19:54:04 epaepa Exp $ ';
 use Getopt::Long;
 use Data::Dumper;
 use HTML::TreeBuilder;
@@ -495,7 +495,7 @@ if ($opt_slow) {
 
 	    # We still have the summary though, we can use that at least.
 	    push @to_write, $s;
-	    update $bar;
+	    update $bar if $bar;
 	    next;
 	}
 	if ($detailed eq 'END') {
@@ -507,7 +507,7 @@ if ($opt_slow) {
 	    # ignore this indication from process_details_page().
 	    #
 	    push @to_write, $s;
-	    update $bar;
+	    update $bar if $bar;
 	    next;
 	}
 
