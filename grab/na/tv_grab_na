@@ -14,13 +14,13 @@
 #    program descriptions include qualifiers that are unidentified
 #    These should be reported to the author
 #
-# $Id: tv_grab_na,v 1.6 2002/03/04 14:54:18 epaepa Exp $
+# $Id: tv_grab_na,v 1.7 2002/03/04 17:02:16 epaepa Exp $
 #
 
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/03/04 14:54:18 $;
+my $Date = q$Date: 2002/03/04 17:02:16 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -686,7 +686,7 @@ if ( $configure ) {
 
 	    my $res = askQuestion("Choose a service provider: ",
 				  $idToDesc{$defaultProviderId},
-				  sort keys %descToId);
+				  map { $_->{description} } @providers);
 	    my $id = $descToId{$res}; die if not defined $id;
 	    $config->{option_provider}=$id;
 	    $config->{option_provider_desc}=$res;
