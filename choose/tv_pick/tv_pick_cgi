@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.9 2002/12/23 20:23:37 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.10 2003/06/07 17:09:21 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -230,9 +230,8 @@ while (<PREFS>) {
     s/\#.*//; s/^\s+//; s/\s+$//;
     next if $_ eq '';
 #    t("got line from $PREFS_FILE: " . d($_));
-    if (/^(never|no|yes|always|maybe): (.+)$/) {
+    if (/^(never|no|yes|always): (.+)$/) {
 	my ($pref, $prog) = ($1, $2);
-	$pref = 'yes' if $pref eq 'maybe'; # maybe is deprecated
 	$wanted{$prog} = $pref;
     }
     else { die "$PREFS_FILE:$.: bad line (remnant is $_)\n" }
