@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_na,v 1.27 2001/12/23 18:04:50 jveldhuis Exp $
+# $Id: getlistings_na,v 1.28 2001/12/28 16:31:25 jveldhuis Exp $
 #
 # This script scrapes www.zap2it.com tv listings, producing
 # xmltv.dtd and channels.dtd compliant output. Zap2it supports
@@ -34,7 +34,7 @@ my $VersionID="getlistings_na V$VersionMajor\.$VersionMinor";
 #
 # define name of getlistings_na config file
 #
-my $ConfigFileName_g=".config_na";
+my $ConfigFileName_g=".xmltv_na";
 my $ConfigPathName_g;
 
 # default location of config file is $HOME or ./ if HOME not set
