@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: AskTerm.pm,v 1.13 2004/05/13 19:30:16 epaepa Exp $
+# $Id: AskTerm.pm,v 1.14 2004/05/23 16:30:01 epaepa Exp $
 #
 package XMLTV::AskTerm;
 use strict;
@@ -99,7 +99,15 @@ sub ask_question( $$@ )
 
     # Check no duplicates (required for later processing, maybe).
     my %seen;
-    foreach (@options) { die "duplicate option $_" if $seen{$_}++ }
+    my @options_new;
+    foreach (@options) {
+	if ($seen{$_}++) {
+	    carp "removing duplicate option $_";
+	    next;
+	}
+	push @options_new, $_;
+    }
+    @options = @options_new;
 
     my $options_size = length("@options");
     t "size of options: $options_size";
