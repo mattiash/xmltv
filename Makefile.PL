@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.174 2004/01/07 19:26:09 epaepa Exp $
+# $Id: Makefile.PL,v 1.175 2004/01/07 20:07:09 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -52,9 +52,10 @@ our $VERSION;
 $VERSION = '0.5.27';
 
 # Fragment of Makefile text to give the directory where files should
-# be installed.
+# be installed.  The extra '.' in the middle of the path is to avoid
+# beginning with '//', which means a network share on Cygwin.
 #
-my $location = '$(DESTDIR)/$(PREFIX)';
+my $location = '$(DESTDIR)/./$(PREFIX)';
 
 our %extra_constants;
 %extra_constants
