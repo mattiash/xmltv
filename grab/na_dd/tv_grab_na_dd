@@ -86,7 +86,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.2 2004/03/11 01:13:21 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.3 2004/03/12 18:08:58 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -252,7 +252,6 @@ print STDERR "dd_data is in $dd_data_name\n" if $DEBUG;
 #
 {
     print STDERR "Fetching from DataDirect\n";
-    print STDERR "('$opt_lineup' lineup.)\n" if $opt_lineup;
 
     sub SOAP::Transport::HTTP::Client::get_basic_credentials
     {
@@ -302,7 +301,12 @@ my $twig=XML::Twig->new(
 		         lineups => sub { $_->twig->purge;  return 1;},
                  lineup  => sub {
                                   my $hash = $_->simplify;
-                                  $lineups{$hash->{name}}=$hash;
+                                  my $name = $hash->{name};
+                                  while (exists $lineups{$name})
+                                  {
+                                    $name.='-2'; # deal with dupe names
+                                  }
+                                  $lineups{$name}=$hash;
                                   $_->twig->purge;
                                   return 1;
                                  },
@@ -368,13 +372,15 @@ $twig=undef;  # destroy twig (just in case)
 #
 if ($opt_lineup eq 'list')  # kludge to display lineups.. select --days 0 --lineup none
 {
-    print STDERR "available lineups:",join(",",sort keys (%lineups)),"\n";
+    print STDERR "available lineups:\n";
+    map { print "        $_\n" } sort keys %lineups;
     exit 0;
 }
 
 #
 # store lineup information with stations
 #
+print STDERR "Processing only lineup '$opt_lineup'\n" if $opt_lineup;
 {
     my $id;
     my $count=0;
@@ -407,7 +413,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( { 'date'             => scalar localtime(),
               'source-info-name'     => 'TMS Data Direct Service',
               'source-info-url'      => 'http://labs.zap2it.com/',
-              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.2 2004/03/11 01:13:21 rmeden Exp $',
+              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.3 2004/03/12 18:08:58 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
@@ -498,8 +504,9 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 }, twig_handlers => {
                      $_=$_->simplify;
 
                      ## Skip programs not in our lineup.
-                     next unless exists $chan_id{$_->{station}};
-
+		     if (exists $chan_id{$_->{station}}) {
+                  
+		
 #
 # start with elements from schedule tag
 #
@@ -633,9 +640,10 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 }, twig_handlers => {
 # write record
 #
                      $writer->write_programme(\%prog);
+		} # channel exists
                      $twig->twig->purge;
                      return 1;
-       		         } # schedule subroutine
+       		     } # schedule subroutine
 	         }); #twig setup
 
 #
