@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: AskTerm.pm,v 1.6 2004/01/03 14:52:53 epaepa Exp $
+# $Id: AskTerm.pm,v 1.7 2004/01/24 23:43:38 epaepa Exp $
 #
 package XMLTV::AskTerm;
 use strict;
@@ -141,6 +141,7 @@ sub askQuestion( $$@ )
 	    #
 	    print STDERR "$_: $options[$_]\n" foreach 0 .. $#options;
 	    my $res = ask('choose one: ');
+	    return undef if not defined $res;
 	    # No default.
 
 	    foreach (0 .. $#options) {
