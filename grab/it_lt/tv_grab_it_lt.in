@@ -87,7 +87,7 @@ recommended by the XMLTV DTD.
 # initializations
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.1 2004/09/07 18:41:40 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.2 2004/09/27 20:57:43 epaepa Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;
@@ -246,7 +246,7 @@ if ($opt_configure) {
 #    update $bar if Have_bar && not $opt_quiet;
 
     say "To get more listings than today, you will need a login on the site.\n";
-    my $username_wanted = askBooleanQuestion('Do you have a login?', 0);
+    my $username_wanted = ask_boolean('Do you have a login?', 0);
     if ($username_wanted) {
     $username=ask("Username:");
     print CONF "username: $username\n";
