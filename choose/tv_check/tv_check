@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.14 2002/09/13 14:22:58 epaepa Exp $
+# $Id: tv_check,v 1.15 2002/09/13 23:22:17 epaepa Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.14 $ ' . <<END
+' tv_check v $Revision: 1.15 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -944,7 +944,7 @@ sub ep_summary
       }
       else
       {
-        warn "bad episode-num content $text";
+	# Ignore episode-nums that aren't understood.  FIXME do properly.
       }
     }
     
@@ -1223,7 +1223,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.14 $
+tv_check $Revision: 1.15 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
