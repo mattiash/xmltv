@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.200 2004/04/18 09:55:20 epaepa Exp $
+# $Id: Makefile.PL,v 1.201 2004/04/25 05:17:38 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -244,6 +244,16 @@ my @opt_components
        blurb => 'Grabber for North America using DataDirect',
        exes => [ 'grab/na_dd/tv_grab_na_dd' ],
        prereqs => { 'SOAP::Lite' => 0 } },
+
+     { name     => 'tv_grab_na_icons',
+       blurb    => 'Grabber for North American Channel Icons',
+       exes     => [ 'grab/na_icons/tv_grab_na_icons' ],
+       pl_files => { 'grab/na_icons/tv_grab_na_icons.PL' => 'grab/na_icons/tv_grab_na_icons' },
+       to_clean => [ 'grab/na_icons/tv_grab_na_icons' ],
+       prereqs  => { 'HTML::TableExtract' => 0,
+                    'WWW::Mechanize' => 1.02 },
+       grab_need_share => [ 'na_icons' ],
+     },
 
      { name => 'tv_grab_nz',
        blurb => 'Grabber for New Zealand',
