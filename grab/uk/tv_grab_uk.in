@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.70 2003/02/26 20:30:05 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.71 2003/02/28 23:05:12 epaepa Exp $
 
 =head1 NAME
 
@@ -484,7 +484,7 @@ END
     }
 
     close CONF or warn "cannot close $CONFIG_FILE: $!";
-    print "All done, run with no arguments to grab a week's listings.\n";
+    print "All done, run with no arguments to grab listings.\n";
     exit();
 }
 
