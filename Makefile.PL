@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.209 2004/05/08 19:29:13 epaepa Exp $
+# $Id: Makefile.PL,v 1.210 2004/05/09 17:56:54 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -21,6 +21,24 @@ $SIG{__WARN__} = sub {
 	  unless /Argument .+ isn.t numeric in numeric lt .+MakeMaker.pm/;
     }
 };
+
+# ExtUtils::MakeMaker before 6.21 or so has a bug when PREFIX is not
+# given explicitly -
+# <http://article.gmane.org/gmane.comp.tv.xmltv.devel/3634>.
+#
+unless ($ExtUtils::MakeMaker::VERSION >= 6.21) {
+    if (not grep /^PREFIX=/, @ARGV) {
+	my $dir = '/usr/local';
+	if (-d $dir) {
+	    my $arg = 'PREFIX=/usr/local';
+	    push @ARGV, $arg;
+	    warn "assuming $arg\n";
+	}
+	else {
+	    warn "You may want to explicitly give PREFIX to work around MakeMaker bugs.\n";
+	}
+    }
+}
 
 use strict;
 
