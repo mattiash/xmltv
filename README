@@ -50,6 +50,7 @@ LWP
 
 HTML::Parser       (if you choose to install tv_grab_na)
 HTML::TableExtract (if you choose to install tv_grab_sn)
+HTML::TreeBuilder  (if you choose to install tv_grab_fi)
 Tk::TableMatrix    (if you choose to install tv_check)
 XML::Simple        (if you choose to install tv_check)
 CGI                (if you choose to install tv_pick_cgi)
@@ -88,4 +89,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, ed@membled.com, 2002-12-12
-$Id: README,v 1.52 2002/12/13 14:32:08 epaepa Exp $
+$Id: README,v 1.53 2003/01/01 19:10:22 epaepa Exp $
