@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.37 2003/02/09 14:39:11 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.38 2003/03/11 17:20:23 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -857,7 +857,7 @@ sub getChannelList($$)
     }
 
     if ( !defined($found) ) {
-      main::errorMessage("invalid provider id, not valid of postal/zip code $self->{GeoCode}\n");
+      main::errorMessage("invalid provider id ($providerId), not valid of postal/zip code $self->{GeoCode}\n");
 	return(undef);
     }
 
