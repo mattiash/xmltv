@@ -181,12 +181,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.86 2003/09/07 11:58:59 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.87 2003/09/27 17:53:50 jveldhuis Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/09/07 11:58:59 $;
+my $Date = q$Date: 2003/09/27 17:53:50 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1176,7 +1176,7 @@ END
 	for (my $retry=0 ; $retry<=$opt_retry_limit; $retry++ ) {
 	    if ( $retry != 0 ) {
 		errorMessage("failed $retry times, will retry after $opt_retry_delay seconds..\n");
-		sleep($opt_retry_delay) if ( $opt_retry_delay > 0 );
+		sleep($opt_retry_delay>2?$opt_retry_delay:2);
 	    }
 	    $zl=new XMLTV::ZapListings('PostalCode'=>$config->{option_postalcode}, 
 				       'ZipCode' => $config->{option_zipcode},
@@ -1318,7 +1318,7 @@ END
     for (my $retry=0 ; $retry<=$opt_retry_limit; $retry++ ) {
 	if ( $retry != 0 ) {
 	    errorMessage("failed $retry times, will retry after $opt_retry_delay seconds..\n");
-	    sleep($opt_retry_delay) if ( $opt_retry_delay > 0 );
+	    sleep($opt_retry_delay>2?$opt_retry_delay:2);
 	}
 
 	@channels=$zl->getChannelList($config->{option_provider});
@@ -1627,7 +1627,7 @@ sub grab
 	for (my $retry=0 ; $retry<=$opt_retry_limit; $retry++ ) {
 	    if ( $retry != 0 ) {
 		errorMessage("failed $retry times, will retry after $opt_retry_delay seconds..\n");
-		sleep($opt_retry_delay) if ( $opt_retry_delay > 0 );
+		sleep($opt_retry_delay>2?$opt_retry_delay:2);
 	    }
 	    $zl=new XMLTV::ZapListings('PostalCode'=>$config->{option_postalcode}, 
 				       'ZipCode' => $config->{option_zipcode},
@@ -1688,7 +1688,7 @@ sub grab
 	for (my $retry=0 ; $retry<=$opt_retry_limit; $retry++ ) {
 	    if ( $retry != 0 ) {
 		errorMessage("failed $retry times, will retry after $opt_retry_delay seconds..\n");
-		sleep($opt_retry_delay) if ( $opt_retry_delay > 0 );
+		sleep($opt_retry_delay>2?$opt_retry_delay:2);
 	    }
 
 	    @channels=$zl->getChannelList($config->{option_provider});
@@ -1903,7 +1903,7 @@ sub grab
 		    for (my $retry=0 ; $retry<=$opt_retry_limit; $retry++ ) {
 			if ( $retry != 0 ) {
 			    errorMessage("failed $retry times, will retry after $opt_retry_delay seconds..\n");
-			    sleep($opt_retry_delay) if ( $opt_retry_delay > 0 );
+			    sleep($opt_retry_delay>2?$opt_retry_delay:2);
 			}
 			my $ret=$zl->readSchedule($config->getStationTransientFlag($station, 'zap2it-id'),
 						  $station,
