@@ -200,7 +200,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.21 2004/03/25 15:55:43 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.22 2004/03/25 23:54:09 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To Configure
@@ -569,10 +569,10 @@ $twig=undef;  # destroy twig (just in case)
 #
 if ($opt_list_lineups)
 {
-    printf STDERR "%-42s %-6s %-20s %s\n","Lineup ID","Postal","Type","Device";
+    printf STDERR "%-42s|%-6s|%-20s|%s\n","Lineup ID","Postal","Type","Device";
     for my $id (sort keys %lineups)
     {
-          printf STDERR "%-42s %-6s %-20s %s\n",$id,
+          printf STDERR "%-42s|%-6s|%-20s|%s\n",$id,
                                                   ,$lineups{$id}{postalCode}||'',
                                                   ,$lineups{$id}{type}||'',
                                                   ,$lineups{$id}{device}||'';
@@ -664,7 +664,8 @@ $writer->start( {
 #
 for my $map (@{$lineups{$dd_lineup}{map}})
 {
-    my $myid=$map->{station};
+    my $myid = sprintf("I%d.labs.zap2it.com",$map->{station});
+
     my $station=$station{$map->{station}};
     my $key=sprintf("%d %s",$map->{channel},$station->{callSign});
 
