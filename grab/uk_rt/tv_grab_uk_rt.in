@@ -60,6 +60,8 @@ per day, so it can really slow down the grab.
 B<--quiet> suppress the progress messages normally written to standard
 error.
 
+B<--help> print a help message and exit.
+
 =head1 SEE ALSO
 
 L<xmltv(5)>, L<tv_grab_uk(1)>, L<http://www.radiotimes.beeb.com/>
@@ -86,7 +88,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.62 2004/05/08 20:07:24 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.63 2004/05/09 17:49:15 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;

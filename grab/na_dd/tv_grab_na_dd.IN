@@ -121,6 +121,10 @@ same as B<--days> 0
 Don't generate any output, just fetch the data.  Personally I don't see the point,
 but it was requested and easy to add.
 
+=item --help
+
+Print a help message and exit.
+
 =item -share I<SHAREDIR>
 
 tv_grab_na_icons stores icons in I<SHAREDIR>/icons.  The share directory is set at install time,
@@ -273,7 +277,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.15 2004/05/09 02:53:25 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.16 2004/05/09 17:49:13 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 

@@ -47,6 +47,8 @@ B<--slow> downloads more details (descriptions, actors...). This means
 downloading a new file for each programme, so itE<39>s off by default to
 save time.
 
+B<--help> print a help message and exit.
+
 =head1 SEE ALSO
 
 L<xmltv(5)>.
@@ -69,7 +71,7 @@ recommended by the XMLTV DTD.
 ######################################################################
 # initializations
 use strict;
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.24 2004/04/10 22:00:31 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.25 2004/05/09 17:49:13 epaepa Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;

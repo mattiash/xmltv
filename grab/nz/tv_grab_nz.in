@@ -62,7 +62,7 @@ if (not os.path.exists(config_file)) and os.path.exists(old_config_file):
 
 def version ():
 	# FIXME this duplicates some of XMLTV::Version.
-	v = "$Id: tv_grab_nz.in,v 1.13 2003/12/07 21:56:25 epaepa Exp $"
+	v = "$Id: tv_grab_nz.in,v 1.14 2004/05/09 17:49:14 epaepa Exp $"
 	m = re.search('\$Id: ([^,]+),v (\S+) ([0-9/: -]+)', v)
 	if m:
 		sys.stdout.write("This is %s version %s, %s\n"
@@ -660,6 +660,8 @@ B<--offset N> Start grabbing at today + N days.  N may be negative.
 
 B<--quiet> suppress the progress messages normally written to standard
 error.
+
+B<--help> print a help message and exit.
 
 =head1 SEE ALSO
 

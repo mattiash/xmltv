@@ -42,6 +42,8 @@ from today.
 B<--quiet> suppress the progress messages normally written to standard
 error.
 
+B<--help> print a help message and exit.
+
 =head1 SEE ALSO
 
 L<xmltv(5)>.
@@ -63,7 +65,7 @@ First release. Not aware of any bugs yet. But I'm sure there are some.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_no,v 1.8 2004/05/08 10:04:47 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_no,v 1.9 2004/05/09 17:49:14 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::Entities; # parse entities
 use IO::File;

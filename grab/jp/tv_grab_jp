@@ -53,7 +53,9 @@ B<--quiet> suppress the progress messages normally written to standard
 error.
 
 B<--list-channels> write output giving <channel> elements for every
-channel available , but no programmes.
+channel available, but no programmes.
+
+B<--help> print a help message and exit.
 
 =head1 SEE ALSO
 
@@ -74,7 +76,7 @@ The data source may not suit recommended XMLTV DTD format.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_jp,v 1.3 2004/05/03 20:47:42 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_jp,v 1.4 2004/05/09 17:49:13 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;

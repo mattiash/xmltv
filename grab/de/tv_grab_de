@@ -28,6 +28,8 @@ today.  N may be negative.
 B<--quiet> suppress the progress messages normally written to standard
 error.
 
+B<--help> print a help message and exit.
+
 =head1 SEE ALSO
 
 L<xmltv(5)>, L<http://www.szing.at/>, L<http://www.szing.at/xmltv/>
@@ -74,7 +76,7 @@ END
 #
 use bytes;
 
-use XMLTV::Version '$Id: tv_grab_de,v 1.32 2004/04/10 22:00:30 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de,v 1.33 2004/05/09 17:49:11 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
