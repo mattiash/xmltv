@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_grab_uk,v 1.2 2002/02/24 18:34:53 epaepa Exp $
+# $Id: tv_grab_uk,v 1.3 2002/02/24 18:59:24 epaepa Exp $
 #
 # Fetch UK television listings from the data provided by ananova.com.
 #
@@ -75,6 +75,8 @@ my $using_cache = XMLTV::Memoize::check_argv('get');
 my ($opt_days, $opt_help, $opt_output);
 GetOptions('days=i' => \$opt_days, 'help' => \$opt_help,
 	   'output=s' => \$opt_output);
+die 'number of days must not be negative'
+  if (defined $opt_days && $opt_days < 0);
 if ($opt_help) {
     print <<END
 $0: get UK television listings in XMLTV format
