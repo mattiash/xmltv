@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.48 2003/02/16 01:25:57 epaepa Exp $
+# $Id: tv_grab_na,v 1.49 2003/02/16 01:27:17 epaepa Exp $
 
 =head1 NAME
 
@@ -168,10 +168,12 @@ good translation into XMLTV format.
 
 =cut
 
+use strict;
+
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/16 01:25:57 $;
+my $Date = q$Date: 2003/02/16 01:27:17 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -210,8 +212,6 @@ if (-f $old_configPathName and not -e $ConfigPathName_g) {
     rename($old_configPathName, $ConfigPathName_g)
       or die "cannot rename $old_configPathName to $ConfigPathName_g: $!";
 }
-
-use strict;
 
 package myConfig;
 
