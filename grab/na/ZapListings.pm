@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.13 2002/05/01 22:27:33 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.14 2002/08/08 13:50:29 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -681,12 +681,14 @@ sub scrapehtml($$$)
 			  Italianate
 			  Iranian
 			  Japanese
+			  Khmer
 			  Korean
 			  Mandarin
 			  Mi'kmaq
 			  Mohawk
 			  Musgamaw
 			  Oji
+			  Ojibwa
 			  Panjabi
 			  Polish
 			  Portuguese
