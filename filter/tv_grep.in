@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grep.in,v 1.9 2002/05/23 10:32:26 epaepa Exp $
+# $Id: tv_grep.in,v 1.10 2002/08/29 20:56:35 epaepa Exp $
 
 =head1 NAME
 
@@ -141,7 +141,20 @@ use XMLTV;
 use XMLTV::Clumps qw(clump_relation fix_clumps);
 use Data::Dumper;
 use Date::Manip; Date_Init('TZ=UT');
-use Log::TraceMessages qw(t d); Log::TraceMessages::check_argv();
+
+# Use Log::TraceMessages if installed.
+BEGIN {
+    eval { require Log::TraceMessages };
+    if ($@) {
+	*t = sub {};
+	*d = sub { '' };
+    }
+    else {
+	*t = \&Log::TraceMessages::t;
+	*d = \&Log::TraceMessages::d;
+	Log::TraceMessages::check_argv();
+    }
+}
 
 sub usage( ;$ ); # too complex for XMLTV::Usage
 sub all_text( $$ );
@@ -695,7 +708,19 @@ sub whole_programme_regexp( $ ) {
 # how much of this code could be shared?
 #
 package OptionAbbrev;
-use Log::TraceMessages qw(t d);
+
+# Use Log::TraceMessages if installed.
+BEGIN {
+    eval { require Log::TraceMessages };
+    if ($@) {
+	*t = sub {};
+	*d = sub { '' };
+    }
+    else {
+	*t = \&Log::TraceMessages::t;
+	*d = \&Log::TraceMessages::d;
+    }
+}
 
 # Constructor.  Give a list of long options and/or add() them later.
 sub new {

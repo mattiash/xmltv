@@ -5,22 +5,26 @@
 #
 # Actually, now there is some other general time stuff in here too.
 #
-# $Id: UK_TZ.pm,v 1.3 2002/03/06 17:20:11 epaepa Exp $
+# $Id: UK_TZ.pm,v 1.4 2002/08/29 20:56:35 epaepa Exp $
 #
 
 package XMLTV::UK_TZ;
 use Date::Manip; # no Date_Init(), that can be done by the app
 use XMLTV::TZ qw(gettz);
 
-# Memoize some of our own routines as well as gettz() from
-# XMLTV::TZ.  This all needs to be rationalized sometime.
+# Memoize some subroutines if possible.  FIXME commonize to
+# XMLTV::Memoize.  We are memoizing our own routines plus gettz() from
+# XMLTV::TZ, that too needs sorting out.
 #
-use Memoize;
-foreach (qw(parse_uk_date date_to_uk bst_dates
-            ParseDate UnixDate DateCalc Date_Cmp
-            ParseDateDelta gettz)) {
-    Memoize::memoize($_) or die "cannot memoize $_: $!";
+eval { require Memoize };
+unless ($@) {
+    foreach (qw(parse_uk_date date_to_uk bst_dates
+		ParseDate UnixDate DateCalc Date_Cmp
+		ParseDateDelta gettz)) {
+	Memoize::memoize($_) or die "cannot memoize $_: $!";
+    }
 }
+
 use base 'Exporter'; use vars '@EXPORT';
 @EXPORT = qw(parse_uk_date date_to_uk);
 
