@@ -241,7 +241,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.45 2004/04/20 05:32:26 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.46 2004/04/21 06:11:27 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -347,9 +347,9 @@ GetOptions(
 	  )
   or usage(0);
 usage(1) if $opt_help;
-die 'number of days must not be negative' if ($opt_days < 0);
-die "must specify --dd_data during reprocess\n" if $opt_reprocess and not $opt_dd_data;
-die "--auto-config must be 'add' or 'ignore'\n" if $opt_auto_config && $opt_auto_config !~ /^(add|ignore)$/;
+die "number of days must not be negative\n"         if ($opt_days < 0);
+die "must specify --dd_data during reprocess\n"     if $opt_reprocess and not $opt_dd_data;
+die "--auto-config must be 'add' or 'ignore'\n"     if $opt_auto_config && $opt_auto_config !~ /^(add|ignore)$/;
 die "--down-only without --dd-data is pointless!\n" if $opt_down_only && ! $opt_dd_data;
 
 $opt_days    = 0 if $opt_configure || $opt_list_channels || $opt_list_lineups;
