@@ -1,4 +1,4 @@
-$Id: README.tv_check,v 1.8 2002/09/21 14:07:08 rmeden Exp $
+$Id: README.tv_check,v 1.9 2003/01/01 18:46:58 epaepa Exp $
 
 This file describes the tv_check module of XMLTV.
 
@@ -25,7 +25,8 @@ The default guide file name is guide.xml
 1. set timezone if not set ( tv_grab... will give error )
             set TZ=CST6CDT
             
-2. download channel guide ( any XMLTV compliant grabber should work )
+2. download listings using any XMLTV grabber, for example using
+   tv_grab_na for North American listings:
             tv_grab_na --configure
             tv_grab_na --listings=guide.xml
 
