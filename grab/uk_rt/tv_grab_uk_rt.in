@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use Getopt::Long;
 use Date::Manip; Date_Init('TZ=+0000');
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.70 2004/09/27 19:55:34 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.71 2004/09/27 20:33:21 epaepa Exp $ ';
 use XMLTV::Config_file;
 use XMLTV::Get_nice;
 use XMLTV::Ask;
@@ -383,7 +383,8 @@ foreach my $ch (@wanted_chs) {
 	$p{start} = utc_offset "$yyyy$mm$dd$start", $base_tz;
 	$p{stop} = utc_offset "$yyyy$mm$dd$stop", $base_tz;
 	if (Date_Cmp($p{start}, $p{stop}) > 0) {
-	    $p{stop} = DateCalc($p{stop}, '+ 1 day');
+	    $p{stop} = utc_offset(DateCalc("$yyyy$mm$dd$stop", '+ 1 day'),
+				  $base_tz);
 	}
 	# Ignore $duration_mins since it may not be reliable.
 
