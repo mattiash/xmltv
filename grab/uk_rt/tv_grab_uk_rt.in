@@ -84,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.25 2003/06/29 15:53:52 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.26 2003/06/29 19:15:01 epaepa Exp $ ';
 use IO::Socket;
 use LWP::Simple;
 use Date::Manip;
@@ -707,7 +707,13 @@ sub get_programme_details( $$$$$ ) {
     die "no channel data for $channel_xid" if not defined $ch;
     my $dn = $ch->{'display-name'}->[0]->[0];
     die "no display name for $channel_xid" if not defined $dn;
-    if ($dn ne $channel_name) {
+    # Normalize a channel name.
+    my $ncn = sub( $ ) {
+	local $_ = shift;
+	s/\bOne\b/1/g;
+	return $_;
+    };
+    if ($ncn->($dn) ne $ncn->($channel_name)) {
 	warn "channel name '$channel_name' for programme doesn't match $dn"
 	  unless $warned_ch_mismatch{$channel_name}{$dn}++;
     }
