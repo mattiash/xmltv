@@ -76,7 +76,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.47 2004/02/01 20:07:14 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.48 2004/02/01 20:11:02 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -427,12 +427,16 @@ sub grab( $$ ) {
     # write out the channels
     $writer->write_channels(\%write_channels);
 
-    #write out the programmes
+    # Write out the programmes.  In fast mode we get some duplicates,
+    # so here's a quick and dirty way of not writing them.
+    #
+    my %seen;
     foreach (@programmes) {
 	foreach my $k (keys %$_) {
 	    die "undef $_->{$k}" if not defined $_->{$k};
 	}
-	$writer->write_programme($_);
+	$writer->write_programme($_)
+	  unless $seen{$_->{channel}}{$_->{start}}{$_->{stop} || ''}++;
     }
     $writer->end();
 }
