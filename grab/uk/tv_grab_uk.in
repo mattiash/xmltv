@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.8 2002/03/07 12:20:24 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.9 2002/03/07 12:48:57 epaepa Exp $
 
 =head1 NAME
 
@@ -171,7 +171,10 @@ END {
 }
 
 # Convert an internal (Date::Manip) date to output format.
-sub ud { join(' ', @{date_to_uk($_[0])}) }
+sub ud {
+    my ($internal, $tz) = @{date_to_uk($_[0])};
+    return UnixDate($internal, '%q') . ' ' . $tz;
+}
 
 # What language the pages are in.  This has no real effect :-)
 my $LANG = 'en';
