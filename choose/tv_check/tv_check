@@ -67,7 +67,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.41 2003/07/15 02:25:23 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.42 2003/07/25 14:21:06 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -80,7 +80,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.41 $ ' . <<END
+' tv_check v $Revision: 1.42 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -172,7 +172,7 @@ my %GUIDE     = ();    # episode indexes
 #
 # Episode Indexes ( CAPS are constants )
 #
-#  $GUIDE{ALL}{title}=[ep...]
+#  $GUIDE{ALL}{lc(title)}=[ep...]
 #  $GUIDE{chan}{mmdd}{hhmm}=$ep
 #
 # The following indexes are only used by configure mode
@@ -378,7 +378,7 @@ print STDERR "\nMyReplay looking for ",join("|",$title,$chan,$hhmm,$len,$days),"
 # Check for a time match in our list of episodes.
 #
       my $found="";
-      for my $ep (@{$GUIDE{all}{$title}})
+      for my $ep (@{$GUIDE{all}{lc($title)}})
       {
 
         my $next = $ep->{next};
@@ -851,7 +851,7 @@ for my $start (sort keys %SHOW_TIME)
 #
 # See if the show is on at other times
 #
-    for my $ep ( @{$GUIDE{all}{$show->{title}}})
+    for my $ep ( @{$GUIDE{all}{lc($show->{title})}})
     {
         next if (substr($ep->{start},4,4)) lt $TODAY_MMDD; # ignore shows before today
         next if (substr($ep->{start},4,4)) ge $WEEK_MMDD;  # ignore shows more than a week away
@@ -1316,7 +1316,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.41 $
+tv_check $Revision: 1.42 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
@@ -1486,7 +1486,7 @@ sub load_guide
 #
 # build general indexes (--scan + --configure)
 #
-       push @{$GUIDE{all}{$title}},$ep;                                # all titles
+       push @{$GUIDE{all}{lc($title)}},$ep;                            # all titles
        if ( $ep->{start} =~ /^(\d{4})(\d{4})(\d{4})/ )
        {            
          $GUIDE{$chan}{$2}{$3}=$ep;                                    # index by chan, date, time
