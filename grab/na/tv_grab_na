@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.13 2002/03/16 16:02:02 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.14 2002/03/18 06:54:33 jveldhuis Exp $
 
 =head1 NAME
 
@@ -113,7 +113,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/03/16 16:02:02 $;
+my $Date = q$Date: 2002/03/18 06:54:33 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1426,7 +1426,7 @@ sub grab
 		}
 		if ( $lg->readSchedule($config->getStationTransientFlag($station, 'zap2it-id'),
 				       $station,
-				       $day, $month, $Year) == -1 || $retry < 2) {
+				       $day, $month, $Year) == -1) {
 		    warn("readSchedule failed for $Year-$month-$day for station $station");
 		    # fail hard on first failure
 		    $failedCount++;
