@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.100 2004/04/03 10:05:37 epaepa Exp $
+# $Id: XMLTV.pm.in,v 1.101 2004/04/03 17:41:22 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -2202,6 +2202,10 @@ Write details for a single programme as XML.
 sub write_programme {
     my $self = shift;
     die 'usage: XMLTV::Writer->write_programme(programme hash)' if @_ != 1;
+    my $ref = shift;
+    croak 'write_programme() expects programme hashref'
+      if ref $ref ne 'HASH';
+    t('write_programme(' . d($self) . ', ' . d($ref) . ') ENTRY');
 
     for ($self->{xmltv_writer_state}) {
 	if ($_ eq 'new') {
@@ -2223,9 +2227,7 @@ sub write_programme {
     # as they are dealt with; then we can easily spot any unhandled
     # elements at the end.
     #
-    my %p = %{shift()};
-
-    t('write_programme(' . d($self) . ', ' . d(\%p) . ') ENTRY');
+    my %p = %$ref;
 
     # First deal with those hash keys that refer to metadata on when
     # the programme is broadcast.  After taking those out of the hash,
