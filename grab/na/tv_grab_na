@@ -181,13 +181,13 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.95 2003/12/31 18:45:27 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.96 2003/12/31 18:59:36 epaepa Exp $ ';
 sub checkCache();
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/12/31 18:45:27 $;
+my $Date = q$Date: 2003/12/31 18:59:36 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -515,6 +515,7 @@ use XMLTV::Config_file;
 use XMLTV;
 
 my $xmltvSourceForgeURL="http://sourceforge.net/projects/xmltv";
+my $xmltvFreshmeatRecord="http://freshmeat.net/projects-xml/xmltv/xmltv.xml";
 
 my $now; # to be set later depending on --cache
 
@@ -1094,11 +1095,11 @@ END
     if ( $opt_release_check ) {
 	statusMessage("checking XMLTV release information..\n");
 
-	my $retval=XMLTV::ZapListings::getCurrentReleaseInfo($xmltvSourceForgeURL, $opt_debug);
+	my $retval=XMLTV::ZapListings::getCurrentReleaseInfo($xmltvFreshmeatRecord, $opt_debug);
 	if ( !defined($retval) ) {
 	    statusMessage( <<END
 Warning: failed to get current release information from:
-	$xmltvSourceForgeURL
+	$xmltvFreshmeatRecord
 If this problem persists, look for a new XMLTV release.
 END
 );
@@ -2138,10 +2139,10 @@ sub grab
     }
     
     if ( $opt_release_check ) {
-	my $retval=XMLTV::ZapListings::getCurrentReleaseInfo($xmltvSourceForgeURL, $opt_debug);
+	my $retval=XMLTV::ZapListings::getCurrentReleaseInfo($xmltvFreshmeatRecord, $opt_debug);
 	if ( !defined($retval) ) {
 	    statusMessage("\nWarning: failed to get current release information from:\n");
-	    statusMessage("   $xmltvSourceForgeURL\n");
+	    statusMessage("   $xmltvFreshmeatRecord\n");
 	    statusMessage("If this problem persists, look for a new XMLTV release\n\n");
 	}
 	else {
