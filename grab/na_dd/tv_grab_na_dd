@@ -171,7 +171,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.19 2004/03/25 04:07:48 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.20 2004/03/25 07:54:44 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To Configure
@@ -649,7 +649,7 @@ for my $map (@{$lineups{$dd_lineup}{map}})
 #
     if ($opt_old_chan_id)
     {
-       $myid = sprintf("C%d%s.zap2it.com",$_->{channel},lc($station->{callSign}));
+       $myid = sprintf("C%d%s.zap2it.com",$map->{channel},lc($station->{callSign}));
     }
 
 #
