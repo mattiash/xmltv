@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.73 2003/11/19 02:34:31 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.74 2003/11/19 22:40:17 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -152,7 +152,7 @@ sub new
 				  env_proxy => 1,
 				  timeout => 180);
     bless ($self, $class);
-    $self->agent('xmltv/0.5.22');
+    $self->agent('xmltv/0.5.23');
     return $self;
 }
 
