@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.28 2002/01/01 21:14:44 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.29 2002/01/02 20:47:57 jveldhuis Exp $
 
 package ZapListings;
 
@@ -672,6 +672,7 @@ sub scrapehtml($$$)
 			  Romanian
 			  Russian
 			  Spanish
+			  Swedish
 			  Tagalog
 			  Tamil
 			  Ukrainian
