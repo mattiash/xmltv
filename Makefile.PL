@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.170 2004/01/03 22:44:18 epaepa Exp $
+# $Id: Makefile.PL,v 1.171 2004/01/04 11:33:16 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -10,6 +10,17 @@ use File::Find;
 # 2.24 or later, and we don't have a clean way to require that.
 #
 use Getopt::Long; Getopt::Long::Configure('pass_through');
+
+# Suppress 'isn't numeric' warnings from MakeMaker - see
+# <http://sourceforge.net/tracker/?func=detail&atid=424135&aid=870170&group_id=39046>.
+#
+$SIG{__WARN__} = sub {
+    for (my $msg = shift) {
+	$_ = "warning: something's wrong" if not defined;
+	warn $_
+	  unless /Argument .+ isn't numeric in numeric lt .+MakeMaker.pm/;
+    }
+};
 
 use strict;
 
