@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.14 2002/08/08 13:50:29 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.15 2002/09/25 01:46:22 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -1033,12 +1033,12 @@ sub scrapehtml($$$)
 			next;
 		    }
 		    elsif ( $i=~/^\(Call-in\)$/io ) {
-			$prog->{qualifiers}->{CallIn}++;
+			push(@{$prog->{category}}, "Call-in");
 			push(@sure, $i);
 			next;
 		    }
 		    elsif ( $i=~/^\(Animated\)$/io ) {
-			$prog->{qualifiers}->{Animated}++;
+			push(@{$prog->{category}}, "Animated");
 			push(@sure, $i);
 			next;
 		    }
@@ -1049,23 +1049,26 @@ sub scrapehtml($$$)
 		    }
 		    elsif ( $i=~/^\(drama\)$/io || $i=~/^\(dramma\)$/io ) { # dramma is french :)
 			push(@{$prog->{category}}, "Drama");
+			push(@sure, $i);
 			next;
 		    }
 		    elsif ( $i=~/^\(Acción\)$/io ) { # action in french :)
 			push(@{$prog->{category}}, "Action");
+			push(@sure, $i);
 			next;
 		    }
 		    elsif ( $i=~/^\(Comedia\)$/io ) { # comedy in french :)
 			push(@{$prog->{category}}, "Comedy");
+			push(@sure, $i);
 			next;
 		    }
 		    elsif ( $i=~/^\(If necessary\)$/io ) {
-			$prog->{qualifiers}->{IfNecessary}++;
+			$prog->{qualifiers}->{"If Necessary"}++;
 			push(@sure, $i);
 			next;
 		    }
 		    elsif ( $i=~/^\(Subject to blackout\)$/io ) {
-			$prog->{qualifiers}->{SubjectToBlackout}++;
+			$prog->{qualifiers}->{"Subject To Blackout"}++;
 			push(@sure, $i);
 			next;
 		    }
