@@ -267,7 +267,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.12 2004/05/08 16:38:11 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.13 2004/05/08 18:51:15 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -553,16 +553,8 @@ else
 # Prompt for password (if needed)
 #
     $dd_pass=~s/^\s//g;
-    unless (length($dd_pass))
-    {
-        require Term::ReadKey;
-        $| = 1;
-        print STDERR "Password for $dd_user: ";
-        Term::ReadKey::ReadMode('noecho');
-        chomp($dd_pass = <STDIN>);
-        Term::ReadKey::ReadMode('restore');
-        print STDERR "\n";
-    }
+    $dd_pass=ask_password("Password for $dd_user: ")
+      unless length $dd_pass;
 
 #
 # Fetch data
