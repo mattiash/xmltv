@@ -88,7 +88,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.63 2004/05/09 17:49:15 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.64 2004/05/13 18:52:31 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -1823,12 +1823,19 @@ Enter the name of a channel, or '.' to finish selecting channels:
 END
 	);
 	# treat EOF as same as '.' -- finish
-	last if not defined $in; 
-	$in =~ s/^\s+//; 
+	$in = '.' if not defined $in;
+	$in =~ s/^\s+//;
 	$in =~ s/\s+$//;
 	# handle backspace
 	$in =~ s/.\x08//g;
-	last if $in eq '.';
+
+	if ($in eq '.') {
+	    if (not keys %chose_ch) {
+		say('You must choose at least one channel.');
+		next;
+	    }
+	    last;
+	}
 
 	# FIXME commonize this matching by display name.
 	my @poss;
