@@ -67,9 +67,12 @@ have 'YYYYMM'.  You can also append a timezone to the end; if no
 explicit timezone is given, UT is assumed.  Examples:
 '200007281733 BST', '200209', '19880523083000 +0300'.  (BST == +0100.)
 
-Version 0.5 (xmltv-0.4).  Written by Ed Avis (ed@membled.com) and
+At present versions of this DTD correspond to releases of the 'xmltv'
+package, which is a set of programs to generate and manipulate files
+conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
-$Id: xmltv.dtd,v 1.19 2002/09/28 11:39:17 epaepa Exp $
+
+$Id: xmltv.dtd,v 1.20 2003/02/02 17:14:19 epaepa Exp $
 
 -->
 
