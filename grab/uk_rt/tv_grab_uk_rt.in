@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use Getopt::Long;
 use Date::Manip; Date_Init('TZ=+0000');
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.71 2004/09/27 20:33:21 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.72 2004/09/28 20:18:53 epaepa Exp $ ';
 use XMLTV::Config_file;
 use XMLTV::Get_nice;
 use XMLTV::Ask;
@@ -245,9 +245,9 @@ END
 	    }
 	    my $none_option = 'None of the above are what I wanted';
 	    die 'silly channel name' if exists $dn_to_ch{$none_option};
-	    my $r = ask('Which channel to add?',
-			$poss[0]->{'display-name'}->[0]->[0],
-			(sort keys %dn_to_ch), $none_option);
+	    my $r = ask_choice('Which channel to add?',
+			       $poss[0]->{'display-name'}->[0]->[0],
+			       (sort keys %dn_to_ch), $none_option);
 	    # treat EOF as same as none-option
 	    next if not defined $r;
 	    next if $r eq $none_option;
