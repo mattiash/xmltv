@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.9 2003/03/10 06:55:07 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.10 2003/03/10 06:59:47 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1873,12 +1873,21 @@ sub crunchStage($$)
     $self->redirect(undef);
 
     if ( $ret == 0 ) {
-	$self->status("prep stage $stage success");
+	if ( $self->{errorCountInLog} == 0 ) {
+	    $self->status("prep stage $stage succeeded with no errors");
+	}
+	else {
+	    $self->status("prep stage $stage succeeded with $self->{errorCountInLog} errors in $self->{imdbDir}/stage$stage.log");
+	}
     }
     else {
-	$self->status("prep stage $stage failed");
+	if ( $self->{errorCountInLog} == 0 ) {
+	    $self->status("prep stage $stage failed (with no logged errors)");
+	}
+	else {
+	    $self->status("prep stage $stage failed with $self->{errorCountInLog} errors in $self->{imdbDir}/stage$stage.log");
+	}
     }
-    $self->status("stage $stage produced $self->{errorCountInLog} errors in $self->{imdbDir}/stage$stage.log");
     return($ret);
 }
 
