@@ -87,7 +87,7 @@ recommended by the XMLTV DTD.
 # initializations
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.4 2004/11/08 15:48:44 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.5 2004/11/08 23:36:21 mnbjhguyt Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;
@@ -671,6 +671,8 @@ sub start_handler {
              Sintesi                            => undef,
              'Nuova Serie'                      => undef,
              Inedito                            => undef,
+             'per non udenti'                   => undef,
+             'Versione originale'               => undef,
             );
     for ($attr->{alt}) {
         foreach my $s (keys %attrs) {
