@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.6 2002/04/15 12:56:57 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.7 2002/04/19 13:33:36 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -1039,6 +1039,11 @@ sub scrapehtml($$$)
 		    elsif ( $i=~/^\(Comedia\)$/io ) { # comedy in french :)
 			push(@{$prog->{category}}, "Comedy");
 			next;
+		    }
+		    # 1re de 2
+		    # 2e de 7
+		    elsif ( $i=~/^\((\d+)r*e de (\d+)\)$/io ) { # part x of y in french :)
+			$prog->{qualifiers}->{PartInfo}="Part $1 of $2";
 		    }
 
 		    # ignore sports event descriptions that include team records
