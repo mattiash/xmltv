@@ -69,7 +69,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.62 2004/11/16 03:31:49 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.63 2005/03/23 07:39:32 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -84,7 +84,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.62 $ ' . <<END
+' tv_check v $Revision: 1.63 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -451,7 +451,7 @@ print STDERR "\nMyReplay looking for ",join("|",$title,$chan,$hhmm,$len,$days),"
         $wstop=$ep2->{hhmm} if $ep2->{day} eq $day;
 
 
-printf STDERR "day search: %s: %s<%s<%s\n",$title,$wstart,$hhmm,$wstop if $MYREPLAY_DEBUG;
+printf STDERR "day search: %s: %s<%s<%s\n",$title,$wstart,$hhmm,$wstop if $MYREPLAY_DEBUG > 1;
 
 #
 # record the day if MyReplay start time is between these times
@@ -1064,6 +1064,23 @@ for my $dev_name (sort keys %RECORD)
     } # show1 loop
 } # recording device loop
 
+#
+# Now check for deleted shows
+#
+if ($MYREPLAY_USER ne '' )
+{
+    for my $title (sort keys %OLD_SHOW)
+    {
+        for my $show (@{$OLD_SHOW{$title}})
+        {
+            next if $show->{title} ne "";     # already used?
+            $show->{title}=$title;
+            printf "${R_ON}%-60s ** DELETED **${OFF}\n",sh_summary($show);
+            $show->{title}="";
+        }
+    }
+}
+
 if ($HTML)
 {
     print "</pre></body>\n";
@@ -1450,7 +1467,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.62 $
+tv_check $Revision: 1.63 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
