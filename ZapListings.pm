@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.33 2002/02/04 17:20:49 epaepa Exp $
+# $Id: ZapListings.pm,v 1.34 2002/02/04 17:38:31 jveldhuis Exp $
 
 package ZapListings;
 
@@ -352,7 +352,6 @@ use LWP::UserAgent;
 
 use vars qw(@ISA);
 @ISA = qw(LWP::UserAgent);
-
 
 #
 # manually check requirements on LWP (libwww-perl) installation
@@ -1031,6 +1030,10 @@ sub scrapehtml($$$)
 		    }
 		    elsif ( $i=~/^\(Acción\)$/io ) { # action in french :)
 			push(@{$prog->{category}}, "Action");
+			next;
+		    }
+		    elsif ( $i=~/^\(Comedia\)$/io ) { # comedy in french :)
+			push(@{$prog->{category}}, "Comedy");
 			next;
 		    }
 
