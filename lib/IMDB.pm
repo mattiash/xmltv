@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.21 2003/06/29 20:54:44 epaepa Exp $
+# $Id: IMDB.pm,v 1.22 2003/07/05 06:58:19 rmeden Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1048,12 +1048,18 @@ END
 	    # For downloading we use LWP::Simple::getprint() which
 	    # writes to stdout.
 	    #
-	    local *OLDOUT;
-	    open(OLDOUT, '>&STDOUT') or die "cannot dup stdout: $!";
-	    open(STDOUT, ">$filename") or die "cannot write to $filename: $!";
-	    my $success = getprint($url);
-	    close STDOUT or die "cannot close $filename: $!";
-	    open(STDOUT, '>&OLDOUT') or die "cannot dup stdout back again: $!";
+#
+# change from getprint to getstore. getprint converts line endings on MacOS
+# and windows, and this scews up binary files.  In addition, getstore doesn't
+# need all the games with STDOUT. - Robert Eden 7/5/03
+#
+#	    local *OLDOUT;
+#	    open(OLDOUT, '>&STDOUT') or die "cannot dup stdout: $!";
+#	    open(STDOUT, ">$filename") or die "cannot write to $filename: $!";
+#	    my $success = getprint($url);
+#	    close STDOUT or die "cannot close $filename: $!";
+#	    open(STDOUT, '>&OLDOUT') or die "cannot dup stdout back again: $!";
+        my $success = getstore($url,$filename);
 	    if (not $success) {
 		warn "failed to download $url to $filename, renaming to $partial\n";
 		rename $filename, $partial
