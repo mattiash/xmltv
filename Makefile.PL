@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.196 2004/03/28 15:17:01 epaepa Exp $
+# $Id: Makefile.PL,v 1.197 2004/04/05 19:36:03 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -588,7 +588,7 @@ foreach my $p ((sort keys %prereqs), (sort keys %recommended)) {
     else { die }
 }
 if ($err and not $opt_nodeps) {
-    die "Required modules missing, not writing Makefile\n";
+    warn "Required modules missing, 'make' is unlikely to work\n";
 }
 
 WriteMakefile
