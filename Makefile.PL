@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.171 2004/01/04 11:33:16 epaepa Exp $
+# $Id: Makefile.PL,v 1.172 2004/01/04 12:14:26 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -265,9 +265,13 @@ my @opt_components
        prereqs => {},
        special_prereqs =>
        [ [ sub {
-	       my $p = `python -c 'import sys; print sys.hexversion'`;
-	       chomp $p;
-	       return $p;
+	       # This command line should work on Unix and NT, I hope.
+	       my $p = `python -c "import sys; print sys.hexversion" 2>&1`;
+	       for ($p) {
+		   s/^\s+//; s/\s+$//;
+		   return $_ if /^\d+$/;
+		   return undef;
+	       }
 	   },
 	   'Python', '17105648', '1.5.2' ] ] },
 
