@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.41 2003/11/29 23:17:21 epaepa Exp $
+# $Id: IMDB.pm,v 1.42 2003/12/31 19:13:34 epaepa Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -890,7 +890,7 @@ sub applyFound($$$)
 		my $name=$idInfo->{title};
 		my $found=0;
 		for my $v (@{$prog->{title}}) {
-		    if ( $v->[0]=~m/^$name$/ ) {
+		    if ( $v->[0]=~m/^$name$/i ) {
 			$found=1;
 		    }
 		    else {
