@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grep.in,v 1.14 2002/09/21 11:48:08 epaepa Exp $
+# $Id: tv_grep.in,v 1.15 2002/09/21 16:07:28 epaepa Exp $
 
 =head1 NAME
 
@@ -560,7 +560,7 @@ if (defined $output) {
     die "cannot write to $output\n" if not $fh;
     %w_args = (OUTPUT => $fh);
 }
-XMLTV::write_data([$encoding, $credits, \%new_ch, \@new_progs], %w_args);
+XMLTV::write_data([ $encoding, $credits, \%new_ch, \@new_progs ], %w_args);
 exit();
 
 
