@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.11 2004/10/24 15:07:04 mattiasholmlund Exp $
+# $Id: Get_nice.pm,v 1.12 2004/11/16 18:29:59 mattiasholmlund Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -77,12 +77,15 @@ sub get_nice_aux( $ ) {
 }
 
 # Initialize HTTP::Cache::Transparent if the file
-# ~/.xmltv/cache.conf exists.
+# specified by the environment variable CACHE_CONF 
+# (default ~/.xmltv/cache.conf) exists.
 sub init_cache
 {
-    my $home = $ENV{HOME};
-    $home = '.' if not defined $home;
-    my $conffile = "$home/.xmltv/cache.conf";
+    my $home = $ENV{HOME} || 
+               $ENV{HOMEDRIVE} . $ENV{HOMEPATH} ||
+               ".";
+
+    my $conffile = $ENV{CACHE_CONF} || "$home/.xmltv/cache.conf"; 
     
     if (not -f($conffile)) {
         # The configuration file doesn't exist. Don't use the cache.
