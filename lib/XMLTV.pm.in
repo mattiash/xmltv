@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.104 2004/05/08 10:17:12 epaepa Exp $
+# $Id: XMLTV.pm.in,v 1.105 2004/05/23 17:45:00 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -1958,6 +1958,7 @@ sub call_handlers_read( $$$ ) {
 	my $h = $Handlers{$h_name}; die "no handler $h_name" if not $h;
 	my $result = $h->[0]->($_); # call reader sub
 	t 'result: ' . d $result;
+	warn("skipping bad $name\n"), next if not defined $result;
 
 	# Now set the value.  We can't do multiplicity checking yet
 	# because there might be more elements of this type still to
