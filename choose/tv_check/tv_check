@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.1 2002/02/22 18:06:30 epaepa Exp $
+# $Id: tv_check,v 1.2 2002/02/24 19:52:48 epaepa Exp $
 #
 # tv_check
 #
@@ -104,7 +104,7 @@ $COL_VALUE[$_] = "" foreach (0..$#COL);
                       'output=s'         => \$OUTPUT_FILE,
                       'guide|listings=s' => \$GUIDE_XML))
     {
-        print ' tv_check v $Revision: 1.1 $ ' . "\n\n";
+        print ' tv_check v $Revision: 1.2 $ ' . "\n\n";
         print " part of the xmltv toolkit ( http://xmltv.sourceforge.net )\n\n";
         print "usage $0 (--configure|--scan) [--options] [--output=file] [--html]\n";
         print "where --options are:\n";
@@ -979,7 +979,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.1 $
+tv_check $Revision: 1.2 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
@@ -1086,7 +1086,7 @@ sub load_guide
     my $c=0;
     $GUIDE_XML = $file;
     print STDERR "Loading xml guide info ($file) ";
-    my $xml = XMLTV::read_data($file);
+    my $xml = XMLTV::parsefile($file);
     %CHAN   = %{$xml->[2] };
     @GUIDE  = @{$xml->[3] };
     %GUIDE  = ();

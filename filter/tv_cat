@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_cat,v 1.4 2002/02/24 17:22:18 epaepa Exp $
+# $Id: tv_cat,v 1.5 2002/02/24 19:52:48 epaepa Exp $
 
 =head1 NAME
 
@@ -72,10 +72,10 @@ if (defined $opt_output) {
     %w_args = (OUTPUT => $fh);
 }
 
-# All the work is done by read_data(), write_data() and cat() in
+# All the work is done by parsefile(), write_data() and cat() in
 # XMLTV.pm.
 #
-XMLTV::write_data(XMLTV::cat(map { XMLTV::read_data($_) } @ARGV),
+XMLTV::write_data(XMLTV::cat(map { XMLTV::parsefile($_) } @ARGV),
 		  %w_args);
 exit();
 

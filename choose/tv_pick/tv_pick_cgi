@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.1 2002/02/22 18:06:30 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.2 2002/02/24 19:52:48 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -79,7 +79,7 @@
 use strict;
 use CGI qw<:standard -newstyle_urls>;
 use CGI::Carp qw<fatalsToBrowser carpout>; BEGIN { carpout(\*STDOUT) }
-use XMLTV qw<best_name read_data write_data>;
+use XMLTV qw<best_name write_data>;
 use Fcntl ':flock';
 use Date::Manip;
 use File::Copy;
@@ -137,7 +137,7 @@ sub clumpidx_to_english($);
 sub download_xml();
 
 # Load data into globals $data and @programmes.
-my $data = read_data($LISTINGS);
+my $data = XMLTV::parsefile($LISTINGS);
 my @programmes = @{$data->[3]};
 
 if (url_param('download')) {
