@@ -91,7 +91,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.7 2004/03/18 15:45:42 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.8 2004/03/18 16:06:00 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -451,7 +451,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( { 'date'             => scalar localtime(),
               'source-info-name'     => 'TMS Data Direct Service',
               'source-info-url'      => 'http://labs.zap2it.com/',
-              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.7 2004/03/18 15:45:42 epaepa Exp $',
+              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.8 2004/03/18 16:06:00 epaepa Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
@@ -599,9 +599,9 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 }, twig_handlers => {
 #
                      if ($ptr = $program{$_->{program}})
                      {
-                        $prog{title}        =[[$ptr->{title},      'en']] if exists $ptr->{title};
-                        $prog{'sub-title'}  =[[$ptr->{subtitle}   ,'en']] if exists $ptr->{subtitle};
-                        $prog{desc}         =[[$ptr->{description},'en']] if exists $ptr->{description};
+                        $prog{title}        =[[$ptr->{title}]] if exists $ptr->{title};
+                        $prog{'sub-title'}  =[[$ptr->{subtitle}]] if exists $ptr->{subtitle};
+                        $prog{desc}         =[[$ptr->{description}]] if exists $ptr->{description};
                         $prog{date}         =$ptr->{year}                 if exists $ptr->{year};
                         $prog{video}{colour}=$ptr->{colorCode}            if exists $ptr->{colorCode};
 
