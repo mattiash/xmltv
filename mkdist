@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.47 2004/02/03 21:39:34 epaepa Exp $
+# $Id: mkdist,v 1.48 2004/05/08 10:19:10 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -27,6 +27,8 @@ use Date::Manip;
 #$SIG{__WARN__} = sub { die $_[0] };
 
 my $debug;
+
+my $cvs_host = 'cvs.sourceforge.net';
 
 # Temporary directory used for checking out a copy and building
 # tarballs.  This is not meant to be race-condition-proof, so don't
@@ -91,7 +93,7 @@ if ( !defined($opt_version) ) {
 if ( !defined($opt_sfuser) ) {
    if ( open(FD, "< $ENV{HOME}/.cvspass") ) {
 	while (<FD>) {
-	   if ( m/^:pserver:([^\@]+)\@cvs.xmltv.sourceforge.net:/ ) {
+	   if ( m/^:pserver:([^\@]+)\@$cvs_host:/o ) {
 	      $opt_sfuser=$1;
 	      print "assuming --sfuser $1 from first xmltv entry in ~/.cvspass\n";
 	      last;
@@ -134,14 +136,14 @@ if ( defined($opt_login) ) {
     # use pserver to login.  FIXME Does Sourceforge support
     # authenticated pserver?  I thought it was anonymous only.
     #
-    $ENV{CVSROOT}=":pserver:$opt_sfuser\@cvs.xmltv.sourceforge.net:/cvsroot/xmltv";
+    $ENV{CVSROOT}=":pserver:$opt_sfuser\@$cvs_host:/cvsroot/xmltv";
     do_system("cvs login");
 }
 
 print "\nChecking out current head revision in $TMP_CHECKOUT_DIR/xmltv ..\n";
 chdir $TMP_CHECKOUT_DIR or die "could not chdir to $TMP_CHECKOUT_DIR: $!";
 $ENV{CVS_RSH} = 'ssh';
-$ENV{CVSROOT} = ":ext:$opt_sfuser\@cvs.xmltv.sourceforge.net:/cvsroot/xmltv";
+$ENV{CVSROOT} = ":ext:$opt_sfuser\@$cvs_host:/cvsroot/xmltv";
 do_system("cvs -z3 -q co -P xmltv");
 
 # Filename, and a regexp to capture the version in $1.
