@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.188 2004/02/23 20:55:55 epaepa Exp $
+# $Id: Makefile.PL,v 1.189 2004/03/06 11:43:52 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -133,7 +133,7 @@ my %prereqs
      'XML::Parser' => 2.34,
      'XML::Twig'   => 3.09,
      'Date::Manip' => 5.42,
-     'XML::Writer' => '0.4.1',
+     'XML::Writer' => '0.4.6',
      'Memoize'     => 0,
      'Storable'    => 2.04,
     );
