@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_nl_wolf,v 1.1 2003/04/06 17:20:56 epaepa Exp $
+# $Id: tv_grab_nl_wolf,v 1.2 2003/04/12 20:40:22 epaepa Exp $
 
 =head1 NAME
 
@@ -55,7 +55,6 @@ package Grab_XML_nl_wolf;
 use base 'XMLTV::Grab_XML';
 
 use Date::Manip;
-use LWP::Simple;
 use HTML::TreeBuilder;
 
 # Todo: perhaps we should internationalize messages and docs?
@@ -69,7 +68,7 @@ my $URL_BASE = 'http://wolf.xs4all.nl/xmltv/';
 # Returns a hash mapping YYYMMDD to URL.
 sub urls_by_date( $ ) {
     my $pkg = shift;
-    my $index = get($URL_BASE);
+    my $index = $pkg->get($URL_BASE);
     die "could not get index page $URL_BASE, aborting\n"
       if not defined $index;
     my $t = new HTML::TreeBuilder;

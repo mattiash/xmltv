@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_us_gist,v 1.1 2003/04/12 11:45:35 epaepa Exp $
+# $Id: tv_grab_us_gist,v 1.2 2003/04/12 20:40:23 epaepa Exp $
 
 =head1 NAME
 
@@ -83,7 +83,6 @@ package Grab_XML_us_gist;
 use base 'XMLTV::Grab_XML';
 
 use Date::Manip;
-use LWP::Simple;
 
 # Todo: perhaps we should internationalize messages and docs?
 sub country( $ ) {
