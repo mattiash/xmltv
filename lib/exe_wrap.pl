@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.16 2003/05/13 05:35:50 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.17 2003/05/13 06:06:31 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -14,6 +14,8 @@
 #
 # Robert Eden rmeden@yahoo.com
 #
+
+use File::Basename;
 
 #
 # get/check time zone
