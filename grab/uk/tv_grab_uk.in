@@ -66,7 +66,7 @@ although they do appear as warning messages.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk.in,v 1.85 2003/07/19 16:15:59 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk.in,v 1.86 2003/07/19 16:28:08 epaepa Exp $ ';
 use LWP::Simple;
 use Getopt::Long;
 use Date::Manip;
@@ -91,27 +91,6 @@ BEGIN {
 
 # Use Term::ProgressBar if installed.
 use constant Have_bar => eval { require Term::ProgressBar; 1 };
-
-# If 5.6, then Tie::RefHash::Nestable is available.  Otherwise roll
-# our own.
-#
-package Tie::RefHash::MyNestable;
-our @ISA = qw(Tie::RefHash);
-sub STORE {
-    my($s, $k, $v) = @_;
-    if (ref($v) eq 'HASH' and not tied %$v) {
-	my @elems = %$v;
-	tie %$v, ref($s), @elems;
-    }
-    $s->SUPER::STORE($k, $v);
-}
-package main;
-BEGIN {
-    if (not @Tie::RefHash::Nestable::ISA) {
-	# Apparently this is the way to copy the whole namespace.
-	*Tie::RefHash::Nestable:: = *Tie::RefHash::MyNestable::;
-    }
-}
 
 use XMLTV;
 # We modify the XMLTV module's tables to add a <distribution> element
