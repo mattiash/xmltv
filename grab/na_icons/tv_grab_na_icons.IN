@@ -61,7 +61,7 @@ use HTML::TableExtract;
 use WWW::Mechanize 1.02;
 
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.IN,v 1.3 2004/04/27 01:16:03 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.IN,v 1.4 2004/04/30 01:13:09 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
@@ -105,7 +105,7 @@ while (1)
 {
     die "Can't find zipcode form\n" unless find_form($a,"zipcode");
 
-    my $zip=ask("\nPostal Code:")|75104;
+    my $zip=ask("\nPostal Code:");
     $a->field("zipcode",$zip);
     $a->submit;
     check_page($a);
