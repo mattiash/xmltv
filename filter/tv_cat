@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_cat,v 1.8 2002/08/29 20:56:35 epaepa Exp $
+# $Id: tv_cat,v 1.9 2002/09/01 11:53:50 epaepa Exp $
 
 =head1 NAME
 
@@ -36,7 +36,7 @@ L<xmltv(5)>.
 
 =head1 AUTHOR
 
-Ed Avis, epa98@doc.ic.ac.uk
+Ed Avis, ed@membled.com
 
 =cut
 

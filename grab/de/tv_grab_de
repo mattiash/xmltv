@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_de,v 1.6 2002/08/29 20:56:35 epaepa Exp $
+# $Id: tv_grab_de,v 1.7 2002/09/01 11:53:50 epaepa Exp $
 
 =head1 NAME
 
@@ -27,7 +27,7 @@ L<xmltv(5)>, L<http://yasd.dhs.org/>, L<http://yasd.dhs.org/xmltv/>
 
 =head1 AUTHOR
 
-Ed Avis, epa98@doc.ic.ac.uk
+Ed Avis, ed@membled.com
 
 =head1 BUGS
 

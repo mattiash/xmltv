@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.8 2002/08/29 20:56:35 epaepa Exp $
+# $Id: tv_to_latex,v 1.9 2002/09/01 11:53:50 epaepa Exp $
 
 =head1 NAME
 
@@ -22,7 +22,7 @@ L<xmltv(5)>.
 
 =head1 AUTHOR
 
-Ed Avis, epa98@doc.ic.ac.uk
+Ed Avis, ed@membled.com
 
 =head1 BUGS
 
@@ -331,7 +331,7 @@ sub start_date( $ ) {
 # Parameters: string to quote
 # Returns: quoted version
 # 
-# Copied from <http://www.doc.ic.ac.uk/~epa98/work/apps/dtd2latex/>;
+# Copied from <http://membled.com/work/apps/dtd2latex/>;
 # should put something like this into a 'LaTeX' module some day.
 # 
 sub quote( $ ) {

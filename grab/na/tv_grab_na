@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.22 2002/06/14 16:54:51 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.23 2002/09/01 11:53:50 epaepa Exp $
 
 =head1 NAME
 
@@ -118,7 +118,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/06/14 16:54:51 $;
+my $Date = q$Date: 2002/09/01 11:53:50 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1670,7 +1670,7 @@ sub writeOutPrograms($$$$$$)
 	    if ( defined($prog->{qualifiers}->{PaidProgram}) ) {
 		# FIXME I don't that payment counts as a
 		# 'category'.  Though there should probably be
-		# some way to include it.  -- epa98@doc.ic.ac.uk
+		# some way to include it.  -- ed@membled.com
 		# 
 		$writer->dataElement('category', "advertisement");
 		delete($prog->{qualifiers}->{PaidProgram});
