@@ -280,7 +280,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.7 2004/06/07 05:54:00 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.8 2004/06/08 05:03:10 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -636,7 +636,12 @@ my $twig=XML::Twig->new(
 	         });
 seek($dd_data,0,0);  #rewind
 eval { $twig->parse( $dd_data ) };
-die "\n\n*** FAULT Message from Data Direct detected.\n*** Check above error, or look at the raw XML using --dd-data\n" if $found_fault;
+die "
+
+*** FAULT Message from Data Direct detected.
+*** Check above error, or look at the raw XML using --dd-data
+*** Lastly, check the xmltv-users mailing list and
+*** DataDirect forum for known issues\n" if $found_fault;
 
 #
 # load supporting details
