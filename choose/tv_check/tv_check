@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.20 2002/10/02 02:40:47 rmeden Exp $
+# $Id: tv_check,v 1.21 2002/10/04 01:53:37 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.20 $ ' . <<END
+' tv_check v $Revision: 1.21 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1231,7 +1231,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.20 $
+tv_check $Revision: 1.21 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
@@ -1424,6 +1424,7 @@ sub load_guide
         
         for my $date ( sort keys %{$GUIDE{$chan}})
         {
+            next unless $chan =~ /^\d+ /;
             next unless $date =~ /^\d\d\d\d$/;
 
             for my $hhmm ( sort keys %{$GUIDE{$chan}{$date}})
