@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.72 2003/05/12 21:23:11 epaepa Exp $
+# $Id: tv_grab_na,v 1.73 2003/05/15 20:26:14 epaepa Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/05/12 21:23:11 $;
+my $Date = q$Date: 2003/05/15 20:26:14 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -498,8 +498,9 @@ use IO qw(File);
 use Getopt::Long;
 
 # We don't currently call Date_Init() with a new timezone, but if we
-# did, it would be important for it to come after parsing 'now'.
-# (Bug in Date::Manip.)
+# did, it would be important for it to come after parsing 'now', and
+# perhaps for 'now' to be parsed with parse_local_date().  (Bug in
+# Date::Manip.)
 #
 use Date::Manip;
 my $now = ParseDateString("now");
