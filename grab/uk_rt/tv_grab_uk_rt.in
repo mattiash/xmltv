@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use Getopt::Long;
 use Date::Manip; Date_Init('TZ=+0000');
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.68 2004/09/21 20:48:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.69 2004/09/27 19:34:44 epaepa Exp $ ';
 use XMLTV::Config_file;
 use XMLTV::Get_nice;
 use XMLTV::Ask;
@@ -131,7 +131,7 @@ foreach (split /\n/, $channel_list) {
 }
 update $bar if $bar;
 foreach (keys %xmltv_to_rt) {
-    warn "channel $_ (RT id $xmltv_to_rt{$_}) mentioned in channel ids file but not on site"
+    warn "channel $_ ($xmltv_to_rt{$_}) not seen on site"
       if not exists $channels{$_};
 }
 
