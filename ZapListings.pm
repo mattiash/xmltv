@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.10 2001/11/14 16:32:23 epaepa Exp $
+# $Id: ZapListings.pm,v 1.11 2001/11/14 17:13:43 jveldhuis Exp $
 
 package ZapListings;
 
@@ -811,9 +811,9 @@ sub scrapehtml($$$)
     return(@programs);
 }
 
-sub readSchedule($$$$$$$)
+sub readSchedule($$$$$)
 {
-    my ($self, $station, $station_desc, $startHour, $endHour, $day, $month, $year)=@_;
+    my ($self, $station, $station_desc, $day, $month, $year)=@_;
 
     my $content;
 
