@@ -87,7 +87,7 @@ recommended by the XMLTV DTD.
 # initializations
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.5 2004/11/08 23:36:21 mnbjhguyt Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it_lt.in,v 1.6 2005/02/06 17:58:46 epaepa Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;
@@ -559,7 +559,8 @@ sub get_channels_list {
     my $chop_start='onchange="this.form.IDChannel_name.value=this.options[this.selectedIndex].text;">';
     my $chop_end="</select>";
     #takes out everything we don't want
-    $content =~ /\Q$chop_start\E..(.*?)(\Q$chop_end\E)/s;
+    $content =~ /\Q$chop_start\E..(.*?)(\Q$chop_end\E)/s
+      or die "did not see stuff between $chop_start and $chop_end in:\n$content\n";
     $content = $1;
 
     my @channels = split /\n/, $content;
