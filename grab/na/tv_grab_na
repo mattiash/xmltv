@@ -181,12 +181,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.90 2003/10/26 20:21:23 jveldhuis Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.91 2003/11/01 13:04:31 epaepa Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/10/26 20:21:23 $;
+my $Date = q$Date: 2003/11/01 13:04:31 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -528,28 +528,36 @@ our ($opt_debug, $opt_quiet, $opt_stats);
 
 sub statusMessage($)
 {
+    my $msg = shift;
+    die 'expected a message' if not defined $msg;
     if ( !$opt_quiet ) {
-	say $_[0];
+	say $msg;
     }
 }
 
 sub statsMessage($)
 {
+    my $msg = shift;
+    die 'expected a message' if not defined $msg;
     if ( $opt_stats ) {
-	say $_[0];
+	say $msg;
     }
 }
 
 sub debugMessage($)
 {
+    my $msg = shift;
+    die 'expected a message' if not defined $msg;
     if ( $opt_debug ) {
-	print STDERR @_;
+	print STDERR $msg;
     }
 }
 
 sub errorMessage($)
 {
-    say $_[0];
+    my $msg = shift;
+    die 'expected a message' if not defined $msg;
+    say $msg;
 }
 
 sub mkpath($)
