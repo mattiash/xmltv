@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.33 2003/02/01 21:51:30 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.34 2003/02/01 22:28:02 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -688,6 +688,8 @@ sub doRequest($$$)
 }
 
 # todo - change to freshmeat.net/projects-xml/xmltv/xmltv.xml
+#        problem is this xml doesn't include a date of the release :<
+# expects the sourceforge project page url
 sub getCurrentReleaseInfo($$)
 {
     my $url=shift;
@@ -805,6 +807,7 @@ sub initGeoCodeAndGetProvidersList($$)
 
     if ( !defined($self->{ProviderForm}) ) {
       main::errorMessage("zap2it failed to give us a form to choose a Provider\n");
+      main::errorMessage("check with zap2it site postal/zip code $geocode is valid\n");
 	return(-1);
     }
 
