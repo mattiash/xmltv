@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_uk.PL,v 1.2 2003/03/10 22:29:00 epaepa Exp $
+# $Id: tv_grab_uk.PL,v 1.3 2003/03/10 22:51:01 epaepa Exp $
 #
-my $in = 'grab/uk/tv_grab_uk.in';
+use vars '$in'; $in = 'grab/uk/tv_grab_uk.in';
 require 'lib/set_share_dir.pl';
