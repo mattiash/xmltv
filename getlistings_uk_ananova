@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_uk_ananova,v 1.36 2002/01/19 18:32:13 epaepa Exp $
+# $Id: getlistings_uk_ananova,v 1.37 2002/01/20 14:55:09 epaepa Exp $
 #
 # Fetch UK television listings from the data provided by ananova.com.
 #
@@ -124,7 +124,7 @@ $writer->start({ 'source-info-url'     =>
 	  'http://www.ananova.com/tv_listings/_tv_full_listings.html',
 	         'source-info-name'    => 'Ananova',
 	         'source-data-url'     => $A,
-	         'generator-info-name' => 'XMLTV/0.4',
+	         'generator-info-name' => 'XMLTV/0.4.3',
 	         'generator-info-url'  =>
 	  'http://www.doc.ic.ac.uk/~epa98/work/apps/xmltv/',
 	       });
