@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.9 2003/01/18 16:39:13 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.10 2003/01/21 06:33:32 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -28,8 +28,19 @@ unless (exists $ENV{TZ})
     my $tz     = ($lhour - $ghour);
        $tz    -= 24 if $tz >  12;
        $tz    += 24 if $tz < -12;
-       $tz     = sprintf("%+03d00",$tz);
+       if    ($tz == -5 ) { $tz='EST5EDT' }
+#
+# this should not be necessary, but DATE::MANIP doesn't always deal with
+# numeric time zones correctly.  This should hold us until the fix is widely
+# distributed.
+#
+       elsif ($tz == -6 ) { $tz='CST6CDT' }
+       elsif ($tz == -7 ) { $tz='MST7MDT' }
+       elsif ($tz == -8 ) { $tz='PST8PDT' }
+       else               { $tz= sprintf("%+03d00",$tz) };
+
        $ENV{TZ}= $tz;
+
 } #timezone
 print STDERR "Timezone is $ENV{TZ}\n";
 
