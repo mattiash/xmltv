@@ -1,11 +1,10 @@
 # Generate XMLTV.pm from XMLTV.pm.PL.  This is to generate part of
 # the pod documentation from the list of handlers.
 #
-# $Id: XMLTV.pm.PL,v 1.3 2003/02/08 00:20:53 epaepa Exp $
+# $Id: XMLTV.pm.PL,v 1.4 2003/04/05 18:26:55 epaepa Exp $
 #
 
 use strict;
-use diagnostics;
 sub print_list( $$ );
 
 my $out = shift @ARGV; die "no output file given" if not defined $out;
