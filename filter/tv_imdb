@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_imdb,v 1.5 2003/03/04 06:29:13 jveldhuis Exp $
+# $Id: tv_imdb,v 1.6 2003/03/04 18:44:50 jveldhuis Exp $
 
 =head1 NAME
 
@@ -96,6 +96,8 @@ step you through the prep stages with more description of what is being
 done and what is required. Configure could also control the number of
 actors to add (since some movies have an awful lot), currently we are
 adding the top 3.
+
+How and what to look up needs to be option driven.
 
 Needs some more controls for fine tuning "close" matches. For instance,
 currently it looks like the tv_grab_na grabber only has date entries for
