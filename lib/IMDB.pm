@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.46 2004/05/15 02:39:03 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.47 2004/09/05 21:35:31 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -2049,7 +2049,7 @@ sub invokeStage($$)
     }
     elsif ( $stage == 5 ) {
 	$self->status("parsing Genres list for stage $stage..");
-	my $countEstimate=271000;
+	my $countEstimate=290000;
 	my $num=$self->readMoviesOrGenres("Genres", $countEstimate, "$self->{imdbListFiles}->{genres}");
 	if ( $num < 0 ) {
 	    if ( $num == -2 ) {
@@ -2099,7 +2099,7 @@ sub invokeStage($$)
     }
     elsif ( $stage == 6 ) {
 	$self->status("parsing Ratings list for stage $stage..");
-	my $countEstimate=85000;
+	my $countEstimate=90000;
 	my $num=$self->readRatings($countEstimate, "$self->{imdbListFiles}->{ratings}");
 	if ( $num < 0 ) {
 	    if ( $num == -2 ) {
@@ -2712,8 +2712,8 @@ sub crunchStage($$)
 	}
 	else {
 	    $self->status("prep stage $stage succeeded with $self->{errorCountInLog} errors in $self->{imdbDir}/stage$stage.log");
-	    if ( $stage == 7 && $self->{errorCountInLog} > 30 && $self->{errorCountInLog} < 60 ) {
-		$self->status("this stage commonly produces around 49 (or so) warnings because of imdb");
+	    if ( $stage == 7 && $self->{errorCountInLog} > 30 && $self->{errorCountInLog} < 80 ) {
+		$self->status("this stage commonly produces around 60 (or so) warnings because of imdb");
 		$self->status("list file inconsistancies, they can usually be safely ignored");
 	    }
 	}
