@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_us_gist,v 1.7 2003/04/26 12:01:52 epaepa Exp $
+# $Id: tv_grab_us_gist,v 1.8 2003/04/26 12:12:43 epaepa Exp $
 
 =head1 NAME
 
@@ -74,6 +74,7 @@ It should be possible to fully automate the registration process.
 =cut
 
 use strict;
+use LWP::UserAgent;
 
 # First we give some support routines.
 
@@ -139,7 +140,6 @@ package Grab_XML_us_gist;
 use base 'XMLTV::Grab_XML';
 
 use Date::Manip;
-use LWP::UserAgent;
 
 # Todo: perhaps we should internationalize messages and docs?
 sub country( $ ) {
