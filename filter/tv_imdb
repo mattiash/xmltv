@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+=pod
+
 =head1 NAME
 
 tv_imdb - Augment XMLTV listings files with imdb.com data.
@@ -140,7 +142,7 @@ Jerry Veldhuis, jerry@matilda.com
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_imdb,v 1.16 2003/05/31 13:11:59 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_imdb,v 1.17 2003/06/29 15:53:51 epaepa Exp $ ';
 use Data::Dumper;
 use Getopt::Long;
 

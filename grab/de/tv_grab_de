@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+=pod
+
 =head1 NAME
 
 tv_grab_de - Grab TV listings for Germany and Austria.
@@ -63,7 +65,7 @@ use strict;
 #
 use bytes;
 
-use XMLTV::Version '$Id: tv_grab_de,v 1.26 2003/06/29 14:51:16 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de,v 1.27 2003/06/29 15:53:51 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.

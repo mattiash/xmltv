@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+=pod
+
 =head1 NAME
 
 tv_grab_na - Grab Canadian and US TV listings.
@@ -172,12 +174,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.76 2003/06/21 20:16:36 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.77 2003/06/29 15:53:51 epaepa Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/06/21 20:16:36 $;
+my $Date = q$Date: 2003/06/29 15:53:51 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }

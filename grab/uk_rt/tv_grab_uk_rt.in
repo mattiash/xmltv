@@ -1,5 +1,7 @@
 #!/usr/bin/perl -w
 
+=pod
+
 =head1 NAME
 
 tv_grab_uk_rt - Grab TV listings for the United Kingdom, from an
@@ -82,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.24 2003/06/21 20:02:12 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.25 2003/06/29 15:53:52 epaepa Exp $ ';
 use IO::Socket;
 use LWP::Simple;
 use Date::Manip;

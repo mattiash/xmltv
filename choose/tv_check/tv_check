@@ -18,6 +18,8 @@
 #
 #
 
+=pod
+
 =head1 NAME
 
 tv_check - Check TV guide listings
@@ -65,7 +67,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.38 2003/06/08 18:21:37 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.39 2003/06/29 15:53:51 epaepa Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -78,7 +80,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.38 $ ' . <<END
+' tv_check v $Revision: 1.39 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1314,7 +1316,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.38 $
+tv_check $Revision: 1.39 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
