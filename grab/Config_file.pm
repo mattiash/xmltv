@@ -1,4 +1,4 @@
-# $Id: Config_file.pm,v 1.8 2004/05/13 19:32:51 epaepa Exp $
+# $Id: Config_file.pm,v 1.9 2004/09/02 16:30:49 axis3x3 Exp $
 package XMLTV::Config_file;
 use strict;
 use XMLTV::Ask;
@@ -46,7 +46,7 @@ sub filename( $$;$$ ) {
 sub check_no_overwrite( $ ) {
     my $f = shift;
     if (-e $f) {
-	if (not askBooleanQuestion <<END
+	if (not ask_boolean <<END
 The configuration file $f
 already exists.  There is currently no support for altering an
 existing configuration: you have to reconfigure from scratch.
