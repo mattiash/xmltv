@@ -61,7 +61,7 @@ if (not os.path.exists(config_file)) and os.path.exists(old_config_file):
 
 def version ():
 	# FIXME this duplicates some of XMLTV::Version.
-	v = "$Id: tv_grab_nz.in,v 1.4 2003/06/29 15:53:52 epaepa Exp $"
+	v = "$Id: tv_grab_nz.in,v 1.5 2003/07/06 18:39:46 epaepa Exp $"
 	m = re.search('\$Id: ([^,]+),v (\S+) ([0-9/: -]+)', v)
 	if m:
 		sys.stdout.write("This is %s version %s, %s\n"
@@ -344,7 +344,12 @@ class TvGuide:
 
 #		print "Getting programs for: " + name
 		url=eval(url_string)
-		f = urllib.urlopen(url)
+		try:
+			f = urllib.urlopen(url)
+		except IOError, e:
+			self.error("Error downloading program listing for %s, URL %s: %s"
+				   % (name, url, `e`))
+			return []
 		if f == None:
 			self.error("Error downloading program listing for " + name)
 			return []
