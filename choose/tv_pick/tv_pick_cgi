@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.2 2002/02/24 19:52:48 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.3 2002/03/31 23:40:02 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -414,7 +414,7 @@ sub display_form($) {
 	$stop = '' if not defined $stop;
 	my $title     = best_name(\@PREF_LANGS, $h{title})->[0];
 	my $display_title = $title;
-	$display_title .= " (@{$h{date}})" if defined $h{date};
+	$display_title .= " ($h{date})" if defined $h{date};
 	my $category  = best_name(\@PREF_LANGS, $h{category})->[0]  if $h{category};
 	my $sub_title = best_name(\@PREF_LANGS, $h{'sub-title'})->[0] if $h{'sub-title'};
 	my $desc      = best_name(\@PREF_LANGS, $h{desc})->[0]      if $h{desc};
