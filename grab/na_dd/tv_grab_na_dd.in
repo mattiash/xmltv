@@ -280,7 +280,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.5 2004/05/22 20:22:30 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.6 2004/06/04 01:56:42 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -837,6 +837,11 @@ Do you want to skip some channels?",0);
     
     foreach (@{$lineups{$dd_lineup}{map}})
     {
+       unless ($station{$_->{station}}{callSign})
+       {
+           print STDERR "Warning $_->{channel} has no callsign. Skipping\n";
+           next;
+       }
        my $res='yes';
        my $key=sprintf("%s %s",$_->{channel},$station{$_->{station}}{callSign});
        $chan_found{$key}=1;
@@ -959,6 +964,13 @@ for my $map (@{$lineups{$dd_lineup}{map}})
     my $myid = sprintf("I%d.labs.zap2it.com",$sid);
 
     my $station=$station{$sid};
+
+    unless ($station->{callSign})
+    {
+       print STDERR "Strange $map->{channel} has no callsign. Skipping\n";
+       next;
+    }
+
     my $key=sprintf("%s %s",$map->{channel},$station->{callSign});
 
 #
