@@ -1,6 +1,6 @@
 # Routines for reading and writing XMLTV files from Perl.
 #
-# $Id: XMLTV.pm,v 1.25 2002/02/24 19:52:48 epaepa Exp $
+# $Id: XMLTV.pm,v 1.26 2002/03/06 16:01:53 epaepa Exp $
 #
 
 package XMLTV;
@@ -18,8 +18,6 @@ use Memoize;
 use Lingua::Preferred qw(which_lang);
 use Carp;
 use Data::Dumper;
-
-use XMLTV::UK_TZ;
 
 # Handlers for different subelements of programme.  First value is the
 # name of the element, second is a subroutine which turns the DOM node

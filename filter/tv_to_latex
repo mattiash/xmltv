@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.3 2002/02/24 19:52:48 epaepa Exp $
+# $Id: tv_to_latex,v 1.4 2002/03/06 16:01:53 epaepa Exp $
 
 =head1 NAME
 
@@ -37,7 +37,7 @@ use IO::File;
 use Date::Manip;
 use POSIX 'tmpnam';
 use XMLTV qw(best_name);
-use XMLTV::UK_TZ; # FIXME cannot do this in general!
+use XMLTV::TZ qw(gettz ParseDate_PreservingTZ);
 use Log::TraceMessages qw(t d); Log::TraceMessages::check_argv();
 use Getopt::Long;
 use Unicode::String;
