@@ -7,7 +7,16 @@ Then there are several tools to produce and process these listings.
 Please see doc/QuickStart for documentation on what each program does,
 and xmltv.dtd for documentation on the file format.
 
-* Changes in this release
+* Changes in this release (0.5.33)
+
+tv_grab_na_icons - a new script to grab icons from Zap2IT
+tv_grab_na_dd    - updated to include icon links downloaded with tv_grab_na_dd
+
+The tv_grab_na_dd crashing issue has been resolved.  The cause was my Windows 98
+machine had an old version of perl installed.
+
+
+------------------ what was new ---------------------
 
 An extension to the DTD: there can now be zero or more <episode-num>
 elements.  This is a backwards-incompatible change for anything using
@@ -121,4 +130,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2004-04-13
-$Id: README,v 1.107 2004/04/13 22:20:54 epaepa Exp $
+$Id: README,v 1.108 2004/04/27 01:27:20 rmeden Exp $
