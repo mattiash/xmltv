@@ -22,7 +22,7 @@ tv_grab_na_dd - Grab TV listings for North America using Zap2IT's Data Direct se
                   [--reprocess] [--auto-config add|ignore]
                   [--days N]  [--offset N] [--quiet]
                   [--old-chan-id] [--low-mem] [--output FILE]
-                  [--list-channel]
+                  [--list-channel] [--share SHAREDIR]
                   [--download-only]
 
 =head1 DESCRIPTION
@@ -120,6 +120,12 @@ same as B<--days> 0
 
 Don't generate any output, just fetch the data.  Personally I don't see the point,
 but it was requested and easy to add.
+
+=item -share I<SHAREDIR>
+
+tv_grab_na_icons stores icons in I<SHAREDIR>/icons.  The share directory is set at install time,
+but there may be times when it needs to be specified. (for example: no write access to the default share
+directory)
 
 =back
 
@@ -267,7 +273,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.14 2004/05/09 02:40:12 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.15 2004/05/09 02:53:25 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
