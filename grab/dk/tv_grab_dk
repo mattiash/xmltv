@@ -74,7 +74,7 @@ Genudsendelse fra mandag. - convert to <previously-shown>?
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_dk,v 1.21 2004/11/10 19:38:43 jtoft Exp $ ';
+use XMLTV::Version '$Id: tv_grab_dk,v 1.22 2004/12/03 21:57:29 rmeden Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities; # parse entities
@@ -373,6 +373,7 @@ foreach (@to_get) {
 }
 $bar->finish() if not $opt_quiet;
 $writer->end();
+exit(0);
 
 ######################################################################
 # subroutine definitions
