@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.48 2005/03/12 16:33:03 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.49 2005/03/12 17:34:34 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -2507,7 +2507,7 @@ sub invokeStage($$)
 		    $year="0000";
 		}
 		else {
-		    warn "unable to decode year from title key \"$title\", report to xmltv-devel\@lists.sf.net";
+		    $self->error("movie list format failed to decode year from title '$title'");
 		    $year="0000";
 		}
 		$title=~s/(.*),\s*(The|A|Une|Les|L\'|Le|La|El|Das)$/$2 $1/og;
