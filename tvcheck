@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tvcheck,v 2.1 2002/01/11 05:20:56 rmeden Exp $
+# $Id: tvcheck,v 2.2 2002/01/11 05:36:02 rmeden Exp $
 #
 # tvcheck
 #
@@ -83,7 +83,7 @@ $COL_VALUE[$_] = "" foreach (0..$#COL);
                       'shows=s'  => \$SHOW_XML,
                       'guide=s'  => \$GUIDE_XML))
     {
-        print " tvcheck v \$revision$\n\n";
+        print " tvcheck v \$Revision\$\n\n";
         print " part of the xmltv toolkit ( http://xmltv.sourceforge.net )\n\n";
         print "usage $0 (--configure|--scan) [--options] \n";
         print "where --options are:\n";
@@ -799,7 +799,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tvcheck $Revision: 2.1 $
+tvcheck $Revision: 2.2 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
