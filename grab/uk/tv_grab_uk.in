@@ -66,7 +66,7 @@ although they do appear as warning messages.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk.in,v 1.88 2003/08/28 20:56:59 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk.in,v 1.89 2003/08/29 19:35:05 epaepa Exp $ ';
 use LWP::Simple;
 use Getopt::Long;
 use Date::Manip;
@@ -371,14 +371,12 @@ END
     say("Local radio channels must be selected individually,\n");
 
     for (;;) {
-
 	my $in = ask(<<END
 Do you want any other channels?
 
 Enter the name of a channel, or '.' to finish:
 END
   );
-	
 	$in =~ s/^\s+//; $in =~ s/\s+$//;
 	last if $in eq '.';
 	my @poss;
