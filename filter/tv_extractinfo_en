@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.38 2002/09/22 12:15:43 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.39 2002/09/28 21:15:49 epaepa Exp $
 
 =head1 NAME
 
@@ -141,7 +141,17 @@ sub cst( $ );
 sub no_shared_scalars( $ );
 sub has( $$@ );
 sub hasp( $$$ );
-
+sub pd( $ );
+sub ud( $ );
+sub nd( $ );
+sub bn( $ );
+sub munge( $ );
+sub multipart_split_desc( $$ );
+sub clocks_poss( $ );
+sub time12to24( $ );
+sub add( $$$ );
+sub scrub_empty( @ );
+sub set_stop_time( $$ );
 
 # --no-create-sub-titles is an undocumented switch, affecting the
 # splitting of multipart programmes only, to not break a title
