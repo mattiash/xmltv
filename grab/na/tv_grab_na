@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.49 2003/02/16 01:27:17 epaepa Exp $
+# $Id: tv_grab_na,v 1.50 2003/02/16 11:03:59 epaepa Exp $
 
 =head1 NAME
 
@@ -173,7 +173,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/16 01:27:17 $;
+my $Date = q$Date: 2003/02/16 11:03:59 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -200,6 +200,9 @@ my $old_configPathName;
 # default location of config file is $HOME or ./ if HOME not set
 if ( defined($ENV{HOME}) ) {
     $ConfigPathName_g="$ENV{HOME}/.xmltv/$ConfigFileName_g";
+    # The directory containing this file is created when
+    # myConfig::save() is called.
+
     $old_configPathName="$ENV{HOME}/.xmltv/$old_configFileName";
 }
 else {
@@ -209,6 +212,7 @@ else {
 
 if (-f $old_configPathName and not -e $ConfigPathName_g) {
     warn "migrating config file $old_configPathName -> $ConfigPathName_g\n";
+    # Assume that the old and new filenames are in the same directory.
     rename($old_configPathName, $ConfigPathName_g)
       or die "cannot rename $old_configPathName to $ConfigPathName_g: $!";
 }
