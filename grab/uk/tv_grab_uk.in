@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.73 2003/03/28 19:49:18 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.74 2003/03/30 13:45:07 epaepa Exp $
 
 =head1 NAME
 
@@ -660,8 +660,12 @@ sub grab( @ ) {
 			die "no content for first day, giving up\n";
 		    }
 		    else {
-			my $prev = $day - 1;
-			warn "no content for day $day, assuming --days $prev\n";
+			my $msg = "no content for day $day, ";
+			my $last_day_with_content = $day - 1;
+			my $new_days = $last_day_with_content - $opt_offset;
+			$msg .= "assuming --days $new_days";
+			$msg .= " --offset $opt_offset" if $opt_offset;
+			warn "$msg\n";
 			last DAY;
 		    }
 		}
