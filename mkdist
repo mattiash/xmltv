@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.23 2002/09/20 19:13:03 epaepa Exp $
+# $Id: mkdist,v 1.24 2002/10/10 16:33:53 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -224,7 +224,7 @@ print "    - ftp release files to upload.sf.net (login as anonymous)\n";
 print "    - goto XMLTV project page and click 'admin',\n";
 print "      click 'Edit/Release Files',\n";
 print "      click 'Add Release' right of 'xmltv' in list\n";
-print "      use release name 'XMLTV-$opt_version' and click 'Create This Release'\n";
+print "      use release name '$opt_version' and click 'Create This Release'\n";
 print "    - in Step 1, change the year in 'Release Date' to 2000, so it reads\n";
 print "      2000-01-01 instead of 2002-01-01 and hit 'Submit/Refresh'\n";
 print "      (this forces this release to the bottom of the files list so\n";
