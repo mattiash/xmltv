@@ -226,7 +226,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.30 2004/04/01 23:33:18 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.31 2004/04/03 11:29:23 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -609,7 +609,20 @@ unless ($opt_quiet)
     else          { print STDERR "loading data "; }
 }
 seek($dd_data,0,0);  #rewind
-$twig->parse( $dd_data );
+eval { $twig->parse( $dd_data ) };
+if ($@) {
+    warn "\nerror parsing DD xml: $@\nPartial XML follows:\n";
+    my $first_line = 1;
+    if ($@ =~ /at line (\d+)/) { $first_line = $1 }
+    seek($dd_data, 0, 0);
+    while (<$dd_data>)
+    {
+	next unless $. >= $first_line;
+	print STDERR $_;
+    }
+    die "\nBad XML from DD, cannot continue\n";
+}
+
 $bar->update($dd_data_size+1) if $bar;
 print STDERR "\n" unless ($opt_quiet || $bar );
 
