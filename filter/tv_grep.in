@@ -147,7 +147,7 @@ if the stop time were given.  There will be a warning if this happens
 more than once on any single channel.  It could be worthwhile to filter
 the listings data through L<tv_sort(1)> beforehand to add stop times.
 
-Similarl remarks apply to --on-before: if the stop time is missing we
+Similar remarks apply to --on-before: if the stop time is missing we
 assume it is equal to the start time, and this can mean leaving in a
 programme which, if it had a stop time, would be removed.
 
@@ -177,7 +177,7 @@ tv_grep is not always idempotent.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grep.in,v 1.36 2003/08/29 21:16:06 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grep.in,v 1.37 2003/12/06 16:29:03 epaepa Exp $ ';
 use XMLTV;
 use XMLTV::Clumps qw(clump_relation fix_clumps);
 use XMLTV::Grep qw(get_matcher);
