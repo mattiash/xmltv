@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.25 2002/10/15 19:45:31 epaepa Exp $
+# $Id: mkdist,v 1.26 2002/12/01 10:12:45 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -108,7 +108,7 @@ if ( !defined($opt_sfuser) ) {
    }
 }
 
-print "****** Did you update the README file release information ? *****\n";
+print "Did you update the README and README.win32 files with release information?\n";
 print "hit return to continue with mkdist, or ^C to stop here.";
 my $junk=<>; # read return
 
