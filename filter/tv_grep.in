@@ -172,7 +172,7 @@ tv_grep is not always idempotent.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grep.in,v 1.32 2003/05/31 13:34:14 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grep.in,v 1.33 2003/06/08 10:10:35 epaepa Exp $ ';
 use XMLTV;
 use XMLTV::Clumps qw(clump_relation fix_clumps);
 use XMLTV::Grep qw(get_matcher);
@@ -478,7 +478,8 @@ foreach my $ch_id (keys %$ch) {
 	my $matched = 0;
 	if (exists $ch->{'display-name'}) {
 	    foreach (map { $_->[0] } @{$ch->{'display-name'}}) {
-		if ($ignore_case ? /$re/i : /$re/) {
+		if ($re eq ''
+		    or ($ignore_case ? /$re/i : /$re/)) {
 		    $matched = 1;
 		    last;
 		}
@@ -689,6 +690,7 @@ sub whole_programme_regexp( $ ) {
     # Stringify the whole darn thing and match against that.
     local $_ = Dumper($_);
 #    t 'testing stringified whole programme: ' . d $_;
+    return 1 if $re eq '';
     return $ignore_case ? /$re/i : /$re/;
 }
 
