@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.32 2004/03/16 22:39:18 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.33 2004/03/21 14:51:33 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -60,7 +60,7 @@ print STDERR "Timezone is $ENV{TZ}\n";
 $cmd = shift || "";
 
 # --version (and abbreviations thereof)
-my $VERSION = '0.5.30';
+my $VERSION = '0.5.31';
 if (index('--version', $cmd) == 0 and length $cmd >= 3) {
     print "xmltv $VERSION\n";
     exit;
