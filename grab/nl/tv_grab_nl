@@ -70,7 +70,7 @@ channels the site has.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.35 2003/06/01 09:10:36 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.36 2003/06/01 10:16:37 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities; # parse entities
@@ -1039,6 +1039,19 @@ sub process_summary_page( $$$ ) {
 	my $title = $title_bit->[2];
 	t 'shifted bit to get $title_href=' . d $title_href . ', '
 	  . '$title=' . d $title;
+
+	if ($title =~ /^Ieder heel uur .+, tenzij anders vermeld$/) {
+	    # A certain programme on the hour.  But it isn't worth
+	    # adding this to the output, ignore it.
+	    #
+	    next;
+	}
+	if ($title eq 'NB: Programmering onder voorbehoud') {
+	    # Programming subject to change.  There isn't a way to
+	    # represent this in the current XMLTV format.
+	    #
+	    next;
+	}
 	
 	# Right, got channel name, times, and title.
 	# FIXME should check channel name (among other things).
