@@ -6,7 +6,7 @@
 # seem to match.
 #
 # -- Ed Avis, ed@membled.com, 2003-10-04
-# $Id: test_tv_split.t,v 1.4 2004/01/03 14:52:53 epaepa Exp $
+# $Id: test_tv_split.t,v 1.5 2004/01/20 20:33:18 epaepa Exp $
 #
 
 use warnings;
@@ -94,24 +94,23 @@ INPUT: foreach my $input (@inputs) {
     # Read the files generated.
     chdir $dir or die "cannot chdir to $dir: $!";
     my %found;
-    foreach (<*.out>) {
-	open(FH, $_) or die "cannot open $_: $!";
-	s/[.]out$// or die;
-	my $template = $_;
+    foreach my $f (<*.out>) {
+	open(FH, $f) or die "cannot open $f: $!";
+	(my $template = $f) =~ s/[.]out$// or die;
 	while (<FH>) {
 	    next unless /<programme/;
 
-	    /start="(.+?)"/ or die "$_:$.: no start\n";
+	    /start="(.+?)"/ or die "$f:$.: no start\n";
 	    my $start = $1;
 	    $start =~ /^\d{4}(\d{2})/
-	      or die "$_:$.: don't understand start time $start\n";
+	      or die "$f:$.: don't understand start time $start\n";
 	    my $month = $1;
 	
-	    /channel="(.+?)"/ or die "$_:$.: no channel\n";
+	    /channel="(.+?)"/ or die "$f:$.: no channel\n";
 	    my $channel = $1;
 
 	    if ("channel$channel-month$month" ne $template) {
-		warn "in $template.out saw what should be channel$channel-month$month\n";
+		warn "in $f saw what should be channel$channel-month$month\n";
 		print "not ok $n\n";
 		next INPUT;
 	    }
