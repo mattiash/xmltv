@@ -1,4 +1,4 @@
-# $Id: Grab_XML.pm,v 1.12 2004/07/20 08:04:35 axis3x3 Exp $
+# $Id: Grab_XML.pm,v 1.13 2004/08/11 11:22:21 axis3x3 Exp $
 package XMLTV::Grab_XML;
 use strict;
 use Getopt::Long;
@@ -192,6 +192,7 @@ sub go( $ ) {
     my ($opt_days,
 	$opt_help,
 	$opt_output,
+    $opt_share,
 	$opt_offset,
 	$opt_quiet,
 	$opt_configure,
@@ -202,6 +203,7 @@ sub go( $ ) {
     GetOptions('days=i'        => \$opt_days,
 	       'help'          => \$opt_help,
 	       'output=s'      => \$opt_output,
+           'share=s'       => \$opt_share, # undocumented
 	       'offset=i'      => \$opt_offset,
 	       'quiet'         => \$opt_quiet,
 	       'configure'     => \$opt_configure,
@@ -213,6 +215,15 @@ sub go( $ ) {
     usage(1, $pkg->usage_msg()) if $opt_help;
     usage(0, $pkg->usage_msg()) if @ARGV;
 
+    if ($opt_share) {
+        if ($pkg->can('set_share_dir')) {
+            $pkg->set_share_dir($opt_share);
+        }
+        else {
+            print STDERR "share directory not in use\n";
+        }
+    }
+    
     my $has_config = $pkg->can('configure');
     if ($opt_configure) {
         if ($has_config) {

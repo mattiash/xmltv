@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.216 2004/07/22 09:21:59 axis3x3 Exp $
+# $Id: Makefile.PL,v 1.217 2004/08/11 11:22:19 axis3x3 Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -248,7 +248,13 @@ my @opt_components
      { name => 'tv_grab_uk_bleb',
        blurb => 'Fast alternative grabber for the UK',
        exes => [ 'grab/uk_bleb/tv_grab_uk_bleb' ],
-       prereqs => { 'IO::Scalar' => 0, 'Archive::Zip' => 0 } },
+       pl_files => { 'grab/uk_bleb/tv_grab_uk_bleb.PL' => 'grab/uk_bleb/tv_grab_uk_bleb' },
+       share_files => { 'grab/uk_bleb/icon_urls' => 'tv_grab_uk_bleb/icon_urls' },
+       to_clean => [ 'grab/uk_bleb/tv_grab_uk_bleb' ],
+       deps => [ 'grab/uk_bleb/tv_grab_uk_bleb' => [ 'grab/uk_bleb/tv_grab_uk_bleb.in' ] ],
+       grab_need_share => [ 'uk_bleb' ],
+       prereqs => { 'IO::Scalar' => 0, 'Archive::Zip' => 0 },
+     },
      
      { name => 'tv_grab_it',
        blurb => 'Grabber for Italy',
