@@ -25,6 +25,10 @@ each output file when splitting by channel.
 tv_grab_de is not working in this release because the upstream data
 files are not available.
 
+tv_grab_es_digital: New grabber for D+ (Satellite Digital TV on
+ASTRA and HOTBIRD)
+
+
 * Installation
 
 There is no installer, just unpack the zipfile into a
@@ -79,5 +83,5 @@ Sourceforge also hosts the following mailing lists
     xmltv-devel    - detailed discussions among developers
 
 -- Add signature line when release is made
-$Id: README.win32,v 1.43 2004/02/01 21:42:31 epaepa Exp $
+$Id: README.win32,v 1.44 2004/02/14 17:53:33 ramonroca Exp $
 
