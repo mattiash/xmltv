@@ -301,7 +301,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.15 2004/09/09 07:28:10 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.16 2004/09/09 08:25:38 axis3x3 Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -512,7 +512,7 @@ Specify certificate code: 'ZYZM-TE5O-SBUT' (Letter O)
 
     ");
         $dd_user=ask("Username ($dd_user):")|| $dd_user || die "ERROR: DataDirect Username Required\n";
-        $dd_pass=ask("
+        $dd_pass=ask_password("
 WARNING: Storing the password in the config file is not secure
 If password is blank, it will be prompted as needed(more secure)
 Unsecured password ('x':delete,default:<keep>,):")|| $dd_pass;
