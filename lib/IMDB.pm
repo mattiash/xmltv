@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.43 2004/01/13 03:38:37 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.44 2004/01/20 20:06:15 epaepa Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1402,7 +1402,9 @@ sub closeMaybeGunzip($$)
 	#
 	#return gunzip_close($_[1]);
     }
-    return close($_[1]);
+
+    # Apparently this can also segfault (wtf?).
+    #return close($_[1]);
 }
 
 sub readMoviesOrGenres($$$$)
