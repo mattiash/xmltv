@@ -1,4 +1,16 @@
-# $Id: Date.pm,v 1.3 2004/01/03 14:52:53 epaepa Exp $
+# $Id: Date.pm,v 1.4 2004/01/07 19:26:09 epaepa Exp $
+=pod
+
+=head1 NAME
+
+XMLTV::Date - date parsing routines for the xmltv package
+
+=head1 SEE ALSO
+
+L<Date::Manip>
+
+=cut
+
 package XMLTV::Date;
 use warnings;
 use strict;
