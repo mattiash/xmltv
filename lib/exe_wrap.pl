@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.38 2004/04/04 04:22:38 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.39 2004/04/06 06:36:50 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -119,16 +119,8 @@ foreach my $exe (split(/ /,$files))
 # execute our command
 #
     $0 = $_;        # set $0 to our script
-    $r = require $exe;
-    exit $r;
-
-
-
-
-
-
-
-
+    require $exe;
+    exit 0;
 }
 
 #
