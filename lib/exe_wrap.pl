@@ -1,6 +1,6 @@
-#!perl -w 
+#!perl -w
 #
-# $Id: exe_wrap.pl,v 1.5 2002/11/12 14:56:11 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.6 2002/12/12 16:47:14 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -15,7 +15,6 @@
 # Robert Eden rmeden@yahoo.com
 #
 
-    
 #
 # check time zone
 #
@@ -33,32 +32,47 @@ unless (exists $ENV{TZ})
 print STDERR "Timezone is $ENV{TZ}\n";
 
 #
-# build file list
+# This hash maps a command name to a subroutine to run.  Most of the
+# subroutines will end up being 'do "whatever"' to call another Perl
+# program, but some of them could be other things for components that
+# aren't written in Perl.
+#
+my %cmds;
+
+#
+# build file list - for Perl scripts to 'do'
 #
 $files=PerlApp::get_bound_file("exe_files.txt");
-foreach $exe (split(/ /,$files))
+foreach my $exe (split(/ /,$files))
 {
     next unless length($exe)>3; #ignore trash
-    $_=$exe; 
+    $_=$exe;
     s!^.+/!!g;
 #   print "Storing $_=$exe\n";
-    $exe{$_}=$exe;
+    $cmds{$_}=sub { do $exe };
 }
+
+#
+# and add tv_grab_nz which is a Python program
+#
+$cmds{tv_grab_nz}=sub {
+    print STDERR "FIXME check for Python, and use it to run tv_grab_nz";
+};
 
 #
 # validate command 
 #
 $cmd=shift || "blank";
-if (! exists $exe{$cmd} )
+if (! exists $cmds{$cmd} )
 {
-    die "$cmd is not a valid command. Valid commands are:\n".join(" ",keys(%exe))."\n";
+    die "$cmd is not a valid command. Valid commands are:\n".join(" ",keys(%cmds))."\n";
 }
 
 
 #
 # call the appropriate routine (note, ARGV was shifted above)
 #
-$return = do $exe{$cmd};
+$return = $cmds{$cmd}->();
 
 die "$cmd:$! $@" unless (defined $return);
 
