@@ -72,7 +72,7 @@ channels the site has.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.42 2003/06/29 15:53:51 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.43 2003/06/29 19:14:13 epaepa Exp $ ';
 use Getopt::Long;
 use Data::Dumper;
 use HTML::TreeBuilder;
@@ -609,6 +609,9 @@ sub process_details_page( $$$ ) {
 	my ($regel, $text) = @$_;
 	foreach ($regel, $text) {
 	    s/^\s+//; s/\s+$//;
+	    
+	    # Remove dodgy characters.
+	    tr/\221\222/''/;
 	}
 
 	if ($regel eq '') {
