@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.27 2002/12/25 17:39:15 epaepa Exp $
+# $Id: ZapListings.pm,v 1.28 2002/12/25 21:51:56 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1152,7 +1152,7 @@ sub scrapehtml($$$)
 			push(@sure, $i);
 			next;
 		    }
-		    elsif ( $i=~/^\(Acción\)$/io ) { # action in french :)
+		    elsif ( $i=~/^\(Acci\xf3n\)$/io ) { # action in french :)
 			push(@{$prog->{category}}, "Action");
 			push(@sure, $i);
 			next;

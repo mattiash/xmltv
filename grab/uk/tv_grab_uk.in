@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.60 2002/12/23 20:23:37 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.61 2002/12/25 21:51:56 epaepa Exp $
 
 =head1 NAME
 
@@ -483,8 +483,8 @@ sub grab( @ ) {
     #
     for ($copyright) {
 	# Try to preserve at least the magic word or magic symbol.
-	s/©/copyright/g if not /copyright/i;
-	s/©/(C)/g;
+	s/\xa9/copyright/g if not /copyright/i;
+	s/\xa9/(C)/g;
 	tr/\200-\377//d;
     }
 

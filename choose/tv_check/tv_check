@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.22 2002/11/15 17:24:31 rmeden Exp $
+# $Id: tv_check,v 1.23 2002/12/25 21:51:56 epaepa Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.22 $ ' . <<END
+' tv_check v $Revision: 1.23 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -276,7 +276,7 @@ foreach (split(/\n/,$html))
       $a[4]  = "0"             if ($a[4]==12 and $a[6] eq 'A');  # midnight -> 00;
       $a[7]  = "0"             if ($a[7]==12 and $a[9] eq 'A');  # midnight -> 00;
 
-      my $title = $a[0]; $title =~ s/’/'/g;  # fix illegal character in Replay Feed
+      my $title = $a[0]; $title =~ s/\x92/'/g;  # fix illegal character in Replay Feed '
       my $days  = $a[1];
       my $chan  = "$a[2] $a[3]";
       my $hhmm  = sprintf("%02d%02d",(($a[6] eq 'P') && ($a[4] != 12) ? $a[4]+12 : $a[4]),$a[5]);
@@ -1231,7 +1231,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.22 $
+tv_check $Revision: 1.23 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
