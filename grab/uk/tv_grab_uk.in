@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.6 2002/03/06 12:03:14 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.7 2002/03/07 11:42:35 epaepa Exp $
 
 =head1 NAME
 
@@ -68,7 +68,7 @@ use Term::ProgressBar;
 use IO::File;
 
 use XMLTV;
-use XMLTV::UK_TZ;
+use XMLTV::UK_TZ qw(gettz);
 use XMLTV::Ananova_Channel;
 use XMLTV::Memoize;
 use XMLTV::Ask;
