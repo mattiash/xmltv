@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.10 2002/09/03 12:27:44 epaepa Exp $
+# $Id: tv_to_latex,v 1.11 2002/09/04 20:43:35 epaepa Exp $
 
 =head1 NAME
 
@@ -32,7 +32,6 @@ spurious blank lines in the output.
 =cut
 
 use strict;
-use XML::DOM;
 use IO::File;
 use Date::Manip; Date_Init('TZ=UT');
 use POSIX 'tmpnam';
