@@ -78,7 +78,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.21 2003/02/02 18:09:38 epaepa Exp $
+$Id: xmltv.dtd,v 1.22 2003/02/15 10:15:09 epaepa Exp $
 
 -->
 
@@ -303,6 +303,9 @@ minutes even though end time minus start time is 130 minutes.
 <!-- An icon associated with the element that contains it.
 src: uri of image
 width, height: (optional) dimensions of image
+
+These dimensions are pixel dimensions for the time being, eventually
+this will change to be more like HTML's 'img'.
 -->
 <!ELEMENT icon EMPTY>
 <!ATTLIST icon src         CDATA #REQUIRED
