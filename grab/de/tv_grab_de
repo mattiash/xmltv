@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_de,v 1.19 2003/03/30 12:25:53 epaepa Exp $
+# $Id: tv_grab_de,v 1.20 2003/04/06 09:39:30 epaepa Exp $
 
 =head1 NAME
 
@@ -36,6 +36,11 @@ L<xmltv(5)>, L<http://www.szing.at/>, L<http://www.szing.at/xmltv/>
 Ed Avis, ed@membled.com
 
 =head1 BUGS
+
+The data produced has the same timezones as the upstream source.  At
+present, that source is not handling daylight saving time correctly,
+so the timezones in XML output are wrong.  (However, the times
+themselves are correct, once you allow for the different timezone.)
 
 The data source does not include full channels information and the
 channels are identified by short names rather than the RFC2838 form
