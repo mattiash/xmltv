@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.51 2003/02/16 11:16:12 epaepa Exp $
+# $Id: tv_grab_na,v 1.52 2003/02/16 13:33:25 epaepa Exp $
 
 =head1 NAME
 
@@ -173,7 +173,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/16 11:16:12 $;
+my $Date = q$Date: 2003/02/16 13:33:25 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -768,13 +768,6 @@ if ( @ARGV ) {
 	$configure=1 if ( $arg=~m/^--configure/o );
         if ( $arg=~m/^--debug$/o ) { $SIG{__WARN__} = sub { die $_[0] }; }
     }
-}
-
-# Accept older --config as synonym for --config-file.
-foreach ( @ARGV ) {
-    last if $_ eq '--';
-    next if /^--config-/;
-    s/^--config\b/--config-file/;
 }
 
 if ( $configure ) {
