@@ -241,7 +241,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.41 2004/04/16 14:59:17 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.42 2004/04/16 19:13:48 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -429,7 +429,10 @@ Please specify the appropriate offset
        {
 #        $opt_tz_offset='local' unless length($opt_tz_offset);
 #        $opt_tz_offset=ask("Timezone offset (+/-####), or 'local' ($opt_tz_offset)")||'local';
-         $opt_tz_offset=$ENV{TZ} unless defined $opt_tz_offset || $ENV{TZ} !~ /[+-]\d\d\d\d/;
+         if (defined $ENV{TZ})
+         {
+             $opt_tz_offset=$ENV{TZ} unless defined $opt_tz_offset || $ENV{TZ} !~ /[+-]\d\d\d\d/;
+         }
          $opt_tz_offset='+0000'  unless defined $opt_tz_offset;
          $opt_tz_offset=ask("Timezone offset (+/-####) ($opt_tz_offset)") || $opt_tz_offset;
          last if $opt_tz_offset =~ /[+-]\d\d\d\d/;
