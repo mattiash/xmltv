@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.13 2002/09/21 09:11:36 epaepa Exp $
+# $Id: tv_to_latex,v 1.14 2002/09/28 11:44:47 epaepa Exp $
 
 =head1 NAME
 
@@ -251,7 +251,13 @@ foreach (@chunks) {
 	    # Missing stop time.  Still need to check the timezone.
 	    if ((not defined $curr_tz) or ($curr_tz ne $start_tz)) {
 		$start_h .= " $start_tz";
-		undef $curr_tz;
+
+		# Well, not 100% sure that this timezone should apply
+		# from now on, since it was only mentioned as a start
+		# time, but in the absence of a contradicting stop
+		# time we'll use it.
+		#
+		$curr_tz = $start_tz;
 	    }
 	}
 
