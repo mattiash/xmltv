@@ -67,7 +67,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_hu,v 1.8 2003/09/13 10:29:01 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_hu,v 1.9 2003/11/02 22:18:40 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -463,8 +463,8 @@ sub get_desc {
     foreach my $txt (@txt_cont) {
 	my @alltext;
 	my @fonts = $txt->content_list;
-	for (my $index = 1; defined $fonts[$index]; $index++) {
-	    for ($fonts[$index]->as_text) {
+	foreach (grep { ref } @fonts) {
+	    for ($_->as_text) {
 		s/^\s+//;s/\s+$//;
 		push @alltext, $_ if length;
 	    }
