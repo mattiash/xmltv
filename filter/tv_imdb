@@ -149,7 +149,7 @@ Jerry Veldhuis, jerry@matilda.com
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_imdb,v 1.18 2003/11/18 07:14:01 jveldhuis Exp $ ';
+use XMLTV::Version '$Id: tv_imdb,v 1.19 2003/11/19 22:28:38 epaepa Exp $ ';
 use Data::Dumper;
 use Getopt::Long;
 
@@ -200,13 +200,15 @@ Building indices.  Be warned, this needs a lot of memory for the final stage
 
 END
   ;
+    my %options =
+      ('imdbDir' => $opt_imdbDir,
+       'verbose' => !$opt_quiet,
+       'downloadMissingFiles' => $opt_download,
+      );
+
     if ( $opt_prepStage eq "all" ) {
 	for (my $stage=1 ; $stage <= 7 ; $stage++ ) {
-	    my $n=new XMLTV::IMDB::Crunch
-	      ('imdbDir' => $opt_imdbDir,
-	       'verbose' => !$opt_quiet,
-	       'downloadMissingFiles' => $opt_download,
-	      );
+	    my $n=new XMLTV::IMDB::Crunch(%options);
 	    if ( !$n ) {
 		exit(1);
 	    }
@@ -219,8 +221,7 @@ END
 	exit(0);
     }
     else {
-	my $n=new XMLTV::IMDB::Crunch('imdbDir' => $opt_imdbDir,
-				      'verbose' => !$opt_quiet);
+	my $n=new XMLTV::IMDB::Crunch(%options);
 	if ( !$n ) {
 	    exit(1);
 	}
