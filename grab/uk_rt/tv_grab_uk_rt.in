@@ -82,7 +82,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.54 2004/03/06 11:26:03 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.55 2004/03/19 21:12:39 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -568,7 +568,7 @@ END
 
 			    #t "get_programme_details returned " . d $progs;
 			    if (not $progs) {
-				warn "could not get detials for programme $_->{_progID} on channel $chan\n";
+				warn "could not get details for programme $_->{_progID} on channel $chan\n";
 				# add summary only
 				push @new_programmes, $_;
 			    } elsif (not @$progs) {
@@ -1253,6 +1253,9 @@ sub do_misc( $$ ) {
 #	    push @{$p{desc}}, [ $_, $LANG ];
 #	    last;
 #	}
+	elsif (s/^Remind me by text\s*//) {
+	    # Just ignore
+	}
 	else {
 	    warn "unknown remnant bit (adding to description): $_" unless $warned_extradesc++;
 	    $p{desc}->[0]->[0] .= " $_";
