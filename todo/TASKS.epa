@@ -1,4 +1,4 @@
-$Id: TASKS.epa,v 1.5 2001/11/21 05:52:28 jveldhuis Exp $
+$Id: TASKS.epa,v 1.6 2001/12/11 18:18:10 epaepa Exp $
 
 This is my todo list, it relates mostly to UK listings-grabbing and
 the other stuff I wrote.  -- Ed Avis, epa98@doc.ic.ac.uk
@@ -25,6 +25,14 @@ pick.cgi list cast etc - done
 -; -;
 FIXMEs
 
+In DTD, maybe modify channel references to use the official XML way of
+referring back to stuff.
+
+Proper installation routine (Makefile.PL?)
+Make Perl modules live in XMLTV:: namespace (patch from Justin Hallett)
+Add Tie::IxHash, Term::ProgressBar as dependency
+getlistings_uk_ananova: squeeze repeated hyphens in guessed names
+
 Suggestions from Jerry V.
 
 - next shown (we decided it's not needed)
@@ -35,3 +43,4 @@ Suggestions from Jerry V.
 - make it clear that channel attribute references channels.xml (TODO)
 
 Decided not to deal with channel affiliations.
+
