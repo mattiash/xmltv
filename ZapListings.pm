@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.32 2002/01/29 15:47:02 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.33 2002/02/04 17:20:49 epaepa Exp $
 
 package ZapListings;
 
@@ -374,6 +374,18 @@ sub passRequirements($$)
     }
     # pass
     return(1);
+}
+
+#
+# add env_proxy flag to constructed UserAgent.
+#
+sub new
+{
+    my $proto = shift;
+    my $class = ref($proto) || $proto;
+    my $self = $class->SUPER::new(@_, env_proxy => 1);
+    bless ($self, $class);
+    return $self;
 }
 
 sub redirect_ok { 1; }
