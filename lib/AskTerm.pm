@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: AskTerm.pm,v 1.8 2004/03/28 15:12:13 epaepa Exp $
+# $Id: AskTerm.pm,v 1.9 2004/03/31 19:05:05 epaepa Exp $
 #
 package XMLTV::AskTerm;
 use strict;
@@ -84,6 +84,12 @@ sub askQuestion( $$@ )
     t "asking question $question, default $default";
     croak "default $default not in options"
       if not grep { $_ eq $default } @options;
+
+    # If there is only one option, don't bother asking.
+    if (@options == 1) {
+	say("$question - assuming $default");
+	return $default;
+    }
 
     # Check no duplicates (required for later processing, maybe).
     my %seen;
