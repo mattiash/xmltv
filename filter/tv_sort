@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_sort,v 1.14 2002/09/23 13:49:30 epaepa Exp $
+# $Id: tv_sort,v 1.15 2003/02/16 14:42:13 epaepa Exp $
 
 =head1 NAME
 
@@ -106,6 +106,8 @@ my @progs = @$progs;
 #
 # Accordingly, we use the original ordering of programmes as a
 # comparison of last resort.
+#
+# TODO: use sort 'stable'; pragma with perl 5.8.
 #
 my %orig_order;
 for (my $i = 0; $i < @progs; $i++) {
