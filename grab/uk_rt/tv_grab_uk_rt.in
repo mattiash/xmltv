@@ -84,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.36 2003/11/09 20:16:45 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.37 2003/11/19 21:59:09 epaepa Exp $ ';
 use IO::Socket;
 use LWP::Simple;
 use Date::Manip;
@@ -792,9 +792,14 @@ sub get_programme_details( $$$$$ ) {
 	$p{'sub-title'} = [ [ $sub_title, $LANG ] ];
     }
     elsif (defined $sub_title and defined $sub_title_1) {
-	warn "two sub-titles: $sub_title, $sub_title_1";
-	$p{'sub-title'} = [ [ $sub_title, $LANG ],
-			    [ $sub_title_1, $LANG ] ];
+        if ($sub_title eq $sub_title_1) {
+	    $p{'sub-title'} = [ [ $sub_title, $LANG ] ];
+	}
+	else {
+	    warn "two sub-titles: $sub_title, $sub_title_1";
+	    $p{'sub-title'} = [ [ $sub_title, $LANG ],
+				[ $sub_title_1, $LANG ] ];
+	}
     }
     else { die }
 
