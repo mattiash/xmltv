@@ -174,12 +174,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.77 2003/06/29 15:53:51 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.78 2003/07/05 16:35:57 jveldhuis Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/06/29 15:53:51 $;
+my $Date = q$Date: 2003/07/05 16:35:57 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -2430,7 +2430,14 @@ sub writeOutChannel($$$)
 	}
     }
     
-    $writer->dataElement('display-name', "Channel $station");
+    if ( defined($number) && defined($letters) ) {
+	$writer->dataElement('display-name', "$number $letters");
+	$writer->dataElement('display-name', "$number");
+    }
+    else {
+	$writer->dataElement('display-name', "$station");
+    }
+
     if ( defined($config->stationIcon($station)) ) {
 	# Write as empty tag because icon can never contain anything.
 	$writer->emptyTag('icon', 'src'=>$config->stationIcon($station));
