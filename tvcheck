@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tvcheck,v 2.7 2002/01/19 20:09:45 rmeden Exp $
+# $Id: tvcheck,v 2.8 2002/01/20 04:52:08 rmeden Exp $
 #
 # tvcheck
 #
@@ -805,17 +805,17 @@ sub load_selection_items
 # load Title list ( also fill hhmm and day if known )
 #
     $SELECT[4]{list} -> delete(0,"end");
-    if (defined $day && defined $chan)
+    if (length($day) && length($chan))
     {
         $SELECT[4]{list} -> insert(0,"",sort keys %{$GUIDE{$day}{$chan}});
         $match = $GUIDE{$day}{$chan}{$title};
     }
-    elsif (defined $day)
+    elsif (length($day))
     {
         $SELECT[4]{list} -> insert(0,"",sort keys %{$GUIDE{day}{$day}} );
         $match=$GUIDE{day}{$day}{$title};
     }
-    elsif (defined $chan)
+    elsif (length($chan))
     {
         $SELECT[4]{list} -> insert(0,"",sort keys %{$GUIDE{chan}{$chan}} );
         $match=$GUIDE{chan}{$chan}{$title};
@@ -872,7 +872,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tvcheck $Revision: 2.7 $
+tvcheck $Revision: 2.8 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
