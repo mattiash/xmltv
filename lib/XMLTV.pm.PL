@@ -1,7 +1,7 @@
 # Generate XMLTV.pm from XMLTV.pm.PL.  This is to generate part of
 # the pod documentation from the list of handlers.
 #
-# $Id: XMLTV.pm.PL,v 1.1 2002/03/16 19:41:21 epaepa Exp $
+# $Id: XMLTV.pm.PL,v 1.2 2002/03/30 15:56:21 epaepa Exp $
 #
 
 use strict;
@@ -36,5 +36,5 @@ sub print_list( $$ ) {
 	my ($elem_name, $h_name, $mult) = @$_;
 	print $fh "\n=item $elem_name, I<$h_name>, B<$mult>\n";
     }
-    print $fh "\n=back\n";
+    print $fh "\n\n=back\n";
 }
