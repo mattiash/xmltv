@@ -151,7 +151,7 @@ account has multiple lineups, they are all downloaded even though only one is ou
 To process multiple lineups, specify a different L</--config-file>.
 To prevent re-downloading the data on subsequent passes, the L<--reprocess> option is recommended.
 
-Here's an example:
+Here's an example: (the = sign is optional, but helps readability)
 
  tv_grab_na_dd --config-file=lineup1.dat --output=lineup1.xml --dd-file=dd.xml
  tv_grab_na_dd --config-file=lineup2.dat --output=lineup2.xml --dd-file=dd.xml --reprocess
@@ -241,7 +241,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.44 2004/04/16 19:21:31 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.45 2004/04/20 05:32:26 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
