@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.39 2003/11/29 17:28:39 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.40 2003/11/29 21:44:07 epaepa Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1303,6 +1303,14 @@ END
 		  or die "cannot rename $filename to $partial: $!";
 		warn "You might try continuing the download of <$url> manually.\n";
 		exit(1);
+	    }
+	    if (not -e $filename) {
+		die <<END
+strange, getstore() claimed to have created $filename, but it did not.
+Please report this to the xmltv-devel list; in the meantime download
+the file manually.
+END
+  ;
 	    }
 	    print STDERR "<$url>\n\t-> $filename, success\n\n";
 	}
