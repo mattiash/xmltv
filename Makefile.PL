@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.176 2004/01/26 03:41:42 rmeden Exp $
+# $Id: Makefile.PL,v 1.177 2004/02/01 11:46:28 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -735,7 +735,12 @@ sub MY::installbin {
 	my $ch_pkgs_dir= 'grab/uk/channel_pkgs';
 	my $wanted = sub {
 	    return if -d;
-	    return if $File::Find::name =~ m!/CVS/!; # handy in working copy
+
+	    # Ignore files that may be lying around in a CVS working
+	    # copy but cannot be part of the xmltv package.
+	    #
+	    return if /^\#/ || /~$/ || $File::Find::name =~ m!/CVS/!;
+
 	    die if defined $share_files{$File::Find::name};
 	    (my $inst = $File::Find::name) =~ s!^grab/uk/!tv_grab_uk/! or die;
 	    $share_files{$File::Find::name} = $inst;
