@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.41 2003/01/31 17:50:42 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.42 2003/02/01 21:48:41 jveldhuis Exp $
 
 =head1 NAME
 
@@ -152,7 +152,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/01/31 17:50:42 $;
+my $Date = q$Date: 2003/02/01 21:48:41 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -824,7 +824,8 @@ if ( $configure ) {
 	}
 	else {
 	    errorMessage("$0: invalid argument to --auto_new_channels, must be 'ignore' or 'add'\n");
-	    ConfigureUsage(1);
+	    ConfigureUsage(0);
+	    exit(1);
 	}
     }
 
@@ -837,7 +838,8 @@ if ( $configure ) {
 	}
 	else {
 	    errorMessage("$0: invalid argument to --auto_missing_channels, must be 'ignore' or 'remove'\n");
-	    ConfigureUsage(1);
+	    ConfigureUsage(0);
+	    exit(1);
 	}
     }
 
