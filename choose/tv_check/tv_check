@@ -67,7 +67,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.40 2003/07/11 05:46:56 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.41 2003/07/15 02:25:23 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -80,7 +80,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.40 $ ' . <<END
+' tv_check v $Revision: 1.41 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1316,7 +1316,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.40 $
+tv_check $Revision: 1.41 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
@@ -1386,10 +1386,10 @@ sub load_shows
 # convert channel ID to new format if ncessary
 #
        if ( ! exists $CHAN{$show->{channel}} 
-           && exists $CHAN_NAME{"Channel ".$show->{channel}} )
+           && exists $CHAN_NAME{$show->{channel}} )
        {
-          printf STDERR "Converting Show File Channel ID %10s to %25s\n",$show->{channel},$CHAN_NAME{"Channel ".$show->{channel}};
-          $show->{channel}=$CHAN_NAME{"Channel ".$show->{channel}};
+          printf STDERR "Converting Show File Channel ID %10s to %25s\n",$show->{channel},$CHAN_NAME{$show->{channel}};
+          $show->{channel}=$CHAN_NAME{$show->{channel}};
        }
 
 #
