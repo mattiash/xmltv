@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.10 2003/01/21 06:33:32 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.11 2003/02/20 22:27:07 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -86,7 +86,14 @@ END
 $cmd=shift || "blank";
 if (! exists $cmds{$cmd} )
 {
-    die "$cmd is not a valid command. Valid commands are:\n".join(" ",keys(%cmds))."\n";
+    if ($cmd =~ /-/)
+    {
+	die "you must specify the program to run, for example: $0 tv_grab_fi --configure\n";
+    }
+    else
+    {
+	die "$cmd is not a valid command. Valid commands are:\n".join(" ",keys(%cmds))."\n";
+    }
 }
 
 #
