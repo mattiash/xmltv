@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.7 2003/03/04 20:59:47 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.8 2003/03/09 16:55:45 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -35,6 +35,8 @@
 #       returned close enough match instead of trying the closest date match of
 #       the approx hits.
 #
+# FUTURE - could use Term::ProgressBar to be more consistant with other
+#       xmltv tools.
 #
 
 use strict;
