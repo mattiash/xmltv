@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.26 2002/12/11 05:26:26 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.27 2002/12/25 17:39:15 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -138,6 +138,7 @@ use strict;
 
 use HTTP::Cookies;
 use HTTP::Request::Common;
+use URI;
 
 sub new
 {
@@ -432,8 +433,8 @@ sub getChannelList($$$)
 		return(undef);
 	    }
 	    else {
-		#main::errorMessage("got channel icon $ref\n");
-		$nchannel->{icon}=$ref;
+		my $icon=URI->new_abs($ref, "http://$self->{httpHost}/");
+		$nchannel->{icon}=$icon;
 	    }
 
 	    # <a> gives url that contains station_num
