@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grep.in,v 1.4 2002/03/06 17:20:10 epaepa Exp $
+# $Id: tv_grep.in,v 1.5 2002/03/07 13:57:09 epaepa Exp $
 
 =head1 NAME
 
@@ -127,7 +127,7 @@ use Data::Dumper;
 use Date::Manip; Date_Init('TZ=UT');
 use Log::TraceMessages qw(t d); Log::TraceMessages::check_argv();
 
-sub usage( ;$ );
+sub usage( ;$ ); # too complex for XMLTV::Usage
 sub all_text( $$ );
 sub abbrev( $$ );
 sub on_after( $ );
