@@ -1,4 +1,4 @@
-XMLTV 0.5.15, Windows binary release
+XMLTV 0.5.16, Windows binary release
 
 This file is a suplement for the windows binary distribution.  It also
 has some relevence to running the native Perl scripts under windows.
@@ -63,5 +63,5 @@ Sourceforge also hosts the following mailing lists
     xmltv-devel    - detailed discussions among developers
     
 -- Robert Eden, rmeden2yahoo.com 2003-07-09
-$Id: README.win32,v 1.26 2003/08/13 13:37:54 rmeden Exp $
+$Id: README.win32,v 1.27 2003/08/14 21:11:55 epaepa Exp $
 
