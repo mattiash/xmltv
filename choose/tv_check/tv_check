@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.10 2002/09/06 04:19:41 rmeden Exp $
+# $Id: tv_check,v 1.11 2002/09/06 15:13:19 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.10 $ ' . <<END
+' tv_check v $Revision: 1.11 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -76,7 +76,8 @@ my $HTML     = 0;
 my $GUIDE_XML= 'guide.xml';
 my $SHOW_XML = 'shows.xml';
 my $OUTPUT_FILE = undef;
-my $TODAY    = $WEEKDAY[(localtime())[6]];
+my $TODAY      = $WEEKDAY[(localtime())[6]];
+(my $TODAY_MMDD)= UnixDate( "Today", "%m%d");
 
 #
 # Global Vars/Databases
@@ -330,7 +331,7 @@ foreach (split(/\n/,$html))
                && $next->{hhmm} lt $hhmm);
 
       add_myreplaytv_show($title,$chan,$hhmm,$ep->{day});
-      $ep->{device} = $device; # if $hhmm eq $ep->{hhmm};
+      $ep->{device} = $device;
       $found     .= $ep->{day};
 
       } #epiosde scan
@@ -766,13 +767,9 @@ for my $start (sort keys %SHOW_TIME)
 #
     for my $ep ( @{$GUIDE{all}{$show->{title}}})
     {
+        next if (substr($ep->{start},4,4)) lt $TODAY_MMDD;
         next if $ep->{displayed} eq $show;
-        $ep->{displayed}=$show;
-
-#
-# ignore it if already scheduled to record with the same device
-#
-        next if $ep->{device} eq $show->{device};
+        next if $ep->{device}    eq $show->{device}; #skip if already recording
 
         gen_episode_dates($ep) unless $ep->{day};
     
@@ -951,10 +948,10 @@ sub ep_summary
                    $ep->{mmdd},
                    "$ep->{hhmm}/$ep->{len}",
                    get_text($CHAN{ $ep->{channel}}->{'display-name'}),
-        		   ($flag ? "" : get_text( $ep->{title} ) ),
-        		    "\"$desc\" $part",
-        			($ep->{"previously-shown"} ? "(R)" : "" ),
-        			($ep->{device} ? "[$ep->{device}] " : "" ));
+        	   ($flag ? "" : get_text( $ep->{title} ) ),
+        	    "\"$desc\" $part",
+        	   ($ep->{"previously-shown"} ? "(R)" : "" ),
+        	   ($ep->{device} ? "[$ep->{device}] " : "" ));
 } # ep_summary
 
 #
@@ -1220,7 +1217,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.10 $
+tv_check $Revision: 1.11 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
