@@ -98,7 +98,7 @@ Ramon Roca, Ramon.Roca@XCombo.com, based on tv_grab_fi, from Matti Airas.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es,v 1.19 2003/08/28 20:56:57 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es,v 1.20 2003/11/08 13:57:18 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -374,7 +374,9 @@ sub make_programme_hash {
     $prog{"sub-title"}=[ [ $cur->{subtitle}, $LANG ] ] if defined $cur->{subtitle};
     $prog{category}=[ [ $cur->{category}, $LANG ] ];
 
-    $prog{start}=utc_offset("$date $cur->{time}", 'CET');
+    t "turning local time $cur->{time}, on date $date, into UTC";
+    $prog{start}=utc_offset("$date $cur->{time}", '+0100');
+    t "...got $prog{start}";
     if (not defined $prog{start}) {
 	warn "bad time string: $cur->{time}";
 	return undef;

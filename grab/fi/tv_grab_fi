@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.26 2003/11/01 14:36:00 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.27 2003/11/08 13:57:18 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -106,7 +106,7 @@ my $HEAD = { 'source-info-url'     => 'http://www.katso.fi/',
 my $WRITE_ZERO_LENGTH = 0;
 
 # The winter timezone in Finland.  Summer time is one hour ahead of this.
-my $TZ="EET";
+my $TZ="+0200";
 
 # default language
 my $LANG="fi";

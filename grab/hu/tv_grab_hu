@@ -67,7 +67,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_hu,v 1.9 2003/11/02 22:18:40 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_hu,v 1.10 2003/11/08 13:57:19 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -111,7 +111,7 @@ my $LANG="hu";
 our @ch_all;
 
 # The winter timezone in Hungary.  Summer time is one hour ahead of this.
-my $TZ="CET";
+my $TZ="+0100";
 
 ######################################################################
 # get options
