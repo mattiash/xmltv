@@ -1,4 +1,4 @@
-$Id: TASKS.epa,v 1.11 2002/01/20 14:50:15 epaepa Exp $
+$Id: TASKS.epa,v 1.12 2002/02/04 18:19:55 epaepa Exp $
 
 This is my todo list, it relates mostly to UK listings-grabbing and
 the other stuff I wrote.  -- Ed Avis, epa98@doc.ic.ac.uk
@@ -19,14 +19,14 @@ referring back to stuff.
 Proper installation routine (Makefile.PL?)
 Make Perl modules live in XMLTV:: namespace (patch from Justin Hallett)
 getlistings_uk_ananova: squeeze repeated hyphens in guessed names
-Write grep_listings at last
+Write grep_listings at last -- done, tv_grep
 Merge almost-same channels (eg BBC1 SE vs BBC1 Digital)
 
 'Discovery Plus 1'
 
 Eliminate colons in output times.
 
---output
+--output - done
 
 05:00--05:00, it means '24 hours' but looks odd
 
@@ -37,3 +37,5 @@ Suggestions from Jerry V.
 - should indicate HDTV somehow (TODO)
 
 Decided not to deal with channel affiliations.
+
+--list-regions for tv_grab_uk
