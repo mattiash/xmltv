@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.5 2002/04/29 04:37:59 rmeden Exp $
+# $Id: tv_check,v 1.6 2002/05/06 04:59:57 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use Lingua::Preferred qw(which_lang);
 
 use XMLTV;
 use XMLTV::Usage
-' tv_check v $Revision: 1.5 $ ' . <<END
+' tv_check v $Revision: 1.6 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -586,14 +586,23 @@ for my $start (sort keys %SHOW_TIME)
           my $slot=0;
           my $sh_slot = 0;
           my $ep_slot = 0;
+          my $sh_ep  = ""; # holds episode data at show slot
           for my $key ( sort keys %{$GUIDE{$ep->{channel}}{$ep->{mmdd}}} )
           {
-            $sh_slot = $slot unless $key gt $show->{hhmm};
+	    unless ( $key gt $show->{hhmm} )
+	    {
+	    	$sh_ep   = $GUIDE{$ep->{channel}}{$ep->{mmdd}}{$key};
+                $sh_slot = $slot;
+	    }
             $ep_slot = $slot unless $key gt $ep->{hhmm};
             $slot++;
           }
 
-          if (abs( $ep_slot - $sh_slot ) < 2 ) # got a hit if close to show time
+#
+# consider it a hit if our show is not at desired time, but close
+#
+          if (  get_text($sh_ep->{title}) ne $show->{title}  and
+          	abs( $ep_slot - $sh_slot ) < 2 )
           {
               $ep->{device}=$show->{device};
               push @{$RECORD{$show->{device}}},$ep;
@@ -986,7 +995,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.5 $
+tv_check $Revision: 1.6 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
