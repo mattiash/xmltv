@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.31 2003/01/31 17:16:50 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.32 2003/01/31 17:49:34 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1419,7 +1419,6 @@ sub scrapehtml($$$)
 	    }
 
 	    # track when the last program ended down to the second
-	    #$lastProgram->{EndTimeInSeconds}=$dayStartTimeInSeconds+(3600*$prog->{end_hour})+(60*$prog->{end_min});
 	    $lastProgram->{end_hour}=$prog->{end_hour};
 	    $lastProgram->{end_min}=$prog->{end_min};
 
