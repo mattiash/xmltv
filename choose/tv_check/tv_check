@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.12 2002/09/12 04:14:15 rmeden Exp $
+# $Id: tv_check,v 1.13 2002/09/12 05:15:09 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.12 $ ' . <<END
+' tv_check v $Revision: 1.13 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1138,9 +1138,9 @@ sub load_selection_items
 
     my $match = undef;
 
-#    $day   = "" unless defined $day;
-#    $chan  = "" unless defined $chan;
-#    $title = "" unless defined $title;
+    $day   = "" unless defined $day;
+    $chan  = "" unless defined $chan;
+    $title = "" unless defined $title;
 
     $day   =~ s/^\s+|\s+$//g;
     $chan  =~ s/^\s+|\s+$//g;
@@ -1217,7 +1217,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.12 $
+tv_check $Revision: 1.13 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
