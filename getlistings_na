@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_na,v 1.14 2001/11/14 17:33:21 jveldhuis Exp $
+# $Id: getlistings_na,v 1.15 2001/11/15 00:02:00 jveldhuis Exp $
 #
 # This script scrapes www.zap2it.com tv listings, producing
 # xmltv.dtd and channels.dtd compliant output. Zap2it supports
@@ -755,7 +755,7 @@ sub grab
 	    
 	    if ( $lg->readSchedule($station, 
 				   $config->{channels}->{$station}->{description},
-				   0, 24, $day, $month, $year) == -1 ) {
+				   $day, $month, $year) == -1 ) {
 		warn("readSchedule failed for $day/$month/$year for station $station");
 		$failedCount++;
 	    }
