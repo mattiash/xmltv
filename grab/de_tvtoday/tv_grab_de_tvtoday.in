@@ -93,7 +93,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.5 2004/03/27 22:08:52 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.6 2004/03/27 22:10:00 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -156,7 +156,8 @@ use constant Have_bar => eval { require Term::ProgressBar; 1; };
 my $head = { 
     'source-data-url'      => 'http://www.tvtoday.de/tv/programm/programm.php',
     'source-info-url'      => 'http://www.tvtoday.de/',
-    'generator-info-name'  => 'tv_grab_de_tvtoday',
+    'generator-info-name'  => 'XMLTV',
+    'generator-info-url'   => 'http://membled.com/work/apps/xmltv/',
 };
 
 #-- the timezone tvtoday.de lives in is, CET/CEST
