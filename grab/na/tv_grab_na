@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.70 2003/04/28 15:28:12 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.71 2003/05/03 21:14:36 jveldhuis Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/04/28 15:28:12 $;
+my $Date = q$Date: 2003/05/03 21:14:36 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1195,6 +1195,8 @@ if ( $configure ) {
 	}
 
 	while ( !$config->{option_provider} ) {
+	    my @providersWithIds;
+
 	    statusMessage("\n");
 	    my (%descToId, %idToDesc);
 	    die "no providers found" if not @providers;
@@ -1213,7 +1215,8 @@ if ( $configure ) {
 		if (exists $idToDesc{$id}) {
 		    die "two providers with id $id\n";
 		}
-		$idToDesc{$id} = $desc;
+		$idToDesc{$id} = "$desc ($id)";
+		push(@providersWithIds, "$desc ($id)");
 	    }
 	    if ( defined $defaultProviderId
 		 and not exists $idToDesc{$defaultProviderId} ) {
@@ -1221,13 +1224,15 @@ if ( $configure ) {
 		undef $defaultProviderId;
 	    }
 	    if ( not defined $defaultProviderId ) {
-		$defaultProviderId = $providers[0]->{id};
+		$providersWithIds[0]=~m/\(([^\)]+)\)$/o;
+		$defaultProviderId =$1;
 	    }
 
 	    my $res = askQuestion("Choose a service provider: ",
 				  $idToDesc{$defaultProviderId},
-				  map { $_->{description} } @providers);
-	    my $id = $descToId{$res}; die if not defined $id;
+				  @providersWithIds);
+	    $res=~s/\s+\(([^\)]+)\)$//o || die "how did you pick something not in the list ?";
+	    my $id = $1; die if not defined $id;
 	    $config->{option_provider}=$id;
 	    $config->{option_provider_desc}=$res;
 	    statusMessage("\nyou chose $id \# $res\n");
