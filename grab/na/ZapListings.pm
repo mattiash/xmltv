@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.44 2003/07/01 16:45:03 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.45 2003/07/01 18:47:46 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -299,8 +299,8 @@ sub getForms($)
 	}
 	
 	if ( $insideForm=~m/<select/ios ) {
-	    $insideForm=~s/<select/<select/ios;
-	    $insideForm=~s/<\/select>/<\/select>/ios;
+	    $insideForm=~s/<select/<select/iosg;
+	    $insideForm=~s/<\/select>/<\/select>/iosg;
 	    my $start;
 	    while (($start=index($insideForm, "<select")) != -1 ) {
 		my $end=index($insideForm, "</select>", $start)+length("</select>");
