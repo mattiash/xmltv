@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.19 2002/11/03 17:52:35 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.20 2002/11/11 17:26:03 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -1375,6 +1375,9 @@ sub readSchedule($$$$$)
 	    if ( open(FD, "> $cacheFile") ) {
 		print FD $content;
 		close(FD);
+	    }
+	    else {
+		warn("unable to write to cache file: $cacheFile");
 	    }
 	}
     }
