@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.59 2003/03/20 13:13:03 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.60 2003/03/30 09:37:29 epaepa Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/03/20 13:13:03 $;
+my $Date = q$Date: 2003/03/30 09:37:29 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -832,12 +832,40 @@ if ( @ARGV ) {
 }
 
 if ( $configure ) {
-    use vars qw/$opt_configure $opt_help $opt_postalcode $opt_zipcode $opt_provider $opt_config_file $opt_retry_limit $opt_retry_delay $opt_auto_fail_on_provider_changes $opt_auto_new_channels $opt_auto_missing_channels $opt_list_providers $opt_list_channels $opt_release_check/;
-
+    use vars qw($opt_configure
+		$opt_help
+		$opt_postalcode
+		$opt_zipcode
+		$opt_provider
+		$opt_config_file
+		$opt_retry_limit
+		$opt_retry_delay
+		$opt_auto_fail_on_provider_changes
+		$opt_auto_new_channels
+		$opt_auto_missing_channels
+		$opt_list_providers
+		$opt_list_channels
+		$opt_release_check);
+		
     $opt_auto_fail_on_provider_changes="false";
     $opt_release_check="true";
 
-    if ( ! GetOptions('configure', 'help', 'debug', 'quiet', 'release-check=s', 'config-file=s', 'postalcode=s', 'zipcode=s', 'provider=s', 'retry-limit=i', 'retry-delay=i', 'auto-fail-on-provider-changes=s', 'auto-new-channels=s', 'auto-missing-channels=s', 'list-providers', 'list-channels') ) {
+    if ( ! GetOptions(qw(configure
+			 help
+			 debug
+			 quiet
+			 release-check=s
+			 config-file=s
+			 postalcode=s
+			 zipcode=s
+			 provider=s
+			 retry-limit=i
+			 retry-delay=i
+			 auto-fail-on-provider-changes=s
+			 auto-new-channels=s
+			 auto-missing-channels=s
+			 list-providers
+			 list-channels)) ) {
 	ConfigureUsage(0);
 	exit(1);
     }
