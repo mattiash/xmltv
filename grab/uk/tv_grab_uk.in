@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.42 2002/10/31 00:04:43 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.43 2002/11/07 10:09:45 epaepa Exp $
 
 =head1 NAME
 
@@ -1388,7 +1388,7 @@ sub fix_ananova_xml( $ ) {
 	}
 	
 	if (not /<tv/) {
-	    warn "no <tv> element found in XML\n";
+	    warn "no <tv> element found in XML: $_\n";
 	    return 0;
 	}
 
