@@ -172,7 +172,7 @@ tv_grep is not always idempotent.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grep.in,v 1.31 2003/05/19 19:31:32 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grep.in,v 1.32 2003/05/31 13:34:14 epaepa Exp $ ';
 use XMLTV;
 use XMLTV::Clumps qw(clump_relation fix_clumps);
 use XMLTV::Grep qw(get_matcher);
@@ -236,6 +236,13 @@ my $oa = new OptionAbbrev(qw(--ignore-case --help --output
 # supported just so we can annoy the user with an error message.
 #
 $oa->add(map { "--$_" } keys %key_type);
+
+# Secret debugging option.
+if (@ARGV and $ARGV[0] eq '--echo') {
+    print "arguments enclosed by '':\n";
+    print "'$_'\n" foreach @ARGV;
+    exit();
+}
 
 my ($output, $regexp, $ended_options, @filenames);
 while (@ARGV) {
