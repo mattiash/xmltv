@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.21 2002/10/04 01:53:37 rmeden Exp $
+# $Id: tv_check,v 1.22 2002/11/15 17:24:31 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.21 $ ' . <<END
+' tv_check v $Revision: 1.22 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1231,7 +1231,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.21 $
+tv_check $Revision: 1.22 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
@@ -1562,25 +1562,27 @@ sub add_myreplaytv_show
 
         if (   (    $old->{channel} eq $chan     #use old show if chan/time match
                  && $old->{hhmm}    eq $start)
-            || (    not exists $old->{day}       #use old show if old and new are title only
-                 && $old->{day}     eq ''    ))
-            {
-	        print STDERR "          Never mind. I'll use the old day value\n" if !$day && $old->{day};
 
-#		print STDERR "Found old $title\n";
-            	$show=$old;
-		last;
-            }
+            || (   !$day &&                      #use old show if old and new are title only
+                 (    !exists $old->{day}
+                   || $old->{day}     eq ''    )))
+            {
+#       		print STDERR "Found old $title\n";
+                print STDERR "          Never mind. I'll use the old day value\n" if !$day && $old->{day};
+                $show=$old;
+                $show->{day}    = $day;
+                last;
+                }
             
     } # old show check
 
     unless ($show)				# build a new show entry
     {
 #       print STDERR "Make new $title\n";
-	$show->{$_}=''        foreach (0..$#COL); # initialize to blanks
-	$show->{device} ="MyReplayTV$MYREPLAY_UNIT"; # set initial values
-	$show->{chanonly}=1;
-        $show->{day}    = $day;
+        $show->{$_}=''        foreach (0..$#COL); # initialize to blanks
+        $show->{device} ="MyReplayTV$MYREPLAY_UNIT"; # set initial values
+        $show->{chanonly}=1;
+
     	push @SHOWS,$show;
     }
 
@@ -1588,8 +1590,7 @@ sub add_myreplaytv_show
     $show->{channel}= $chan;
     $show->{hhmm}   = $start;
     $show->{len}    = $len;
-
-} #add_myreplaytv_show
+    } #add_myreplaytv_show
 
 #
 # quick routine to compute minute of day from hhmm
