@@ -84,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.27 2003/07/06 19:12:02 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.28 2003/07/12 16:48:48 epaepa Exp $ ';
 use IO::Socket;
 use LWP::Simple;
 use Date::Manip;
@@ -913,6 +913,11 @@ sub do_misc( $$ ) {
 	elsif (s/^Subsequent programmes may run late or change,?\s*//) {
 	    # Cannot be stored in current format.
 	    warn "programmes after $p{start} on $p{channel} may run late or change\n";
+	}
+	elsif (length >= 100) {
+	    # Probably an extra description.
+	    push @{$p{desc}}, [ $_, $LANG ];
+	    last;
 	}
 	else {
 	    warn "unknown remnant bit $_";
