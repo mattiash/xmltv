@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.48 2002/10/09 20:52:55 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.49 2002/10/10 17:58:37 epaepa Exp $
 
 =head1 NAME
 
@@ -1387,6 +1387,7 @@ sub special_credits( $ ) {
 
 	   [ sub {
 		 s{,?\s*[wW]ith\s+guests\s+($NAMES_RE)(?:\.\s*)?}{}o && return $1;
+		 s{(^|.|!|\?)\s*($NAME_RE)\s+guests(?:$|(?:\s+)|(?:.\s*))}{$1}o && return $2;
 		 return undef;
 	     }, 'guest' ],
 	  );
