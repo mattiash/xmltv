@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.17 2002/09/21 14:07:08 rmeden Exp $
+# $Id: tv_check,v 1.18 2002/09/24 20:24:03 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.17 $ ' . <<END
+' tv_check v $Revision: 1.18 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -764,7 +764,7 @@ for my $start (sort keys %SHOW_TIME)
     }
     else
     {
-       print sh_summary($show),"\n";
+       print sh_summary($show).opt_summary($show)."\n";
     }
 
 #
@@ -774,7 +774,7 @@ for my $start (sort keys %SHOW_TIME)
     {
         next if (substr($ep->{start},4,4)) lt $TODAY_MMDD;
         next if $ep->{displayed} eq $show;
-        next if $ep->{device}    eq $show->{device}; #skip if already recording
+        next if length($ep->{device}) >0 && ($ep->{device} eq $show->{device}); #skip if already recording
 
         gen_episode_dates($ep) unless $ep->{day};
     
@@ -1222,7 +1222,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.17 $
+tv_check $Revision: 1.18 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
