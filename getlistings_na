@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_na,v 1.22 2001/12/13 00:01:47 jveldhuis Exp $
+# $Id: getlistings_na,v 1.23 2001/12/13 00:02:18 jveldhuis Exp $
 #
 # This script scrapes www.zap2it.com tv listings, producing
 # xmltv.dtd and channels.dtd compliant output. Zap2it supports
@@ -27,7 +27,7 @@
 #
 
 my $VersionMajor="1";
-my $VersionMinor="3";
+my $VersionMinor="4";
 
 my $VersionID="getlistings_na V$VersionMajor\.$VersionMinor";
 
