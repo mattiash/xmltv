@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.199 2004/04/13 22:20:54 epaepa Exp $
+# $Id: Makefile.PL,v 1.200 2004/04/18 09:55:20 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -332,6 +332,13 @@ my @opt_components
        blurb => 'Grabber for Sweden',
        exes => [ 'grab/se/tv_grab_se' ],
        prereqs => { 'XML::LibXML' => 0 } },
+
+     { name => 'tv_grab_fr',
+       blurb => 'Grabber for France',
+       exes => [ 'grab/fr/tv_grab_fr' ],
+       prereqs => { 'HTML::Entities' => 1.27,
+		    'HTML::TreeBuilder' => 0 },
+     },
 
      { name => 'tv_grab_no',
        blurb => 'Grabber for Norway',
