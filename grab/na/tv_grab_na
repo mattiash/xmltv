@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.56 2003/02/19 16:37:23 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.57 2003/02/21 23:58:19 epaepa Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/19 16:37:23 $;
+my $Date = q$Date: 2003/02/21 23:58:19 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -645,7 +645,7 @@ sub closeOutputFileFD($)
 #   When finished, configure will create a file $HOME/.xmltv/$ConfigFileName_g
 #   which contains the postal/zip code, the provider id
 #   and a line for each channel that provider supplies.
-#   This file is what you specify with the --config command
+#   This file is what you specify with the --config-file command
 #   line option to "Step 2 Grabbing Data". See Step 2 for details
 #   of how this file is interpreted.
 #
@@ -717,7 +717,7 @@ sub ConfigureUsage($)
     print $fp "If any neccessary options are given, interactive mode is enabled\n";
     print $fp "(ie no postal/zip code in config file and not on command line)\n";
     print $fp "Result of running configure is a configuration file\n";
-    print $fp "\$HOME/.xmltv/$ConfigFileName_g (use --config to override location).\n";
+    print $fp "\$HOME/.xmltv/$ConfigFileName_g (use --config-file to override location).\n";
 }
 
 # Step 2 - Grab
