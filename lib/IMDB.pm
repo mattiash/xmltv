@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.34 2003/11/19 03:47:13 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.35 2003/11/26 15:53:43 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1391,7 +1391,7 @@ sub readMoviesOrGenres($$$$)
     }
     my $fh = openMaybeGunzip($file) || return(-2);
     while(<$fh>) {
-	if ( m/^$header/o ) {
+	if ( m/^$header/ ) {
 	    if ( !($_=<$fh>) || !m/^===========/o ) {
 		$self->error("missing ======= after $header at line $.");
 		return(-1);
