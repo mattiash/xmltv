@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.49 2003/07/19 16:28:57 epaepa Exp $
+# $Id: ZapListings.pm,v 1.50 2003/08/04 22:17:52 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1377,6 +1377,7 @@ sub scrapehtml($$$)
 		$self->setValue(\$prog, "start_hour", 0);
 	    }
 
+	    my @extras;
 	    if ( $desc=~s;<font><text>(.*?)\s*\(ends at ([0-9]+):([0-9][0-9])\)(.*?)</text></td>$;;io ||
 		 $desc=~s;<font><text>(.*?)\s*\(ends at ([0-9]+):([0-9][0-9])\)\&nbsp\;(.*?)</text><br><a><img></a></td>$;;io){
 		my $preRest=$1;
@@ -1437,6 +1438,12 @@ sub scrapehtml($$$)
 
 		$rest=~s/^\&nbsp\;//o;
 
+		# sometimes HDTV shows up and the end of the program description,
+		# unlike other qualifiers
+		if ( $rest=~s/\s*(HDTV)\&nbsp\;$//o ) {
+		    push(@extras, massageText($1));
+		}
+
 		$rest=$self->decodeStars(\$prog, $rest, $htmlsource);
 
 		if ( length($rest) ) {
@@ -1488,7 +1495,6 @@ sub scrapehtml($$$)
 	    if ( $self->{Debug} ) {
 		main::debugMessage("PREEXTRA: $desc\n");
 	    }
-	    my @extras;
 	    while ($desc=~s;<text>\s*(.*?)\s*</text>;;io ) {
 		push(@extras, massageText($1)); #if ( length($1) );
 	    }
