@@ -91,7 +91,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.6 2004/03/18 15:37:33 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.7 2004/03/18 15:45:42 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -305,8 +305,12 @@ else
             -> proxy("http://localhost/", options => {compress_threshold => 10000},
                                                       timeout            => 420);
     print STDERR "about to download\n";
-    $dd_data->print($soap->download("<startTime>$dd_start</startTime><endTime>$dd_stop</endTime>"));
+    my $got = $soap->download("<startTime>$dd_start</startTime><endTime>$dd_stop</endTime>");
+    $dd_data->print($got);
     $dd_data->flush;
+    if ($got =~ /^<HTML>/ and $got =~ /401 Unauthorized/) {
+	die "bad username or password:\n$got\n";
+    }
     $dd_data_size= -s $dd_data;
     $time = int(time() - $time);
     printf STDERR "Fetched %d k/bytes in %d seconds\n",$dd_data_size/1024,$time;
@@ -447,7 +451,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( { 'date'             => scalar localtime(),
               'source-info-name'     => 'TMS Data Direct Service',
               'source-info-url'      => 'http://labs.zap2it.com/',
-              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.6 2004/03/18 15:37:33 epaepa Exp $',
+              'generator-info-name'  => '$Id: tv_grab_na_dd,v 1.7 2004/03/18 15:45:42 epaepa Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
