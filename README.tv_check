@@ -1,4 +1,4 @@
-$Id: README.tv_check,v 1.2 2002/02/10 18:25:49 rmeden Exp $
+$Id: README.tv_check,v 1.3 2002/02/11 16:37:09 rmeden Exp $
 
 This file describes the tv_check module of XMLTV.
 
@@ -34,6 +34,8 @@ The default guide file name is guide.xml
 3. use tv_check to scan the guide
 	tv_check --scan 
 
+ for html outptu
+    tv_check --scan --html --out=a.html
 
 Sample shows.xml file
 =======================
