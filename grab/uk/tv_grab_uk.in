@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.14 2002/03/15 18:54:05 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.15 2002/03/15 19:08:12 epaepa Exp $
 
 =head1 NAME
 
@@ -359,6 +359,11 @@ END
 sub grab( @ ) {
     my %args = @_;
     my $copyright = get_copyright($index_pages->{regions}->{content});
+
+    # Hopefully nobody will confuse this copyright message for the
+    # listings with the copyright in this program.
+    #
+    print STDERR "\n$copyright\n";
 
     # Set up an XMLTV::Writer; print copyright and start of
     # document.  Ananova's data is in Latin-1.
