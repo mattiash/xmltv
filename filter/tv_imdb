@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_imdb,v 1.1 2003/03/03 15:40:17 jveldhuis Exp $
+# $Id: tv_imdb,v 1.2 2003/03/03 22:57:51 jveldhuis Exp $
 
 =head1 NAME
 
@@ -48,7 +48,7 @@ you can run each prepStage separately by running --preStage with each of the
 stages (see --help for details).
 
 Once you have the database loaded try
-E<39>cat tv.xml | tv_imdb --imagedir <dir> > tv1.xmlE<39>.
+E<39>cat tv.xml | tv_imdb --imdbdir <dir> > tv1.xmlE<39>.
 
 Feel free to report any problems with these steps to xmltv-devel@lists.sf.net.
 =head1 BUGS
