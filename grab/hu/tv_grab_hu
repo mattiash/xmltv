@@ -52,8 +52,8 @@ L<xmltv(5)>.
 
 =head1 AUTHOR
 
-Attila Szekeres szeki@mobilzona.com, Zsolt Varga, varga@suli.info.hu.
-Based on tv_grab_fi by Matti Airas.
+Attila Szekeres and Zsolt Varga.  Based on tv_grab_fi by Matti Airas.
+Maintained by Ed Avis ed@membled.com.
 
 =head1 BUGS
 
@@ -67,7 +67,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_hu,v 1.14 2004/04/28 19:45:00 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_hu,v 1.15 2004/05/03 19:32:22 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
