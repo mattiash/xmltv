@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.16 2002/10/20 17:02:33 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.17 2002/10/24 15:51:18 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -1386,6 +1386,10 @@ sub readSchedule($$$$$)
     @{$self->{Programs}}=$self->scrapehtml($content, "$year-$month-$day on station $station_desc (id $stationid)");
     if ( scalar(@{$self->{Programs}}) == 0 ) {
 	print STDERR "zap2it page format looks okay, but no programs found (maybe site maintenance)\n";
+	if ( -d "urldata" ) {
+	    my $file="urldata/$stationid/content-$month-$day-$year.html";
+	    unlink($file) if ( -f $file );
+	}
 	return(-1);
     }
 
