@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.25 2002/12/05 21:50:27 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.26 2002/12/11 05:26:26 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -893,14 +893,14 @@ sub scrapehtml($$$)
 		    #}
 		    if ( $preRest=~s;\s*(\*+)\s*$;; ) {
 		        if ( length($1) > 4 ) {
-		           main::statusMessage("star rating of $1 is > expected 4, notify xmltv-users@lists.sf.net\n");
+		           main::statusMessage("star rating of $1 is > expected 4, notify xmltv-users\@lists.sf.net\n");
 		        }
 			$self->setValue(\$prog, "star_rating", sprintf("%d/4", length($1)));
 		    }
 		    elsif ( $preRest=~s;\s*(\*+)(\s*)(1/2)\s*$;; ||
 			    $preRest=~s;\s*(\*+)(\s*)(\+)\s*$;; ) {
 		        if ( length($1) > 4 ) {
-		           main::statusMessage("star rating of $1$2$3 is > expected 4, notify xmltv-users@lists.sf.net\n");
+		           main::statusMessage("star rating of $1$2$3 is > expected 4, notify xmltv-users\@lists.sf.net\n");
 		        }
 			$self->setValue(\$prog, "star_rating", sprintf("%d.5/4", length($1)));
 		    }
