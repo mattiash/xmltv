@@ -241,7 +241,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.43 2004/04/16 19:19:35 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.44 2004/04/16 19:21:31 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -565,6 +565,7 @@ else
     $dd_data->print($soap->download("<startTime>$dd_start</startTime><endTime>$dd_stop</endTime>"));
     $dd_data->flush;
     $dd_data_size= -s $dd_data;
+    die 'got empty result from SOAP call' if $dd_data_size == 0;
     $time = int(time() - $time);
     printf STDERR "    Fetched %d k/bytes in %d seconds\n",$dd_data_size/1024,$time;
 } # get data
