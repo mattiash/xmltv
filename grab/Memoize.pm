@@ -2,10 +2,11 @@
 # more than one place in XMLTV.  But not general enough to merge back
 # into Memoize.
 #
-# $Id: Memoize.pm,v 1.13 2005/02/06 20:15:11 epaepa Exp $
+# $Id: Memoize.pm,v 1.14 2005/02/06 20:18:12 epaepa Exp $
 #
 
 package XMLTV::Memoize;
+use strict;
 use File::Basename;
 use Getopt::Long;
 
@@ -89,6 +90,7 @@ sub check_argv( @ ) {
     my %cache;
     tie %cache, 'DB_File', $filename,
       POSIX::O_RDWR() | POSIX::O_CREAT(), 0666;
+    my @r;
     foreach (@_) {
 	my $r = Memoize::memoize($from_caller->($_),
 				 SCALAR_CACHE => [ HASH => \%cache ],
