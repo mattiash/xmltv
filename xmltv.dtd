@@ -78,7 +78,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.22 2003/02/15 10:15:09 epaepa Exp $
+$Id: xmltv.dtd,v 1.23 2003/02/16 12:58:23 epaepa Exp $
 
 -->
 
@@ -194,6 +194,13 @@ differentiates between two programmes sharing the same timeslot and
 channel.  In this case News would have clumpidx="0/2" and Weather
 would have clumpidx="1/2".  If you don't have this problem, be
 thankful!
+
+It's intended that start time and stop time, when both are present,
+make a half-closed interval: a programme is considered to be
+broadcasting _at_ its start time but to stop just before its stop
+time.  In this way a programme from 11:00 to 12:00 does not overlap
+with another programme from 12:00 to 13:00, not even for a moment.
+Nor is there any gap between the two.
 
 To do: Some means of indicating breaks between programmes on the same
 channel.  The 'channel' attribute references the 'id' of a channel
