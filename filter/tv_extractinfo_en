@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.30 2002/09/01 11:53:50 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.31 2002/09/10 11:25:27 epaepa Exp $
 
 =head1 NAME
 
@@ -82,7 +82,7 @@ BEGIN {
 my $have_bar;
 BEGIN {
     eval { require Term::ProgressBar };
-    $have_bar = not defined $@;
+    $have_bar = not $@;
 }
 
 use XMLTV qw(best_name);
