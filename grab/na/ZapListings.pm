@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.50 2003/08/04 22:17:52 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.51 2003/08/05 15:34:47 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1620,6 +1620,7 @@ sub scrapehtml($$$)
 		    }
 		    elsif ( $i=~/^HDTV$/io ) {
 			$prog->{qualifiers}->{HDTV}++;
+			$prog->{qualifiers}->{VideoAspect}="16:9";
 			push(@sure, $i);
 			next;
 		    }
