@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.92 2004/01/24 23:46:46 epaepa Exp $
+# $Id: XMLTV.pm.in,v 1.93 2004/01/29 21:23:49 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -1594,13 +1594,13 @@ sub write_icon( $$$ ) {
 
     $w->emptyTag($e, %$v);
 }
-
-$Handlers{icon}->[0] = sub( $ ) {
+sub read_icon( $ ) {
     my $node = shift; die if not defined $node;
     my %attrs = %{get_attrs($node)};
     warn "missing 'src' attribute in icon" if not defined $attrs{src};
     return \%attrs;
-};
+}
+$Handlers{icon}->[0] = \&read_icon;
 $Handlers{icon}->[1] = sub( $$$ ) {
     my ($w, $e, $v) = @_;
     write_icon($w, $e, $v) if $w;
