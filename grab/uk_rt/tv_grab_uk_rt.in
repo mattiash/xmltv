@@ -88,7 +88,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.64 2004/05/13 18:52:31 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.65 2004/05/23 16:23:15 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -675,6 +675,7 @@ END
 # Function to get a url.  This also seems like a sensible place to do
 # HTML-demoronizing.
 #
+my $warned_bad_chars;
 sub get_url( $ ) {
     my $url = shift;
     for (my $tmp = get_nice($url)) {
@@ -683,7 +684,12 @@ sub get_url( $ ) {
 	$kbwebgets+= (length $_)/1024;
 	tr/\222\222\226/''-/;
 	tr/\010//d;
-	# There could be other illegal chars but I haven't seen them.
+	tr/\t/ /;
+	if (s/([^\012\015\040-\176\240-\377]+)//g) {
+	    warn "removing bad characters: '$1'"
+	      unless $warned_bad_chars++;
+	}
+
 	return $_;
     }
 }

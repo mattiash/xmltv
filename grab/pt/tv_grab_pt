@@ -62,7 +62,7 @@ Bruno Tavares, gawen@users.sourceforge.net, based on tv_grab_es, from Ramon Roca
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.5 2004/05/09 17:49:14 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.6 2004/05/23 16:23:14 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;
@@ -287,12 +287,16 @@ BEGIN {
 }
 
 # Clean up bad characters in HTML.
+my $warned_bad_chars;
 sub tidy( $ ) {
     for (my $s = shift) {
 	# Character 150 seems to be used for 'versus' in sporting
 	# events, but I don't know what that is in Portuguese.
 	#
 	s/\s\226\s/ vs /g;
+	if (tr/\012\015\040-\176\240-\377//dc) {
+	    warn 'removing bad characters' unless $warned_bad_chars++;
+	}
 	return $_;
     }
 }

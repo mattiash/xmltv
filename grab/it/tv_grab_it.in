@@ -71,7 +71,7 @@ recommended by the XMLTV DTD.
 ######################################################################
 # initializations
 use strict;
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.26 2004/05/20 19:31:03 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.27 2004/05/23 16:23:13 epaepa Exp $ ';
 
 use HTML::Entities;
 use HTML::Parser;
@@ -686,6 +686,7 @@ $c =~ /<b> (.*) $chop1...(.*?)($chop2{1})/s;
 ##########################################################
 # tidy
 # decodes entities and removes some illegal chars
+my $warned_bad_chars;
 sub tidy($) {
     for (my $tmp=shift) {
     s/\`/\'/g;          # i really don't know why the site uses ` instead of '    
@@ -720,7 +721,12 @@ sub tidy($) {
         { warn "removing illegal char: |\\".ord($&)."|\n";
           warn "while parsing $title on $chan, day $dd, time $time_start\n";
         }
-     
+
+    # Just to make sure...
+    if (tr/\012\015\040-\176\240-\377//dc) {
+	warn 'removing bad characters' unless $warned_bad_chars++;
+    }
+
     return decode_entities($_);
     }
 }
