@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: Ask.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+# $Id: Ask.pm,v 1.13 2004/07/22 09:21:59 axis3x3 Exp $
 #
 
 package XMLTV::Ask;
@@ -27,12 +27,12 @@ BEGIN {
     if ($ENV{XMLTV_TK}
 	and (defined($ENV{DISPLAY}) || $^O eq 'MSWin32')
 	and eval { require Tk }) {
-	require XMLTV::AskTk; XMLTV::AskTk->import;
-	*XMLTV::Ask:: = *XMLTV::AskTk::;
+	require XMLTV::Ask::Tk; XMLTV::Ask::Tk->import;
+	*XMLTV::Ask:: = *XMLTV::Ask::Tk::;
     }
     else {
-	require XMLTV::AskTerm; XMLTV::AskTerm->import;
-	*XMLTV::Ask:: = *XMLTV::AskTerm::;
+	require XMLTV::Ask::Term; XMLTV::Ask::Term->import;
+	*XMLTV::Ask:: = *XMLTV::Ask::Term::;
     }
 }
 

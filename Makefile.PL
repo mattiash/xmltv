@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.215 2004/07/20 08:04:35 axis3x3 Exp $
+# $Id: Makefile.PL,v 1.216 2004/07/22 09:21:59 axis3x3 Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -130,8 +130,8 @@ my %pm
      'lib/Date.pm'                => '$(INST_LIBDIR)/XMLTV/Date.pm',
      'lib/Version.pm'             => '$(INST_LIBDIR)/XMLTV/Version.pm',
      'lib/Ask.pm'                 => '$(INST_LIBDIR)/XMLTV/Ask.pm',
-     'lib/AskTk.pm'               => '$(INST_LIBDIR)/XMLTV/AskTk.pm',
-     'lib/AskTerm.pm'             => '$(INST_LIBDIR)/XMLTV/AskTerm.pm',
+     'lib/Ask/Tk.pm'               => '$(INST_LIBDIR)/XMLTV/Ask/Tk.pm',
+     'lib/Ask/Term.pm'             => '$(INST_LIBDIR)/XMLTV/Ask/Term.pm',
      'lib/Summarize.pm'           => '$(INST_LIBDIR)/XMLTV/Summarize.pm',
      'lib/IMDB.pm'                => '$(INST_LIBDIR)/XMLTV/IMDB.pm',
      'lib/Gunzip.pm'              => '$(INST_LIBDIR)/XMLTV/Gunzip.pm',
@@ -201,8 +201,8 @@ if ($opt_yes) {
     *ask = sub { print "$_[0] yes\n"; 1 };
 }
 else {
-    do 'lib/AskTerm.pm' or die 'could not load lib/AskTerm.pm, aborting';
-    *ask = \&XMLTV::AskTerm::askBooleanQuestion;
+    do 'lib/Ask/Term.pm' or die 'could not load lib/Ask/Term.pm, aborting';
+    *ask = \&XMLTV::Ask::Term::askBooleanQuestion;
 }
 
 # Weird shit happens when you change things like PREFIX without
