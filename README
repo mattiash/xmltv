@@ -34,8 +34,8 @@ and reappearing on the web site.
 tv_grab_uk_rt has had some more date validation checking added and
 better identifies details that belong in the programme description.
 
-tv_grab_de is still under alpha testing and is not available in
-this release.
+tv_grab_de is not working in this release because the upstream data
+files are not available.
 
 * Installation
 
@@ -104,4 +104,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, ed@membled.com, 2003-09-13
-$Id: README,v 1.75 2003/09/27 19:06:32 jveldhuis Exp $
+$Id: README,v 1.76 2003/09/28 09:32:29 epaepa Exp $
