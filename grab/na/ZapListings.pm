@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.72 2003/11/09 21:10:08 epaepa Exp $
+# $Id: ZapListings.pm,v 1.73 2003/11/19 02:34:31 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -875,10 +875,10 @@ sub initGeoCodeAndGetProvidersList($$)
 
     while ( $content=~s/<SELECT(.*)(?=<\/SELECT>)//ios ) {
         my $options=$1;
-        while ( $options=~s/<OPTION value="(\d+)">([^<]+)<\/OPTION>//ios ) {
+        while ( $options=~s/<OPTION value="(\d+)"\s*>([^<]+)<\/OPTION>//ios ) {
 	    my $p;
 	    $p->{id}=$1;
-	    $p->{description}=$2;
+	    $p->{description}=massageText($2);
             #main::debugMessage("provider $1 ($2)\n";
 	    push(@{$self->{ProviderList}->{$self->{GeoCode}}}, $p);
         }
