@@ -84,7 +84,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.32 2003/09/25 22:21:57 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.33 2003/11/02 22:38:30 epaepa Exp $ ';
 use IO::Socket;
 use LWP::Simple;
 use Date::Manip;
@@ -907,7 +907,7 @@ sub do_misc( $$ ) {
 		     };
 	    # The caller must add the clumpidx later.
 	}
-	elsif (s/^Deaf Signed,?\s*//) {
+	elsif (s/^Deaf[- ][Ss]igned,?\s*//) {
 	    warn "discarding deaf-signed information\n"
 	      unless $warned_discarding_deaf_signed++;
 	}
