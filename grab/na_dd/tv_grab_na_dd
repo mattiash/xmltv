@@ -240,7 +240,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.49 2004/04/22 21:29:06 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.50 2004/04/23 17:50:54 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -640,6 +640,7 @@ my $twig=XML::Twig->new(
                                   {
                                     $program{$_->att('id')}{title}=$hash->{title};
                                     $program{$_->att('id')}{'subtitle'}=$hash->{subtitle} if exists $hash->{subtitle};
+                                    $program{$_->att('id')}{'originalAirDate'}=$hash->{originalAirDate} if exists $hash->{originalAirDate};
                                   }
                                   else
                                   {
