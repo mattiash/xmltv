@@ -1,5 +1,5 @@
 #
-# $Id: ZapListings.pm,v 1.8 2001/11/12 22:46:05 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.9 2001/11/13 14:53:38 epaepa Exp $
 #
 # ----------------------------------------------------------------------------
 # "THE BEER-WARE LICENSE" (Revision 42):
@@ -879,7 +879,7 @@ sub readSchedule($$$$$$$)
     if ( $self->{Debug} ) {
 	print STDERR "scraping html for $year-$month-$day on station $station\n";
     }
-    @{$self->{Programs}}=$self->scrapehtml($content, "$month/$day/$year on station $station");
+    @{$self->{Programs}}=$self->scrapehtml($content, "$year-$month-$day on station $station");
 
     print STDERR "Day $year-$month-$day schedule for station $station_desc has:".
 	scalar(@{$self->{Programs}})." programs\n";
