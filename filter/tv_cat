@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_cat,v 1.2 2002/02/22 18:27:08 epaepa Exp $
+# $Id: tv_cat,v 1.3 2002/02/24 14:18:47 epaepa Exp $
 
 =head1 NAME
 
@@ -16,8 +16,6 @@ programmes are the concatenation of the programmes in the input files,
 and whose channels are the union of the channels in the input files.
 
 B<--output FILE> write to FILE rather than standard output
-
-B<--help> display this help and exit
 
 The treatment of programmes and channels is slightly different because
 for programmes, the ordering is important (typically programmes are

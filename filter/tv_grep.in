@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grep.in,v 1.1 2002/02/23 18:41:31 epaepa Exp $
+# $Id: tv_grep.in,v 1.2 2002/02/24 14:18:47 epaepa Exp $
 
 =head1 NAME
 
@@ -30,8 +30,6 @@ tests.
 =head2 OPTIONS
 
 B<--output FILE> write to FILE rather than standard output.
-
-B<--help> display this help and exit.
 
 B<--ignore-case>, B<-i> treat all regular expression matches as case insensitive.
 

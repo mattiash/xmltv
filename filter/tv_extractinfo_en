@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.2 2002/02/23 18:41:31 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.3 2002/02/24 14:18:47 epaepa Exp $
 
 =head1 NAME
 
@@ -19,8 +19,6 @@ in a programme description might be replaced by the XML element
 <previously-shown>.
 
 B<--output FILE> write to FILE rather than standard output
-
-B<--help> display this help and exit
 
 This tool also attempts to split multipart programmes into their
 constituents, by looking for a description that seems to contain lots
