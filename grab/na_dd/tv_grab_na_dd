@@ -96,7 +96,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.15 2004/03/22 16:06:44 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.16 2004/03/23 15:57:00 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 To configure: $0 --configure [--config-file FILE]
@@ -382,7 +382,7 @@ my $twig=XML::Twig->new(
 				  if (not defined $id and not $warned_no_id++) {
 				      require Data::Dumper;
 				      warn "saw station element without 'id': "
-					. Dumper($hash);
+					. Data::Dumper::Dumper($hash);
 				      return 1;
 				  }
                                   $station{$id}=$hash;
