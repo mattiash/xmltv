@@ -1,6 +1,6 @@
 # A few GUI routines for asking the user questions.
 #
-# $Id: AskTk.pm,v 1.2 2004/01/03 14:52:53 epaepa Exp $
+# $Id: AskTk.pm,v 1.3 2004/05/08 18:34:45 epaepa Exp $
 #
 
 package XMLTV::AskTk;
@@ -61,8 +61,8 @@ sub ask( $ ) {
 	
     $bottom_frame->Button(-text    => "OK",
 			  -command => sub { goto(answer_ok2) },
-			  width    => 10
-			 )->pack(padx => 2, pady => 4);
+			  -width    => 10
+			 )->pack(-padx => 2, -pady => 4);
 								
     $textbox = $middle_frame->Entry()->pack();
     MainLoop();
@@ -123,14 +123,14 @@ sub askBooleanQuestion( $$ ) {
 			  #     draw_download_channels();
                           # },
 			  -command => sub { goto(answer_yes) },
-			  width => 10,
-			 )->pack(-side => 'left', padx => 2, pady => 4);
+			  -width => 10,
+			 )->pack(-side => 'left', -padx => 2, -pady => 4);
 	
     $bottom_frame->Button(-text    => "No",
 			  # -command => sub { exit(0) },
 			  -command => sub { goto(answer_no) },
-			  width => 10
-			 )->pack(-side => 'left', padx => 2, pady => 4);
+			  -width => 10
+			 )->pack(-side => 'left', -padx => 2, -pady => 4);
 	
     MainLoop();
 	
@@ -200,13 +200,13 @@ sub askBooleanOptions( $$$@ ) {
 	$select_all_button = $mid_bottom_frame->Button
 	  (-text => 'Select All',
 	   -command => sub { $listbox->selectionSet(0, 1000) },
-	   width => 10,
+	   -width => 10,
 	  )->pack(-side => 'left');
 	
 	$select_none_button = $mid_bottom_frame->Button
 	  (-text => 'Select None',
 	   -command => sub { $listbox->selectionClear(0, 1000) },
-	   width => 10,
+	   -width => 10,
 	  )-> pack(-side => 'right');
     }
     else {
@@ -220,8 +220,8 @@ sub askBooleanOptions( $$$@ ) {
 	
     $bottom_frame->Button(-text    => 'OK',
 			  -command => sub { goto(answer_ok); },
-			  width    => 10,
-			 )->pack(padx => 2, pady => 4);
+			  -width    => 10,
+			 )->pack(-padx => 2, -pady => 4);
 								
     MainLoop();
 
@@ -270,8 +270,8 @@ sub say( $ ) {
 	
     $bottom_frame->Button(-text    => "OK",
 			  -command => sub { goto(answer_ok3) },
-			  width    => 10,
-			 )->pack(padx => 2, pady => 4);
+			  -width    => 10,
+			 )->pack(-padx => 2, -pady => 4);
 	
     MainLoop();
 	
