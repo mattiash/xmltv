@@ -2,12 +2,13 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: Ask.pm,v 1.16 2004/09/27 19:43:01 epaepa Exp $
+# $Id: Ask.pm,v 1.17 2005/01/30 15:36:23 axis3x3 Exp $
 #
 
 package XMLTV::Ask;
 use strict;
 use XMLTV::GUI;
+use XMLTV::ProgressBar;
 
 use vars qw(@ISA @EXPORT);
 use Exporter;
