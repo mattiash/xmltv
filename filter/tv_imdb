@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_imdb,v 1.6 2003/03/04 18:44:50 jveldhuis Exp $
+# $Id: tv_imdb,v 1.7 2003/03/10 22:50:16 epaepa Exp $
 
 =head1 NAME
 
@@ -116,7 +116,7 @@ could expand to include "country of origin", "description", "writer" and
 Heh, if the XMLTV.dtd supported it, we could even include urls to head
 shots of the actors :)
 
-Would be nice if xmltv as a whole supported gzip'd and bzip2 files.
+Would be nice if xmltv as a whole supported gzipE<39>d and bzip2 files.
 
 =head1 SEE ALSO
 
