@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.60 2003/09/09 19:54:31 epaepa Exp $
+# $Id: ZapListings.pm,v 1.61 2003/09/12 20:46:13 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1049,7 +1049,6 @@ sub getChannelList($$)
     #
     my @rows;
     my @indexes = (0);
-    print STDERR "splitting at <tr\n";
     my $left = $html;
     my $pos = 0;
     while ((my $idx = index($left, '<tr')) != -1) {
