@@ -301,7 +301,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.14 2004/09/07 18:41:40 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.15 2004/09/09 07:28:10 axis3x3 Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -919,7 +919,7 @@ Do you want to skip some channels?",0);
             my $key3=sprintf("%s %s",$_->{channel}, 
                 $station{$_->{station}}{callSign});
             
-            push @questions, ["Add channel $key3?"];
+            push @questions, "Add channel $key3?";
         }
         # Ask the questions
         my @answers = ask_many_boolean( 1, @questions );
@@ -941,6 +941,7 @@ Do you want to skip some channels?",0);
         my $key5=sprintf("%s %s",$_->{channel}, 
             $station{$_->{station}}{callSign});
         print CONF ( $chan_config{$key5} ? '' : 'not ' ), "channel: $key5\n";
+        $chan_found{$key5} = 1;
     }
     
     foreach (sort keys %chan_config)
