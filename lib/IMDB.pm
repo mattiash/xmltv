@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.16 2003/05/06 15:40:25 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.17 2003/05/06 15:41:07 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -343,7 +343,6 @@ sub getMovieMatches($$$)
 					     'id'=>$arr[4]});
 	}
     }
-    #close(FD);
     #print "MovieMatches on ($match) = ".Dumper($results)."\n";
     return($results);
 }
@@ -420,7 +419,6 @@ sub getMovieIdDetails($$)
 	    warn "lookup of movie (id=$id) resulted in garbage ($_)";
 	}
     }
-    #close(FD);
     if ( !defined($results) ) {
 	# some movies we don't have any details for
 	$results->{noDetails}=1;
