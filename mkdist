@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.19 2002/02/28 12:15:15 epaepa Exp $
+# $Id: mkdist,v 1.20 2002/05/23 11:02:40 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -171,7 +171,8 @@ my @toremove=grep { -e || (warn("$_ missing, but no matter\n"), 0) }
      todo
      MANIFEST.SKIP
      mkdist
-     ChangeLog.old);
+     ChangeLog.old
+     t/data/do_not_dist);
 
 my $cmd="tar cf save.tar ";
 for my $f (@toremove) { $cmd.="$f "; }
