@@ -112,5 +112,5 @@ project 'XMLTV'.  There are some mailing lists:
 You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
--- Ed Avis, ed@membled.com, 2004-05-23
-$Id: README,v 1.114 2004/09/27 21:10:51 epaepa Exp $
+-- Ed Avis, ed@membled.com, 2004-09-27
+$Id: README,v 1.115 2004/09/27 21:15:23 epaepa Exp $
