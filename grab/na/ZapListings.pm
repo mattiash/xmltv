@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.54 2003/08/26 21:00:12 epaepa Exp $
+# $Id: ZapListings.pm,v 1.55 2003/08/29 19:46:42 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1021,6 +1021,10 @@ warn "zap2it gave us a server error, but let's go for it anyway\n" if $res->code
 	$row=~s/[\r\n]+\s*//og;
 
 	my $result=new XMLTV::ZapListings::ScrapeRow()->parse($row);
+	if ( !$result ) {
+	    main::errorMessage("ignoing html table row that failed to parse:'$row'");
+	    next;
+	}
 
 	my $desc=$result->summarize();
 	next if ( !$desc );
@@ -1352,6 +1356,10 @@ sub scrapehtml($$$)
 
 	# run it through our row scaper that separates out the html
 	my $result=new XMLTV::ZapListings::ScrapeRow()->parse($row);
+	if ( !$result ) {
+	    main::errorMessage("ignoing html table row that failed to parse:'$row'");
+	    next;
+	}
 
 	# put together a summary of what we found
 	my $desc=$result->summarize();
