@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.14 2003/04/18 14:24:46 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.15 2003/05/08 23:26:50 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -73,19 +73,6 @@ foreach my $exe (split(/ /,$files))
 	return $r;
     };
 }
-
-#
-# add tv_imdb which doesn't work on windows
-#
-$cmds{tv_imdb}=sub {
-    die <<END
-Sorry, tv_imdb requires the unix "look" program which is not available 
-for windows.  It is hoped that a windows capable tv_imdb will be 
-available in the future.
-
-END
-  ;
-};
 
 #
 # add tv_grab_nz which is a Python program
