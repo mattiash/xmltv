@@ -1,20 +1,4 @@
-#
-# $Id: ZapListings.pm,v 1.9 2001/11/13 14:53:38 epaepa Exp $
-#
-# ----------------------------------------------------------------------------
-# "THE BEER-WARE LICENSE" (Revision 42):
-# <jerry@matilda.com> wrote this file.  As long as you retain this notice you
-# can do whatever you want with this stuff. If we meet some day, and you think
-# this stuff is worth it, you can buy me a beer in return.   
-# ----------------------------------------------------------------------------
-# always wanted to use this licence, thanks Poul-Henning Kamp.
-#
-# Feel free to contact me with comments, contributions,
-# and the like. jerry@matilda.com 
-#
-# See release notes and/or cvs logs entries for module history
-#
-#
+# $Id: ZapListings.pm,v 1.10 2001/11/14 16:32:23 epaepa Exp $
 
 package ZapListings;
 
