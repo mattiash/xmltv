@@ -66,7 +66,7 @@ although they do appear as warning messages.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk.in,v 1.95 2004/01/01 12:31:03 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk.in,v 1.96 2004/01/03 14:37:43 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use IO::File;
@@ -158,7 +158,7 @@ GetOptions('days=i'        => \$opt_days,
 	   'configure'     => \$opt_configure,
 	   'config-file=s' => \$opt_config_file,
 	   'output=s'      => \$opt_output,
-	   'share=s'       => \$opt_share, # also undocumented
+	   'share=s'       => \$opt_share, # undocumented
            'offset=i'      => \$opt_offset,
 	   'quiet'         => \$opt_quiet,
 	  )
