@@ -82,7 +82,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.53 2004/02/29 13:54:31 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.54 2004/03/06 11:26:03 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -1470,7 +1470,7 @@ sub get_channels() {
     my @channels;
 
     eval {
-	$data =  get_nice($TV_CHANNELS_URL);    
+	$data =  get_url($TV_CHANNELS_URL);    
 	die 'strange, get_url() not supposed to return undef'
 	  if not defined $data;
     };
@@ -1489,7 +1489,7 @@ sub get_channels() {
 		    /<a href=\"javascript:spawn_window\(\'http:\/\/www.$DOMAIN\/[^>]*\/jsp\/channel_details.jsp[^>]*>[^<]*<\/a>/igo);
 
     eval {
-	$data =  get_nice($RADIO_CHANNELS_URL);    
+	$data =  get_url($RADIO_CHANNELS_URL);    
 	die 'strange, get_url() not supposed to return undef'
 	  if not defined $data;
     };
