@@ -1,4 +1,4 @@
-XMLTV 0.5.18, Windows binary release
+XMLTV 0.5.19, Windows binary release
 
 Gather television listings, process them and organize your viewing.
 XMLTV is a file format for storing TV listings, defined in xmltv.dtd.
@@ -88,5 +88,5 @@ Sourceforge also hosts the following mailing lists
     xmltv-devel    - detailed discussions among developers
     
 -- FIXME add signature line when release is made
-$Id: README.win32,v 1.30 2003/09/13 19:34:56 epaepa Exp $
+$Id: README.win32,v 1.31 2003/09/27 18:21:02 jveldhuis Exp $
 
