@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.61 2003/03/30 11:18:07 epaepa Exp $
+# $Id: tv_grab_na,v 1.62 2003/03/30 11:35:42 epaepa Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/03/30 11:18:07 $;
+my $Date = q$Date: 2003/03/30 11:35:42 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -743,7 +743,9 @@ sub Usage($)
 	$fp=STDOUT;
     }
 
-    print $fp "usage $0 [--help|--configure [configure-options] |[grab-options]]\n";
+    print $fp "usage:\n";
+    print $fp "  $0 --configure [configure-options]\n";
+    print $fp "  $0 [grab-options]\n";
     print $fp "command line options are:\n";
     print $fp "   --help\n";
     print $fp "     print this help\n";
