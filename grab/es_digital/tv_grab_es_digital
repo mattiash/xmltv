@@ -84,7 +84,7 @@ Ramon Roca, Ramon.Roca@XCombo.com, based on tv_grab_es
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es_digital,v 1.1 2004/02/14 17:50:33 ramonroca Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es_digital,v 1.2 2004/03/06 11:35:18 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -431,6 +431,21 @@ sub get_program_data {
                 # Program don't have Description
                         $index = $index + 3;
                 }
+
+		# Check that a title is present, if not we can use
+		# description instead.
+		#
+		if ($p_title !~ /\S/) {
+		    if (defined $p_desc) {
+			$p_title = $p_desc;
+			undef $p_desc;
+		    }
+		    else {
+			warn "programme with no title at $p_stime, not writing";
+			next;
+		    }
+		}
+
                 my %h = (       time =>         $p_stime,
                                 category=>      $p_category,
                                 title=>         $p_title,
