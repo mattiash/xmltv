@@ -62,7 +62,7 @@ recommended by the XMLTV DTD.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_sn,v 1.51 2003/11/08 13:57:19 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_sn,v 1.52 2003/11/22 19:42:33 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::TableExtract; # parse html better than regular expressions.
 use Date::Manip;
@@ -475,6 +475,14 @@ sub process_table( $$$$ ) {
 				   push @{$program{desc}}, [ $_ ];
 			       },
 			      );
+
+		# Also handle these new names the site uses.
+		foreach (keys %classes) {
+		    my $new = "style$_";
+		    die if exists $classes{$new};
+		    $classes{$new} = $classes{$_};
+		}
+
 		while ($third=~s/<span id=\"\d+\" class=\"([^>]+?)\">\s*([^<]+)\s*//) {
 		    my ($class, $content) = ($1, $2);
 		    my $handler = $classes{$class};
