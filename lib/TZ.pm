@@ -1,8 +1,8 @@
-# Miscellaneous timezone routines.  The code in Europe_TZ.pm builds on
-# these for handling European summer time conventions.  This should
+# Miscellaneous timezone routines.  The code in DST.pm builds on
+# these for handling summer time conventions.  This should
 # probably be moved into Date::Manip somehow.
 #
-# $Id: TZ.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+# $Id: TZ.pm,v 1.13 2004/04/10 22:00:32 epaepa Exp $
 #
 
 package XMLTV::TZ;

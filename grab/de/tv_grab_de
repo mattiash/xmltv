@@ -74,7 +74,7 @@ END
 #
 use bytes;
 
-use XMLTV::Version '$Id: tv_grab_de,v 1.31 2003/12/10 21:30:03 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de,v 1.32 2004/04/10 22:00:30 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
@@ -88,7 +88,7 @@ $XMLTV::Get_nice::Delay = 0;
 
 use HTML::Entities qw(%entity2char);
 use Date::Manip;
-use XMLTV::Europe_TZ;
+use XMLTV::DST;
 use XMLTV::Gunzip;
 
 # Todo: perhaps we should internationalize messages and docs?

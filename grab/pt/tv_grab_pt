@@ -60,7 +60,7 @@ Bruno Tavares, gawen@users.sourceforge.net, based on tv_grab_es, from Ramon Roca
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.1 2004/03/24 16:09:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.2 2004/04/10 22:00:32 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;
@@ -72,7 +72,7 @@ use XMLTV;
 use XMLTV::Memoize;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Europe_TZ;
+use XMLTV::DST;
 use XMLTV::Get_nice;
 use XMLTV::Mode;
 # Todo: perhaps we should internationalize messages and docs?
