@@ -202,6 +202,17 @@ Distributor-designated number corresponding to an episode of a specific show. Va
 If a password is stored in the config file, the config file should be properly protected.
 Instead of storing the password in the config file, it can be ommitted, and will be prompted for. 
 
+=head1 Notes on lineup changes
+
+DataDirect currently adds a channel to your lineup automatically when it is available.  When
+B<tv_grab_na_dd> sees the new channel in the DataDirect lineup, it prints a message (and
+potentially adds or ignores it based on --auto-config).
+
+If you are sensitive to bandwidth issues, I would set B<--auto-config ignore> and periodically check
+your B<--config-file> for ignored channels and remove from your DataDirect Lineup L<http://labs.zap2it.com>.
+
+Zap2it is considering making this configurable, but at the moment it is not.
+
 =head1 Known issues
 
 none!
@@ -246,7 +257,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.7 2004/05/05 14:18:22 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.8 2004/05/05 18:59:35 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -818,7 +829,7 @@ Do you want to skip some channels?",0);
             }
             else
             {
-                print STDERR "Ignoring new channel: $key\n";
+                print STDERR "Ignoring new channel: (see docs about bandwidth issues) $key\n";
                 $chan_config{$key}=0;
             }
        }
@@ -935,7 +946,7 @@ for my $map (@{$lineups{$dd_lineup}{map}})
        }
        else
        {
-           print STDERR "New channel found, rerun --configure: $key\n";
+           print STDERR "New channel, rerun --configure and/or change your DataDirect config: $key\n";
        }
     } # new channel
 
