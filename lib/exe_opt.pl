@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.1 2003/06/01 05:46:13 rmeden Exp $
+# $Id: exe_opt.pl,v 1.2 2003/06/01 15:53:46 epaepa Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -19,7 +19,7 @@ print '-nologo
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
 -info InternalName=xmltv.exe
 -info OriginalFilename=xmltv.exe
--info ProductName=xmlTV
+-info ProductName=xmltv
 -info LegalCopyright="GNU General Public License http://www.gnu.org/licenses/gpl.txt"
 ';
 
