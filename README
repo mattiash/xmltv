@@ -15,7 +15,8 @@ Tv_grep can now filter on the presence of any element inside
 <programme>.  Small bug fixes to some of the other grabbers
 (tv_grab_uk now lets you select all national radio stations;
 tv_grab_nz is working again) and more error checking in the XMLTV.pm
-library.
+library. tv_grab_na has been updated to deal with recent zap2it changes
+and forces fully quialified icon urls.
 
 If you want to use tv_grab_fi then there is a new dependency:
 HTML::TreeBuilder.
@@ -94,4 +95,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, ed@membled.com, 2003-01-01
-$Id: README,v 1.54 2003/01/01 22:03:06 epaepa Exp $
+$Id: README,v 1.55 2003/01/07 17:17:27 jveldhuis Exp $
