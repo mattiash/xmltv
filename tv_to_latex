@@ -1,12 +1,12 @@
 #!/usr/bin/perl -w
 #
-# $Id: listings_to_latex,v 1.21 2002/01/29 17:18:00 epaepa Exp $
+# $Id: tv_to_latex,v 1.1 2002/02/05 17:00:34 epaepa Exp $
 #
-# listings_to_latex
+# tv_to_latex
 #
 # Convert TV listings to LaTeX source.
 #
-# Usage: listings_to_latex [filename]
+# Usage: tv_to_latex [filename]
 #
 # XML listings data will be read from filename, or from stdin if no
 # filename is given.  LaTeX source will be written to stdout.

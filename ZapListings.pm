@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.34 2002/02/04 17:38:31 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.35 2002/02/05 17:00:34 epaepa Exp $
 
 package ZapListings;
 
@@ -367,7 +367,7 @@ sub passRequirements($$)
 
     if ( $haveVersion=~/(\d+)\.(\d+)/ ) {
 	if ( $1 < 5 || ($1 == 5 && $2 < 61) ) {
-	    die "getlistings_na: requires libwww-perl version 5.61 or later, (you have $haveVersion)";
+	    die "$0: requires libwww-perl version 5.61 or later, (you have $haveVersion)";
 	    return(0);
 	}
     }

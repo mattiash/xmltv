@@ -3,9 +3,9 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: pick_cgi,v 1.18 2002/01/21 15:28:57 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.1 2002/02/05 17:00:34 epaepa Exp $
 #
-# pick.cgi
+# tv_pick.cgi
 #
 # Web page for the user to pick which programmes he wants to watch.
 #
@@ -26,7 +26,7 @@
 # - Get listings for the next few days using the appropriate backend,
 # for example if you want British listings do:
 #
-# % getlistings_uk_ananova >tv.xml
+# % tv_grab_uk >tv.xml
 #
 # - Optionally, filter these listings to remove programmes which have
 # already been broadcast:
@@ -47,7 +47,7 @@
 # an XMLTV file with the programmes you want to watch.  You might want
 # to print out this XML file:
 #
-# % listings_to_latex <towatch.xml >towatch.tex
+# % tv_to_latex <towatch.xml >towatch.tex
 # % latex towatch.tex
 # % dvips towatch.dvi
 # % lpr towatch.ps
