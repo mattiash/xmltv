@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: AskTerm.pm,v 1.12 2004/05/08 18:44:54 epaepa Exp $
+# $Id: AskTerm.pm,v 1.13 2004/05/13 19:30:16 epaepa Exp $
 #
 package XMLTV::AskTerm;
 use strict;
@@ -45,6 +45,10 @@ sub ask( $ )
     my $r = <STDIN>;
     for ($r) {
 	return undef if not defined;
+
+	# Handle backspace, for broken terminals that don't.
+	s/.\x08//g;
+
 	s/^\s+//;
 	s/\s+$//;
 	return $_;
