@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.19 2003/05/18 19:11:53 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.20 2003/05/25 05:31:02 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -65,7 +65,7 @@ if ($cmd eq 'tv_grab_uk' or $cmd eq 'tv_grab_uk_rt')
     {
         my $dir = dirname(PerlApp::exe()); # get full program path
         $dir =~ s!\\!/!g;      # use / not \   
-        die "EXE path contains spaces.  This is known to cause problems.\nPlease move xmltv.exe to a different directory\n" if $dir =~ / /;
+#       die "EXE path contains spaces.  This is known to cause problems.\nPlease move xmltv.exe to a different directory\n" if $dir =~ / /;
         $dir .= "/share/xmltv";
     	unless (-d $dir )
     	    {
