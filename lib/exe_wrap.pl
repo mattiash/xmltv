@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.49 2004/09/27 21:10:52 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.50 2004/10/09 13:41:41 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -20,23 +20,26 @@ use Carp;
 
 $Carp::MaxEvalLen=40; # limit confess output
 
-# Check for error of running from 'Run' dialogue box with redirection,
-# which Run doesn't understand,
 #
-if (grep /[<>|]/, @ARGV) {
-    warn <<END
-The command line:
-
-$0 @ARGV
-
-contains redirections, so should be run from a command prompt window.
-In general, it's a good idea to always run xmltv from a command prompt
-so that you can see any errors and warnings produced.
-END
-      ;
-    sleep 10;
-    exit 1;
-}
+# this check should not be done, at least not this way. it prevents some regular expressions!
+#
+## Check for error of running from 'Run' dialogue box with redirection,
+## which Run doesn't understand,
+##
+#if (grep /[<>|]/, @ARGV) {
+#    warn <<END
+#The command line:
+#
+#$0 @ARGV
+#
+#contains redirections, so should be run from a command prompt window.
+#In general, it's a good idea to always run xmltv from a command prompt
+#so that you can see any errors and warnings produced.
+#END
+#      ;
+#    sleep 10;
+#    exit 1;
+#}
 
 #
 # check for --quiet
