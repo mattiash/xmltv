@@ -82,7 +82,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.55 2004/03/19 21:12:39 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.56 2004/03/22 16:25:53 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -854,6 +854,9 @@ sub get_programme_details( $$$$$ ) {
 	
  	# Turn hyperlinks with only 'alt' text into ones with content.
  	s!<a href="(.+?)"[^>]*alt="(.+?)"[^>]*></a>!<a href="$1">$2</a>!g;
+	
+	# Remove javascript around hyperlink urls
+	s!<a href="javascript:.*?\('([^']*)'\)"!<a href="$1"!g;
 
  	# Remove hyperlinks within the RT site (keep only external
  	# ones).  Hmm, sometimes Related Features might be relative
