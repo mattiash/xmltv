@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.5 2002/03/12 17:14:31 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.6 2002/04/15 12:56:57 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -657,6 +657,7 @@ sub scrapehtml($$$)
 			  Chinese
 			  Colonial
 			  Cree
+			  Dene
 			  English
 			  Farsi
 			  French
