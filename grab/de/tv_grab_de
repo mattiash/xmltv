@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_de,v 1.10 2002/09/10 11:25:27 epaepa Exp $
+# $Id: tv_grab_de,v 1.11 2002/09/19 22:12:36 epaepa Exp $
 
 =head1 NAME
 
@@ -23,7 +23,7 @@ possible.
 
 =head1 SEE ALSO
 
-L<xmltv(5)>, L<http://yasd.dhs.org/>, L<http://yasd.dhs.org/xmltv/>
+L<xmltv(5)>, L<http://www.szing.at/>, L<http://www.szing.at/xmltv/>
 
 =head1 AUTHOR
 
