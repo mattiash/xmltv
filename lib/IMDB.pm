@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.4 2003/03/04 00:37:15 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.5 2003/03/04 00:41:16 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -277,7 +277,7 @@ sub getStatsLines($$$$)
 	   sprintf("  resulting in a %.2f%% hit percentage\n", $calcHitPercentage).
 	   sprintf("  parsed %.2f programs/sec and checked %.2f programs/sec\n",
 		   $calcProgramsPerSecondParsed, $calcProgramsPerSecondChecked).
-	   sprintf("Checked %d of the %d tv series, hot %.2f%% hit percentage for matches\n",
+	   sprintf("Checked %d of the %d tv series, got %.2f%% hit percentage\n",
 		   $self->{stats}->{program}->{success}, $tvshow_count,
 		   $tvshow_calcHitPercentage));
 }
