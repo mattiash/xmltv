@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.25 2003/01/03 07:30:26 rmeden Exp $
+# $Id: tv_check,v 1.26 2003/01/20 03:48:21 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.25 $ ' . <<END
+' tv_check v $Revision: 1.26 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -819,7 +819,8 @@ for my $start (sort keys %SHOW_TIME)
 #
 # special hack to for ReplayTV's "smart" record
 #
-        if ($show->{device} =~ /^REPLAY/i)
+        if ($show->{device} =~ /^REPLAY/i or
+            $show->{device} =~ /^MYREPLAY/i )
         {
           next unless length($show->{day} ); # don't record title-only scans
           next unless length($show->{hhmm}); # this should never happen
@@ -997,7 +998,6 @@ sub sh_summary
 # given a pointer to a show ( with channel/date/time info) see what's playing then.
 # Scan through start times on a specified day and report the last episode not greater than our start time.
 #
-#
 # Returns undef if no episodes are found (or all are greater, see above)  This is signifies no guide info
 #
 sub find_episode
@@ -1015,6 +1015,12 @@ sub find_episode
         $ep=$GUIDE{$chan}{$mmdd}{$key};
     }
 
+# detect a hold in the guide.
+    $ep=undef if (     defined $ep
+                   and exists $ep->{stop}
+                   and substr($ep->{stop},-10,4) eq $mmdd
+                   and substr($ep->{stop},-6,4)  le $hhmm );
+ 
     return $ep;
 } # find_episode
 
@@ -1231,7 +1237,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.25 $
+tv_check $Revision: 1.26 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
