@@ -72,7 +72,7 @@ channels the site has.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.49 2003/09/14 17:41:15 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.50 2003/09/14 17:43:02 epaepa Exp $ ';
 use Getopt::Long;
 use Data::Dumper;
 use HTML::TreeBuilder;
@@ -766,7 +766,7 @@ sub process_details_page( $$$ ) {
 		    push @$actors, $1;
 		}
 		else {
-		    warn "unknown remnamt 'Rolverdeling' text '$text'";
+		    warn "unknown remnant 'Rolverdeling' text '$text'";
 		    last;
 		}
 	    }
