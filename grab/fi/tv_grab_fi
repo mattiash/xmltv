@@ -66,7 +66,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.19 2003/05/19 19:31:33 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.20 2003/06/21 20:12:15 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -496,15 +496,24 @@ sub get_channels {
     die "could not get channel listing $url, aborting\n"
       if not defined $local_data;
 
+    # FIXME commonize this
+    local $SIG{__WARN__} = sub {
+	warn "$url: $_[0]";
+    };
+    local $SIG{__DIE__} = sub {
+	die "$url: $_[0]";
+    };
+    
     my $tree = HTML::TreeBuilder->new();
     $tree->parse($local_data);
 
     # all channel elements are specially formatted <a/> tags
     # with class=white
 
-    my @white_elems = $tree->look_down("_tag"=>"a",
-				       "class"=>"white");
-    foreach my $elem (@white_elems) {
+    my @kanava_elems = $tree->look_down(_tag => 'div',
+					class => 'kanava');
+    my @ch_a_elems = map { $_->look_down(_tag => 'a') } @kanava_elems;
+    foreach my $elem (@ch_a_elems) {
 	my $href = $elem->attr('href');
 	if ($href =~ m!^/tvopas/\?pvm=([\d\-]*?)&tv_kanava=(.*?)$!) {
 	    my $channel_id=$2;
