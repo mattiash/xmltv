@@ -63,7 +63,7 @@ First release. Not aware of any bugs yet. But I'm sure there are some.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_no,v 1.1 2004/03/22 22:29:12 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_no,v 1.2 2004/03/31 18:22:19 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::Entities; # parse entities
 use IO::File;
@@ -376,8 +376,8 @@ sub process_listings_page ( $$$$ ){
 		$prog{title} = [ [ $newtitle , $LANG ] , [ $originaltitle , "en" ] ] if $originaltitle;
 		$prog{title} = [ [ $newtitle , $LANG ] ] if not $originaltitle;
 		$prog{desc} = [ [ $newdesc , $LANG ] ] unless $newdesc eq "";
-		$prog{'episode-num'} = [ " . $ep/$epall . " , "xmltv_ns" ] if $ep;
-		$prog{'episode-num'} = [ $eptotal , "all-seasons" ] if $eptotal;
+		push @{$prog{'episode-num'}}, [ " . $ep/$epall . " , "xmltv_ns" ] if $ep;
+		push @{$prog{'episode-num'}}, [ $eptotal , "all-seasons" ] if $eptotal;
 		$prog{subtitles} = [ { type => 'teletext' } ] if $teletextsubs;
 		$prog{subtitles} = [ { type => 'onscreen' } ] if $normalsubs;
 		$prog{'previously-shown'} = $rerun if defined $rerun;

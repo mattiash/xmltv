@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.98 2004/03/21 14:51:33 epaepa Exp $
+# $Id: XMLTV.pm.in,v 1.99 2004/03/31 18:22:19 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -177,7 +177,7 @@ our @Programme_Handlers =
    [ 'icon',             'icon',               '*' ],
    [ 'url',              'scalar',             '*' ],
    [ 'country',          'with-lang',          '*' ],
-   [ 'episode-num',      'episode-num',        '?' ],
+   [ 'episode-num',      'episode-num',        '*' ],
    [ 'video',            'video',              '?' ],
    [ 'audio',            'audio',              '?' ],
    [ 'previously-shown', 'previously-shown',   '?' ],

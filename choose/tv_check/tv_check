@@ -69,7 +69,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.52 2004/03/31 07:07:00 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.53 2004/03/31 18:22:18 epaepa Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -83,7 +83,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.52 $ ' . <<END
+' tv_check v $Revision: 1.53 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1056,21 +1056,35 @@ sub ep_summary
 # XMLTV format does some wierd things (IMHO) for multi-part episodes. let's deal with it
 #
     my $desc = get_text($ep ->{"sub-title"}) || get_text($ep->{desc}) || "";
-    my $part = "";
-    if (exists $ep->{"episode-num"})
+    my @parts;
+    foreach (@{$ep->{"episode-num"}})
     {
-      my $text = $ep->{"episode-num"}->[0];
+      my $text = $_->[0];
       if ($text =~ m!Part *(\d+) *of *(\d+)!i)
       {
-        $part = "$1/$2";
+        push @parts, "$1/$2";
       }
       elsif ($text =~ m!(\d+)/(\d+)$!)
       {
-        $part = ($1+1)."/$2";
+        push @parts, ($1+1)."/$2";
       }
       else
       {
 	# Ignore episode-nums that aren't understood.  FIXME do properly.
+      }
+    }
+
+    my $part;
+    if (not @parts)
+    {
+      $part = "";
+    }
+    else
+    {
+      $part = shift @parts;
+      foreach (@parts)
+      {
+	warn "discarding part $_, doesn't match $part" if $_ ne $part;
       }
     }
     
@@ -1357,7 +1371,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.52 $
+tv_check $Revision: 1.53 $
 (C) 2002 Robert Eden
 reden@cpan.org
 

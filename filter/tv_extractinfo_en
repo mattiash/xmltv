@@ -60,7 +60,7 @@ with every source of anglophone TV listings.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_extractinfo_en,v 1.64 2004/01/01 12:31:02 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_extractinfo_en,v 1.65 2004/03/31 18:22:19 epaepa Exp $ ';
 use XMLTV::Date;
 use Date::Manip; Date_Init('TZ=UTC');
 use Carp;
@@ -1723,14 +1723,14 @@ sub special_new_series( $ ) {
 
     return undef if not $is_new_series;
     if (defined $p->{'episode-num'}) {
-	my ($content, $system) = @{$p->{'episode-num'}};
-	if ($system eq 'xmltv_ns') {
+	foreach (@{$p->{'episode-num'}}) {
+	    my ($content, $system) = @$_;
+	    next unless $system eq 'xmltv_ns';
 	    $content =~ m!^\s*(\d+/\d+|\d+|)\s*\.\s*(\d+/\d+|\d+|)\s*\.\s*(\d+/\d+|\d+|)\s*$!
-	      or warn("badly formed xmltv_ns episode-num: $content"), return [ $p ];
+		or warn("badly formed xmltv_ns episode-num: $content"), return [ $p ];
 	    my ($season, $episode, $part) = ($1, $2, $3);
 	    if ($episode ne '' and $episode !~ /^0/) {
 		warn "new series, but episode number $episode";
-		next;
 	    }
 	    elsif ($episode eq '') {
 		# We now know the information that this is the first
@@ -1738,7 +1738,8 @@ sub special_new_series( $ ) {
 		#
 		$episode = '0';
 		$content = "$season . $episode . $part";
-		$p->{'episode-num'} = [ $content, $system ];
+		$_ = [ $content, $system ];
+		last;
 	    }
 	}
     }
@@ -1746,7 +1747,7 @@ sub special_new_series( $ ) {
 	# Make a dummy episode num which says nothing other than
 	# this is the first episode of the series.
 	#
-	$p->{'episode-num'} = [ ' . 0 . ', 'xmltv_ns' ];
+	$p->{'episode-num'} = [ [ ' . 0 . ', 'xmltv_ns' ] ];
     }
     scrub_empty($p->{desc});
     return [ $p ];

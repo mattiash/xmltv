@@ -226,7 +226,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.28 2004/03/31 07:04:25 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.29 2004/03/31 18:22:19 epaepa Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -874,9 +874,10 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 },
 #
                      if (exists $_->{part}{number} && exists $_->{part}{total})
                      {
-                         $prog{'episode-num'}=[sprintf("..%d/%d",$_->{part}{number}-1,
-                                                                  $_->{part}{total}),
-                                                'xmltv-ns'];
+                         push @{$prog{'episode-num'}}, 
+			     [sprintf("..%d/%d",$_->{part}{number}-1,
+				      $_->{part}{total}),
+			      'xmltv-ns'];
                      }
                                                        
 #
@@ -888,7 +889,7 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 },
                        my $value =sprintf("%s.%s",$1,$2);
                           $value.=sprintf(".%d/%d",$_->{part}{number}-1,
                                                    $_->{part}{total}) if exists $_->{part}{number} && exists $_->{part}{total};
-                        $prog{'episode-num'}=[$value,'dd-progid'];
+		       push @{$prog{'episode-num'}}, [$value,'dd-progid'];
                      }
 
 #
