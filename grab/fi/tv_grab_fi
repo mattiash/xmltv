@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.27 2003/11/08 13:57:18 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.28 2003/12/30 21:51:52 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -437,8 +437,9 @@ sub get_program_data {
 }
 sub get_time_elems {
     my ($tree) = @_;
-    my @time_elems = $tree->look_down("_tag"=>"td",
-				      "class"=>"kanava-klo");
+    my @time_elems = $tree->look_down
+      ("_tag"=>"td",
+       sub { defined $_[0]->attr('class') and $_[0]->attr('class') =~ /^kanava-klo(?:-nyt)?$/ });
     return @time_elems;
 }
 sub get_time_str {
