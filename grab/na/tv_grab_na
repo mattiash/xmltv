@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.62 2003/03/30 11:35:42 epaepa Exp $
+# $Id: tv_grab_na,v 1.63 2003/03/30 11:37:57 epaepa Exp $
 
 =head1 NAME
 
@@ -177,7 +177,7 @@ use strict;
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/03/30 11:35:42 $;
+my $Date = q$Date: 2003/03/30 11:37:57 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -867,7 +867,9 @@ if ( $configure ) {
 			 auto-new-channels=s
 			 auto-missing-channels=s
 			 list-providers
-			 list-channels)) ) {
+			 list-channels))
+	 or @ARGV # leftover arguments
+       ) {
 	ConfigureUsage(0);
 	exit(1);
     }
@@ -1487,7 +1489,9 @@ if ( ! GetOptions(qw(help
 		     zip-command=s
 		     bzip2-command=s
 		     listings-overwrite=s
-		     stats)) ) {
+		     stats))
+     or @ARGV # leftover arguments
+   ) {
     Usage(0);
     exit(1);
 }
