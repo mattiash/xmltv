@@ -61,7 +61,7 @@ if (not os.path.exists(config_file)) and os.path.exists(old_config_file):
 
 def version ():
 	# FIXME this duplicates some of XMLTV::Version.
-	v = "$Id: tv_grab_nz.in,v 1.5 2003/07/06 18:39:46 epaepa Exp $"
+	v = "$Id: tv_grab_nz.in,v 1.6 2003/07/12 16:48:04 epaepa Exp $"
 	m = re.search('\$Id: ([^,]+),v (\S+) ([0-9/: -]+)', v)
 	if m:
 		sys.stdout.write("This is %s version %s, %s\n"
@@ -511,7 +511,11 @@ class TvGuide:
 						       + "/"
 						       + str(int(m.group(2)) - 1))
 				else:
-					self.error("unknown 'part': " + part)
+					m = re.match("P(\d+)$", part)
+					if m:
+						episode_num = str(int(m.group(1)) - 1)
+					else:
+						self.error("unknown 'part': " + part)
 			if episode_num:
 				output.write('    <episode-num system="xmltv_ns"> .  . '
 					     + episode_num
