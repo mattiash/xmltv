@@ -69,7 +69,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.58 2004/11/12 06:09:54 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.59 2004/11/12 06:28:24 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -84,7 +84,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.58 $ ' . <<END
+' tv_check v $Revision: 1.59 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -842,10 +842,12 @@ for my $start (sort keys %SHOW_TIME)
 # look for close episode matches
 #
         $ep=$ep->{prev} if ($ep && $ep->{prev}
+                                && !($ep->{prev}->{displayed})  # don't flag shows already hit
                                 && lc(get_text($ep->{title}      )) ne lc($show->{title})
                                 && lc(get_text($ep->{prev}{title})) eq lc($show->{title}));
 
         $ep=$ep->{next} if ($ep && $ep->{next}
+                                && !($ep->{prev}->{displayed})  # don't flag shows already hit
                                 && lc(get_text($ep->{title}      )) ne lc($show->{title})
                                 && lc(get_text($ep->{next}{title})) eq lc($show->{title}));
 #
@@ -862,7 +864,8 @@ for my $start (sort keys %SHOW_TIME)
         }
         else # ( guess we got what we wanted )
         {
-            if (length($show->{device}))
+            if (length($show->{device})
+                && ! $ep->{displayed}  )# don't flag shows already hit)
             {
                 push @{$RECORD{$show->{device}}},$ep;
                 $ep->{device}=$show->{device};
@@ -1417,7 +1420,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.58 $
+tv_check $Revision: 1.59 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
