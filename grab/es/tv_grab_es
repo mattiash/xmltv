@@ -95,7 +95,7 @@ Ramon Roca, Ramon.Roca@XCombo.com, based on tv_grab_fi, from Matti Airas.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es,v 1.30 2004/11/21 20:03:01 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es,v 1.31 2005/03/12 21:29:40 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -448,6 +448,7 @@ sub get_program_data {
                 my $p_stime     = $txt_elems[$index];
                 my @p_str       = split (/:/,$txt_elems[$index + 1]);
                 my $p_title     = $p_str[0];
+		for ($p_title) { s/^\s+//; s/\s+$// }
                 my @strsub      = split (/\"/,$p_str[1])
 		  if (defined $p_str[1]);
                 my $p_subtitle;
