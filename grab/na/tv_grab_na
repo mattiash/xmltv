@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.16 2002/04/26 20:30:12 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.17 2002/05/29 17:29:46 epaepa Exp $
 
 =head1 NAME
 
@@ -113,7 +113,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/04/26 20:30:12 $;
+my $Date = q$Date: 2002/05/29 17:29:46 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -403,7 +403,7 @@ use Fcntl qw(:DEFAULT);
 use XML::Writer;
 use IO;
 use Getopt::Long;
-use Date::Manip;
+use Date::Manip; Date_Init('TZ=UTC');
 use File::Basename;
 
 use XMLTV::ZapListings;
