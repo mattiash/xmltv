@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_na,v 1.31 2001/12/29 21:27:10 jveldhuis Exp $
+# $Id: getlistings_na,v 1.32 2002/01/01 21:14:44 jveldhuis Exp $
 #
 # This script scrapes www.zap2it.com tv listings, producing
 # xmltv.dtd and channels.dtd compliant output. Zap2it supports
@@ -1119,6 +1119,7 @@ sub writeOutPrograms($$$$$$)
 	    if ( defined($prog->{qualifiers}->{PartInfo}) ) {
 		# nowhere to put this
 		# comes in the form of "Part 1 of 2"
+		$writer->dataElement('episode-num', $prog->{qualifiers}->{PartInfo});
 	    }
 	    if ( defined($prog->{qualifiers}->{Live}) ) {
 		# nowhere to put this
