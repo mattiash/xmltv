@@ -1,9 +1,9 @@
 #!/usr/bin/perl -w
-# $Id: tv_extractinfo_en,v 1.34 2002/09/21 09:11:36 epaepa Exp $
+# $Id: tv_extractinfo_en,v 1.35 2002/09/21 11:48:08 epaepa Exp $
 
 =head1 NAME
 
-tv_extractinfo_en: read English-language listings and extract info
+tv_extractinfo_en - read English-language listings and extract info
 from programme descriptions.
 
 =head1 SYNOPSIS
