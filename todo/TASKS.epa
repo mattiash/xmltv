@@ -1,4 +1,4 @@
-$Id: TASKS.epa,v 1.19 2002/03/07 12:48:58 epaepa Exp $
+$Id: TASKS.epa,v 1.20 2002/03/07 12:53:53 epaepa Exp $
 
 As World Service - wontfix
 Pink Panther film vs cartoon
@@ -129,7 +129,7 @@ not-specify).
 
 Make sure Date::Manip works when can't get timezone from environment
 (eg on Windows).  Actually I think this is done already.  Should
-check.
+check.  Could be fixed if every program did Date_Init('TZ=UTC').
 
 Fix this episode_num stuff, I admit it is just silly.
 
