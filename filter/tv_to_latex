@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_to_latex,v 1.5 2002/03/06 17:20:10 epaepa Exp $
+# $Id: tv_to_latex,v 1.6 2002/03/07 13:17:50 epaepa Exp $
 
 =head1 NAME
 
@@ -51,7 +51,7 @@ sub find_channel_names( $ );
 sub usage( ;$ );
 
 my ($opt_help, $opt_output);
-GetOptions('help' => \$opt_help, 'output=s' => \$opt_output);
+GetOptions('help' => \$opt_help, 'output=s' => \$opt_output) or usage(0);
 usage(1) if $opt_help;
 my $filename;
 if (@ARGV == 0) {
