@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.29 2003/01/07 16:42:56 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.30 2003/01/28 16:53:29 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -236,12 +236,12 @@ sub doRequest($$$$)
     $cookie_jar=$ua->cookie_jar();
     if ( defined($cookie_jar) ) {
 	if ( $debug ) {
-	    main::statusMessage("==== response cookies ====\n", $cookie_jar->as_string(), "\n");
+	    main::statusMessage("==== response cookies ====\n".$cookie_jar->as_string()."\n");
 	}
     }
 
     if ( $debug ) {
-	main::statusMessage("==== status: ", $res->status_line, " ====\n");
+	main::statusMessage("==== status: ".$res->status_line." ====\n");
     }
 
     if ( $debug ) {
@@ -254,9 +254,9 @@ sub doRequest($$$$)
 	else {
 	    main::statusMessage("==== bad code ".$res->code().":".HTTP::Status::status_message($res->code())."\n");
 	}
-	#main::statusMessage("".$res->headers->as_string(), "\n");
+	#main::statusMessage("".$res->headers->as_string()."\n");
 	#dumpPage($res->content());
-	#main::statusMessage("".$res->content(), "\n");
+	#main::statusMessage("".$res->content()."\n");
     }
     return($res);
 }
