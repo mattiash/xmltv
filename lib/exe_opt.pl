@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.6 2004/02/12 22:56:55 rmeden Exp $
+# $Id: exe_opt.pl,v 1.7 2004/03/16 22:43:08 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -15,6 +15,7 @@
 print '-nologo
 -force
 -add="XMLTV::Ask::Term;XMLTV::ProgressBar::Term"
+-bind=libexpat.dll[file=\perl\site\lib\auto\XML\Parser\Expat\libexpat.dll,extract]
 -trim="Convert::EBCDIC;DB_File;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm;PerlIO/gzip.pm;HTML::FormatText"
 -info CompanyName="XMLTV Project http://membled.com/work/apps/xmltv/"
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
@@ -34,4 +35,6 @@ printf "-info FileVersion=%4d.%d.%d.%d\n",@date[5,4,3,2];
 # last fields in product version should ommitable, but it doesn't work.
 #
 $version=shift;
-printf "-info ProductVersion=%d.%d.%d.%d\n",split(/\./,$version);
+@_=split(/\./,$version);
+map {$_=0 unless defined $_} @_[0..4];
+printf "-info ProductVersion=%d.%d.%d.%d\n",@_;
