@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.23 2003/07/06 13:20:34 epaepa Exp $
+# $Id: IMDB.pm,v 1.24 2003/07/19 16:15:59 epaepa Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -40,8 +40,7 @@ use strict;
 
 package XMLTV::IMDB;
 
-use vars qw($VERSION);
-$VERSION = '0.2';
+our $VERSION = '0.2';
 
 sub new
 {

@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.21 2003/06/29 15:53:51 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.22 2003/07/19 16:15:54 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -112,7 +112,7 @@ my $TZ="EET";
 my $LANG="fi";
 
 # Global channel data.
-use vars '@ch_all';
+our @ch_all;
 
 
 ######################################################################

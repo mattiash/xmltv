@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.39 2003/07/10 21:18:53 epaepa Exp $
+# $Id: mkdist,v 1.40 2003/07/19 16:15:52 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -52,7 +52,7 @@ sub Usage()
     print "    --step           - step by step confirmation of commands\n";
 }
 
-use vars qw/$opt_help $opt_debug $opt_sfuser $opt_login $opt_version $opt_step/;
+our ($opt_help, $opt_debug, $opt_sfuser, $opt_login, $opt_version, $opt_step);
 
 if ( ! GetOptions('help', 'debug', 'sfuser=s', 'login', 'version=s', 'step') ) {
     Usage();
@@ -147,8 +147,8 @@ do_system("cvs -q co xmltv");
 # Filename, and a regexp to capture the version in $1.
 my %check_ver = ('README'                 => q{^XMLTV\s+([^, ]+)},
 		 'doc/README.win32'       => q{^XMLTV\s+([^, ]+)},
-		 'Makefile.PL'            => q{^\$VERSION\s*=\s*'(\S+)';},
-		 'lib/XMLTV.pm.in'        => q{^\$VERSION\s*=\s*'(\S+)';},
+		 'Makefile.PL'            => q{^(?:our )?\$VERSION\s*=\s*'(\S+)';},
+		 'lib/XMLTV.pm.in'        => q{^(?:our )?\$VERSION\s*=\s*'(\S+)';},
 		 'grab/na/ZapListings.pm' => q{agent\('xmltv/(\S+)'\)},
 		);
 foreach my $f (keys %check_ver) {

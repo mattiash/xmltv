@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.10 2003/06/07 17:09:21 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.11 2003/07/19 16:15:52 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -468,7 +468,7 @@ sub display_form($) {
 	print "<p>\n$desc\n</p>\n" if defined $desc;
 	if ($h{credits}) {
 	    # XMLTV.pm returns a hash mapping job to list of people.
-	    local *credits = $h{credits}; use vars '%credits';
+	    our %credits; local *credits = $h{credits};
 	    print "<table class='credits'>\n";
 	    foreach (sort keys %credits) {
 		print '<tr>';
