@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: getlistings_uk_ananova,v 1.37 2002/01/20 14:55:09 epaepa Exp $
+# $Id: getlistings_uk_ananova,v 1.38 2002/01/28 16:11:31 epaepa Exp $
 #
 # Fetch UK television listings from the data provided by ananova.com.
 #
@@ -965,10 +965,12 @@ sub get_file($$$) {
 	# Programme type.
 	if (length $type) {
 	    foreach (split /\s*,\s*/, $type) {
-		# We don't give the language for categories because
-		# they are liable to be strange strings like 'chldrn'.
-		#
-		push @{$p{category}}, [ lc $_ ];
+		# Convert Ananova's categories into English.
+		my %lookup = (chldren => 'children',
+			      diy => 'DIY');
+		$_ = lc;
+		$_ = $lookup{$_} if defined $lookup{$_};
+		push @{$p{category}}, [ $_, $LANG ];
 	    }
 	}
 
