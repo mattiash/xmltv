@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_imdb,v 1.9 2003/04/10 03:53:33 jveldhuis Exp $
+# $Id: tv_imdb,v 1.10 2003/04/10 03:54:46 jveldhuis Exp $
 
 =head1 NAME
 
@@ -144,7 +144,7 @@ END
 ;
 use XMLTV::IMDB;
 
-my ($opt_help, $opt_output, $opt_prepStage, $opt_imdbDir, $opt_quiet, $opt_stats, $opt_movies-only);
+my ($opt_help, $opt_output, $opt_prepStage, $opt_imdbDir, $opt_quiet, $opt_stats, $opt_movies_only);
 GetOptions('help' => \$opt_help,
 	   'output=s' => \$opt_output,
 	   'prepStage=s' => \$opt_prepStage,
