@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_na_icons.PL,v 1.1 2004/04/25 05:17:38 rmeden Exp $
+# $Id: tv_grab_na_icons.PL,v 1.2 2004/05/09 18:32:30 epaepa Exp $
 #
 # note: stolen from tv_grab_uk_rt.PL!
 #
@@ -12,7 +12,7 @@ use IO::File;
 my $out = shift @ARGV; die "no output file given" if not defined $out;
 my $share_dir = shift @ARGV;
 die "no final share/ location given" if not defined $share_dir;
-my $in = 'grab/na_icons/tv_grab_na_icons.IN';
+my $in = 'grab/na_icons/tv_grab_na_icons.in';
 my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $in_fh = new IO::File "< $in" or die "cannot read $in: $!";
 my $seen = 0;

@@ -72,7 +72,7 @@ use HTML::TableExtract;
 use WWW::Mechanize 1.02;
 
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.IN,v 1.5 2004/05/09 02:53:25 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.1 2004/05/09 18:32:30 epaepa Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
