@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.20 2003/06/24 04:32:05 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.21 2003/06/29 20:54:44 epaepa Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -1048,6 +1048,7 @@ END
 	    # For downloading we use LWP::Simple::getprint() which
 	    # writes to stdout.
 	    #
+	    local *OLDOUT;
 	    open(OLDOUT, '>&STDOUT') or die "cannot dup stdout: $!";
 	    open(STDOUT, ">$filename") or die "cannot write to $filename: $!";
 	    my $success = getprint($url);
