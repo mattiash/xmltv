@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.202 2004/04/25 22:11:23 rmeden Exp $
+# $Id: Makefile.PL,v 1.203 2004/05/01 16:28:24 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -233,12 +233,11 @@ my @opt_components
        grab_need_share => [ 'it' ],
      },
 
-     { name => 'tv_grab_na',
-       blurb => 'Grabber for North America',
-       exes => [ 'grab/na/tv_grab_na' ],
-       pm => { 'grab/na/ZapListings.pm' =>
-	       '$(INST_LIBDIR)/XMLTV/ZapListings.pm' },
-       prereqs => { 'HTML::Parser' => 3.34 } },
+#     { name => 'tv_grab_na',
+#       blurb => 'Grabber for North America',
+#       exes => [ 'grab/na/tv_grab_na' ],
+#       pm => { 'grab/na/ZapListings.pm' => '$(INST_LIBDIR)/XMLTV/ZapListings.pm' },
+#       prereqs => { 'HTML::Parser' => 3.34 } },
 
      { name     => 'tv_grab_na_dd',
        blurb => 'Grabber for North America using DataDirect',
