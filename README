@@ -41,6 +41,7 @@ CGI                     (if you want to run tv_pick_cgi)
 Text::Kakasi            (if you want to run tv_grab_jp)
 XML::LibXML             (if you want to run tv_grab_se)
 SOAP::Lite              (if you want to run tv_grab_na_dd)
+Term::ReadKey           (if you want to run tv_grab_na_dd)
 HTML::TableExtract      (if you want to run tv_grab_no)
 HTML::LinkExtractor     (if you want to run tv_grab_no)
 WWW::Mechanize          (if you want to run tv_grab_na_icons)
@@ -87,4 +88,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2004-05-08
-$Id: README,v 1.111 2004/05/08 14:30:28 epaepa Exp $
+$Id: README,v 1.112 2004/05/08 18:54:54 epaepa Exp $
