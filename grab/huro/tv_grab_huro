@@ -75,7 +75,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro,v 1.5 2004/09/07 18:41:39 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_huro,v 1.6 2004/09/19 14:16:01 rmeden Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -151,6 +151,7 @@ GetOptions('days=i'        => \$opt_days,
 	   'help'          => \$opt_help,
 	   'configure'     => \$opt_configure,
        'gui:s'         => \$opt_gui,
+       'config-file=s' => \$opt_config_file,
 	   'output=s'      => \$opt_output,
 	   'quiet'         => \$opt_quiet,
 	   'list-channels' => \$opt_list_channels,
