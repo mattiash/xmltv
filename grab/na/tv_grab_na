@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.46 2003/02/16 00:14:44 epaepa Exp $
+# $Id: tv_grab_na,v 1.47 2003/02/16 00:52:49 epaepa Exp $
 
 =head1 NAME
 
@@ -171,7 +171,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/16 00:14:44 $;
+my $Date = q$Date: 2003/02/16 00:52:49 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1480,11 +1480,6 @@ sub grab
 	$configfile=$opt_config_file;
     }
     else {
-	# versions starting with 0.5 have configuration information in $HOME/.xmltv by default.
-	if ( defined($ENV{HOME}) && -f "$ENV{HOME}/.xmltv_na" ) {
-	    errorMessage("$0: location of config file (~/.xmltv_na) needs upgrade, run --configure\n");
-	    $configfile="$ENV{HOME}/.xmltv_na";
-	}
 	if ( ! -f $configfile ) {
 	    errorMessage("$0: config file '$configfile' does not exist, run --configure\n");
 	    return(1);
