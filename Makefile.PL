@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.175 2004/01/07 20:07:09 epaepa Exp $
+# $Id: Makefile.PL,v 1.176 2004/01/26 03:41:42 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -321,7 +321,6 @@ my @opt_components
 		   ) ],
        prereqs => { 'Tk' => 0,
 		    'Tk::TableMatrix' => 0,
-		    'XML::Simple' => 0,
 		  } },
 
      { name => 'tv_pick_cgi',
