@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.23 2002/09/01 11:53:50 epaepa Exp $
+# $Id: tv_grab_na,v 1.24 2002/09/19 22:13:46 epaepa Exp $
 
 =head1 NAME
 
@@ -118,7 +118,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/09/01 11:53:50 $;
+my $Date = q$Date: 2002/09/19 22:13:46 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1761,9 +1761,7 @@ sub writeOutPrograms($$$$$$)
 		delete($prog->{qualifiers}->{Subtitles});
 	    }
 	    elsif ( defined($prog->{qualifiers}->{ClosedCaptioned}) ) {
-		# Write as <subtitles></subtitles> to show that there
-		# _could_ be subelements, they're just not there.
-		$writer->dataElement('subtitles', '', 'type' => "teletext");
+		$writer->emptyTag('subtitles', 'type' => "teletext");
 		delete($prog->{qualifiers}->{ClosedCaptioned});
 	    }
 	    if ( scalar(keys %{$prog->{qualifiers}}) == 0 ) {
