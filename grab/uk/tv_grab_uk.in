@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.32 2002/09/13 14:32:13 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.33 2002/09/14 19:02:10 epaepa Exp $
 
 =head1 NAME
 
@@ -567,8 +567,12 @@ sub grab( @ ) {
 	my $r;
 	{
 	    local $Log::TraceMessages::On = 0;
+	    local $SIG{__WARN__} = sub {
+		my $msg = shift;
+		print STDERR "$url: $msg\n";
+	    };
 	    eval { $r = XMLTV::parse($xml) };
-	    die "$_: $@" if $@;
+	    die "$url: $@" if $@;
 	}
 	push @listingses, $r;
 	update $bar if $have_bar;
