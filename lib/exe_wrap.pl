@@ -1,6 +1,6 @@
 #!perl -w 
 #
-# $id $
+# $Id: exe_wrap.pl,v 1.3 2002/10/22 04:25:19 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
