@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.31 2003/02/21 04:28:08 rmeden Exp $
+# $Id: tv_check,v 1.32 2003/03/27 10:01:32 rmeden Exp $
 #
 # tv_check
 #
@@ -78,7 +78,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.31 $ ' . <<END
+' tv_check v $Revision: 1.32 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -1292,7 +1292,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.31 $
+tv_check $Revision: 1.32 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
@@ -1434,6 +1434,12 @@ sub load_guide
        my $chan  = $ep->{channel} || "" ;
        $CHAN{$chan}{'display-name'}[0][0]=$chan unless exists $CHAN{$chan};
 
+       if (! exists $ep->{start})
+       {
+            warn "\n     No start time for $title\n";
+            next;
+       }
+       
        $ep->{stop}=$ep->{start} unless exists $ep->{stop};
  
        $ep->{start}    =~ s/://g;
