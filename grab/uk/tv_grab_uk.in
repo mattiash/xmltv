@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.9 2002/03/07 12:48:57 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.10 2002/03/07 13:01:32 epaepa Exp $
 
 =head1 NAME
 
@@ -110,7 +110,11 @@ if ($opt_help) {
     print <<END
 $0: get UK television listings in XMLTV format
 
-FIXME
+First run
+$0 [--config-file FILE] --configure
+to choose what channels to download.  Then run:
+$0 [--config-file FILE] [--days N]
+to grab N days of listings (default and maximum is one week).
 END
   ;
     exit(1);
@@ -368,7 +372,7 @@ sub grab( @ ) {
 		     'http://www.ananova.com/tv_listings/_tv_full_listings.html',
 		     'source-info-name'    => 'Ananova',
 		     'source-data-url'     => $A,
-		     'generator-info-name' => 'XMLTV/0.5', # FIXME
+		     'generator-info-name' => 'XMLTV/0.5pre2', # FIXME
 		     'generator-info-url'  =>
 		     'http://www.doc.ic.ac.uk/~epa98/work/apps/xmltv/',
 	       });
