@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.233 2005/01/23 21:39:27 epaepa Exp $
+# $Id: Makefile.PL,v 1.234 2005/01/23 22:38:08 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -63,7 +63,7 @@ GetOptions(nodeps         => \$opt_nodeps,
 	  );
 
 our $VERSION;
-$VERSION = '0.5.37';
+$VERSION = '0.5.38';
 
 # Fragment of Makefile text to give the directory where files should
 # be installed.  The extra '.' in the middle of the path is to avoid
@@ -382,9 +382,7 @@ my @opt_components
      { name => 'tv_grab_no',
        blurb => 'Grabber for Norway',
        exes => [ 'grab/no/tv_grab_no' ],
-       prereqs => { 'HTML::Entities' => 1.27,
-		    'HTML::TableExtract' => 0,
-		    'HTML::LinkExtractor' => 0 },
+       prereqs => { 'HTML::Entities' => 1.27 },
      },
 
      { name => 'tv_grab_pt',
