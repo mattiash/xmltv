@@ -1,5 +1,5 @@
 #
-# $Id: XMLTV.pm,v 1.18 2002/01/29 17:18:00 epaepa Exp $
+# $Id: XMLTV.pm,v 1.19 2002/01/31 16:56:18 epaepa Exp $
 #
 # Routines for reading and writing XMLTV files from Perl.
 #
@@ -831,7 +831,7 @@ sub read_icon( $ ) {
 }
 sub write_icon( $$$ ) {
     my ($w, $e, $v) = @_;
-    $w->emptyTag($e, $v);
+    $w->emptyTag($e, %$v);
 }
 
 # To keep things tidy some elements that can have icons store their
@@ -1099,7 +1099,7 @@ sub write_programme {
     # as they are dealt with; then we can easily spot any unhandled
     # elements at the end.
     #
-    my %p = %{shift()};
+    use vars '%p'; local *p = shift;
 
     t('write_programme(' . d($self) . ', ' . d(\%p) . ') ENTRY');
 
