@@ -181,12 +181,12 @@ good translation into XMLTV format.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na,v 1.88 2003/09/27 19:05:04 jveldhuis Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na,v 1.89 2003/10/25 15:43:42 epaepa Exp $ ';
 
 my $VersionMajor=3;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/09/27 19:05:04 $;
+my $Date = q$Date: 2003/10/25 15:43:42 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1498,7 +1498,30 @@ if ( ! GetOptions(qw(help
     exit(1);
 }
 
-warn "ignoring --cache option\n" if defined $opt_cache;
+# ZapListings.pm uses an urldata/ directory to cache some (not all)
+# downloads.  Most other grabbers use a --cache option.  Make some
+# attempt to map from one to the other.
+#
+# todo: cache every download, and let the filename be given as an
+# argument to --cache rather than fixed as 'urldata'.
+#
+my $cacheDir = 'urldata';	# should get from ZapListings.pm?
+if ( defined($opt_cache) ) {
+    die "'--cache $opt_cache' not possible; cache directory is always called '$cacheDir'\n"
+      if $opt_cache ne '' and $opt_cache ne $cacheDir;
+    if ( -d $cacheDir ) {
+	print STDERR "caching some downloads in $cacheDir/\n";
+    }
+    else {
+	mkdir $cacheDir, 0777 or die "cannot mkdir $cacheDir: $!";
+	print STDERR "creating $cacheDir/ to cache some downloads\n";
+    }
+}
+else {
+    warn "$cacheDir exists, using it to cache some downloads\n"
+      if -e $cacheDir;
+    # If it exists but is not a directory, we'll find out soon!
+}
 
 # translate --quiet flag to a boolean
 $opt_quiet=(defined($opt_quiet))?1:0;
