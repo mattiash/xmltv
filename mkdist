@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.34 2003/04/06 16:29:01 epaepa Exp $
+# $Id: mkdist,v 1.35 2003/04/06 17:17:50 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -9,7 +9,7 @@
 # from scratch), checks version information in files, ignores
 # files/dirs we don't want to release, tags the source files in cvs,
 # generates a ChangeLog and generates the .tar.bz2 file for release.
-# Then it uploads this file to upload.sourceforge.net. 
+# Then it uploads this file to upload.sourceforge.net.
 #
 # It DOES NOT: add the file to the XMLTV project, or email
 # announcements, or update www pages, although it reminds you to do
