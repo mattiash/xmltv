@@ -46,7 +46,7 @@ stop < start, but others may creep in undetected.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.8 2003/11/08 13:53:53 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.9 2003/12/10 21:30:04 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
@@ -54,6 +54,9 @@ use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.8 2003/11/08 13:53:53 epaepa Exp $ 
 use XMLTV::Grab_XML;
 package Grab_XML_nl_wolf;
 use base 'XMLTV::Grab_XML';
+
+# No need to be nice.
+$XMLTV::Get_nice::Delay = 0;
 
 use Date::Manip;
 use HTML::TreeBuilder;

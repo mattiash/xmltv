@@ -74,7 +74,7 @@ END
 #
 use bytes;
 
-use XMLTV::Version '$Id: tv_grab_de,v 1.30 2003/09/06 19:14:50 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de,v 1.31 2003/12/10 21:30:03 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
@@ -82,6 +82,9 @@ use XMLTV::Version '$Id: tv_grab_de,v 1.30 2003/09/06 19:14:50 epaepa Exp $ ';
 use XMLTV::Grab_XML;
 package Grab_XML_de;
 use base 'XMLTV::Grab_XML';
+
+# No need to be nice.
+$XMLTV::Get_nice::Delay = 0;
 
 use HTML::Entities qw(%entity2char);
 use Date::Manip;
