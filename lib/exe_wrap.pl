@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.23 2004/01/05 21:52:40 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.24 2004/01/06 20:15:02 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -19,6 +19,24 @@ use File::Basename;
 use Carp;
 
 $Carp::MaxEvalLen=40; # limit confess output
+
+# Check for error of running from 'Run' dialogue box with redirection,
+# which Run doesn't understand,
+#
+if (grep /[<>|]/, @ARGV) {
+    warn <<END
+The command line:
+
+$0 @ARGV
+
+contains redirections, so should be run from a command prompt window.
+In general, it's a good idea to always run xmltv from a command prompt
+so that you can see any errors and warnings produced.
+END
+      ;
+    sleep 10;
+    exit 1;
+}
 
 #
 # get/check time zone
