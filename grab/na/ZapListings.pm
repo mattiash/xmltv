@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.68 2003/11/02 17:14:56 epaepa Exp $
+# $Id: ZapListings.pm,v 1.69 2003/11/02 17:35:43 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1337,7 +1337,6 @@ sub scrapehtml($$$)
 			  German
 			  Greek
 			  Gujarati
-			  Gujrati
 			  Hindi
 			  Hmong
 			  Hungarian
