@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.14 2001/11/21 05:48:03 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.15 2001/11/21 20:42:18 jveldhuis Exp $
 
 package ZapListings;
 
@@ -156,7 +156,7 @@ sub getChannelList($$$$)
 		  saveProvider => 'See Listings' ]);
 
     my $res=&doRequest($ua, $req, $cookieJar, $debug);
-    $res=&doRequest($ua, $req, $cookieJar, $debug);
+       $res=&doRequest($ua, $req, $cookieJar, $debug);
 
     if ( !$res->is_success || $res->content()=~m/your session has timed out/i ) {
 	# again.
@@ -911,7 +911,7 @@ sub readSchedule($$$$$)
 		       goButton => "GO"
 		       ]);
 
-	my $res=&ZapListings::doRequest($ua, $req, $self->{cookieJar}, $self->{Debug});
+	my $res=&ZapListings::doRequest($ua, $req, $cookieJar, $self->{Debug});
 
 	# looks like some requests require two identical calls since
 	# the zap2it server gives us a cookie that works with the second
