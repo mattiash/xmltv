@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.6 2002/12/12 16:47:14 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.7 2002/12/12 16:49:10 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -56,7 +56,15 @@ foreach my $exe (split(/ /,$files))
 # and add tv_grab_nz which is a Python program
 #
 $cmds{tv_grab_nz}=sub {
-    print STDERR "FIXME check for Python, and use it to run tv_grab_nz";
+    die <<END
+Sorry, tv_grab_nz is not available in this Windows binary release,
+although if you have Python installed you will be able to get it from
+the xmltv source distribution.
+
+It is hoped that future Windows binaries for xmltv will include a way
+to run tv_grab_nz.
+END
+  ;
 };
 
 #
