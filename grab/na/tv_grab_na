@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.45 2003/02/09 14:38:24 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.46 2003/02/16 00:14:44 epaepa Exp $
 
 =head1 NAME
 
@@ -171,7 +171,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2003/02/09 14:38:24 $;
+my $Date = q$Date: 2003/02/16 00:14:44 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -864,17 +864,6 @@ if ( $configure ) {
 	    ConfigureUsage(0);
 	    exit(1);
 	}
-    }
-
-    # versions starting with 0.5 have configuration information in $HOME/.xmltv by default.
-    if ( defined($ENV{HOME}) && -f "$ENV{HOME}/.xmltv_na" ) {
-	statusMessage("$0: updating configuration file location from\n");
-	statusMessage("    $ENV{HOME}/.xmltv_na to \$HOME/.xmltv/tv_grab_na\n");
-	if ( ! -d "$ENV{HOME}/.xmltv" ) {
-	    mkdir("$ENV{HOME}/.xmltv", 0775) || die "mkdir $ENV{HOME}/.xmltv:$!";
-	}
-	rename("$ENV{HOME}/.xmltv_na", $ConfigPathName_g) || 
-	    die "mv $ENV{HOME}/.xmltv_na $ConfigPathName_g:$!";
     }
 
     my $config=new myConfig();
