@@ -68,7 +68,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.29 2004/01/01 12:31:03 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.30 2004/02/01 20:38:07 epaepa Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -264,7 +264,7 @@ foreach my $ch_did (@channels) {
 }
 
 # This progress bar is for both downloading and parsing.  Maybe
-# they could be separate, as with tv_grab_uk.
+# they could be separate stages.
 #
 my $bar = new Term::ProgressBar('getting listings', scalar @to_get)
   if Have_bar && not $opt_quiet;

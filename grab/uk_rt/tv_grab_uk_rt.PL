@@ -4,9 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# FIXME commonize this with tv_grab_uk.PL.
-#
-# $Id: tv_grab_uk_rt.PL,v 1.2 2004/01/03 14:52:53 epaepa Exp $
+# $Id: tv_grab_uk_rt.PL,v 1.3 2004/02/01 20:38:08 epaepa Exp $
 #
 
 use IO::File;
