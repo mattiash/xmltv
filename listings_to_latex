@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: listings_to_latex,v 1.20 2002/01/21 15:28:57 epaepa Exp $
+# $Id: listings_to_latex,v 1.21 2002/01/29 17:18:00 epaepa Exp $
 #
 # listings_to_latex
 #
@@ -387,7 +387,7 @@ sub find_channel_names( $ ) {
     my %r;
     foreach my $id (keys %$h) {
 	t 'doing id: ' . d $id;
-	my @names = @{$h->{$id}};
+	my @names = @{$h->{$id}->{'display-name'}};
 	t 'names: ' . d \@names;
 	if (not @names) {
 	    warn "channels hash has no name for $id";
