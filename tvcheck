@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tvcheck,v 1.6 2001/12/31 17:39:39 rmeden Exp $
+# $Id: tvcheck,v 1.7 2002/01/03 04:55:34 rmeden Exp $
 #
 # tvcheck
 #
@@ -106,7 +106,7 @@ foreach $show (@shows)
     if ($TODAY == $show->{day})
     {
        $start=ParseDate(sprintf("Today at %s:%s",substr($show->{hhmm},0,2),
-                                                    substr($show->{hhmm},2,2)));
+                                                 substr($show->{hhmm},2,2)));
     }
     else
     {
@@ -224,12 +224,23 @@ sub ep_summary
     
     gen_ep_dates($ep) unless (exists $ep->{day});
 
+#
+# XMLTV format does some wierd things (IMHO) for multi-part episodes. let's deal with it
+#
+    my $desc = get_text($ep ->{"sub-title"});# || get_text($ep->{desc});
+    my $part = "";
+    if ($ep->{"episode-num"})
+    {
+      $part = "$1/$2"      if ($ep->{"episode-num"}->[0]) =~ m!Part *(\d+) *of *(\d+)!i;
+      $part = ($1+1)."/$2" if ($ep->{"episode-num"}->[0]) =~ m!\.{\d+}/{\d+}!i;
+    }
+    
     return join(" ",$ep->{day},
                    $ep->{mmdd},
                    "$ep->{hhmm}/$ep->{len}",
                    get_text($chan{ $ep->{channel}}),
         		   ($flag ? "" : get_text( $ep->{title} ) ),
-        		    '"'.get_text( $ep->{"sub-title"} ).'"',
+        		    "\"$desc\" $part",
         			($ep->{"previously-shown"} ? "(R)" : "" ));
 } # ep_summary
 
