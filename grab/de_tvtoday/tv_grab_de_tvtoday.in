@@ -83,7 +83,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.13 2004/05/09 17:49:11 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.14 2004/07/04 15:56:00 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -490,6 +490,10 @@ sub parse_page($$) {
 
 	if (ref($span) eq "") {
 	    $span =~ s/\s*\([^\(]+\)\s*$//;
+	    if ($span =~ s/\s*(\d+)\.\sTeil//gi) {
+		#- strip episode number from title field
+		$show{q(episode-num)} = [ [ $1, "onscreen" ] ];
+	    }
 	    $show{title} = [[ $span, $lang ]];
 	} 
 	elsif (ref($span) eq "HTML::Element" and $span->tag eq "a") {
@@ -500,6 +504,10 @@ sub parse_page($$) {
 	    
 	    my $title = ($tag->content_list())[0];
 	    $title =~ s/\s*\([^\(]+\)\s*$//;
+	    if ($title =~ s/\s*(\d+)\.\sTeil//gi) {
+		#- strip episode number from title field
+		$show{q(episode-num)} = [ [ $1, "onscreen" ] ];
+	    }
 	    $show{title} = [[ $title, $lang ]];
 	} 
 	else { die }
