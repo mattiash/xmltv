@@ -1,4 +1,4 @@
-# $Id: Grab_XML.pm,v 1.15 2004/09/07 18:41:38 axis3x3 Exp $
+# $Id: Grab_XML.pm,v 1.16 2005/03/22 17:28:36 axis3x3 Exp $
 package XMLTV::Grab_XML;
 use strict;
 use Getopt::Long;
@@ -311,7 +311,7 @@ sub go( $ ) {
 	push @listingses, XMLTV::parse($xml);
 	update $bar if not $opt_quiet;
     }
-    $bar->finish();
+    $bar->finish() if not $opt_quiet;
     my %w_args = ();
     if (defined $opt_output) {
 	my $fh = new IO::File ">$opt_output";
