@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.180 2004/02/01 21:42:30 epaepa Exp $
+# $Id: Makefile.PL,v 1.181 2004/02/11 20:39:14 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -220,6 +220,7 @@ my @opt_components
        to_clean => [ 'grab/uk_rt/tv_grab_uk_rt' ],
        deps => [ 'grab/uk_rt/tv_grab_uk_rt' => [ 'grab/uk_rt/tv_grab_uk_rt.in' ] ],
        grab_need_share => [ 'uk_rt' ],
+       prereqs => { 'HTML::Entities' => 1.27 } ,
      },
 
      { name => 'tv_grab_it',
