@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.12 2004/11/16 18:29:59 mattiasholmlund Exp $
+# $Id: Get_nice.pm,v 1.13 2004/12/02 20:18:38 mattiasholmlund Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -81,9 +81,10 @@ sub get_nice_aux( $ ) {
 # (default ~/.xmltv/cache.conf) exists.
 sub init_cache
 {
-    my $home = $ENV{HOME} || 
-               $ENV{HOMEDRIVE} . $ENV{HOMEPATH} ||
-               ".";
+    my $winhome = $ENV{HOMEDRIVE} . $ENV{HOMEPATH} 
+        if defined( $ENV{HOMEDRIVE} ) and defined( $ENV{HOMEPATH} ); 
+
+    my $home = $ENV{HOME} || $winhome || ".";
 
     my $conffile = $ENV{CACHE_CONF} || "$home/.xmltv/cache.conf"; 
     
