@@ -1,6 +1,6 @@
 # Routines for reading and writing XMLTV files from Perl.
 #
-# $Id: XMLTV.pm,v 1.26 2002/03/06 16:01:53 epaepa Exp $
+# $Id: XMLTV.pm,v 1.1 2002/03/06 16:11:01 epaepa Exp $
 #
 
 package XMLTV;
