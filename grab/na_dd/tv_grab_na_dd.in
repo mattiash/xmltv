@@ -280,7 +280,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.4 2004/05/21 01:36:37 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.5 2004/05/22 20:22:30 epaepa Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -292,7 +292,7 @@ To Configure
 To get listings
     $0 [--config-file FILE] [--dd-data FILE]
                   [--reprocess] [--auto-config add|ignore]
-                  [--days N]  [--offset N.N] [--quiet]  [--old-chan-id]
+                  [--days N]  [--offset N] [--quiet]  [--old-chan-id]
                   [--low-mem] [--output FILE]
                   [--download-only]
 END
