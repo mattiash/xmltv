@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.1 2002/02/22 18:06:30 epaepa Exp $
+# $Id: ZapListings.pm,v 1.2 2002/02/28 18:51:51 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -670,6 +670,7 @@ sub scrapehtml($$$)
 			  Hindi
 			  Hmong
 			  Hungarian
+			  Innu
 			  Inuktitut
 			  Inuvialuktun
 			  Italian
@@ -679,17 +680,20 @@ sub scrapehtml($$$)
 			  Korean
 			  Mandarin
 			  Mohawk
+			  Musgamaw
 			  Oji-Cree
 			  Panjabi
 			  Polish
 			  Portuguese
 			  Punjabi
+			  Quechuan
 			  Romanian
 			  Russian
 			  Spanish
 			  Swedish
 			  Tagalog
 			  Tamil
+			  Tlingit
 			  Ukrainian
 			  Urdu
 			  Vietnamese
