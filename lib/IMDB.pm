@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.13 2003/04/06 21:28:09 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.14 2003/04/10 03:55:05 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -805,7 +805,7 @@ sub applyFound($$$)
 
 sub augmentProgram($$$)
 {
-    my ($self, $prog, $moviesOnly)=@_;
+    my ($self, $prog, $movies_only)=@_;
 
     $self->{stats}->{programCount}++;
     
@@ -835,7 +835,7 @@ sub augmentProgram($$$)
 	# fall through and try again as a tv series
     }
 
-    if ( !$moviesOnly ) {
+    if ( !$movies_only ) {
 	my $id=$self->findTVSeriesInfo($title);
 	if ( defined($id) ) {
 	    $self->{stats}->{$id->{matchLevel}."Matches"}++;
