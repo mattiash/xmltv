@@ -23,7 +23,7 @@ tv_grab_na_dd - Grab TV listings for North America using Zap2IT's Data Direct se
                   [--reprocess] [--auto-config add|ignore]
                   [--days N]  [--offset N] [--quiet]
                   [--old-chan-id] [--low-mem] [--output FILE]
-                  [--list-channel] [--share SHAREDIR]
+                  [--list-channel] [--share SHAREDIR] [--list-times]
                   [--download-only]
 
 =head1 DESCRIPTION
@@ -128,6 +128,11 @@ same as B<--days> 0
 
 Don't generate any output, just fetch the data.  Personally I don't see the point,
 but it was requested and easy to add.
+
+=item --list-times
+
+report to STDERR the DataDirect blockedTime (not currently enforced)
+and suggestedTime values to assist automated processes with scheduling.
 
 =item --help
 
@@ -301,7 +306,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.25 2005/03/30 00:40:34 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.26 2005/03/30 00:58:12 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
