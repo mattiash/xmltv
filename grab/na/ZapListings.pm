@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.12 2002/05/01 22:25:57 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.13 2002/05/01 22:27:33 jveldhuis Exp $
 
 package XMLTV::ZapListings;
 
@@ -888,7 +888,7 @@ sub scrapehtml($$$)
 	    }
 	    my @extras;
 	    while ($desc=~s;<text>\s*(.*?)\s*</text>;;io ) {
-		push(@extras, massageText($1); #if ( length($1) );
+		push(@extras, massageText($1)); #if ( length($1) );
 	    }
 	    if ( $self->{Debug} ) {
 		print STDERR "POSTEXTRA: $desc\n";
