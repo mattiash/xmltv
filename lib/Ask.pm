@@ -2,7 +2,7 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-# $Id: Ask.pm,v 1.14 2004/09/02 16:30:55 axis3x3 Exp $
+# $Id: Ask.pm,v 1.15 2004/09/07 18:41:41 axis3x3 Exp $
 #
 
 package XMLTV::Ask;
@@ -54,15 +54,16 @@ sub init( $ ) {
         # Ask the XMLTV::GUI module for the graphics type we will use  
         my $gui_type = XMLTV::GUI::get_gui_type($opt_gui);
         
-        if($gui_type =~ /^term/) {        
+        if ($gui_type =~ /^term/) {        
                 $real_class = 'XMLTV::Ask::Term';
-        } elsif($gui_type eq 'tk') {
+        } elsif ($gui_type eq 'tk') {
                 $real_class = 'XMLTV::Ask::Tk';
-        } elsif($gui_type eq 'gdialog') {
-                $real_class = 'XMLTV::Ask::GDialog';
         } else {
                 die "Unknown gui type: '$gui_type'.";
         }
+        
+        # Initialise the ProgressBar module
+        XMLTV::ProgressBar::init($opt_gui);
 }
 
 1;

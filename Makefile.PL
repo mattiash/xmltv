@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.219 2004/09/02 16:30:47 axis3x3 Exp $
+# $Id: Makefile.PL,v 1.220 2004/09/07 18:41:38 axis3x3 Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -132,7 +132,11 @@ my %pm
      'lib/Ask.pm'                 => '$(INST_LIBDIR)/XMLTV/Ask.pm',
      'lib/Ask/Tk.pm'              => '$(INST_LIBDIR)/XMLTV/Ask/Tk.pm',
      'lib/Ask/Term.pm'            => '$(INST_LIBDIR)/XMLTV/Ask/Term.pm',
-     'lib/GUI.pm'                 => '$(INST_LIBDIR)/XMLTV/GUI.pm',
+     'lib/GUI.pm'                 => '$(INST_LIBDIR)/XMLTV/GUI.pm',     
+     'lib/ProgressBar.pm'         => '$(INST_LIBDIR)/XMLTV/ProgressBar.pm',
+     'lib/ProgressBar/None.pm'    => '$(INST_LIBDIR)/XMLTV/ProgressBar/None.pm',
+     'lib/ProgressBar/Term.pm'    => '$(INST_LIBDIR)/XMLTV/ProgressBar/Term.pm',
+     'lib/ProgressBar/Tk.pm'      => '$(INST_LIBDIR)/XMLTV/ProgressBar/Tk.pm',
      'lib/Summarize.pm'           => '$(INST_LIBDIR)/XMLTV/Summarize.pm',
      'lib/IMDB.pm'                => '$(INST_LIBDIR)/XMLTV/IMDB.pm',
      'lib/Gunzip.pm'              => '$(INST_LIBDIR)/XMLTV/Gunzip.pm',
