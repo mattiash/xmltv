@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_na,v 1.9 2002/03/11 19:58:22 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.10 2002/03/11 20:00:58 jveldhuis Exp $
 
 =head1 NAME
 
@@ -113,7 +113,7 @@ good translation into XMLTV format.
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/03/11 19:58:22 $;
+my $Date = q$Date: 2002/03/11 20:00:58 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -1173,7 +1173,7 @@ sub grab
     
     if ( !defined($opt_retry_limit) ) {
 	if ( !defined($config->{option_retry_limit}) ) {
-	    print STDERR "no retry limit set in configuration, re-running --configure\n";
+	    print STDERR "no retry limit set in configuration, re-run --configure\n";
 	    $opt_retry_limit=2;
 	}
 	else {
@@ -1183,7 +1183,7 @@ sub grab
 
     if ( !defined($opt_retry_delay) ) {
 	if ( !defined($config->{option_retry_delay}) ) {
-	    print STDERR "no retry delay set in configuration, re-running --configure\n";
+	    print STDERR "no retry delay set in configuration, re-run --configure\n";
 	    $opt_retry_delay=30;
 	}
 	else {
