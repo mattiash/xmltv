@@ -63,7 +63,7 @@ First release. Not aware of any bugs yet. But I'm sure there are some.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_no,v 1.7 2004/05/08 09:24:09 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_no,v 1.8 2004/05/08 10:04:47 epaepa Exp $ ';
 use Getopt::Long;
 use HTML::Entities; # parse entities
 use IO::File;
@@ -348,7 +348,8 @@ sub process_listings_page ( $$$$ ){
 		die "didn't see stop time in @$row[0]" if not defined $newstop;
 		my $newtitle = $1 if @$row[1] =~ m/2><b>\n(.*)<\/b>/;
 		die "didn't see title in @$row[0]" if not defined $newtitle;
-		$newtitle =~ s!.*</a>([^<]+)!$1!;
+		$newtitle =~ s!.*>([^<]+)!$1!;
+		
 		my $newdesc = $1 if @$row[1] =~ m/size=1>\n(.*)<br>\n<img/;
 		$newdesc = encode_entities($newdesc) if $newdesc;
 		# OK for desc to be missing.
