@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.226 2004/11/08 23:39:29 mnbjhguyt Exp $
+# $Id: Makefile.PL,v 1.227 2004/11/11 05:03:29 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -921,7 +921,7 @@ sub MY::makefile {
 sub MY::manifypods {
     package MY;
     for (my $inherited = shift->SUPER::manifypods(@_)) {
-	foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip Date)) {
+	foreach my $s (qw(Grab_XML DST Config_file Get_nice Mode Summarize Gunzip GUI Date)) {
 	    s!\$\(INST_MAN3DIR\)/(?:grab::|)$s[.]\$\(MAN3EXT\)!"\$(INST_MAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
 	    s!\$\(INSTALLMAN3DIR\)/$s.\$\(MAN3EXT\)!"\$(INSTALLMAN3DIR)/XMLTV::$s.\$(MAN3EXT)"!;
 	}
