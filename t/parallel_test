@@ -14,7 +14,7 @@
 # source tarball.
 #
 # -- Ed Avis, epa98@doc.ic.ac.uk, 2002-01-31
-# $Id: parallel_test,v 1.10 2002/05/19 17:29:45 epaepa Exp $
+# $Id: parallel_test,v 1.11 2002/05/21 14:13:57 epaepa Exp $
 #
 use strict;
 
@@ -36,6 +36,7 @@ my @tests = map { [ $_, $_ ] }
    [qw(--config-file grab/uk/test_configs/carlton)],
    [qw(--days 1 --config-file grab/uk/test_configs/carlton)],
    [qw(--days 1 --config-file grab/uk/test_configs/bbc1)],
+   [qw(--days 1 --config-file grab/uk/test_configs/radio4)],
    [qw(--config-file grab/uk/test_configs/carlton)],
    [qw(--config-file grab/uk/test_configs/tynetees)],
    [qw(--config-file grab/uk/test_configs/radio)],
