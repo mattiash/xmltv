@@ -138,11 +138,6 @@ could expand to include "country of origin", "description", "writer" and
 Heh, if the XMLTV.dtd supported it, we could even include urls to head
 shots of the actors :)
 
-Runs an external gzip process rather than using Compress::Zlib, this
-means that gzipped files wonE<39>t work out of the box on Windows.
-Would be nice if xmltv as a whole supported gzipE<39>d and bzip2
-files.
-
 =head1 SEE ALSO
 
 L<xmltv(5)>
@@ -154,7 +149,7 @@ Jerry Veldhuis, jerry@matilda.com
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_imdb,v 1.21 2003/12/19 06:01:03 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_imdb,v 1.22 2004/03/07 14:02:23 epaepa Exp $ ';
 use Data::Dumper;
 use Getopt::Long;
 
