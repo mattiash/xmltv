@@ -3,7 +3,7 @@
 # FIXME -T should be on but Date::Manip is currently broken under
 # taint mode.
 #
-# $Id: tv_pick_cgi,v 1.8 2002/10/02 19:21:08 epaepa Exp $
+# $Id: tv_pick_cgi,v 1.9 2002/12/23 20:23:37 epaepa Exp $
 #
 # tv_pick.cgi
 #
@@ -227,8 +227,7 @@ open(PREFS, "+>>$PREFS_FILE") or die "cannot open $PREFS_FILE: $!";
 flock(PREFS, LOCK_SH);
 seek PREFS, 0, 0;
 while (<PREFS>) {
-    s/^\s+//; s/\s+$//;
-    s/\#.*//;
+    s/\#.*//; s/^\s+//; s/\s+$//;
     next if $_ eq '';
 #    t("got line from $PREFS_FILE: " . d($_));
     if (/^(never|no|yes|always|maybe): (.+)$/) {
@@ -611,8 +610,7 @@ sub write_output() {
     my %nums;
     open(TOWATCH, $TOWATCH) or die "cannot open $TOWATCH: $!";
     while (<TOWATCH>) {
-	s/\#.*//;
-	s/^\s*//; s/\s*$//;
+	s/\#.*//; s/^\s*//; s/\s*$//;
 	next if $_ eq '';
 	m!^\Q$LISTINGS\E/(\d+)$! or die "$TOWATCH:$.: bad line $_";
 	$nums{$1}++ && die "$TOWATCH:$.: already seen number $1";

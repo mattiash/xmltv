@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.59 2002/12/23 19:14:25 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.60 2002/12/23 20:23:37 epaepa Exp $
 
 =head1 NAME
 
@@ -1120,7 +1120,7 @@ sub init_channels() {
     open (FH, "<$CHANNEL_NAMES_FILE")
       or die "cannot open $CHANNEL_NAMES_FILE: $!";
     while (<FH>) {
-	s/^\s+//; s/\s+$//; s/\#.*//;
+	s/\#.*//; s/^\s+//; s/\s+$//;
 	next unless length;
 	my @fields = split /:/;
 	die "$CHANNEL_NAMES_FILE:$.: wrong number of fields"
@@ -1202,7 +1202,7 @@ sub get_channel_pkgs() {
 	die "package $pkg_name seen twice" if defined $pkgs{$pkg_name};
 	open(PKG, "$_") or die "cannot read channel package file $_: $!";
 	while (<PKG>) {
-	    s/^\s+//; s/\s+$//; s/\#.*//;
+	    s/\#.*//; s/^\s+//; s/\s+$//;
 	    next unless length;
 	    push @{$pkgs{$pkg_name}}, $_;
 
