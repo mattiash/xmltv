@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grab_uk.in,v 1.37 2002/09/16 20:53:55 epaepa Exp $
+# $Id: tv_grab_uk.in,v 1.38 2002/09/16 23:11:44 epaepa Exp $
 
 =head1 NAME
 
@@ -61,7 +61,6 @@ use strict;
 use LWP::Simple;
 use Getopt::Long;
 use Date::Manip;
-use Tie::RefHash;
 use IO::File;
 use Tie::RefHash;
 use Data::Dumper;
