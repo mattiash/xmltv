@@ -76,7 +76,7 @@ but that involves even more page fetches so it is disabled at present.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.43 2004/01/24 22:39:46 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.44 2004/01/25 00:03:25 epaepa Exp $ ';
 use IO::Socket;
 use Date::Manip;
 use Getopt::Long;
@@ -546,7 +546,7 @@ sub get_programmes( $$$$$ ) {
 	    push @p, { channel => $channel_xid,
 		       start => $start,
 		       stop => $stop,
-		       title => $link_title };
+		       title => [ [ $link_title, $LANG ] ]};
 	}
 	else {
 	    unless ($seen_prog{$channel_xid}->{$programmeId}++) {
