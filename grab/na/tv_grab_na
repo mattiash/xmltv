@@ -14,13 +14,13 @@
 #    program descriptions include qualifiers that are unidentified
 #    These should be reported to the author
 #
-# $Id: tv_grab_na,v 1.4 2002/03/01 21:09:36 jveldhuis Exp $
+# $Id: tv_grab_na,v 1.5 2002/03/01 21:14:28 jveldhuis Exp $
 #
 
 my $VersionMajor=2;
 my $VersionMinor;
 
-my $Date = q$Date: 2002/03/01 21:09:36 $;
+my $Date = q$Date: 2002/03/01 21:14:28 $;
 if ( !($Date=~m;^\s*Date: (\d{4})/(\d\d)/(\d\d) \d\d:\d\d:\d\d\s*$;)) {
     die "can't decipher date line ($Date)\n";
 }
@@ -949,6 +949,11 @@ sub grab
 	$configfile=$opt_config;
     }
     else {
+	# versions starting with 0.5 have configuration information in $HOME/.xmltv by default.
+	if ( defined($ENV{HOME}) && -f "$ENV{HOME}/.xmltv_na" ) {
+	    print STDERR "$0: location of config file (~/.xmltv_na) needs upgrade, run --configure\n";
+	    $configfile="$ENV{HOME}/.xmltv_na";
+	}
 	if ( ! -f $configfile ) {
 	    print STDERR "$0: config file '$configfile' does not exist, run --configure\n";
 	    return(1);
