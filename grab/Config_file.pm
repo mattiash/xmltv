@@ -1,4 +1,4 @@
-# $Id: Config_file.pm,v 1.7 2004/05/08 14:24:59 epaepa Exp $
+# $Id: Config_file.pm,v 1.8 2004/05/13 19:32:51 epaepa Exp $
 package XMLTV::Config_file;
 use strict;
 use XMLTV::Ask;
@@ -46,12 +46,14 @@ sub filename( $$;$$ ) {
 sub check_no_overwrite( $ ) {
     my $f = shift;
     if (-e $f) {
-	if (not askBooleanQuestion
-	    ("The configuration file $f already exists.  There is
-currently no support for altering an existing configuration: you have
-to reconfigure from scratch.
+	if (not askBooleanQuestion <<END
+The configuration file $f
+already exists.  There is currently no support for altering an
+existing configuration: you have to reconfigure from scratch.
 
-Do you wish to overwrite the old configuration?", 0)) {
+Do you wish to overwrite the old configuration?
+END
+	    , 0) {
 	    say( "Exiting since you don't want to overwrite the old configuration." );
 	    exit 0;
 	}
