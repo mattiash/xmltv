@@ -249,7 +249,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd,v 1.34 2004/04/04 03:41:19 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd,v 1.35 2004/04/09 16:26:13 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -432,7 +432,7 @@ Specify certificate code: 'ZYZM-TE5O-SBUT' (Letter O)
         $dd_user=ask("Username ($dd_user):")|| $dd_user || die "DataDirect Username Required\n";
         $dd_pass=ask("
 WARNING: Storing the password in the config file is not secure
-If passowrd is blank, it will be prompted as needed(more secure)
+If password is blank, it will be prompted as needed(more secure)
 Unsecured password ('x':delete,default:$dd_pass,):")|| $dd_pass;
     }
     $dd_pass='' if $dd_pass eq 'x';
