@@ -301,7 +301,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.22 2004/12/26 15:32:28 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.23 2005/01/13 04:46:52 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -362,7 +362,7 @@ my $opt_configure;      # configure mode
 my $opt_config_file ;   # config_file_name
 my $opt_gui ;           # use a gui for configuration
 my $opt_output;         # output name
-my $opt_days       =10; # days to fetch
+my $opt_days       =7;  # days to fetch
 my $opt_offset     =0;  # day to start
 my $opt_quiet      =0;  # supress messages
 my $opt_lineup     =''; # limit results to one lineup
@@ -1256,6 +1256,7 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 },
                         $prog{date}         =$ptr->{originalAirDate}      if exists $ptr->{originalAirDate}
                                                                              && $_->{program} =~ /^EP/;
                         $prog{date}         =$ptr->{year}                 if exists $ptr->{year};
+                        $prog{date}         =~ s/-//g                     if exists $prog{date};
 
 
                         if (exists $ptr->{runTime})
