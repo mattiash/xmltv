@@ -42,7 +42,7 @@ The system requirements are perl 5.005_03 or later, and a great many
 Perl modules.  The Makefile.PL will warn if the necessary modules are
 not installed, the full list is:
 
-XML::DOM
+XML::DOM (which in turn depends on XML::Parser)
 XML::Writer
 Date::Manip
 LWP
@@ -77,4 +77,4 @@ project 'XMLTV'.  Please join the xmltv-announce mailing list at
 Sourceforge for notification of new versions.
 
 -- Ed Avis, epa98@doc.ic.ac.uk, 2002-05-23
-$Id: README,v 1.34 2002/05/23 10:28:38 epaepa Exp $
+$Id: README,v 1.35 2002/05/27 16:48:47 epaepa Exp $
