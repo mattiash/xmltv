@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.30 2003/11/16 18:52:18 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.31 2003/11/16 19:10:12 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -30,6 +30,10 @@
 #       "Baywatch Hawaiian Wedding" for imdb's "Baywatch: Hawaiian Wedding" :)
 #
 # FUTURE "Columbo Cries Wolf" appears instead of "Columbo:Columbo Cries Wolf"
+#
+# BUG - we identify 'presenters' by the word "Host" appearing in the character
+#       description. For some movies, character names include the word Host.
+#       ex. Animal, The (2001) has a character named "Badger Milk Host".
 #
 # BUG - if there is a matching title with > 1 entry (say made for tv-movie and
 #       at tv-mini series) made in the same year (or even "close" years) it is
