@@ -2,6 +2,8 @@
 # more than one place in XMLTV.  But not general enough to merge back
 # into Memoize.
 #
+# $Id: Memoize.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::Memoize;
 use File::Basename;

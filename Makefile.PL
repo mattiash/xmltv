@@ -1,4 +1,5 @@
 #!/usr/bin/perl -w
+# $Id: Makefile.PL,v 1.169 2004/01/03 14:52:53 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;

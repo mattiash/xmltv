@@ -16,6 +16,8 @@
 # given as a filename argument, outputs fixed-up version of 'less
 # detailed' to stdout.
 #
+# $Id: add_time_info,v 1.7 2004/01/03 14:52:53 epaepa Exp $
+#
 
 use strict;
 use XMLTV;

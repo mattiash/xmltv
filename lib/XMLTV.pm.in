@@ -1,4 +1,5 @@
 # -*- perl -*-
+# $Id: XMLTV.pm.in,v 1.87 2004/01/03 14:52:53 epaepa Exp $
 package XMLTV;
 
 use strict;

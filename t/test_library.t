@@ -1,4 +1,5 @@
 #!/usr/bin/perl
+# $Id: test_library.t,v 1.2 2004/01/03 14:52:53 epaepa Exp $
 use warnings;
 use strict;
 use File::Temp qw(tempdir);

@@ -4,6 +4,8 @@
 # modify your Makefile.PL.  I kept well away from the deprecated and
 # no-longer-working uninstall stuff in MakeMaker itself.
 #
+# $Id: Uninstall.pm,v 1.5 2004/01/03 14:52:53 epaepa Exp $
+#
 package Uninstall;
 use strict;
 use base 'Exporter'; our @EXPORT = qw(uninstall);

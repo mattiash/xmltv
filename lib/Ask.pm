@@ -2,6 +2,8 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
+# $Id: Ask.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::Ask;
 use strict;

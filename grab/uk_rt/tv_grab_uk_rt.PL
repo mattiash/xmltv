@@ -6,6 +6,8 @@
 #
 # FIXME commonize this with tv_grab_uk.PL.
 #
+# $Id: tv_grab_uk_rt.PL,v 1.2 2004/01/03 14:52:53 epaepa Exp $
+#
 
 use IO::File;
 my $out = shift @ARGV; die "no output file given" if not defined $out;

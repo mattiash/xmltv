@@ -1,5 +1,7 @@
 # A few GUI routines for asking the user questions.
 #
+# $Id: AskTk.pm,v 1.2 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::AskTk;
 use strict;

@@ -1,3 +1,5 @@
+# $Id: Get_nice.pm,v 1.7 2004/01/03 14:52:53 epaepa Exp $
+#
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
 # LWP::RobotUI but this is better than nothing.

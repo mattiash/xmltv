@@ -2,7 +2,8 @@
 # and also by Makefile.PL, so this file should not depend on any
 # nonstandard libraries.
 #
-
+# $Id: AskTerm.pm,v 1.6 2004/01/03 14:52:53 epaepa Exp $
+#
 package XMLTV::AskTerm;
 use strict;
 use base 'Exporter';

@@ -24,6 +24,8 @@
 #
 # Again, this all works but a better mechanism is needed.
 #
+# $Id: Clumps.pm,v 1.14 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::Clumps;
 use XMLTV::Date;

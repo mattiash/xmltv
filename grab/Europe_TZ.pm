@@ -1,3 +1,5 @@
+# $Id: Europe_TZ.pm,v 1.14 2004/01/03 14:52:53 epaepa Exp $
+#
 # Timezone stuff, including routines to guess timezones in European
 # countries that have daylight saving time.
 #

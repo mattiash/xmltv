@@ -19,6 +19,8 @@
 # some programs have different help messages depending on what other
 # options were given.
 #
+# $Id: Usage.pm,v 1.4 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::Usage;
 use base 'Exporter'; our @EXPORT = qw(usage);

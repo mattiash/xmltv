@@ -1,3 +1,5 @@
+# $Id: Gunzip.pm,v 1.6 2004/01/03 14:52:53 epaepa Exp $
+
 =pod
 
 =head1 NAME

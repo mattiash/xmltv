@@ -1,3 +1,4 @@
+# $Id: Grab_XML.pm,v 1.11 2004/01/03 14:52:53 epaepa Exp $
 package XMLTV::Grab_XML;
 use strict;
 use Getopt::Long;

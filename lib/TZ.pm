@@ -2,6 +2,8 @@
 # these for handling European summer time conventions.  This should
 # probably be moved into Date::Manip somehow.
 #
+# $Id: TZ.pm,v 1.12 2004/01/03 14:52:53 epaepa Exp $
+#
 
 package XMLTV::TZ;
 use Carp;

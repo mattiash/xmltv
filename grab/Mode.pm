@@ -1,3 +1,5 @@
+# $Id: Mode.pm,v 1.2 2004/01/03 14:52:53 epaepa Exp $
+#
 # A simple library to handle mutually exclusive choices.  For example
 #
 # my $mode = XMLTV::Mode::mode('eat', # default

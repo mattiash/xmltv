@@ -1,3 +1,4 @@
+# $Id: Summarize.pm,v 1.3 2004/01/03 14:52:53 epaepa Exp $
 package XMLTV::Summarize;
 use strict;
 use base 'Exporter';

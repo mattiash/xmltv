@@ -1,3 +1,4 @@
+# $Id: Config_file.pm,v 1.6 2004/01/03 14:52:53 epaepa Exp $
 package XMLTV::Config_file;
 use strict;
 use XMLTV::Ask;

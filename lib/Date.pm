@@ -1,3 +1,4 @@
+# $Id: Date.pm,v 1.3 2004/01/03 14:52:53 epaepa Exp $
 package XMLTV::Date;
 use warnings;
 use strict;
