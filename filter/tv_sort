@@ -1,5 +1,4 @@
 #!/usr/bin/perl -w
-# $Id: tv_sort,v 1.21 2003/04/03 07:23:49 epaepa Exp $
 
 =head1 NAME
 
@@ -42,6 +41,7 @@ Ed Avis, ed@membled.com
 =cut
 
 use strict;
+use XMLTV::Version '$Id: tv_sort,v 1.22 2003/05/19 19:31:32 epaepa Exp $ ';
 use Date::Manip; Date_Init('TZ=UTC');
 use Data::Dumper;
 use Getopt::Long;

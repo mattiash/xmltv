@@ -1,7 +1,5 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.36 2003/05/13 05:36:57 rmeden Exp $
-#
 # tv_check
 #
 # This script searches a channel GUIDE for shows in a show list and alerts when
@@ -67,6 +65,8 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
+use XMLTV::Version '$Id: tv_check,v 1.37 2003/05/19 19:31:31 epaepa Exp $ ';
+
 use Tk;
 use Tk::TableMatrix;
 use XML::Simple;
@@ -78,7 +78,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.36 $ ' . <<END
+' tv_check v $Revision: 1.37 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -101,7 +101,6 @@ where --options are:
 
 END
   ;
-
 
 #
 # Define constants
@@ -1302,7 +1301,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.36 $
+tv_check $Revision: 1.37 $
 (C) 2002 Robert Eden
 reden@cpan.org
 

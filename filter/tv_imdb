@@ -1,5 +1,4 @@
 #!/usr/bin/perl -w
-# $Id: tv_imdb,v 1.12 2003/05/06 15:41:40 jveldhuis Exp $
 
 =head1 NAME
 
@@ -129,6 +128,7 @@ Jerry Veldhuis, jerry@matilda.com
 =cut
 
 use strict;
+use XMLTV::Version '$Id: tv_imdb,v 1.13 2003/05/19 19:31:32 epaepa Exp $ ';
 use Data::Dumper;
 use Getopt::Long;
 
