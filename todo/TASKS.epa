@@ -1,4 +1,4 @@
-$Id: TASKS.epa,v 1.10 2002/01/19 18:38:21 epaepa Exp $
+$Id: TASKS.epa,v 1.11 2002/01/20 14:50:15 epaepa Exp $
 
 This is my todo list, it relates mostly to UK listings-grabbing and
 the other stuff I wrote.  -- Ed Avis, epa98@doc.ic.ac.uk
@@ -27,6 +27,8 @@ Merge almost-same channels (eg BBC1 SE vs BBC1 Digital)
 Eliminate colons in output times.
 
 --output
+
+05:00--05:00, it means '24 hours' but looks odd
 
 Suggestions from Jerry V.
 
