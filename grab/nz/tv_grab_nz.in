@@ -62,7 +62,7 @@ if (not os.path.exists(config_file)) and os.path.exists(old_config_file):
 
 def version ():
 	# FIXME this duplicates some of XMLTV::Version.
-	v = "$Id: tv_grab_nz.in,v 1.12 2003/11/09 20:49:19 epaepa Exp $"
+	v = "$Id: tv_grab_nz.in,v 1.13 2003/12/07 21:56:25 epaepa Exp $"
 	m = re.search('\$Id: ([^,]+),v (\S+) ([0-9/: -]+)', v)
 	if m:
 		sys.stdout.write("This is %s version %s, %s\n"
@@ -425,6 +425,9 @@ class TvGuide:
 
 			if map[0] != -1:
 				starttime_day=self.gen_time(self.clean_html(show[map[0]]))
+				if starttime_day == '':
+					self.error('skipping program because of bad start time')
+					continue
 				starttime=date+starttime_day
 			if map[1] != -1:
 				program=self.clean_html(show[map[1]])
