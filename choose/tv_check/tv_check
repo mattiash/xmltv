@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: tv_check,v 1.11 2002/09/06 15:13:19 rmeden Exp $
+# $Id: tv_check,v 1.12 2002/09/12 04:14:15 rmeden Exp $
 #
 # tv_check
 #
@@ -31,7 +31,7 @@ use HTTP::Request::Common qw(POST GET);
 use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Usage
-' tv_check v $Revision: 1.11 $ ' . <<END
+' tv_check v $Revision: 1.12 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -275,7 +275,7 @@ foreach (split(/\n/,$html))
       my $title = $a[0]; 
       my $days  = $a[1];
       my $chan  = "$a[2] $a[3]";
-      my $hhmm  = sprintf("%02d%02d",($a[6] eq 'P' ? $a[4]+12 : $a[4]),$a[5]);
+      my $hhmm  = sprintf("%02d%02d",(($a[6] eq 'P')&& ($a[5] != 0) ? $a[4]+12 : $a[4]),$a[5]);
       my $guar  = ( $a[7] =~ /^Not/ ? 0 : 1 );
 
       next unless $guar || $MYREPLAY_NONG;
@@ -1217,7 +1217,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.11 $
+tv_check $Revision: 1.12 $
 (C) 2002 Robert Eden
 rmeden@cpan.org
 
