@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.34 2004/03/24 14:00:19 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.35 2004/04/03 11:01:57 epaepa Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -119,8 +119,16 @@ foreach my $exe (split(/ /,$files))
 # execute our command
 #
     $0 = $_;        # set $0 to our script
-    $r = require $exe;
-    exit $r;
+
+    # Would like to use do() but there is no reliable way to check for
+    # errors.
+    #
+    undef $/;
+    open EXE, $exe or die "cannot open $exe: $!";
+    my $code = <EXE>;
+    eval $code;
+    die $@ if $@;
+    exit;
 }
 
 #
