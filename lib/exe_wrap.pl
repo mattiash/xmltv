@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.11 2003/02/20 22:27:07 epaepa Exp $
+# $Id: exe_wrap.pl,v 1.12 2003/02/21 04:26:41 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -23,8 +23,8 @@ use File::Basename;
 unless (exists $ENV{TZ})
 {
     my $now    =  time();
-    my $lhour  = 20; #(localtime($now))[2];
-    my $ghour  = 02; # (   gmtime($now))[2];
+    my $lhour  = (localtime($now))[2];
+    my $ghour  = (   gmtime($now))[2];
     my $tz     = ($lhour - $ghour);
        $tz    -= 24 if $tz >  12;
        $tz    += 24 if $tz < -12;
