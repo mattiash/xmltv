@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.67 2003/11/01 13:37:14 epaepa Exp $
+# $Id: ZapListings.pm,v 1.68 2003/11/02 17:14:56 epaepa Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -1079,7 +1079,7 @@ sub getChannelList($$)
 
 	my $result=new XMLTV::ZapListings::ScrapeRow()->parse($row);
 	if ( !$result ) {
-	    warn("ignoing html table row that failed to parse:'$row'");
+	    warn("ignoring html table row that failed to parse:'$row'");
 	    next;
 	}
 
@@ -1423,7 +1423,7 @@ sub scrapehtml($$$)
 	# run it through our row scaper that separates out the html
 	my $result=new XMLTV::ZapListings::ScrapeRow()->parse($row);
 	if ( !$result ) {
-	    warn("ignoing html table row that failed to parse:'$row'");
+	    warn("ignoring html table row that failed to parse:'$row'");
 	    next;
 	}
 
