@@ -49,6 +49,7 @@ XML::Writer 0.4.1 - nonstandard release, see below
 Date::Manip 5.42a 
 LWP 5.65
 Memoize (included with perl 5.8 and later)
+Storable (included with perl 5.8 and later)
 
 HTML::Parser 3.34       (if you want to run tv_grab_na)
 HTML::TreeBuilder       (for many of the grabbers)
@@ -102,4 +103,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2004-02-01
-$Id: README,v 1.92 2004/02/01 21:47:15 epaepa Exp $
+$Id: README,v 1.93 2004/02/03 21:44:40 epaepa Exp $
