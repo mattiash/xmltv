@@ -1,4 +1,4 @@
-# $Id: ZapListings.pm,v 1.23 2002/11/28 18:37:36 jveldhuis Exp $
+# $Id: ZapListings.pm,v 1.24 2002/12/05 21:42:46 jveldhuis Exp $
 
 #
 # Special thanks to Stephen Bain for helping me play catch-up with
@@ -894,7 +894,8 @@ sub scrapehtml($$$)
 		    if ( $preRest=~s;\s*(\*+)\s*$;; ) {
 			$self->setValue(\$prog, "star_rating", sprintf("%d/4", length($1)));
 		    }
-		    elsif ( $preRest=~s;\s*(\*+)\s*1/2\s*$;; ) {
+		    elsif ( $preRest=~s;\s*(\*+)\s*1/2\s*$;; ||
+			    $preRest=~s;\s*(\*+)\s*\+\s*$;; ) {
 			$self->setValue(\$prog, "star_rating", sprintf("%d.5/4", length($1)));
 		    }
 		    else {
