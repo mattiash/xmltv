@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.237 2005/03/13 21:13:57 epaepa Exp $
+# $Id: Makefile.PL,v 1.238 2005/03/14 20:16:03 stesie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -107,6 +107,7 @@ my @exes
        filter/tv_sort
        filter/tv_to_latex
        filter/tv_to_text
+       filter/tv_to_potatoe
        filter/tv_cat
        filter/tv_split
        filter/tv_imdb
