@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: tv_grep.in,v 1.18 2002/12/17 15:32:39 epaepa Exp $
+# $Id: tv_grep.in,v 1.19 2003/02/02 18:09:38 epaepa Exp $
 
 =head1 NAME
 
@@ -386,7 +386,7 @@ while (@ARGV) {
 		}
 		else { die }
 	    }
-	    elsif ($h_name eq 'with-lang' or $h_name eq 'with-lang-or-empty') {
+	    elsif ($h_name =~ m!^with-lang(?:/[a-z]*)?$!) {
 		my $regexp = shift @ARGV;
 		die "$lo requires an argument, a Perl regular expression\n"
 		  if not defined $regexp;
@@ -611,7 +611,7 @@ END
 	if ($h_name eq 'boolean') {
 	    $msg .= "    --$_\n";
 	}
-	elsif ($h_name eq 'scalar' or $h_name eq 'with-lang') {
+	elsif ($h_name eq 'scalar' or $h_name =~ m!^with-lang(?:/[a-z]*)?$!) {
 	    $msg .= "    --$_ REGEXP\n";
 	}
 	else {
