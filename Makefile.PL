@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.225 2004/10/25 01:33:47 rmeden Exp $
+# $Id: Makefile.PL,v 1.226 2004/11/08 23:39:29 mnbjhguyt Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -263,15 +263,15 @@ my @opt_components
        grab_need_share => [ 'it' ],
      },
 
-#     { name => 'tv_grab_it_lt',
-#       blurb => 'Alternative grabber for Italy',
-#       exes => [ 'grab/it_lt/tv_grab_it_lt' ],
-#       pl_files => { 'grab/it_lt/tv_grab_it_lt.PL' => 'grab/it_lt/tv_grab_it_lt' },
-#       share_files => { 'grab/it_lt/channel_ids' => 'tv_grab_it_lt/channel_ids' },
-#       to_clean => [ 'grab/it_lt/tv_grab_it_lt' ],
-#       deps => [ 'grab/it_lt/tv_grab_it_lt' => [ 'grab/it_lt/tv_grab_it_lt.in' ] ],
-#       grab_need_share => [ 'it_lt' ],
-#     },
+     { name => 'tv_grab_it_lt',
+       blurb => 'Alternative grabber for Italy',
+       exes => [ 'grab/it_lt/tv_grab_it_lt' ],
+       pl_files => { 'grab/it_lt/tv_grab_it_lt.PL' => 'grab/it_lt/tv_grab_it_lt' },
+       share_files => { 'grab/it_lt/channel_ids' => 'tv_grab_it_lt/channel_ids' },
+       to_clean => [ 'grab/it_lt/tv_grab_it_lt' ],
+       deps => [ 'grab/it_lt/tv_grab_it_lt' => [ 'grab/it_lt/tv_grab_it_lt.in' ] ],
+       grab_need_share => [ 'it_lt' ],
+     },
 
      { name     => 'tv_grab_na_dd',
        blurb => 'Grabber for North America using DataDirect',
