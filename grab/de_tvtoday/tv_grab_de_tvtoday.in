@@ -91,7 +91,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.24 2005/01/13 16:54:07 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.25 2005/03/14 20:35:15 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -1239,9 +1239,11 @@ sub get_page($) {
 
     local $SIG{__DIE__} = sub { die "\n$url: $_[0]" };
     
-    while($retry < 4) {
-	my $got = get_nice($url . ($retry ? "&retry=$retry" : ""));
+    while($retry < 2) {
+	my $got = eval { get_nice($url . ($retry ? "&retry=$retry" : "")); };
 	$retry ++;
+
+	next if($@); # unable to download, doesn't look too good for us.
 
 	die "retrieved webpage doesn't look like a tvtoday.de page, maybe a proxy error?"
 	  unless(index($got, "<title>TV TODAY</title>"));
