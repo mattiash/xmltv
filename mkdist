@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 #
-# $Id: mkdist,v 1.32 2003/02/15 22:40:24 epaepa Exp $
+# $Id: mkdist,v 1.33 2003/04/06 16:22:08 epaepa Exp $
 #
 # This script is meant to be run in an empty directory, although
 # it doesn't require it.
@@ -229,6 +229,7 @@ die 'could not connect to upload.sourceforge.net' if not $ftp;
 $ftp->login('anonymous', "$opt_sfuser\@sourceforge.net")
   or die 'could not log in to FTP server as anonymous';
 $ftp->cwd('incoming') or die 'could not cd to incoming/ on FTP server';
+$ftp->binary() or die 'could not set binary mode for FTP';
 $ftp->put($filename) or die "could not put $filename to FTP server";
 $ftp->quit()
   or die 'failure logging out of FTP session';
