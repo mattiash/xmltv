@@ -61,7 +61,7 @@ use HTML::TableExtract;
 use WWW::Mechanize 1.02;
 
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.IN,v 1.2 2004/04/25 22:02:07 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.IN,v 1.3 2004/04/27 01:16:03 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
@@ -92,7 +92,8 @@ mkdir "$SHARE_DIR/icons" unless -d "$SHARE_DIR/icons";
 #
 # create our agent
 #
-my $a = WWW::Mechanize->new(agent => "$0/0.1");
+my $a = WWW::Mechanize->new(agent => "$0/0.1",
+                            env_proxy => 1   );
 
 $a->get('http://www.zap2it.com/index');
 check_page($a);
