@@ -1,6 +1,6 @@
-XMLTV 0.2.10
+XMLTV 0.3
 
-$Id: README,v 1.17 2001/11/12 22:46:05 jveldhuis Exp $
+$Id: README,v 1.18 2001/11/14 16:15:07 epaepa Exp $
 
 Suite of programs for processing TV listings and organizing your
 viewing.
@@ -29,4 +29,4 @@ Redan, and Jerry Veldhuis.
 
 See release notes and/or cvs logs entries for module history
 
--- Ed Avis, epa98@doc.ic.ac.uk, 2001-09-14
+-- Ed Avis, epa98@doc.ic.ac.uk, 2001-11-14
