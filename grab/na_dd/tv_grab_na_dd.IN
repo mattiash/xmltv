@@ -240,7 +240,7 @@ use constant Have_bar => eval { require Term::ProgressBar; 1 };
 use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
-use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.3 2004/04/27 15:13:25 rmeden Exp $';
+use XMLTV::Version '$Id: tv_grab_na_dd.IN,v 1.4 2004/04/30 01:14:43 rmeden Exp $';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -284,7 +284,7 @@ my $tz_offset=0;
 my $start_time=time();
 my $prog_count=0;        # record count;
 my %old_lineups=();      # used for DD schema 1.2 -> 1.3 migration
-my %icons={};            # holds icons (if present)
+my %icons=();            # holds icons (if present)
 
 my $dd_user="";         # dd username
 my $dd_pass="";         # dd password
