@@ -1,5 +1,5 @@
 #
-# $Id: XMLTV.pm,v 1.9 2001/12/19 12:27:36 epaepa Exp $
+# $Id: XMLTV.pm,v 1.10 2001/12/28 14:32:38 epaepa Exp $
 #
 # Routines for reading and writing XMLTV files from Perl.
 #
@@ -65,6 +65,26 @@ sub node_to_programme( $ ) {
     # Attributes of programme element.  No checking done.
     %programme = %{dom_attrs($node)};
     t 'attributes: ' . d \%programme;
+
+    # Check the required attributes are there.  As with most checking,
+    # this isn't an alternative to using a validator but it does save
+    # some headscratching during debugging.
+    #
+    foreach (qw(start channel)) {
+	if (not defined $programme{$_}) {
+	    warn "programme missing '$_' attribute\n";
+	}
+    }
+    my @known_attrs = qw(start stop pdc-start vps-start showview
+			 videoplus channel clumpidx);
+    my %ka; ++$ka{$_} foreach @known_attrs;
+    foreach (keys %programme) {
+	unless ($ka{$_}) {
+	    warn "deleting unknown attribute '$_'";
+	    delete $programme{$_};
+	}
+    }
+
     t 'going through each child of programme';
 
     # Current position in Handlers.  We expect to read the subelements
@@ -97,6 +117,8 @@ sub node_to_programme( $ ) {
 		t "doesn't match name $Handlers[$i]->[0]";
 		my ($handler_name, $r, $w, $multiplicity)
 		  = @{$Handlers[$i]};
+		die if not defined $handler_name;
+		die if $handler_name eq '';
 
 		# Before we skip over this element, check that we got
 		# the necessary values for it.
