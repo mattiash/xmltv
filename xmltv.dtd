@@ -69,7 +69,7 @@ explicit timezone is given, UT is assumed.  Examples:
 
 Version 0.5 (xmltv-0.4).  Written by Ed Avis (epa98@doc.ic.ac.uk) and
 Gottfried Szing, thanks to others for suggestions.
-$Id: xmltv.dtd,v 1.16 2002/03/15 18:47:09 epaepa Exp $
+$Id: xmltv.dtd,v 1.17 2002/04/18 17:06:57 epaepa Exp $
 
 -->
 
@@ -442,11 +442,15 @@ ever!  Otherwise, explicitly put empty content:
 <!ELEMENT last-chance (#PCDATA)>
 <!ATTLIST last-chance lang CDATA #IMPLIED>
 
-<!-- New.  This is an episode from a new series that has never been
-shown on television before - if not worldwide then at least never
-before in this country.  After the first episode or programme has been
-shown, subsequent ones are no longer 'new'.  Similarly the second
-series of an established programme is not 'new'.
+<!-- New.  This is the first screened programme from a new show that
+has never been shown on television before - if not worldwide then at
+least never before in this country.  After the first episode or
+programme has been shown, subsequent ones are no longer 'new'.
+Similarly the second series of an established programme is not 'new'.
+
+Note that this does not mean 'new season' or 'new episode' of an
+existing show.  You can express part of that using the episode-num
+stuff.
 -->
 <!ELEMENT new EMPTY>
 
