@@ -6,7 +6,7 @@
 # seem to match.
 #
 # -- Ed Avis, ed@membled.com, 2003-10-04
-# $Id: test_tv_split.t,v 1.6 2004/01/20 20:57:37 epaepa Exp $
+# $Id: test_tv_split.t,v 1.7 2004/03/17 21:10:05 epaepa Exp $
 #
 
 use warnings;
@@ -69,6 +69,7 @@ INPUT: foreach my $input (@inputs) {
 	my $channel = $1;
 	++$input{"channel$channel-month$month"};
     }
+    close FH or warn "cannot close $input: $!";
 
     # Make temporary directory and split into it.
     my $dir = tempdir(CLEANUP => 1);
@@ -123,6 +124,7 @@ INPUT: foreach my $input (@inputs) {
 		++$found{$template};
 	    }
 	}
+	close FH or warn "cannot close $f: $!";
 
 	# We don't check that every channel used has a <channel>
 	# element (it might not have been in the input files) but we
