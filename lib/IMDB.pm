@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.1 2003/03/03 15:39:21 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.2 2003/03/03 21:19:24 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -853,7 +853,12 @@ sub readCastOrDirectors($$$)
 	die "why are we here ?";
     }
 
-    open(FD, "< $file") || return(-2);
+    if ( $file=~m/\.gz$/o ) {
+	open(FD, "gzip -c -d $file |") || return(-2);
+    }
+    else {
+	open(FD, "< $file") || return(-2);
+    }
     while(<FD>) {
 	if ( m/^$header/ ) {
 	    if ( !($_=<FD>) || !m/^===========/o ) {
