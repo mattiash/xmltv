@@ -69,7 +69,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.63 2005/03/23 07:39:32 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.64 2005/04/10 00:44:25 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -84,7 +84,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.63 $ ' . <<END
+' tv_check v $Revision: 1.64 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -109,7 +109,9 @@ where --options are:
      process n days (default 7)
 
    --notruncate
+     don't exclude episodes before today in extra-episode scans
      don't exclude episodes after '--days' days in extra-episode scans
+
 
 END
   ;
@@ -929,8 +931,9 @@ for my $start (sort keys %SHOW_TIME)
 #
     for my $ep ( @{$GUIDE{all}{lc($show->{title})}})
     {
-        next if substr($ep->{start},0,8) lt $TODAY_MMDD; # ignore shows before today
-        next if !$NOTRUNCATE && substr($ep->{start},0,8) ge $WEEK_MMDD ;  # ignore shows more than a week away
+        gen_episode_dates($ep)    unless $ep->{day};
+        next if !$NOTRUNCATE && $ep->{mmdd} lt $TODAY_MMDD;  # ignore shows before today
+        next if !$NOTRUNCATE && $ep->{mmdd} ge $WEEK_MMDD ;  # ignore shows more than a week away
         next if $ep->{displayed} eq $show;
         next if length($ep->{device}) >0 && ($ep->{device} eq $show->{device}); #skip if already recording
 
@@ -1467,7 +1470,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.63 $
+tv_check $Revision: 1.64 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
