@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.239 2005/03/19 16:37:29 pronovic Exp $
+# $Id: Makefile.PL,v 1.240 2005/05/10 14:42:20 eborn Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -315,11 +315,6 @@ my @opt_components
      { name => 'tv_grab_nl',
        blurb => 'Grabber for the Netherlands',
        exes => [ 'grab/nl/tv_grab_nl' ],
-       pl_files => { 'grab/nl/tv_grab_nl.PL' => 'grab/nl/tv_grab_nl' },
-       share_files => { 'grab/nl/channels' => 'tv_grab_nl/channels' },
-       to_clean => [ 'grab/nl/tv_grab_nl' ],
-       deps => [ 'grab/nl/tv_grab_nl' => [ 'grab/nl/tv_grab_nl.in' ] ],
-       grab_need_share => [ 'nl' ],
        prereqs => { 'HTML::TreeBuilder' => 0 },
      },
 
