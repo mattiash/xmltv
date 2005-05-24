@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.240 2005/05/10 14:42:20 eborn Exp $
+# $Id: Makefile.PL,v 1.241 2005/05/24 03:56:53 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -253,6 +253,18 @@ my @opt_components
        deps => [ 'grab/uk_bleb/tv_grab_uk_bleb' => [ 'grab/uk_bleb/tv_grab_uk_bleb.in' ] ],
        grab_need_share => [ 'uk_bleb' ],
        prereqs => { 'IO::Scalar' => 0, 'Archive::Zip' => 0 },
+     },
+
+     { name => 'tv_grab_be',
+       blurb => 'Grabber for Belgium and Luxemburg',
+       exes => [ 'grab/be/tv_grab_be' ],
+       pl_files => { 'grab/be/tv_grab_be.PL' => 'grab/be/tv_grab_be' },
+       share_files => { 'grab/be/channel_ids_fr' => 'tv_grab_be/channel_ids_fr',
+                        'grab/be/channel_ids_nl' => 'tv_grab_be/channel_ids_nl' },
+       to_clean => [ 'grab/be/tv_grab_be' ],
+       deps => [ 'grab/be/tv_grab_be' => [ 'grab/be/tv_grab_be.in' ] ],
+       grab_need_share => [ 'be' ],
+       prereqs => { 'HTML::Entities' => 1.27 } ,
      },
 
 #     { name => 'tv_grab_it',
