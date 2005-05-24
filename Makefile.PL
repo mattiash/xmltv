@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.241 2005/05/24 03:56:53 rmeden Exp $
+# $Id: Makefile.PL,v 1.242 2005/05/24 10:17:02 mnbjhguyt Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -275,16 +275,6 @@ my @opt_components
 #       to_clean => [ 'grab/it/tv_grab_it' ],
 #       deps => [ 'grab/it/tv_grab_it' => [ 'grab/it/tv_grab_it.in' ] ],
 #       grab_need_share => [ 'it' ],
-#     },
-
-#     { name => 'tv_grab_it_lt',
-#       blurb => 'Grabber for Italy',
-#       exes => [ 'grab/it_lt/tv_grab_it_lt' ],
-#       pl_files => { 'grab/it_lt/tv_grab_it_lt.PL' => 'grab/it_lt/tv_grab_it_lt' },
-#       share_files => { 'grab/it_lt/channel_ids' => 'tv_grab_it_lt/channel_ids' },
-#       to_clean => [ 'grab/it_lt/tv_grab_it_lt' ],
-#       deps => [ 'grab/it_lt/tv_grab_it_lt' => [ 'grab/it_lt/tv_grab_it_lt.in' ] ],
-#       grab_need_share => [ 'it_lt' ],
 #     },
 
      { name     => 'tv_grab_na_dd',
