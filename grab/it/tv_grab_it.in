@@ -131,7 +131,7 @@ Davide Chiarini, pinwiz@inwind.it
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.33 2005/05/24 12:49:33 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.34 2005/05/30 10:38:09 mnbjhguyt Exp $';
 use HTML::Entities;
 use HTML::Parser;
 use URI::Escape;
@@ -348,7 +348,6 @@ foreach (XMLTV::Config_file::read_lines($CHANNEL_NAMES_FILE, 1)) {
           if $seen{$backend.$xmltv_id}++;
     }
 }
-
 # File that stores which channels to download.
 my $config_file
   = XMLTV::Config_file::filename($opt_config_file, 'tv_grab_it', $opt_quiet);
