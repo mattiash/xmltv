@@ -45,9 +45,9 @@ output.
 
 B<--quiet> suppress the progress messages normally written to standard error.
 
-B<--days N> When grabbing, grab N days rather than as many as possible.
+B<--days N> Not currently supported, included for compatability.
 
-B<--offset N> Start grabbing at today + N.  N may be negative.
+B<--offset N> Not currently supported, included for compatability.
 
 B<--list-channels> List channels.
 
@@ -68,7 +68,7 @@ use strict;
 use Getopt::Long;
 use HTML::Entities;
 use Date::Manip; Date_Init('TZ=+0000');
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.81 2005/05/29 17:57:26 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.82 2005/05/31 03:45:36 rmeden Exp $ ';
 use XMLTV::Config_file;
 use XMLTV::Get_nice;
 use XMLTV::Ask;
