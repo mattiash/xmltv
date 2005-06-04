@@ -21,6 +21,10 @@ tv_grab_za:  new grabber for South Africa
 tv_to_potatoe: convert XML to the potatoe guide view tool
 tv_check: prints messages when a "myreplay" show is removed
 
+Note: tv_grab_it and tv_grab_za are new grabbers in this release
+and should be considered experimental.
+
+
 * Installation
 
 % perl Makefile.PL
@@ -150,4 +154,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2005-03-13
-$Id: README,v 1.127 2005/06/04 05:36:16 rmeden Exp $
+$Id: README,v 1.128 2005/06/04 05:38:10 rmeden Exp $

@@ -38,6 +38,9 @@ tv_grab_za:  new grabber for South Africa
 tv_to_potatoe: convert XML to the potatoe guide view tool
 tv_check: prints messages when a "myreplay" show is removed
 
+Note: tv_grab_it and tv_grab_za are new grabbers in this release
+and should be considered experimental.
+
 * Installation
 
 There is no installer, just unpack the zipfile into a
@@ -124,4 +127,4 @@ Sourceforge also hosts the following mailing lists
     xmltv-devel    - detailed discussions among developers
 
 (Add signature when release made)
-$Id: README.win32,v 1.67 2005/06/04 05:36:17 rmeden Exp $
+$Id: README.win32,v 1.68 2005/06/04 05:38:10 rmeden Exp $
