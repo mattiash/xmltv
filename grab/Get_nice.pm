@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.15 2004/12/05 10:01:08 epaepa Exp $
+# $Id: Get_nice.pm,v 1.16 2005/06/09 18:31:16 mattiasholmlund Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -31,8 +31,6 @@ $ua->agent("xmltv/$XMLTV::VERSION");
 our $Delay = 5; # in seconds
 
 our $get = \&LWP::Simple::get;
-
-init_cache();
 
 sub get_nice( $ ) {
     # This is to ensure scalar context, to work around weirdnesses
@@ -74,68 +72,6 @@ sub get_nice_aux( $ ) {
     #
     $last_get_time = time();
     return $r;
-}
-
-# Initialize HTTP::Cache::Transparent if the file
-# specified by the environment variable CACHE_CONF 
-# (default ~/.xmltv/cache.conf) exists.
-#
-# Returns whether the cache-config file was found and used.
-#
-sub init_cache
-{
-    my $winhome = $ENV{HOMEDRIVE} . $ENV{HOMEPATH} 
-        if defined( $ENV{HOMEDRIVE} ) and defined( $ENV{HOMEPATH} ); 
-
-    my $home = $ENV{HOME} || $winhome || ".";
-
-    my $conffile = $ENV{CACHE_CONF} || "$home/.xmltv/cache.conf"; 
-    
-    if (not -f($conffile)) {
-        # The configuration file doesn't exist. Don't use the cache.
-        # In the future, we may want to create a default configuration
-        # file here.
-        return 0;
-    }
-
-    open(IN, "< $conffile") 
-        or die "Failed to read from $conffile";
-  
-    my %data;
-    my $line;
-    
-    while ($line = <IN>) {
-        next if $line =~ /^\s*#/;
-        next if $line =~ /^\s*$/;
-        $line =~ tr/\n\r//d;
-
-        my($key, $value) = split(/\s+/, $line, 2);
-        if (index(" BasePath Verbose ", " $key ") == -1) {
-            die "Unknown configuration key $key in $conffile.\n";
-        }
-
-        $data{$key} = $value;
-    }
-
-    close(IN);
-
-    if (exists($data{DisableCache}) and $data{DisableCache}) {
-	# Cache is explicitly disabled, but still the config is there.
-        return 1;
-    }
-
-    delete($data{DisableCache});
-
-    if (not defined($data{BasePath})) {
-	die "No BasePath specified in $conffile.\n";
-    }
-
-    (-d $data{BasePath}) or mkdir($data{BasePath}, 0777)
-      or die "cannot mkdir $data{BasePath}: $!";
-
-    require HTTP::Cache::Transparent;
-    HTTP::Cache::Transparent::init(\%data);
-    return 1;
 }
 
 1;
