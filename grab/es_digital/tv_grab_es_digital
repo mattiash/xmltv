@@ -91,7 +91,7 @@ Ramon Roca, Ramon.Roca@XCombo.com, based on tv_grab_es
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es_digital,v 1.7 2004/11/08 15:48:44 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es_digital,v 1.8 2005/06/15 04:10:41 rmeden Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -329,7 +329,7 @@ sub process_table {
     my ($date, $ch_xmltv_id, $ch_es_id) = @_;
 
     $ch_es_id =~ s/\+/\%2B/gi;
-    my $today = UnixDate($date, '%d/%m/%Y');
+    my $today = UnixDate($date, '%Y-%m-%d');
     my $url = "http://www.plus.es/codigo/television/rejilla_dia_dia.asp?Canales=$ch_es_id&Fecha=$today";
     t $url;
     my $data=get_nice($url);
