@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.244 2005/06/04 05:36:16 rmeden Exp $
+# $Id: Makefile.PL,v 1.245 2005/06/16 05:53:47 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -265,6 +265,11 @@ my @opt_components
        deps => [ 'grab/be/tv_grab_be' => [ 'grab/be/tv_grab_be.in' ] ],
        grab_need_share => [ 'be' ],
        prereqs => { 'HTML::Entities' => 1.27 } ,
+     },
+
+     { name => 'tv_grab_is',
+       blurb => 'Grabber for Iceland',
+       exes => [ 'grab/is/tv_grab_is' ],
      },
 
      { name => 'tv_grab_it',
