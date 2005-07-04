@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.113 2005/06/04 05:36:17 rmeden Exp $
+# $Id: XMLTV.pm.in,v 1.114 2005/07/04 15:56:55 rmeden Exp $
 package XMLTV;
 
 use strict;
@@ -1358,8 +1358,10 @@ $Handlers{audio}->[0] = sub( $ ) {
 		$value = 'stereo';
 	    }
 	    warn "bad value for 'stereo': '$value'"
-	      if ($value ne 'mono' and $value ne 'stereo'
-		  and $value ne 'surround');
+	      if ($value ne 'mono'
+	      and $value ne 'stereo'
+		  and $value ne 'surround'
+		  and $value ne 'dolby');
 	    $r{stereo} = $value;
 	}
     }
