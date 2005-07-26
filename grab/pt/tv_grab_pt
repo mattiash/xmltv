@@ -63,7 +63,7 @@ Grabber Site : http://bat.is-a-geek.com/tiki-index.php?page=XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.13 2005/07/26 12:20:58 gawen Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.14 2005/07/26 12:24:36 gawen Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;
@@ -132,9 +132,11 @@ XMLTV::Ask::init($opt_gui);
 # requested) but at least check the user didn't ask for something
 # impossible.
 #
+$opt_days |= 0;
+if ($opt_days > 0) { $opt_days-- }
 our $first_day = ($opt_offset || 0);
-our $last_day  = $first_day + ($opt_days || 0);
-die 'cannot grab more than one week ahead' if $first_day > 7 || $last_day > 7;
+our $last_day  = $first_day + $opt_days;
+die 'cannot grab more than one week ahead' if $first_day >= 7 || $last_day >= 7;
 
 my $mode = XMLTV::Mode::mode('grab', # default
 			     $opt_configure => 'configure',
