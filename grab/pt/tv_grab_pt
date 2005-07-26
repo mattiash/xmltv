@@ -63,7 +63,7 @@ Grabber Site : http://bat.is-a-geek.com/tiki-index.php?page=XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.14 2005/07/26 12:24:36 gawen Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.15 2005/07/26 20:47:35 gawen Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;
@@ -343,11 +343,9 @@ sub process_table {
 
     	my $r = $ua->post($url, $form);
 	      
-
-    	if (! $r->is_success) {
-            die "Could not fetch $url: ".$r->status_line;
+    	if ( ! $r>is_success ) {
+            die "Could not fetch $url ($ch_xmltv_id): ".$r->status_line;
     	}
-
     
     	my $data=tidy($r->content);
 
@@ -473,9 +471,11 @@ sub get_program_data {
 		my $episode = "";
 		my $desc = "";
 
-		if ($title =~ /^(.*?)\:(.*?)$/) {
+		if ($title =~ /^(.*?)\: (.*?)$/) {
 		  $title = $1;
 		  $sub_t = $2;
+		  $sub_t =~ s/^\s*?(.*?)/$1/;
+		  $title =~ s/(.*?)\s*?$/$1/;
 		}
 
 		$time =~ s/://g;
