@@ -91,7 +91,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.26 2005/07/27 18:39:13 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.27 2005/07/31 07:47:10 stesie Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;
@@ -537,7 +537,7 @@ sub parse_page($$) {
 	    $show{title} = [[ $span, $lang ]];
 	} 
 	elsif (ref($span) eq "HTML::Element" and $span->tag eq "a") {
-	    $popup = "http://programm.tvtoday.de/" . $span->attr('href');
+	    $popup = "http://programm.tvtoday.de" . $span->attr('href');
 
 	    my $tag = (($span->content_list())[0]->content_list())[0];
 	    die unless(ref($tag) eq "HTML::Element" and $tag->tag eq "u");
