@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.114 2005/07/04 15:56:55 rmeden Exp $
+# $Id: XMLTV.pm.in,v 1.115 2005/08/04 04:30:03 rmeden Exp $
 package XMLTV;
 
 use strict;
@@ -1329,7 +1329,10 @@ $Handlers{video}->[1] = sub( $$$ ) {
     if (defined (my $val = delete $h{aspect})) {
 	$w->dataElement('aspect', $val) if $w;
     }
-    warn_unknown_keys($e, \%h);
+    if (defined (my $val = delete $h{quality})) {
+	$w->dataElement('quality', $val) if $w;
+    }
+    warn_unknown_keys("zz $e", \%h);
     $w->endTag($e) if $w;
 };
 

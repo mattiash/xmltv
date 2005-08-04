@@ -306,7 +306,7 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.29 2005/07/04 15:56:55 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.30 2005/08/04 04:30:03 rmeden Exp $ ';
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -1230,9 +1230,16 @@ $twig=XML::Twig->new( twig_roots => { schedule => 1 },
                      $prog{'previously-shown'}={}           if exists $_->{repeat};
                      $prog{audio}{stereo}='stereo'          if exists $_->{stereo};
                      $prog{audio}{stereo}=lc($_->{dolby})   if exists $_->{dolby};
+
                      push @{$prog{subtitles}},{type=>'teletext'}  if exists $_->{closeCaptioned};
                      push @{$prog{subtitles}},{type=>'onscreen'}  if exists $_->{subtitled};
 
+                     if (exists $_->{hdtv})
+                     {
+                         $prog{video}{aspect}="16:9";
+                         $prog{video}{quality}="HDTV";
+                     }
+                     
                      if (exists $_->{tvRating})
                      {
                         $_->{tvRating} =~ s/^TV/TV-/  unless $_->{tvRating} =~ /-/;
