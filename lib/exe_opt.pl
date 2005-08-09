@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.11 2005/05/31 14:51:27 rmeden Exp $
+# $Id: exe_opt.pl,v 1.12 2005/08/09 04:06:13 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -8,6 +8,8 @@
 #
 # Robert Eden rmeden@yahoo.com
 #
+
+use File::Spec;
 
 #
 # output constants
@@ -29,6 +31,22 @@ print '-nologo
 -info LegalCopyright="GNU General Public License http://www.gnu.org/licenses/gpl.txt"
 ';
 
+#
+# Add XML\Parser\encodings
+#
+@Encoding_Path = (grep(-d $_,
+                         map(File::Spec->catdir($_, qw(XML Parser Encodings)),
+                             @INC)
+                      ));
+foreach $dir (@Encoding_Path) {
+    opendir DIR,$dir || die "Can't open encoding path directory\n";
+    while ($file = readdir DIR)
+    {
+       next unless $file =~ /.enc$/i;
+       print "-bind=XML/Parser/Encodings/${file}[file=$dir/${file},extract]\n";
+    }
+}
+       
 #
 # put date in file version field
 #
