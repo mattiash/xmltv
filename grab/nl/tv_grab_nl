@@ -64,7 +64,7 @@ Originally based on tv_grab_fi by Matti Airas.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.59 2005/08/27 17:11:31 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.60 2005/08/27 18:27:18 epaepa Exp $ ';
 use Getopt::Long;
 use Data::Dumper;
 use HTML::TreeBuilder;
@@ -346,7 +346,7 @@ $bar->finish() if not $opt_quiet;
 
 # Now we've fetched the descriptions, we know the channel names.
 foreach $ch_did (@channels) {
-    print "processing channel #$ch_did\n";
+    print STDERR "processing channel #$ch_did\n";
     $ch_name = $channels{$ch_did};
     die "did not see any name for $ch_did in any listing pages"
       if not defined $ch_name;
