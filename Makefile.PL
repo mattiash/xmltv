@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.249 2005/08/25 12:08:29 mnbjhguyt Exp $
+# $Id: Makefile.PL,v 1.250 2005/08/27 17:56:14 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -420,7 +420,10 @@ my @opt_components
      { name => 'tv_grab_pt',
        blurb => 'Grabber for Portugal',
        exes => [ 'grab/pt/tv_grab_pt' ],
-       prereqs => { 'HTML::TreeBuilder' => 0 } },
+       prereqs => { 'HTML::TreeBuilder' => 0,
+		    'Unicode::UTF8simple' => 0,
+		  }
+     },
 
      { name => 'tv_grab_za',
        blurb => 'Grabber for South Africa',
