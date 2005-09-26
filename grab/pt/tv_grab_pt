@@ -63,7 +63,7 @@ Grabber Site : http://bat.is-a-geek.com/tiki-index.php?page=XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.21 2005/09/11 18:08:27 gawen Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.22 2005/09/26 12:55:57 gawen Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;
@@ -394,10 +394,12 @@ sub process_table {
     	my @program_data = get_program_data($tree);
     	if (not @program_data) {
 		warn "$url: no programmes found\n";
-		return ();
+		last;
     	}
 	@all_programs = (@all_programs,@program_data);
     }
+
+    return () unless scalar(@all_programs);
 
     my $first = $all_programs[0];
     my @r;
