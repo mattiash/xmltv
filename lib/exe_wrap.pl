@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.62 2005/06/17 22:35:00 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.63 2005/10/11 06:04:42 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -116,6 +116,25 @@ if ($cmd eq 'tv_grab_uk_rt'
     }
 }
 
+#
+# special hack, allow "exec" to execute an arbitrary script
+# This will be used to allow XMLTV.EXE modules to be used on beta code w/o an alpha exe
+#
+# Note, no extra modules are included in the EXE.  There is no guarantee this will work
+# it is an unsupported hack.
+#
+# syntax XMLTV.EXE exec filename --options
+#
+if ($cmd eq 'exec')
+{
+   my $exe=shift;
+   $0=$exe;
+   do $exe;
+   print STDERR $@ if length($@);
+   exit 1 if length($@);
+   exit 0;
+}
+  
 #
 # scan through attached files and execute program if found
 #
