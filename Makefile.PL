@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.251 2005/09/02 15:16:21 rmeden Exp $
+# $Id: Makefile.PL,v 1.252 2005/10/21 06:01:08 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -454,6 +454,12 @@ my @opt_components
        prereqs => { 'CGI' => 0 },
        type => 'run',
      },
+
+     { name => 'tv_grab_ee',
+       blurb => 'Grabber for Estonia',
+       exes => [ 'grab/ee/tv_grab_ee' ],
+       prereqs => { 'LWP::Simple' => 0 } },
+
     );
 
 # Now we need to prompt about each optional component.  The style of
