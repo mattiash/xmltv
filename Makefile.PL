@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.253 2005/10/30 22:37:10 rmeden Exp $
+# $Id: Makefile.PL,v 1.254 2005/11/01 04:47:46 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -462,6 +462,12 @@ my @opt_components
        blurb => 'Grabber for Estonia',
        exes => [ 'grab/ee/tv_grab_ee' ],
        prereqs => { 'LWP::Simple' => 0 } },
+
+    { name => 'tv_grab_re',
+       blurb => 'Grabber for Reunion Island (France)',
+       exes => [ 'grab/re/tv_grab_re' ],
+       prereqs => { 'HTML::TreeBuilder' => 0 ,
+                    'HTML::Entities'    => 0 } },
 
     );
 
