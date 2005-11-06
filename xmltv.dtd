@@ -81,7 +81,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.32 2005/08/04 04:30:03 rmeden Exp $
+$Id: xmltv.dtd,v 1.33 2005/11/06 04:53:30 rmeden Exp $
 
 -->
 
@@ -422,7 +422,7 @@ quality: information on the quality, eg 'HDTV', '800x600'.
 present: whether this programme has any sound at all, 'yes' or 'no'.
 
 stereo: Description of the stereo-ness of the sound.  Legal values
-are currently 'mono','stereo','dolby' and 'surround'; others like 'quad'
+are currently 'mono','stereo','dolby','dolby digital' and 'surround'; others like 'quad'
 might be added later.
 -->
 <!ELEMENT audio (present?, stereo?)>
