@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.254 2005/11/01 04:47:46 rmeden Exp $
+# $Id: Makefile.PL,v 1.255 2005/11/14 03:23:06 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -64,7 +64,7 @@ GetOptions('strict-deps'  => \$opt_strictdeps,	# be strict about dependencies
 	  );
 
 our $VERSION;
-$VERSION = '0.5.40';
+$VERSION = '0.5.41';
 
 # Fragment of Makefile text to give the directory where files should
 # be installed.  The extra '.' in the middle of the path is to avoid
