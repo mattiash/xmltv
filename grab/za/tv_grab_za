@@ -73,7 +73,7 @@ Does not automatically update itself, when DSTV changes their site
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_za,v 1.9 2005/12/03 19:52:51 cpicton Exp $ ';
+use XMLTV::Version '$Id: tv_grab_za,v 1.10 2005/12/05 10:50:32 cpicton Exp $ ';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
@@ -307,7 +307,7 @@ if ($opt_days == 1) {$opt_days = 0;}
 
 # Prepare channel maps
 
-#get_mnet_channel_mappings() if defined $opt_mnet_fallback || $opt_dstv_fallback;
+get_mnet_channel_mappings() if defined $opt_mnet_fallback || $opt_dstv_fallback;
 
 get_dstv_channel_mappings();
 if (keys %dstvchannelmap == 0) {
@@ -907,8 +907,7 @@ sub get_channels {
 	$bar = new XMLTV::ProgressBar('getting list of channels', 1)
 	  if not $opt_quiet;
 	my %channels;
-#	my $url="http://www.dstv.com/main.aspx?ID=136";
-	my $url="http://cptdc1/136.htm";
+	my $url="http://www.dstv.com/main.aspx?ID=136";
 	my $local_data=get_nice($url);
 	die "could not get channel listing $url, aborting\n"
 	  if not defined $local_data;
