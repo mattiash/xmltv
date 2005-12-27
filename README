@@ -44,7 +44,7 @@ Date::Manip 5.42a
 Memoize (included with perl 5.8 and later)
 Storable (included with perl 5.8 and later)
 
-Archive::Zip 1.10/1.14   (if you want to run tv_grab_uk_bleb)
+Archive::Zip             (if you want to run tv_grab_uk_bleb)
 CGI                      (if you want to run tv_pick_cgi)
 Compress::Zlib           (if you want to run tv_grab_se_swedb)
 HTML::Parser 3.34        (for some of the grabbers which use HTML::Entities)
@@ -61,10 +61,6 @@ Tk::TableMatrix          (if you want to run tv_check)
 WWW::Mechanize           (if you want to run tv_grab_na_icons)
 XML::LibXML              (if you want to run tv_grab_se, tv_grab_se_swedb)
 Unicode::UTF8simple      (if you want to run tv_grab_pt)
-
-Where a version number is given any later version also ought to work.  The
-major exception is that versions 1.11, 1.12 and 1.13 of Archive::Zip had
-problems, so only versions 1.10 or 1.14 work with XMLTV.
 
 You may have difficulty with the XML modules on perl 5.8.0 - if so
 send mail to the xmltv-users list.  Other perl versions should be OK.
@@ -149,4 +145,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Robert Eden, rmeden@yahoo.com, 2005-11-13
-$Id: README,v 1.131 2005/11/14 03:17:28 rmeden Exp $
+$Id: README,v 1.132 2005/12/27 10:42:52 epaepa Exp $
