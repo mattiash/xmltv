@@ -75,7 +75,7 @@ END
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.27 2006/01/05 20:18:12 reudeudeu Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.28 2006/01/05 20:32:01 reudeudeu Exp $ ';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities; # parse entities
@@ -673,8 +673,8 @@ sub process_channel_grid_page( $$$$ ) {
             my @children = $tdesc->content_list();
             foreach my $desc (@children)  {
               # Remove leading and trailing spaces
-              $desc =~ s/^ ://;
-              $desc =~ s/ $//;
+              $desc =~ s/^ *://;
+              $desc =~ s/ *$//;
               if ($nextIsDirector == 1 ) {
                 push @director, tidy($desc);
                 $nextIsDirector = 0;
