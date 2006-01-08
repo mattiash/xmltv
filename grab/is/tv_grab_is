@@ -74,7 +74,7 @@ use URI;
 use Date::Manip;
 
 use XMLTV;
-use XMLTV::Version '$Id: tv_grab_is,v 1.2 2006/01/08 10:55:02 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.3 2006/01/08 16:34:21 epaepa Exp $ ';
 use XMLTV::Memoize;
 use XMLTV::ProgressBar;
 use XMLTV::Ask;
@@ -325,11 +325,8 @@ sub process_listings_page ( $$$$$ ){
     # We make an HTML::TreeBuilder object, get the information
     # from it and them delete it.
     #
-    my $t = new HTML::TreeBuilder();
     my $url = "http://www.sjonvarp.is/php/mToday.php?txt_Channel=$tv2chan&txt_DateYYYY=$y&txt_DateMM=$m&txt_DateDD=$d&senda=true";
-    $t->parse(get_nice($url)) or die "cannot parse content of $url\n";
-    $t->eof;
-    #$t->parse_file("mToday.php");
+    my $t = get_nice_tree $url;
     
     #$t->dump();
     my @tables = $t->look_down("cellpadding"=>"2");
@@ -405,10 +402,7 @@ sub get_channels {
     my %channels;
     my $url = 'http://www.sjonvarp.is/php/mListing.php';
 
-    my $t = new HTML::TreeBuilder();
-    $t->parse(get_nice($url)) or die "cannot parse content of $url\n";
-    $t->eof;
-    #$t->parse_file('mListing.php');
+    my $t = get_nice_tree $url;
 
     # The channels and their IDs are defined in javascript arrays
     #$t->dump();
