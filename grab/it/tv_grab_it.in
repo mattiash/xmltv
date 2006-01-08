@@ -1,8 +1,5 @@
 #!/usr/bin/perl
 
-eval 'exec /usr/bin/perl  -S $0 ${1+"$@"}'
-    if 0; # not running under some shell
-
 #################################################
 # Changelog:
 # 13/07/2005
@@ -33,7 +30,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.37 2005/08/25 12:07:59 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.38 2006/01/08 17:42:04 epaepa Exp $';
 use HTML::Entities;
 use HTML::Parser;
 use URI::Escape;
