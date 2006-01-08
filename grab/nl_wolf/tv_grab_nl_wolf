@@ -50,7 +50,7 @@ stop < start, but others may creep in undetected.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.14 2004/07/24 10:20:49 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.15 2006/01/08 10:13:23 epaepa Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
@@ -63,7 +63,6 @@ use base 'XMLTV::Grab_XML';
 $XMLTV::Get_nice::Delay = 0;
 
 use Date::Manip;
-use HTML::TreeBuilder;
 use XMLTV::TZ qw(tz_to_num);
 
 # Memoize one routine if possible.
