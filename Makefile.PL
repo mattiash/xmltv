@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.257 2006/01/13 19:13:01 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.258 2006/01/18 18:28:35 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -135,6 +135,9 @@ my %pm
      'lib/IMDB.pm'                => '$(INST_LIBDIR)/XMLTV/IMDB.pm',
      'lib/Gunzip.pm'              => '$(INST_LIBDIR)/XMLTV/Gunzip.pm',
      'lib/Capabilities.pm'        => '$(INST_LIBDIR)/XMLTV/Capabilities.pm',
+     'lib/Configure.pm'           => '$(INST_LIBDIR)/XMLTV/Configure.pm',
+     'lib/Configure/Writer.pm'    => '$(INST_LIBDIR)/XMLTV/Configure/Writer.pm',
+     'lib/Options.pm'             => '$(INST_LIBDIR)/XMLTV/Options.pm',
      'filter/Grep.pm'             => '$(INST_LIBDIR)/XMLTV/Grep.pm',
      'grab/Memoize.pm'            => '$(INST_LIBDIR)/XMLTV/Memoize.pm',
      'grab/Grab_XML.pm'           => '$(INST_LIBDIR)/XMLTV/Grab_XML.pm',
@@ -469,7 +472,6 @@ my @opt_components
        exes => [ 'grab/re/tv_grab_re' ],
        prereqs => { 'HTML::TreeBuilder' => 0 ,
                     'HTML::Entities'    => 0 } },
-
     );
 
 # Now we need to prompt about each optional component.  The style of
