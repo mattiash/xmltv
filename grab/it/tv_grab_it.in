@@ -30,7 +30,8 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.39 2006/01/08 18:15:00 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.40 2006/01/20 22:13:34 mattiasholmlund Exp $';
+use XMLTV::Capabilities qw/baseline manualconfig/;
 use HTML::Entities;
 use HTML::Parser;
 use URI::Escape;
@@ -54,6 +55,8 @@ To grab listings: $0 [--config-file FILE] [--output FILE] [--days N]
         [--offset N] [--quiet] [--slow] [--verbose] [--backend]
         [--errors-in-xml] 
 To list available channels: $0 [--output FILE] [--quiet] --list-channels
+To show capabilities: $0 --capabilities
+To show version: $0 --version
 END
   ;
 

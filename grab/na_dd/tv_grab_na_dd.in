@@ -144,6 +144,11 @@ tv_grab_na_icons stores icons in I<SHAREDIR>/icons.  The share directory is set 
 but there may be times when it needs to be specified. (for example: no write access to the default share
 directory)
 
+B<--capabilities> Show which capabilities the grabber supports. For more
+information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
+
+B<--version> Show the version of the grabber.
+
 =back
 
 =head1 Zap2It Data Direct account expirations.
@@ -306,7 +311,8 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.31 2005/09/02 16:44:37 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.32 2006/01/20 22:13:35 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 
@@ -321,6 +327,9 @@ To get listings
                   [--days N]  [--offset N] [--quiet]  [--old-chan-id]
                   [--low-mem] [--output FILE]
                   [--download-only]
+
+To show capabilities: $0 --capabilities
+
 END
 ;
 
