@@ -2,6 +2,7 @@
 
 use strict;
 
+use XMLTV::Version '$Id: tv_validate_file,v 1.2 2006/01/24 19:55:22 mattiasholmlund Exp $';
 use XMLTV::ValidateFile qw/LoadDtd ValidateFile/;
 
 if( scalar( @ARGV ) != 2 )
