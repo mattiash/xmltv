@@ -93,7 +93,7 @@ None known.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_cz,v 1.1 2006/01/22 17:44:50 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_grab_cz,v 1.2 2006/01/24 20:45:15 mattiasholmlund Exp $';
 use XMLTV::Configure;
 use XMLTV::Configure::Writer;
 use XMLTV::Options qw/ParseOptions/;
@@ -127,6 +127,9 @@ my $url = $webroot . $channels . "days=" . $opt->{days} .
 
 print STDERR "Fetching $url\n" if $opt->{debug};
 
+# XMLTV::Options has redirected stdout to a file for us if the
+# --output parameter was specified, so all we have to do is print
+# the xmltv data.
 my $res = getprint( $url );
 
 if( is_success( $res ) )
@@ -135,6 +138,7 @@ if( is_success( $res ) )
 }
 else
 { 
+    print STDERR "Failed to download data: " . status_message( $res ) . "\n";
     exit 1;
 }
 
