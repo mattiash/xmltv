@@ -83,8 +83,8 @@ use URI;
 use Date::Manip;
 
 use XMLTV;
-use XMLTV::Version '$Id: tv_grab_is,v 1.5 2006/01/15 17:05:30 mattiasholmlund Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_is,v 1.6 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Memoize;
 use XMLTV::ProgressBar;
 use XMLTV::Ask;

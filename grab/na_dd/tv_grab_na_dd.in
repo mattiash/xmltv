@@ -311,8 +311,8 @@ use XMLTV;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.32 2006/01/20 22:13:35 mattiasholmlund Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.33 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Usage <<END
 $0: get lists from Zap2IT's DataDirect service in XMLTV format
 

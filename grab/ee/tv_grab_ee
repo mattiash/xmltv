@@ -89,8 +89,8 @@ use Time::Local;
 use Date::Manip;
 
 use XMLTV;
-use XMLTV::Version '$Id: tv_grab_ee,v 1.4 2006/01/15 08:58:26 mattiasholmlund Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_ee,v 1.5 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::Mode;

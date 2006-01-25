@@ -116,8 +116,8 @@ use XMLTV::Memoize;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::Get_nice;
-use XMLTV::Version '$Id: tv_grab_au.in,v 1.6 2006/01/15 07:43:21 mattiasholmlund Exp $';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_au.in,v 1.7 2006/01/25 19:31:10 mattiasholmlund Exp $';
+use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Usage <<END
 
 $0 (0.6.2): grab Australian television listings in XMLTV format

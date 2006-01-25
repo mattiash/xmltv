@@ -100,8 +100,8 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.32 2006/01/19 21:31:22 stesie Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.33 2006/01/25 19:31:10 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;

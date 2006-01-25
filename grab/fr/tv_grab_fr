@@ -80,8 +80,8 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.38 2006/01/15 16:59:57 mattiasholmlund Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_fr,v 1.39 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities; # parse entities
