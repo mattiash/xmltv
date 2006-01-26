@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.263 2006/01/25 19:26:59 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.264 2006/01/26 18:46:27 stesie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -380,7 +380,11 @@ my @opt_components
        pl_files => { 'grab/huro/tv_grab_huro.PL'
 		     => 'grab/huro/tv_grab_huro' },
        share_files => { 'grab/huro/jobmap'
-			=> 'tv_grab_huro/jobmap' },
+			=> 'tv_grab_huro/jobmap',
+			'grab/huro/catmap.hu'
+			=> 'tv_grab_huro/catmap.hu',
+			'grab/huro/catmap.ro'
+			=> 'tv_grab_huro/catmap.ro' },
        to_clean => [ 'grab/huro/tv_grab_huro' ],
        deps => [ 'grab/huro/tv_grab_huro'
 		 => [ 'grab/huro/tv_grab_huro.in' ] ],
