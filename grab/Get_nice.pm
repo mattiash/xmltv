@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.17 2006/01/08 16:34:21 epaepa Exp $
+# $Id: Get_nice.pm,v 1.18 2006/01/26 09:11:53 dubman Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -30,6 +30,7 @@ use LWP::Simple qw($ua);
 use XMLTV;
 $ua->agent("xmltv/$XMLTV::VERSION");
 our $Delay = 5; # in seconds
+our $FailOnError = 1; # Fail on fetch error
 
 our $get = \&LWP::Simple::get;
 
@@ -77,7 +78,7 @@ sub get_nice_aux( $ ) {
     # to return undef on failure.  But dying here makes sure that a
     # failed page fetch doesn't get stored in XMLTV::Memoize's cache.
     #
-    die "could not fetch $url, aborting\n" if not defined $r;
+    die "could not fetch $url, aborting\n" if not defined $r and $FailOnError;
 
     # Then start the delay from this time on the next fetch - so we
     # make the gap _between_ requests rather than from the start of
