@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.266 2006/01/27 06:06:29 rmeden Exp $
+# $Id: Makefile.PL,v 1.267 2006/01/28 16:21:36 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -117,6 +117,7 @@ my @exes
        filter/tv_remove_some_overlapping
        tools/tv_validate_grabber
        tools/tv_validate_file
+       tools/tv_find_grabbers
       );
 
 # Libraries to be installed.
@@ -139,6 +140,7 @@ my %pm
      'lib/IMDB.pm'                => '$(INST_LIBDIR)/XMLTV/IMDB.pm',
      'lib/Gunzip.pm'              => '$(INST_LIBDIR)/XMLTV/Gunzip.pm',
      'lib/Capabilities.pm'        => '$(INST_LIBDIR)/XMLTV/Capabilities.pm',
+     'lib/Description.pm'        => '$(INST_LIBDIR)/XMLTV/Description.pm',
      'lib/Configure.pm'           => '$(INST_LIBDIR)/XMLTV/Configure.pm',
      'lib/Configure/Writer.pm'    => '$(INST_LIBDIR)/XMLTV/Configure/Writer.pm',
      'lib/Options.pm'             => '$(INST_LIBDIR)/XMLTV/Options.pm',
