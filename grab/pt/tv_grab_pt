@@ -67,8 +67,9 @@ Grabber Site : http://bat.is-a-geek.com/XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.26 2006/01/26 19:11:20 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.27 2006/01/28 16:20:50 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Decription 'Portugal';
 use Getopt::Long;
 use Date::Manip;
 use Data::Dumper;

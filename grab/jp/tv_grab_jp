@@ -81,8 +81,9 @@ The data source may not suit recommended XMLTV DTD format.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_jp,v 1.10 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_jp,v 1.11 2006/01/28 16:17:57 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Description 'Japan';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;

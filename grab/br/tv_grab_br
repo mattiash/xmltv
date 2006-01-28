@@ -86,8 +86,9 @@ baseado nos diversos grabbers disponiveis.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_br,v 1.6 2006/01/25 19:31:10 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_br,v 1.7 2006/01/28 16:17:55 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Description 'Brazil';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;

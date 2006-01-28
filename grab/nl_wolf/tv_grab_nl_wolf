@@ -50,8 +50,9 @@ stop < start, but others may creep in undetected.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.16 2006/01/08 10:50:40 epaepa Exp $ ';
-
+use XMLTV::Version '$Id: tv_grab_nl_wolf,v 1.17 2006/01/28 16:17:57 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Description 'Holland (Wolf)';
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.
 #

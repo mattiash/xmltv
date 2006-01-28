@@ -83,14 +83,15 @@ my $xmlurl = 'http://glen.alkohol.ee/xmltv.xml';
 my $langs = ['et', 'en', 'ru'];
 
 use strict;
+use XMLTV::Version '$Id: tv_grab_ee,v 1.6 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Description 'Estonia';
 use Getopt::Long;
 use LWP::Simple;
 use Time::Local;
 use Date::Manip;
 
 use XMLTV;
-use XMLTV::Version '$Id: tv_grab_ee,v 1.5 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::Mode;

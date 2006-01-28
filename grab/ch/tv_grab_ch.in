@@ -91,9 +91,10 @@ at http://sourceforge.net/projects/xmltv/.
 
 use warnings;
 use strict;
-use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch.in,v 1.6 2006/01/25 19:31:10 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch.in,v 1.7 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
+use XMLTV::Description 'Switzerland';
+use Date::Manip;
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities;

@@ -113,8 +113,9 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.6 2006/01/26 18:39:07 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.7 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
+use XMLTV::Description 'Hungary/Romania';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;

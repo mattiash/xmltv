@@ -83,8 +83,9 @@ Genudsendelse fra mandag. - convert to <previously-shown>?
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_dk,v 1.28 2006/01/27 08:40:42 jtoft Exp $ ';
+use XMLTV::Version '$Id: tv_grab_dk,v 1.29 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Description 'Denmark';
 use Getopt::Long;
 use HTML::TreeBuilder;
 use HTML::Entities; # parse entities

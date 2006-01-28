@@ -84,8 +84,9 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.41 2006/01/25 19:31:11 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.42 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
+use XMLTV::Description 'Finland';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
