@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.267 2006/01/28 16:21:36 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.268 2006/01/29 18:36:44 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -177,7 +177,7 @@ my %pl_files = ('filter/tv_grep.PL'     => 'filter/tv_grep',
 	       );
 
 # Files to be installed in the system-wide share/ directory.
-my %share_files;
+my %share_files = ('xmltv.dtd' => 'xmltv.dtd');
 
 # Files which 'make clean' should remove, but doesn't by default, so
 # we have to patch it.
