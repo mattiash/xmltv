@@ -1,5 +1,8 @@
 #!/usr/bin/perl -w
 
+eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
+    if 0; # not running under some shell
+
 =pod
 
 =head1 NAME
@@ -73,7 +76,7 @@ http://www.greenwichmeantime.com/local/asia/il.htm?israel+jerusalem+tel_aviv
 use strict;
 #binmode(STDOUT,":utf8");
 #binmode(STDERR,":utf8");
-use XMLTV::Version '$Id: tv_grab_il,v 1.4 2006/01/30 06:53:34 dubman Exp $';
+use XMLTV::Version '$Id: tv_grab_il,v 1.5 2006/01/30 07:16:09 dubman Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Israel';
 use HTML::Entities qw(decode_entities);
@@ -394,7 +397,7 @@ sub process_file_yestvguide( $$$$ ) {
 
   my $memirid_tree = $tree->look_down('_tag','TD', 'class', 'ChNameMemirID');
 
-  if (not defined $freqs{$channel}) {
+  if (defined $memirid_tree and not defined $freqs{$channel}) {
      my $freq         = $memirid_tree->as_trimmed_text;
      $freq =~ s/[\(\)]//g;
      if ($freq) {
