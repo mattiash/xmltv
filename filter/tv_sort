@@ -14,7 +14,8 @@ tv_sort [--help] [--by-channel] [--output FILE] [FILE...]
 
 Read XMLTV data and write out the same data sorted in date order.
 Where stop times of programmes are missing, guess them from the start
-time of the next programme on the same channel.
+time of the next programme on the same channel. For the last programme
+of a channel, no stop time can be added.
 
 Tv_sort also performs some sanity checks such as making sure no
 two programmes on the same channel overlap.
@@ -53,7 +54,7 @@ Ed Avis, ed@membled.com
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_sort,v 1.30 2005/12/27 13:27:21 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_sort,v 1.31 2006/02/01 05:04:17 mattiasholmlund Exp $ ';
 use XMLTV::Date;
 use Date::Manip; Date_Init('TZ=UTC');
 use Getopt::Long;
