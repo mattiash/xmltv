@@ -2,7 +2,7 @@
 
 use strict;
 
-use XMLTV::Version '$Id: tv_validate_grabber.in,v 1.1 2006/01/30 20:43:28 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_validate_grabber.in,v 1.2 2006/02/03 21:15:47 mattiasholmlund Exp $';
 use XMLTV::ValidateFile qw/LoadDtd/;
 use XMLTV::ValidateGrabber qw/ValidateGrabber ConfigureGrabber/;
 
@@ -99,7 +99,7 @@ if (not LoadDtd( $opt->{'dtd-file'} )) {
     exit 1;
 }
 
-my $errors = ValidateGrabber( $cmd, $cfg, "$opdir/t_", undef, 0 );
+my $errors = ValidateGrabber( "Grabber", $cmd, $cfg, "$opdir/t_", undef, 0 );
 
 if ($opt->{'keep-files'}) {
     print "Saving output files in $opdir\n";
