@@ -136,7 +136,7 @@ my( $opt, $conf ) = ParseOptions( {
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb,v 1.18 2006/01/28 16:20:50 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb,v 1.19 2006/02/09 19:14:54 mattiasholmlund Exp $',
     description => "Sweden (tv.swedb.se)",
 
 } );
@@ -209,7 +209,7 @@ sub warning
 
 sub list_channels
 {
-    my( $conf ) = @_;
+    my( $conf, $opt ) = @_;
 
     ( $xmldecl, $channels ) = load_channels( $conf->{'root-url'}->[0] );
     
