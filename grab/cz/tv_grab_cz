@@ -93,7 +93,6 @@ None known.
 =cut
 
 use strict;
-use XMLTV::Configure;
 use XMLTV::Configure::Writer;
 use XMLTV::Options qw/ParseOptions/;
 use LWP::Simple qw/$ua get getprint is_success/;
@@ -112,7 +111,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_cz,v 1.4 2006/01/28 16:17:56 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_cz,v 1.5 2006/02/15 19:59:56 mattiasholmlund Exp $',
     description => "The Czech Republic (www.webstep.net)",
 } );
 
