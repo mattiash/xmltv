@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_huro.PL,v 1.1 2005/06/17 14:00:38 stesie Exp $
+# $Id: tv_grab_huro.PL,v 1.2 2006/02/22 16:01:59 mbdev Exp $
 #
 
 use IO::File;
@@ -15,8 +15,10 @@ my $in = 'grab/huro/tv_grab_huro.in';
 my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $in_fh = new IO::File "< $in" or die "cannot read $in: $!";
 my $seen = 0;
+# example line: 
+#     my $SHARE_DIR = undef;
 while (<$in_fh>) {
-    s/^my \$SHARE_DIR =.*/my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;
+    s/^(\s*)my *\$SHARE_DIR *=.*$/$1my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;
     print $out_fh $_;
 }
 if ($seen == 0) {
