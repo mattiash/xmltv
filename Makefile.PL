@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.269 2006/01/30 20:43:28 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.270 2006/02/22 00:33:56 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -1065,7 +1065,7 @@ sub targets( $ ) {
 	    die "target $name seen twice" if defined $r{$name};
 	    $r{$name} = $curr_target = [];
 	}
-	elsif (/^\t/ and defined $curr_target) {
+	elsif (/^\s+/ and defined $curr_target) {
 	    # Commands for the target.
 	    push @$curr_target, $_;
 	}
