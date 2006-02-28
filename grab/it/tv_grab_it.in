@@ -30,7 +30,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.42 2006/01/28 16:17:57 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.43 2006/02/28 16:05:02 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Italy';
 use HTML::Entities;
@@ -594,7 +594,7 @@ sub xmltv_chanid {
         warn ($DEF_LANG eq 'eng' ?
                           "***Channel |$channel_id| for '$backend' is not in channel_ids, should be updated.\n" : 
                           "***Il canale |$channel_id| su '$backend' non e' in channel_ids, andrebbe aggiornato.\n"
-                          );
+                          ) unless $opt_quiet;
         $channel_id=~ s/\W//gs;
 
         #make up an id
