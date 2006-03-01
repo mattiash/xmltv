@@ -65,7 +65,7 @@ Ed Avis, ed@membled.com
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.85 2006/01/28 16:20:50 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.86 2006/03/01 03:59:14 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'United Kingdom/Ireland (Radiotimes)';
 use Getopt::Long;
@@ -110,10 +110,11 @@ GetOptions('help'          => \ my $opt_help,
        'share=s'       => \ my $opt_share, # also undocumented
        'quiet'         => \ my $opt_quiet,
        'list-channels' => \ my $opt_list_channels,
-       'days'          => undef, # ignored
-       'offset'        => undef, # ignored
+       'days'          => \ my $opt_ignore1, # ignored
+       'offset'        => \ my $opt_ignore2, # ignored
       )
   or usage(0);
+
 if ($opt_help) {
     usage(1);
 }
