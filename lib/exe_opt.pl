@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.12 2005/08/09 04:06:13 rmeden Exp $
+# $Id: exe_opt.pl,v 1.13 2006/03/01 04:21:16 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -14,16 +14,18 @@ use File::Spec;
 #
 # output constants
 #
+#-bind=libexpat.dll[file=\perl\site\lib\auto\XML\Parser\Expat\libexpat.dll,extract]
+#-trim="Convert::EBCDIC;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm;PerlIO/gzip.pm;HTML::FormatText"
 print '-nologo
 -force
 -add="XMLTV::Ask::Term;XMLTV::Ask::Tk"
 -add="XMLTV::ProgressBar::Term;XMLTV::ProgressBar::Tk;XMLTV::ProgressBar::None;"
 -add="XMLTV::GUI"
+-add="Class::MethodMaker::scalar"
 -add="Tk::ProgressBar"
--bind=libexpat.dll[file=\perl\site\lib\auto\XML\Parser\Expat\libexpat.dll,extract]
 -bind=libxml2.dll[file=\perl\bin\libxml2.dll,extract]
--trim="Convert::EBCDIC;Encode;HASH;HTML::FromText;Text::Iconv;Unicode::Map8;v5;URI/urn::isbn.pm;URI/urn::oid.pm;PerlIO/gzip.pm;HTML::FormatText"
--info CompanyName="XMLTV Project http://membled.com/work/apps/xmltv/"
+-trim="Apache::Const;Apache::RequestIO;DIME::Payload;MIME::Entity;Apache::RequestRec;DIME::Message"
+-info CompanyName="XMLTV Project http://www.xmltv.org"
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
 -info InternalName=xmltv.exe
 -info OriginalFilename=xmltv.exe
