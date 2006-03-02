@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.19 2006/02/02 15:17:36 dubman Exp $
+# $Id: Get_nice.pm,v 1.20 2006/03/02 19:18:17 mattiasholmlund Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -97,7 +97,7 @@ sub get_nice_aux( $ ) {
     	# to return undef on failure.  But dying here makes sure that a
     	# failed page fetch doesn't get stored in XMLTV::Memoize's cache.
     	#
-    	die "could not fetch $url, error: $r->status_line , aborting\n" if $FailOnError;
+    	die "could not fetch $url, error: " . $r->status_line . ", aborting\n" if $FailOnError;
 		$errors{$url} = $r->status_line;
 		return undef;
     } else {
