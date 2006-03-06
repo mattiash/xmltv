@@ -91,7 +91,7 @@ at http://sourceforge.net/projects/xmltv/.
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_ch.in,v 1.7 2006/01/28 16:17:56 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch.in,v 1.8 2006/03/06 04:59:40 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Switzerland';
 use Date::Manip;
@@ -320,7 +320,9 @@ if (defined $opt_output) {
 
 $writer_args{'encoding'} = 'ISO-8859-1';
 
-
+$writer_args{'days'} = $opt_days;
+$writer_args{'offset'} = $opt_offset;
+$writer_args{'cutoff'} = "000000";
 
 #-- create our writer object
 my $writer = new XMLTV::Writer(%writer_args);
