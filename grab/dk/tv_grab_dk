@@ -83,7 +83,7 @@ Genudsendelse fra mandag. - convert to <previously-shown>?
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_dk,v 1.31 2006/02/10 19:24:27 jtoft Exp $ ';
+use XMLTV::Version '$Id: tv_grab_dk,v 1.32 2006/03/07 17:08:03 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Denmark';
 use Getopt::Long;
@@ -178,7 +178,7 @@ my %movietypes = (	'action'	=> 'action',
 			'western'	=> 'western'
 );
 # Get options
-XMLTV::Memoize::check_argv('get');
+XMLTV::Memoize::check_argv('get_url');
 my ($opt_days, $opt_offset, $opt_help, $opt_output,
     $opt_configure, $opt_config_file, $opt_gui,
     $opt_quiet, $opt_list_channels);
@@ -726,14 +726,20 @@ sub tidy( $ ) {
 }
 
 require HTML::TreeBuilder;
-my $fetched;
 sub get_tree( $ ) {
-	sleep rand(5) if defined $fetched;
 	my $t = new HTML::TreeBuilder;
-	$t->parse(tidy($ua->get(shift)->content));
+        my $c = get_url(shift);
+	$t->parse( $c );
 	$t->eof;
-	$fetched = 1;
 	return $t;
+}
+
+my $fetched;
+sub get_url( $ ) {
+  sleep rand(5) if defined $fetched;
+  $fetched = 1;
+  my $c = tidy($ua->get(shift)->content);
+  return $c;
 }
 
 # Bump a YYYYMMDD date by one.
