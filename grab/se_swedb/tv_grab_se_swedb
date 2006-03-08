@@ -132,11 +132,11 @@ my $default_cachedir = get_default_cachedir();
 
 my( $opt, $conf ) = ParseOptions( { 
     grabber_name => "tv_grab_se_swedb",
-    capabilities => [qw/baseline manualconfig apiconfig cache/],
+    capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb,v 1.19 2006/02/09 19:14:54 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb,v 1.20 2006/03/08 18:13:45 mattiasholmlund Exp $',
     description => "Sweden (tv.swedb.se)",
 
 } );

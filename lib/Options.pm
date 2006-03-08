@@ -60,6 +60,7 @@ my %cap_options = (
 				 stage=s
 				 list-channels
 				 /],
+		   tkconfig => [qw/gui=s/],
 		   # The cache option is normally handled by XMLTV::Memoize
 		   # but in case it is not used, we handle it here as well.
 		   cache => [qw/
@@ -91,6 +92,9 @@ my %cap_defaults = (
 			stage => 'start',
 			'list-channels' => 0,
 		    },
+		    tkconfig => {
+			gui => undef,
+		    },
 		    cache => {
 			cache => undef,
 		    },
@@ -108,7 +112,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( { 
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.6 2006/02/09 19:12:13 mattiasholmlund Exp $',
+    version => '$Id: Options.pm,v 1.7 2006/03/08 18:13:45 mattiasholmlund Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -294,7 +298,7 @@ sub ParseOptions
     
     my $res = GetOptions( $opt, @optdef );
     
-    if( (not $res) || $opt->{help} )
+    if( (not $res) || $opt->{help} || scalar( @ARGV ) > 0 )
     {
 	PrintUsage( $p );
 	exit 1;

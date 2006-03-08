@@ -108,10 +108,10 @@ my $webroot = "http://www.webstep.net/tv_grab_cz/tv_grab_cz.php?";
 
 my( $opt, $conf ) = ParseOptions( { 
     grabber_name => "tv_grab_cz",
-    capabilities => [qw/baseline manualconfig apiconfig cache/],
+    capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_cz,v 1.6 2006/03/06 18:40:20 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_cz,v 1.7 2006/03/08 18:13:46 mattiasholmlund Exp $',
     description => "The Czech Republic (www.webstep.net)",
 } );
 
