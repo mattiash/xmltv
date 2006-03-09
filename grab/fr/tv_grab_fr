@@ -81,7 +81,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.46 2006/03/09 19:48:40 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.47 2006/03/09 19:52:26 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -210,8 +210,8 @@ sub get_detailed_fic( $$$ );
 sub debug_print( @ );
 
 # Set this to 1 of you debug strings
-my $DEBUG_FR = 0;# Internal debug functions
-# Internal debug functionssub debug_print( $ ) {
+my $DEBUG_FR = 0;
+# Internal debug functions
 sub debug_print( @ ) {
   if ($DEBUG_FR) { print @_; }
 }
@@ -801,7 +801,7 @@ sub get_detailed_fic( $$$ )
       }
     }
   }
-  # RESUME is main definition, HISTOIRE shorter.
+  # RESUME is the main definition, HISTOIRE is shorter.
   foreach ($resume, $histoire) {
     push @{$prog->{desc}}, [ $_, $LANG ] if defined and length;
   }
