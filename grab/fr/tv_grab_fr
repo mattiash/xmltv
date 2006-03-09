@@ -81,7 +81,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.45 2006/03/09 19:40:29 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.46 2006/03/09 19:48:40 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -106,7 +106,7 @@ use LWP;
 my $ua = new LWP::UserAgent;
 $ua->agent("xmltv/$XMLTV::VERSION");
 $ua->env_proxy;
-sub get {
+sub get($) {
     my $url = shift;
     my $request = HTTP::Request->new(GET => $url);
     my $response = $ua->request($request);
