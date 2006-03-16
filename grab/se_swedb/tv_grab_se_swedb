@@ -136,13 +136,17 @@ my( $opt, $conf ) = ParseOptions( {
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb,v 1.20 2006/03/08 18:13:45 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb,v 1.21 2006/03/16 05:12:51 mattiasholmlund Exp $',
     description => "Sweden (tv.swedb.se)",
 
 } );
 
 init_cachedir( $conf->{cachedir}->[0] );
-HTTP::Cache::Transparent::init( { BasePath => $conf->{cachedir}->[0] } );
+HTTP::Cache::Transparent::init( { 
+    BasePath => $conf->{cachedir}->[0],
+    NoUpdate => 15*60,
+    Verbose => $opt->{debug},
+    } );
 
 my($xmldecl, $channels) = load_channels( $conf->{'root-url'}->[0] );
 
