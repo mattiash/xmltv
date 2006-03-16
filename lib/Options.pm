@@ -83,6 +83,7 @@ my %cap_defaults = (
 			offset => 0,
 			output => undef,
 			debug => 0,
+			gui => undef,
 		    },
 		    manualconfig => {
 			configure => 0,
@@ -93,7 +94,6 @@ my %cap_defaults = (
 			'list-channels' => 0,
 		    },
 		    tkconfig => {
-			gui => undef,
 		    },
 		    cache => {
 			cache => undef,
@@ -112,7 +112,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( { 
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.7 2006/03/08 18:13:45 mattiasholmlund Exp $',
+    version => '$Id: Options.pm,v 1.8 2006/03/16 17:48:19 mattiasholmlund Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -333,6 +333,8 @@ sub ParseOptions
 	exit 0;
     }
     
+    XMLTV::Ask::init($opt->{gui});
+
     if( defined( $opt->{output} ) )
     {
 	if( not open( OUT, "> $opt->{output}" ) )
