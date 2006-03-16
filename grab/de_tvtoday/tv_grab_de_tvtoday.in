@@ -99,7 +99,7 @@ at http://sourceforge.net/projects/xmltv/.
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.37 2006/03/09 17:45:21 stesie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de_tvtoday.in,v 1.38 2006/03/16 18:38:31 stesie Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Germany (www.tvtoday.de)';
 use Date::Manip;
@@ -599,6 +599,7 @@ sub parse_page($$) {
 	die unless(ref($td[3]) eq "HTML::Element" and $td[3]->tag eq "span" and $td[1]->attr("class") eq "text");
 
 	my $desc = ($td[3]->content_list())[0];
+	$desc =~ s/\021([a-z]\s+)?//gi; #- work around tvtoday.de database bug
 	squeeze_out_desc(\$desc, \%show) unless($opt_nosqueeze);
 	
 	$desc =~ s/(^\s+|\s+$)//g;
