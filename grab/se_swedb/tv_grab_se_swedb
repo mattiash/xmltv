@@ -136,10 +136,23 @@ my( $opt, $conf ) = ParseOptions( {
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb,v 1.21 2006/03/16 05:12:51 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb,v 1.22 2006/03/17 05:32:40 mattiasholmlund Exp $',
     description => "Sweden (tv.swedb.se)",
 
 } );
+
+if (not defined( $conf->{cachedir} )) {
+    print STDERR "No cachedir defined.\n" .
+                 "Please run the grabber with --configure.\n";
+    exit 1;
+}
+
+
+if (not defined( $conf->{'root-url'} )) {
+    print STDERR "No root-url defined.\n" .
+                 "Please run the grabber with --configure.\n";
+    exit 1;
+}
 
 init_cachedir( $conf->{cachedir}->[0] );
 HTTP::Cache::Transparent::init( { 
