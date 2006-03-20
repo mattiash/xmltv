@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.270 2006/02/22 00:33:56 rmeden Exp $
+# $Id: Makefile.PL,v 1.271 2006/03/20 21:16:00 b4max Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -276,6 +276,14 @@ my @opt_components
        exes => [ 'grab/br/tv_grab_br' ],
        prereqs => { 'HTML::TreeBuilder' => 0 ,
                     'HTML::Entities' => 1.27 , }
+     },
+
+     { name => 'tv_grab_br_net',
+       blurb => 'Grabber for Brazil NET Cable',
+       exes => [ 'grab/br_net/tv_grab_br_net' ],
+       prereqs => { 'HTML::Entities' => 1.27 , 
+		    'WWW::Mechanize' => 1.16 ,
+		    'HTTP::Cookies' => 1.39 , }
      },
 
      { name     => 'tv_grab_ch',
