@@ -135,7 +135,7 @@ use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::Memoize;
 use XMLTV::Mode;
-use XMLTV::Version '$Id: tv_grab_br_net,v 1.1 2006/03/20 20:55:58 b4max Exp $';
+use XMLTV::Version '$Id: tv_grab_br_net,v 1.2 2006/03/21 15:34:08 b4max Exp $';
 
 use XMLTV::Usage <<END
 $0: get Brazilian television listings from nettv.globo.com in XMLTV format
@@ -481,12 +481,14 @@ sub details {
 	if $html =~ /<b[^>]*>Dire(&ccedil;|ç)(&atilde;|ã)o:<\/b>\s*<[^>]+>\s*(.*?)<\//is;
 
     # actors
-    push @{$bc->{Actors}}, split (/,\s*/, $1)
-	if $html =~ /<b[^>]*>Elenco:<\/b>\s*<[^>]+>\s*(.*?)<\//is;
-
-    # remove 'Vozes de'
-    # in case of a comic the person speaking a character is the actor
-    @{$bc->{Actors}} = map s/^vozes\s+de\s+//i, @{$bc->{Actors}};
+    if ($html =~ /<b[^>]*>Elenco:<\/b>\s*<[^>]+>\s*(.*?)<\//is) {
+	foreach (split (/,\s*/, $1)) {
+	    # remove 'Vozes de'
+	    # in case of a comic the person speaking a character is the actor
+	    s/^vozes\s+de\s+//i;
+	    push @{$bc->{Actors}}, $_;
+	}
+    }
 
     # year
     $bc->{Date} = $1 if $html =~ /<b[^>]*>ano:<\/b>\s*<[^>]+>\s*(\d{2,4})<\//is;
