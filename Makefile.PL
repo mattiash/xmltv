@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.271 2006/03/20 21:16:00 b4max Exp $
+# $Id: Makefile.PL,v 1.272 2006/03/22 18:17:41 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -481,11 +481,6 @@ my @opt_components
        exes => [ 'grab/za/tv_grab_za' ],
        prereqs => { 'HTML::TreeBuilder' => 0,
                     'HTML::Entities' => 1.27 } },
-
-     { name => 'tv_grab_cz',
-       blurb => 'Grabber for the Czech Republic',
-       exes => [ 'grab/cz/tv_grab_cz' ],
-       prereqs => { 'XML::LibXML' => 0 } },
 
      { name => 'tv_check',
        blurb => 'Program to report exceptions and changes in a schedule',
