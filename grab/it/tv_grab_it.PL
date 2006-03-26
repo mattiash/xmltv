@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_it.PL,v 1.4 2005/08/25 12:16:39 mnbjhguyt Exp $
+# $Id: tv_grab_it.PL,v 1.5 2006/03/26 20:16:39 mnbjhguyt Exp $
 #
 
 # 15/07/2005
@@ -130,7 +130,7 @@ L<xmltv(5)>.
 
 =head1 AUTHOR
 
-Davide Chiarini, pinwiz\@inwind.it
+Davide Chiarini, davide.chiarini\@gmail.com
 
 =cut
 END
@@ -246,7 +246,7 @@ L<xmltv(5)>.
 
 =head1 AUTORE
 
-Davide Chiarini, pinwiz\@inwind.it
+Davide Chiarini, davide.chiarini\@gmail.com
 
 =cut
 END
