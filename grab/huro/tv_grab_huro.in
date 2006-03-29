@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.10 2006/03/13 22:04:07 mbdev Exp $
+# $Id: tv_grab_huro.in,v 1.11 2006/03/29 22:28:11 mbdev Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.10 2006/03/13 22:04:07 mbdev Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.11 2006/03/29 22:28:11 mbdev Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Hungary/Romania';
 use Getopt::Long;
@@ -593,9 +593,9 @@ sub parse_short_desc ($) {
 	#  
 	# sometimes only the proposed minimal age of watching person is
 	# presented in parentheses eg: (12), so parse this only if it is 
-	# longer as for example 4
+	# longer as for example 6 (4 is not enough, because (ism.) is no category...)
 
-	if (! (($cont) = $desc =~ m/[^\(]*\(([^\)]{4,})\)/)) {
+	if (! (($cont) = $desc =~ m/[^\(]*\(([^\)]{6,})\)/)) {
 		$cont = substr($desc, 0, (length($desc) < 120 ? length($desc) : 120));
 	}
 
