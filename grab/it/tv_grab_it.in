@@ -30,7 +30,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.43 2006/02/28 16:05:02 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.44 2006/04/05 18:26:37 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Italy';
 use HTML::Entities;
@@ -82,7 +82,7 @@ my $MAX_DAYS=7;
 my $LANG="it";
 my $date_today = UnixDate("today", '%Y-%m-%d');
 
-my @default_backends = ('wfactory', 'skytv');
+my @default_backends = ('skytv', 'wfactory');
 
 my %channels; #to store display names
 
