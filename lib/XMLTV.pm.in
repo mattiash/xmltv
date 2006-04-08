@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.121 2006/04/08 18:37:09 epaepa Exp $
+# $Id: XMLTV.pm.in,v 1.122 2006/04/08 18:44:02 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -1646,7 +1646,10 @@ sub decode_boolean( $ ) {
     }
 }
 sub encode_boolean( $ ) {
-    shift() ? 'yes' : 'no';
+    my $v = shift;
+    warn "expected a Perl boolean like 0 or 1, not '$v'\n"
+      if $v and $v != 1;
+    return $v ? 'yes' : 'no';
 }
 
 
