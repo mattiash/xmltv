@@ -70,7 +70,7 @@ First release. Not aware of any bugs yet. But I'm sure there are some.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_no,v 1.19 2006/04/08 10:11:55 christianw Exp $ ';
+use XMLTV::Version '$Id: tv_grab_no,v 1.20 2006/04/08 11:14:29 christianw Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Norway';
 use Getopt::Long;
@@ -84,7 +84,7 @@ use Date::Manip;
 
 use XMLTV;
 use XMLTV::Memoize;
-#use XMLTV::ProgressBar;
+use XMLTV::ProgressBar;
 use XMLTV::Ask;
 use XMLTV::Mode;
 use XMLTV::Config_file;
