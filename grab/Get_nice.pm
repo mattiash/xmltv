@@ -1,4 +1,4 @@
-# $Id: Get_nice.pm,v 1.20 2006/03/02 19:18:17 mattiasholmlund Exp $
+# $Id: Get_nice.pm,v 1.21 2006/04/08 15:14:13 stesie Exp $
 #
 # Library to wrap LWP::Simple to put in a random delay between
 # requests and to set User-Agent.  We really should be using
@@ -35,6 +35,7 @@ our $FailOnError = 1; # Fail on fetch error
 
 our $ua = LWP::UserAgent->new;
 $ua->agent("xmltv/$XMLTV::VERSION");
+$ua->env_proxy;
 #our $get = \&LWP::Simple::get;
 our %errors = ();
 
