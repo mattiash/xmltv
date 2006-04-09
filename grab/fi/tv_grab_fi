@@ -83,7 +83,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.44 2006/04/06 13:58:56 va1210 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.45 2006/04/09 14:34:00 va1210 Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Finland';
 use Getopt::Long;
@@ -289,8 +289,10 @@ foreach my $ch_did (@channels) {
 # This progress bar is for both downloading and parsing.  Maybe
 # they could be separate stages.
 #
-my $bar = new XMLTV::ProgressBar('getting listings', scalar @to_get)
-  if not $opt_quiet;
+my $bar = new XMLTV::ProgressBar( {
+   name => 'getting listings', 
+   count => scalar @to_get,
+ } ) if not $opt_quiet;
 foreach (@to_get) {
     foreach (process_table($_->[0], $_->[1], $_->[2])) {
 	$writer->write_programme($_);
