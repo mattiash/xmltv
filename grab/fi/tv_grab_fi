@@ -83,7 +83,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.45 2006/04/09 14:34:00 va1210 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.46 2006/04/09 14:59:54 va1210 Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Finland';
 use Getopt::Long;
@@ -483,8 +483,10 @@ sub get_program_data {
 
 # get channel listing
 sub get_channels {
-    my $bar = new XMLTV::ProgressBar('getting list of channels', 1)
-      if not $opt_quiet;
+    my $bar = new XMLTV::ProgressBar({
+       name => 'getting list of channels', 
+       count => 1,
+    } ) if not $opt_quiet;
     my %channels;
     my $url="$SITE/telkku?tila=knvt";
     my $tree = get_nice_tree $url;
