@@ -277,7 +277,7 @@ and dirty fix: use www.telepocket.be instead.
 
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_be.in,v 1.7 2006/04/12 08:19:15 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_be.in,v 1.8 2006/04/12 16:59:52 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Belgium';
 use IO::Socket;
@@ -1231,7 +1231,7 @@ sub parse_programme_details($$) {
 		    ${$p}{audio}{stereo} = "surround";
 		}
 		elsif ( $imagepath =~ /\/black-white\.gif/i ) {
-		    ${$p}{video}{colour} = "no";
+		    ${$p}{video}{colour} = 0;
 		}
 		elsif ( $imagepath =~ /\/tele-([0-9]+)\.gif/i ) {
 		    # Age rating $1="10,12,16,18"
