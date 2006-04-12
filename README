@@ -28,6 +28,8 @@ tv_grab_ch: Filter data to match --days and --offset.
 tv_grab_de_tvtoday: Updated after site changes. Fixed unicode problems.
                     Filter data to match --days and --offset.
 
+tv_grab_br: Updated to match site-changes.
+
 tv_grab_br_net: New grabber for Brazil.
 
 tv_grab_fi: Grab data from telkku.com.
@@ -156,4 +158,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2006-01-08
-$Id: README,v 1.135 2006/04/12 20:36:54 mattiasholmlund Exp $
+$Id: README,v 1.136 2006/04/12 21:32:12 mattiasholmlund Exp $

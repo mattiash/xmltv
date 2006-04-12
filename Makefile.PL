@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.274 2006/04/12 17:01:17 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.275 2006/04/12 21:32:11 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -272,13 +272,12 @@ my @opt_components
 #       grab_need_share => [ 'au' ],
 #     },
 
-# Disabled 2006-04-12 since it doesn't provide data anymore.
-#     { name => 'tv_grab_br',
-#       blurb => 'Grabber for Brazil',
-#       exes => [ 'grab/br/tv_grab_br' ],
-#       prereqs => { 'HTML::TreeBuilder' => 0 ,
-#                    'HTML::Entities' => 1.27 , }
-#     },
+     { name => 'tv_grab_br',
+       blurb => 'Grabber for Brazil',
+       exes => [ 'grab/br/tv_grab_br' ],
+       prereqs => { 'HTML::TreeBuilder' => 0 ,
+                    'HTML::Entities' => 1.27 , }
+     },
 
      { name => 'tv_grab_br_net',
        blurb => 'Grabber for Brazil NET Cable',
