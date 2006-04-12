@@ -47,8 +47,12 @@ possible.
 
 B<--offset N> Start grabbing at today + N.  N may be negative.
 
-B<--quiet> suppress the progress messages normally written to standard
+B<--quiet> Suppress the progress messages normally written to standard
 error.
+
+B<--version> Show the version of the grabber.
+
+B<--help> Print a help message and exit.
 
 =head1 SEE ALSO
 
@@ -66,7 +70,7 @@ Based on tv_grab_nl_wolf by Ed Avis
 
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_uk_bleb.in,v 1.13 2006/01/28 16:20:50 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_bleb.in,v 1.14 2006/04/12 08:19:16 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Description 'United Kingdom (bleb.org)';
 

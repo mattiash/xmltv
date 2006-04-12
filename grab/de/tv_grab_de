@@ -17,18 +17,20 @@ countries.  The data comes from Gottfried SzingE<39>s database which
 is exported to XMLTV format.  The default is to grab as many days as
 possible from the current day onwards.
 
-B<--output FILE> write to FILE rather than standard output.
+B<--output FILE> Write to FILE rather than standard output.
 
-B<--days N> grab N days starting from today, rather than as many as
+B<--days N> Grab N days starting from today, rather than as many as
 possible.
 
-B<--offset N> start grabbing N days from today, rather than starting
+B<--offset N> Start grabbing N days from today, rather than starting
 today.  N may be negative.
 
-B<--quiet> suppress the progress messages normally written to standard
+B<--quiet> Suppress the progress messages normally written to standard
 error.
 
-B<--help> print a help message and exit.
+B<--version> Show the version of the grabber.
+
+B<--help> Print a help message and exit.
 
 =head1 SEE ALSO
 
@@ -76,7 +78,7 @@ END
 #
 use bytes;
 
-use XMLTV::Version '$Id: tv_grab_de,v 1.34 2005/01/23 22:21:36 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_de,v 1.35 2006/04/12 08:19:16 fgouget Exp $ ';
 
 # We work by inheriting from XMLTV::Grab_XML and overriding certain
 # methods.

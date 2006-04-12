@@ -61,7 +61,7 @@ information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
-B<--help> print a help message and exit.
+B<--help> Print a help message and exit.
 
 =head1 ERROR HANDLING
 
@@ -111,7 +111,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_cz,v 1.7 2006/03/08 18:13:46 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_cz,v 1.8 2006/04/12 08:19:15 fgouget Exp $',
     description => "The Czech Republic (www.webstep.net)",
 } );
 

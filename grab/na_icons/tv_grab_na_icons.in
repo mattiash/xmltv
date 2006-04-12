@@ -44,13 +44,17 @@ no --configure mode, the questions need to be answered each run.
 
 =item --links
 
-store imge URLs in *.url files instead of downloading images.
+Store imge URLs in *.url files instead of downloading images.
 
 =item -share I<SHAREDIR>
 
 Icons are stored in I<SHAREDIR>/icons.  The share directory is set at install time,
 but there may be times when it needs to be specified. (for example: no write access to the default share
 directory)
+
+B<--version> Show the version of the grabber.
+
+B<--help> Print a help message and exit.
 
 =back
 
@@ -73,7 +77,7 @@ use WWW::Mechanize 1.02;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.6 2004/09/02 16:30:52 axis3x3 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.7 2006/04/12 08:19:16 fgouget Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 

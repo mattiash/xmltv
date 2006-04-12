@@ -77,6 +77,8 @@ information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
+B<--help> Print a help message and exit.
+
 =head1 SEE ALSO
 
 L<xmltv(5)>. L<http://www.onlinetractorparts.com.au/rohbags/>
@@ -108,7 +110,7 @@ Please email the Author if any bugs are found.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_au.in,v 1.9 2006/02/12 18:49:18 epaepa Exp $';
+use XMLTV::Version '$Id: tv_grab_au.in,v 1.10 2006/04/12 08:19:15 fgouget Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Australia';
 use Getopt::Long;

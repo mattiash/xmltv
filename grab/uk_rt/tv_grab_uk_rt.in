@@ -43,7 +43,7 @@ read when grabbing.
 B<--output FILE> When grabbing, write output to FILE rather than standard
 output.
 
-B<--quiet> suppress the progress messages normally written to standard error.
+B<--quiet> Suppress the progress messages normally written to standard error.
 
 B<--days N> When grabbing, grab N days of data instead of all available.
 
@@ -51,7 +51,9 @@ B<--offset N> Start grabbing at today + N days.
 
 B<--list-channels> List channels.
 
-B<--help> print a help message and exit.
+B<--version> Show the version of the grabber.
+
+B<--help> Print a help message and exit.
 
 Note that tv_grab_uk_rt always downloads data for all days and then filters
 out the days specified with --days and --offset. It is therefore more
@@ -69,7 +71,7 @@ Ed Avis, ed@membled.com
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.87 2006/03/06 04:59:40 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.88 2006/04/12 08:19:16 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'United Kingdom/Ireland (Radiotimes)';
 use Getopt::Long;
