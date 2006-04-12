@@ -81,7 +81,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.51 2006/03/26 19:35:54 reudeudeu Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.52 2006/04/12 07:27:21 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -95,7 +95,6 @@ use XMLTV::ProgressBar;
 use XMLTV::Mode;
 use XMLTV::Config_file;
 use XMLTV::DST;
-use XMLTV::Memoize; XMLTV::Memoize::check_argv 'get';
 use LWP;
 use XMLTV::Get_nice;
 use XMLTV::Memoize;
