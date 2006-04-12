@@ -30,7 +30,7 @@ tv_grab_de_tvtoday: Updated after site changes. Fixed unicode problems.
 
 tv_grab_br: Updated to match site-changes.
 
-tv_grab_br_net: New grabber for Brazil.
+tv_grab_br_net: New grabber for Brazil (NET cable).
 
 tv_grab_fi: Grab data from telkku.com.
 
@@ -159,4 +159,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2006-01-08
-$Id: README,v 1.137 2006/04/12 21:51:39 b4max Exp $
+$Id: README,v 1.138 2006/04/12 21:58:53 b4max Exp $
