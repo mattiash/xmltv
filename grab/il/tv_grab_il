@@ -80,7 +80,7 @@ http://www.greenwichmeantime.com/local/asia/il.htm?israel+jerusalem+tel_aviv
 use strict;
 #binmode(STDOUT,":utf8");
 #binmode(STDERR,":utf8");
-use XMLTV::Version '$Id: tv_grab_il,v 1.9 2006/04/13 17:24:42 dubman Exp $';
+use XMLTV::Version '$Id: tv_grab_il,v 1.10 2006/04/13 18:07:34 dubman Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Israel';
 use HTML::Entities qw(decode_entities);
@@ -541,6 +541,8 @@ sub configure() {
    open(CONF, ">$config_file") or die "cannot write to $config_file: $!";
    my $user_grabber = ask_choice("TV guide data source ($opt_grab_source) :", $opt_grab_source , keys %grabbers);
    print CONF "grabber $user_grabber\n";
+   set_grabber($user_grabber);
+
 
    my $user_xmltvid = ask("xmltvid template (default $opt_xmlid_tmpl) :") || $opt_xmlid_tmpl;
    print CONF "xmltvid_tmpl $opt_xmlid_tmpl\n";
