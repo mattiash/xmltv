@@ -80,7 +80,7 @@ http://www.greenwichmeantime.com/local/asia/il.htm?israel+jerusalem+tel_aviv
 use strict;
 #binmode(STDOUT,":utf8");
 #binmode(STDERR,":utf8");
-use XMLTV::Version '$Id: tv_grab_il,v 1.11 2006/04/15 12:06:58 dubman Exp $';
+use XMLTV::Version '$Id: tv_grab_il,v 1.12 2006/04/15 13:20:49 dubman Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Israel';
 use HTML::Entities qw(decode_entities);
@@ -429,7 +429,7 @@ sub process_file_yestvguide( $$$$ ) {
 	   }
        from_to($progname, "Windows-1251", "utf8");
     } else {
-       $progname = hebrewflip($progname) ;
+       #$progname = hebrewflip($progname) ;
        from_to($progname, "iso-8859-8", "utf8");
     }
     my $genre     = $detail2->content->[0]->attr('class');
