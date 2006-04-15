@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# $Id: tv_grab_br_net,v 1.8 2006/04/15 17:04:49 b4max Exp $
+# $Id: tv_grab_br_net,v 1.9 2006/04/15 21:20:19 b4max Exp $
 
 =pod
 
@@ -141,7 +141,7 @@ my constant $retry_sleep = 5;
 my constant $lang = 'pt_BR';
 my constant $maxrating = 5; # maximum star-rating
 
-my $rev = q$Revision: 1.8 $; # set from CVS-revision
+my $rev = q$Revision: 1.9 $; # set from CVS-revision
 $rev =~ s|^.*?(\d+(\.\d+)+).*?$|sprintf("%d." . "%s" x9, map sprintf("%03d", $_), split /\./, $1)|e;
 
 # XML-encoding
@@ -158,7 +158,7 @@ my ($opt, $conf) = ParseOptions( {
     capabilities => [qw(baseline manualconfig tkconfig apiconfig)],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_br_net,v 1.8 2006/04/15 17:04:49 b4max Exp $',
+    version => '$Id: tv_grab_br_net,v 1.9 2006/04/15 21:20:19 b4max Exp $',
     description => "Brazil (NET)",
     extra_options => ["slow" => \$slow, "relax=n" => \$relax],
 } );
@@ -761,7 +761,7 @@ sub parsebundles {
 
 sub rfc2838 {
     my $ch = shift;
-    # concatenate channelnumber, channel-ID and the domain
+    # concatenate channelnumber, channel-ID, selection, city and domain
     return sprintf("%03d.%d.%d.%d.%s",
 		   $ch->{Number}, $ch->{ID}, $conf->{selection}->[0], $conf->{city}->[0], $domain);
 }
@@ -829,7 +829,7 @@ sub fill_ch {
     foreach (@{$conf->{channel}}) {
 	if (/^((\d{3})\.(\d+)\.\Q$conf->{selection}->[0]\E\.\Q$conf->{city}->[0]\E\.\Q$domain\E)$/) {
 	    $channels->{$2}->{rfc2838} = $1;
-	    $channels->{$2}->{Number} = $2;
+	    $channels->{$2}->{Number} = $2 + 0;
 	    $channels->{$2}->{ID} = $3;
 	}else{
 	    die "configfile corrupt! Please run with --configure\n";
@@ -840,7 +840,7 @@ sub fill_ch {
 	if (/^((\d{3})\.(\d+)\.\Q$conf->{selection}->[0]\E\.\Q$conf->{city}->[0]\E\.\Q$domain\E)$/) {
 	    $channels->{$2}->{ignore} = 1;
 	    $channels->{$2}->{rfc2838} = $1;
-	    $channels->{$2}->{Number} = $2;
+	    $channels->{$2}->{Number} = $2 + 0;
 	    $channels->{$2}->{ID} = $3;
 	}else{
 	    die "configfile corrupt! Please run with --configure\n";
