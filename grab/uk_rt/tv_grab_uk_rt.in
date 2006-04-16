@@ -71,7 +71,7 @@ Ed Avis, ed@membled.com
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.88 2006/04/12 08:19:16 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.89 2006/04/16 08:37:34 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'United Kingdom/Ireland (Radiotimes)';
 use Getopt::Long;
@@ -174,7 +174,7 @@ foreach (XMLTV::Config_file::read_lines($CHANNEL_NAMES_FILE, 1)) {
     $extra_dn{$xmltv_id} = $extra_dn if defined $extra_dn;
 }
 
-say <<END
+say << 'END' unless $opt_quiet;
 All data is the copyright of the Radio Times website
 <http://www.radiotimes.com> and the use of this data is restricted to
 personal use only.
