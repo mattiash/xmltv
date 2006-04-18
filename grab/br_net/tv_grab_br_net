@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# $Id: tv_grab_br_net,v 1.10 2006/04/18 02:47:09 b4max Exp $
+# $Id: tv_grab_br_net,v 1.11 2006/04/18 02:54:28 b4max Exp $
 
 =pod
 
@@ -141,7 +141,7 @@ my constant $retry_sleep = 5;
 my constant $lang = 'pt_BR';
 my constant $maxrating = 5; # maximum star-rating
 
-my $rev = q$Revision: 1.10 $; # set from CVS-revision
+my $rev = q$Revision: 1.11 $; # set from CVS-revision
 $rev =~ s|^.*?(\d+(\.\d+)+).*?$|sprintf("%d." . "%s" x9, map sprintf("%03d", $_), split /\./, $1)|e;
 
 # XML-encoding
@@ -158,7 +158,7 @@ my ($opt, $conf) = ParseOptions( {
     capabilities => [qw(baseline manualconfig tkconfig apiconfig)],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_br_net,v 1.10 2006/04/18 02:47:09 b4max Exp $',
+    version => '$Id: tv_grab_br_net,v 1.11 2006/04/18 02:54:28 b4max Exp $',
     description => "Brazil (NET)",
     extra_options => ["slow" => \$slow, "relax=n" => \$relax],
 } );
@@ -266,7 +266,7 @@ sub grab {
 
 	    # fetch basic information of broadcasts
 	    &channel($mech, $channels->{$_}, $date, $date_formatted);
-	    sleep(int(rand($relax) + 1) if $relax;
+	    sleep(int(rand($relax) + 1)) if $relax;
 	}
 
 	# terminate progess-bar
@@ -324,7 +324,7 @@ sub grab {
 			    # add to skip-list
 			    push @skiplist, join('|', $ch->{rfc2838}, $time);
 			}
-			sleep(int(rand($relax) + 1) if $relax;
+			sleep(int(rand($relax) + 1)) if $relax;
 
 		    }else{ # no URL -> no details
 			say("No URL found for $ch->{Name} $bc->{Time} $bc->{Title}!\nPlease check. Maybe the NET website has changed.\n");
