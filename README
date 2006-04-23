@@ -55,9 +55,9 @@ tv_grab_se_swedb: Implement configuration API.
 tv_grab_uk_rt: Updated channel ids. 
                Filter data to match --days and --offset.
 
-tv_grab_il: Use time offsets instead of timezones.
+tv_grab_il: New Grabber for Isreal ( and use numberic TimeZones )
 
-And some bugfixes and polish.
+And lots of  bugfixes and polish.
 
 * Installation
 
@@ -159,4 +159,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Ed Avis, ed@membled.com, 2006-01-08
-$Id: README,v 1.138 2006/04/12 21:58:53 b4max Exp $
+$Id: README,v 1.139 2006/04/23 16:26:58 rmeden Exp $
