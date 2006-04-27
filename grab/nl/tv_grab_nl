@@ -69,7 +69,7 @@ Originally based on tv_grab_fi by Matti Airas.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.68 2006/04/12 08:19:16 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.69 2006/04/27 19:08:45 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Holland';
 use Getopt::Long;
@@ -930,7 +930,7 @@ sub process_details_page( $$$ ) {
     	    }
             elsif ($regel eq 'Regie') {
                 warn "seen 'Regie' twice" if defined $director;
-                $director = $text;
+                push @$director, $text;
             }
     	    elsif ($regel eq 'Orginele titel') {
     	        warn "seen 'Orginele titel' twice" if defined $orig_title;
@@ -1007,9 +1007,9 @@ sub process_details_page( $$$ ) {
     my %credits;
     $credits{presenter} = \@presenter if @presenter;
     $credits{actor} = \@actor if @actor;
-    $credits{writer} = [ $writers ] if $writers;
-    $credits{commentator} = [ $commentators ] if $commentators;
-    $credits{director} = [ $director ] if $director;
+    $credits{writer} = $writers if $writers;
+    $credits{commentator} = $commentators if $commentators;
+    $credits{director} = $director if $director;
     $prog{credits} = \%credits if %credits;
 
     return \%prog;
