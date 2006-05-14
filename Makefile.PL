@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.279 2006/05/14 16:46:50 epaepa Exp $
+# $Id: Makefile.PL,v 1.280 2006/05/14 19:01:16 stesie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -286,15 +286,16 @@ my @opt_components
 		    'HTTP::Cookies' => 1.39 , }
      },
 
-     { name     => 'tv_grab_ch',
-       blurb    => 'Grabber for Switzerland',
-       exes     => [ 'grab/ch/tv_grab_ch' ],
-       deps     => [ 'grab/ch/tv_grab_ch' => [ 'grab/ch/tv_grab_ch.in' ] ],
-       pl_files => { 'grab/ch/tv_grab_ch.PL' => 'grab/ch/tv_grab_ch' },
-       to_clean => [ 'grab/ch/tv_grab_ch' ],
-       share_files => { 'grab/ch/channel_ids' => 'tv_grab_ch/channel_ids' },
-       grab_need_share => [ 'ch' ],
-     },
+# disabled since blocked by www.fernsehen.ch guys
+#     { name     => 'tv_grab_ch',
+#       blurb    => 'Grabber for Switzerland',
+#       exes     => [ 'grab/ch/tv_grab_ch' ],
+#       deps     => [ 'grab/ch/tv_grab_ch' => [ 'grab/ch/tv_grab_ch.in' ] ],
+#       pl_files => { 'grab/ch/tv_grab_ch.PL' => 'grab/ch/tv_grab_ch' },
+#       to_clean => [ 'grab/ch/tv_grab_ch' ],
+#       share_files => { 'grab/ch/channel_ids' => 'tv_grab_ch/channel_ids' },
+#       grab_need_share => [ 'ch' ],
+#     },
 
      { name => 'tv_grab_uk_rt',
        blurb => 'Alternative grabber for Britain',
