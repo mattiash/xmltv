@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.278 2006/04/23 16:26:58 rmeden Exp $
+# $Id: Makefile.PL,v 1.279 2006/05/14 16:46:50 epaepa Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -979,7 +979,7 @@ END
 	$inherited .= "\n\t\@\$(NOOP)\n";
 	
 	# And realclean should remove them, by calling realclean_$filetype.
-	$inherited =~ s/^(\s*realclean\s+::\s.+)/$1 realclean_$filetype/m or die;
+	$inherited =~ s/^(\s*realclean\s+::\s[^\\]+)/$1 realclean_$filetype /m or die;
 	$inherited .= "realclean_$filetype ::\n\t\$(RM_F) ";
 	foreach (sort keys %files) {
 	    my $inst_pos = $files{$_};
