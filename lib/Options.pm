@@ -112,7 +112,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( { 
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.8 2006/03/16 17:48:19 mattiasholmlund Exp $',
+    version => '$Id: Options.pm,v 1.9 2006/05/17 17:39:20 mattiasholmlund Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -313,12 +313,12 @@ sub ParseOptions
 	eval {
 	    require XMLTV;
 	    print "XMLTV module version $XMLTV::VERSION\n";
-	};
-	print "could not load XMLTV module, xmltv is not properly installed\n";
+	} or print 
+	    "could not load XMLTV module, xmltv is not properly installed\n";
 
 	if( $p->{version} =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) 
 	{
-	    print "This is $p->{grabber_name} version $2, $3\n";
+	    print "This is $p->{grabber_name} version $1, $2\n";
 	}
 	else 
 	{
