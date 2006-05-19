@@ -108,7 +108,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.61 2006/05/06 18:20:43 reudeudeu Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.62 2006/05/19 15:12:02 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -762,7 +762,7 @@ sub get_detailed_fic( $$$ )
     foreach my $field ( split(/\s+/, tidy($tdesc->as_text())) ) {
       if ( $field =~ s/^(\d\d\d\d)$//i ) {
         $prog->{'date'} = $1;
-      } elsif ( $field =~ s/^(Couleur|Noir et blanc)//i ) {
+      } elsif ( $field =~ s/^(Couleur|Noir et blanc|Coul\. et s.*pia)//i ) {
         $prog->{'video'}{colour} = ($1 eq "Noir et blanc" ? 0 : 1);
       } elsif  ( $field =~ s%^16/9%%) {
         $prog->{'video'}{aspect} = "16:9";
