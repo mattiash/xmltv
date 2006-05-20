@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.280 2006/05/14 19:01:16 stesie Exp $
+# $Id: Makefile.PL,v 1.281 2006/05/20 15:59:37 candu_sf Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -391,6 +391,11 @@ my @opt_components
 #       blurb => 'Grabber for Spain - Digital Satellite (D+)',
 #       exes => [ 'grab/es_digital/tv_grab_es_digital' ],
 #       prereqs => { 'HTML::TreeBuilder' => 0 } },
+
+     { name => 'tv_grab_es_laguiatv',
+       blurb => 'Alternative grabber for Spain',
+       exes => [ 'grab/es_laguiatv/tv_grab_es_laguiatv' ],
+       prereqs => { 'HTML::TreeBuilder' => 0 } },
 
      { name => 'tv_grab_nl',
        blurb => 'Grabber for the Netherlands',
