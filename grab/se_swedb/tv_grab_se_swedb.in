@@ -126,7 +126,7 @@ my( $opt, $conf ) = ParseOptions( {
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb,v 1.26 2006/05/24 12:43:53 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb.in,v 1.1 2006/05/24 12:47:41 mattiasholmlund Exp $',
     description => "Sweden (tv.swedb.se)",
 
 } );
