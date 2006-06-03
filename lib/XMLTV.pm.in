@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.123 2006/04/23 16:26:58 rmeden Exp $
+# $Id: XMLTV.pm.in,v 1.124 2006/06/03 19:42:12 epaepa Exp $
 package XMLTV;
 
 use strict;
@@ -106,7 +106,7 @@ resulting structure.
 =cut
 
 use XML::Twig;
-use XML::Writer;
+use XML::Writer 0.600;
 use Date::Manip;
 use Carp;
 use Data::Dumper;
