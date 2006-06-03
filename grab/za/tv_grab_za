@@ -76,7 +76,7 @@ Does not automatically update itself, when DSTV changes their site
 
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_za,v 1.20 2006/06/03 21:02:54 epaepa Exp $ ';
+use XMLTV::Version '$Id: tv_grab_za,v 1.21 2006/06/03 21:06:53 epaepa Exp $ ';
 use XMLTV::Capabilities qw/manualconfig cache/;
 use XMLTV::Description 'South Africa';
 
@@ -1260,6 +1260,8 @@ sub initialise_ua {
 	$ua->agent('Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US)');
 	# Define timouts
 	$ua->timeout(240);
+	# Use proxy if set in http_proxy etc.
+	$ua->env_proxy;
 	
 	return $ua;
 }
