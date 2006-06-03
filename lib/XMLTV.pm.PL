@@ -1,7 +1,7 @@
 # Generate XMLTV.pm from XMLTV.pm.PL.  This is to generate part of
 # the pod documentation from the list of handlers.
 #
-# $Id: XMLTV.pm.PL,v 1.4 2003/04/05 18:26:55 epaepa Exp $
+# $Id: XMLTV.pm.PL,v 1.5 2006/06/03 19:26:34 epaepa Exp $
 #
 
 use strict;
@@ -9,10 +9,12 @@ sub print_list( $$ );
 
 my $out = shift @ARGV; die "no output file given" if not defined $out;
 my $in = 'lib/XMLTV.pm.in';
-open(OUT_FH, ">$out") or die "cannot write to $out: $!";
-open(IN_FH, $in) or die "cannot read $in: $!";
 require $in;
+open(IN_FH, $in) or die "cannot read $in: $!";
 die if not @XMLTV::Channel_Handlers; die if not @XMLTV::Programme_Handlers;
+
+# Vaguely sane so far, let's create the output file and hope it works.
+open(OUT_FH, ">$out") or die "cannot write to $out: $!";
 while (<IN_FH>) {
     if (/^\s*\@CHANNEL_HANDLERS\s*$/) {
 	print_list(\*OUT_FH, \@XMLTV::Channel_Handlers);
