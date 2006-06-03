@@ -112,7 +112,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.10 2006/06/03 18:49:10 epaepa Exp $',
+    version => '$Id: Options.pm,v 1.11 2006/06/03 19:36:52 epaepa Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -284,7 +284,11 @@ sub ParseOptions
 
     foreach my $cap (@{$p->{capabilities}})
     {
-	croak "Unknown capability $cap" unless exists $cap_options{$cap};
+	if (not exists $cap_options{$cap})
+	{
+	    my @known = sort keys %cap_options;
+	    croak "Unknown capability $cap (known: @known)";
+	}
 	
 	push( @optdef, @{$cap_options{$cap}} );
 	hash_push( $opt, $cap_defaults{$cap} );
