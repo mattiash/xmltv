@@ -3,7 +3,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_validate_file.PL,v 1.1 2006/01/30 20:43:28 mattiasholmlund Exp $
+# $Id: tv_validate_file.PL,v 1.2 2006/06/03 19:27:48 epaepa Exp $
 #
 
 use IO::File;
@@ -11,8 +11,8 @@ my $out = shift @ARGV; die "no output file given" if not defined $out;
 my $share_dir = shift @ARGV;
 die "no final share/ location given" if not defined $share_dir;
 my $in = 'tools/tv_validate_file.in';
-my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $in_fh = new IO::File "< $in" or die "cannot read $in: $!";
+my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $seen = 0;
 while (<$in_fh>) {
     s/^my \$SHARE_DIR =.*/my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;

@@ -7,7 +7,7 @@
 # documentation.  The input file tv_grep.in is also a legal Perl
 # program, so debugging should not be any harder than it was.
 #
-# $Id: tv_grep.PL,v 1.5 2003/03/15 10:53:18 epaepa Exp $
+# $Id: tv_grep.PL,v 1.6 2006/06/03 19:33:46 epaepa Exp $
 #
 
 use IO::File;
@@ -16,8 +16,8 @@ require 'filter/Grep.pm';
 
 my $out = shift @ARGV; die "no output file given" if not defined $out;
 my $in = 'filter/tv_grep.in';
-my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $in_fh = new IO::File "< $in" or die "cannot read $in: $!";
+my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 while (<$in_fh>) {
     if (/^\s*\@PROGRAMME_CONTENT_TESTS\s*$/) {
 	# Query XMLTV.pm to find out what keys of programme exist.

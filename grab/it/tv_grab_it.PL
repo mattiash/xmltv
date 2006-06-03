@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_it.PL,v 1.6 2006/04/12 08:19:16 fgouget Exp $
+# $Id: tv_grab_it.PL,v 1.7 2006/06/03 19:30:20 epaepa Exp $
 #
 
 # 15/07/2005
@@ -283,8 +283,8 @@ my $in  = 'grab/it/tv_grab_it.in';
 
 #warn "lang e' $LANG deflang e' $LANG_STR\n";
 
-open(OUT_FH, ">$out") or die "cannot write to $out: $!";
 open(IN_FH, $in) or die "cannot read $in: $!";
+open(OUT_FH, ">$out") or die "cannot write to $out: $!";
 
 while (<IN_FH>) {
     if (/^my \$POD_GOES_HERE;$/) {

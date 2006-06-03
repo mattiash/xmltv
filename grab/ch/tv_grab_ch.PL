@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_ch.PL,v 1.1 2005/06/17 22:35:00 rmeden Exp $
+# $Id: tv_grab_ch.PL,v 1.2 2006/06/03 19:32:15 epaepa Exp $
 #
 
 use IO::File;
@@ -12,8 +12,8 @@ my $out = shift @ARGV; die "no output file given" if not defined $out;
 my $share_dir = shift @ARGV;
 die "no final share/ location given" if not defined $share_dir;
 my $in = 'grab/ch/tv_grab_ch.in';
-my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $in_fh = new IO::File "< $in" or die "cannot read $in: $!";
+my $out_fh = new IO::File "> $out" or die "cannot write to $out: $!";
 my $seen = 0;
 while (<$in_fh>) {
     s/^my \$SHARE_DIR =.*/my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;
