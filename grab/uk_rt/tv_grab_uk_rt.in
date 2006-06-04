@@ -71,7 +71,7 @@ Ed Avis, ed@membled.com
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.89 2006/04/16 08:37:34 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.90 2006/06/04 10:52:15 epaepa Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'United Kingdom/Ireland (Radiotimes)';
 use Getopt::Long;
@@ -381,6 +381,19 @@ foreach my $ch (@wanted_chs) {
 	}
 
 	my %p = (channel => $ch, title => [ [ $title ] ]);
+        if (defined $sub_title && 
+            ($sub_title =~ /^(\d+)\/(\d+)$/ ||
+             $sub_title =~ /^(\d+)\/(\d+)\s+-\s+/))
+        {
+            my $episode = $1 - 1;
+            my $episodes = $2;
+
+            $p{'episode-num'} = [ [ " . ${episode}/${episodes} . ", "xmltv_ns" ] ];
+
+            $sub_title =~ s/^(\d+)\/(\d+)(?:\s+-\s+)?//;
+
+            undef $sub_title if $sub_title =~ /^\s*$/;
+        }
 	for ($sub_title) { $p{'sub-title'} = [ [ $_ ] ] if defined }
 	for ($year) { $p{date} = $_ if defined }
 	for ($director) { $p{credits}{director} = [ $_ ] if defined }
