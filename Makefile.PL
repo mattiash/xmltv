@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.283 2006/06/03 19:42:12 epaepa Exp $
+# $Id: Makefile.PL,v 1.284 2006/06/04 04:54:03 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -363,8 +363,9 @@ my @opt_components
        deps     => [ 'grab/na_icons/tv_grab_na_icons' => [ 'grab/na_icons/tv_grab_na_icons.in' ] ],
        pl_files => { 'grab/na_icons/tv_grab_na_icons.PL' => 'grab/na_icons/tv_grab_na_icons' },
        to_clean => [ 'grab/na_icons/tv_grab_na_icons' ],
-       prereqs  => { 'HTML::TableExtract' => 0,
-                    'WWW::Mechanize' => 1.02 },
+       prereqs  => { 'HTML::TreeBuilder' => 0,
+                     'XML::Twig'         => 0,
+                     'WWW::Mechanize' => 1.02 },
        grab_need_share => [ 'na_icons' ],
      },
 
