@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# $Id: tv_grab_br_net,v 1.13 2006/06/09 15:21:00 b4max Exp $
+# $Id: tv_grab_br_net,v 1.14 2006/06/10 00:26:09 b4max Exp $
 
 =pod
 
@@ -143,7 +143,7 @@ my constant $retry_sleep = 5;
 my constant $lang = 'pt_BR';
 my constant $maxrating = 5; # maximum star-rating
 
-my $rev = q$Revision: 1.13 $; # set from CVS-revision
+my $rev = q$Revision: 1.14 $; # set from CVS-revision
 $rev =~ s|^.*?(\d+(\.\d+)+).*?$|sprintf("%d." . "%s" x9, map sprintf("%03d", $_), split /\./, $1)|e;
 
 # XML-encoding
@@ -160,7 +160,7 @@ my ($opt, $conf) = ParseOptions( {
     capabilities => [qw(baseline manualconfig tkconfig apiconfig)],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_br_net,v 1.13 2006/06/09 15:21:00 b4max Exp $',
+    version => '$Id: tv_grab_br_net,v 1.14 2006/06/10 00:26:09 b4max Exp $',
     description => "Brazil (NET)",
     extra_options => [ "slow"    => \$slow,
 		       "fast"    => \$fast,
@@ -204,6 +204,7 @@ sub channellist {
 	$chs->{$number}->{ID} = $1;
 	$chs->{$number}->{Number} = $number;
 	$chs->{$number}->{Name} = $3;
+	# remove weird trailing star (no explanation on the site)
 	$chs->{$number}->{Name} =~ s/\*$//;
 	$chs->{$number}->{rfc2838} = &rfc2838($chs->{$number});
     }
@@ -410,13 +411,14 @@ sub parsechannel {
     # name, abbreviation and description
     if ($html =~ /<LI><SPAN[^>]*>([^<]*)<\/SPAN><BR>\s*<SPAN[^>]*>(...)?\s+\Q$num\E<\/SPAN><BR>\s*<SPAN[^>]*>([^<]*)<\/SPAN>\s*<\/UL>/si) {
 	$ch->{Name} = $1 unless $ch->{Name};
-	$ch->{Name} =~ s/\*$//;
-	$ch->{Abbreviation} = $2 if $2 && $2 ne $1;
+	$ch->{Abbreviation} = $2 if $2 && $2 ne $ch->{Name};
 	$ch->{Description} = $3;
 	# remove consecutive whitespace
 	$ch->{Description} =~ s/\s+/ /g;
 	# remove leading and trailing whitespace
 	$ch->{Description} =~ s/^\s*(.*)\s*$/$1/g;
+	# remove weird trailing star (no explanation on the site)
+	$ch->{Name} =~ s/\*$//;
     }else{
 	&delete_ch($ch);
 	# remove inconsistencies!
