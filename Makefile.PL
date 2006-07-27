@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.287 2006/07/20 15:53:33 stesie Exp $
+# $Id: Makefile.PL,v 1.288 2006/07/27 11:32:30 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -474,6 +474,21 @@ my @opt_components
 		     => 'grab/se_swedb/tv_grab_se_swedb' },
        to_clean => [ 'grab/se_swedb/tv_grab_se_swedb' ],
        deps => [ 'grab/se_swedb/tv_grab_se_swedb'
+		 => [ 'grab/se_swedb/tv_grab_se_swedb.in' ] ],
+       prereqs => { 'XML::LibXML' => 0,
+                    'Compress::Zlib' => 0,
+                    'IO::Stringy' => 0,
+		    'HTTP::Cache::Transparent' => 0,
+                  },
+     },
+
+     { name => 'tv_grab_hr',
+       blurb => 'Grabber for Croatia',
+       exes => [ 'grab/hr/tv_grab_hr' ],
+       pl_files => { 'grab/hr/tv_grab_hr.PL'
+		     => 'grab/hr/tv_grab_hr' },
+       to_clean => [ 'grab/hr/tv_grab_hr' ],
+       deps => [ 'grab/hr/tv_grab_hr'
 		 => [ 'grab/se_swedb/tv_grab_se_swedb.in' ] ],
        prereqs => { 'XML::LibXML' => 0,
                     'Compress::Zlib' => 0,
