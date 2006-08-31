@@ -84,7 +84,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.2 2006/07/23 19:14:00 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.3 2006/08/31 21:02:06 betlit Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Switzerland (www.bluewin.ch)';
 use Getopt::Long;
@@ -614,6 +614,9 @@ sub get_details ($) {
 
 		$result[2] = $_->as_text();
 		$result[2] =~ s/\226/-/g; # replace 0x96 separator by '-'
+		$result[2] =~ s/([\x00-\x1F])//g; # bluewin tends to include some strange special chars :(
+
+		#print $result[2]."\n";
     }
     
     ## credits
