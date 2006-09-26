@@ -2,6 +2,7 @@ package XMLTV::Options;
 
 use strict;
 use warnings;
+use vars qw($fd);
 
 BEGIN {
     use Exporter   ();
@@ -112,7 +113,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.11 2006/06/03 19:36:52 epaepa Exp $',
+    version => '$Id: Options.pm,v 1.12 2006/09/26 20:24:43 zcougar Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -341,14 +342,14 @@ sub ParseOptions
 
     if( defined( $opt->{output} ) )
     {
-	if( not open( OUT, "> $opt->{output}" ) )
+	if( not open( $fd, "> $opt->{output}" ) )
 	{
 	    print STDERR "Cannot write to $opt->{output}.";
 	    exit 1;
 	}
 	
 	# Redirect STDOUT to the file.
-	select( OUT );
+	select( $fd );
     }
 
     if( $opt->{configure} )
