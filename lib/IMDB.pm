@@ -1,5 +1,5 @@
 #
-# $Id: IMDB.pm,v 1.51 2006/02/04 21:50:54 jveldhuis Exp $
+# $Id: IMDB.pm,v 1.52 2006/11/19 07:53:41 jveldhuis Exp $
 #
 # The IMDB file contains two packages:
 # 1. XMLTV::IMDB::Cruncher package which parses and manages IMDB "lists" files
@@ -174,7 +174,7 @@ sub basicVerificationOfIndexes($)
 
     # check that the imdbdir is invalid and up and running
     my $title="Army of Darkness";
-    my $year=1993;
+    my $year=1992;
 
     $self->openMovieIndex() || return("basic verification of indexes failed\n".
 				      "database index isn't readable");
