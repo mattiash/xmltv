@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.288 2006/07/27 11:32:30 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.289 2006/11/30 19:36:30 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -146,6 +146,7 @@ my %pm
      'lib/Options.pm'             => '$(INST_LIBDIR)/XMLTV/Options.pm',
      'lib/ValidateFile.pm'        => '$(INST_LIBDIR)/XMLTV/ValidateFile.pm',
      'lib/ValidateGrabber.pm'     => '$(INST_LIBDIR)/XMLTV/ValidateGrabber.pm',
+     'lib/PreferredMethod.pm'     => '$(INST_LIBDIR)/XMLTV/PreferredMethod.pm',
      'filter/Grep.pm'             => '$(INST_LIBDIR)/XMLTV/Grep.pm',
      'grab/Memoize.pm'            => '$(INST_LIBDIR)/XMLTV/Memoize.pm',
      'grab/Grab_XML.pm'           => '$(INST_LIBDIR)/XMLTV/Grab_XML.pm',
