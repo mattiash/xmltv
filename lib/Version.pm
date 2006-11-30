@@ -1,10 +1,25 @@
-# Add a --version argument to your program, eg
-#
-# use XMLTV::Version '$Id: Version.pm,v 1.1 2003/05/19 19:31:35 epaepa Exp $';
-#
-# Best to put that before other module imports, so that even if they
-# fail --version will still work.
-#
+=head1 NAME
+
+XMLTV::Version
+
+=head1 DESCRIPTION
+
+Add a --version argument to your program, eg
+
+  use XMLTV::Version '$Id: Version.pm,v 1.2 2006/11/30 19:13:37 mattiasholmlund Exp $';
+
+If a --version parameter is supplied on the command-line, it will
+be caught already by the "use" statement, a message will be printed
+to STDOUT and the program will exit.
+
+It is best to put the use XMLTV::Version statement before other module 
+imports, so that even if they fail --version will still work.
+
+=head1 SEE ALSO
+
+L<XMLTV::Options>
+
+=cut
 
 package XMLTV::Version;
 
