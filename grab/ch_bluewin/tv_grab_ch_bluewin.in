@@ -86,7 +86,7 @@ use warnings;
 use strict;
 use Time::Local;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.4 2006/11/29 12:55:57 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.5 2006/11/30 09:02:38 betlit Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Switzerland (www.bluewin.ch)';
 use Getopt::Long;
@@ -497,8 +497,11 @@ sub grab_channel_group($$) {
         	$bar->update() if not $opt_quiet;
 
 	my $segment = $_;
+
+ 	my @classes=("segment_content","segment_content_2"); 
+    foreach(@classes) { 	
 	
-	foreach($segment->look_down('_tag' => 'div', 'class' => 'segment_content')) {
+	foreach($segment->look_down('_tag' => 'div', 'class' => $_)) { 
             next unless(ref($_) eq "HTML::Element");
 
 
@@ -585,6 +588,7 @@ sub grab_channel_group($$) {
 	    $writer->write_programme(\%show);
 
        }        
+     }
 
 	my $len =@channels;
         $col = ($col+1)%$len;
