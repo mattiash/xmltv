@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.125 2006/06/20 05:31:18 rmeden Exp $
+# $Id: XMLTV.pm.in,v 1.126 2006/12/02 17:11:37 rmeden Exp $
 package XMLTV;
 
 use strict;
@@ -12,7 +12,7 @@ our @EXPORT_OK = qw(read_data parse parsefile write_data
 # the xmltv package as a whole.  This number should be checked by the
 # mkdist tool.
 #
-our $VERSION = '0.5.44';
+our $VERSION = '0.5.45';
 
 # Work around changing behaviour of XML::Twig.  On some systems (like
 # mine) it always returns UTF-8 data unless KeepEncoding is specified.
