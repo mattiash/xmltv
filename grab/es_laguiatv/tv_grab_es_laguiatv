@@ -79,9 +79,9 @@ CandU, candu_xmltv@hotmail.com, based on tv_grab_es, from Ramon Roca.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es_laguiatv,v 1.5 2006/05/27 14:30:57 candu_sf Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es_laguiatv,v 1.6 2006/12/29 13:43:10 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
-use XMLTV::Description 'Alternative grabber for Spain';
+use XMLTV::Description 'Spain (laguiatv.com)';
 use Getopt::Long;
 use Date::Manip;
 use HTML::TreeBuilder;
