@@ -74,7 +74,7 @@ Mattias Holmlund, mattias -at- holmlund -dot- se.
 
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_combiner,v 1.1 2006/12/29 13:04:22 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_grab_combiner,v 1.2 2006/12/29 13:41:40 mattiasholmlund Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Description "Combine data from several other grabbers";
 use XMLTV::Usage << "END";
@@ -180,7 +180,7 @@ sub run_grabber {
   $options .= " --days $opt->{days}" if defined $opt->{days};
   $options .= " --offset $opt->{offset}" if defined $opt->{offset};
 
-  print STDERR "Running $grabber with $filename\n" unless $opt->{quiet};
+  print STDERR "Running $grabber\n" unless $opt->{quiet};
 
   my $result = qx/$grabber $options --config-file $filename/;
 
@@ -223,13 +223,13 @@ sub write_config {
 }
 
 sub configure {
-  print STDERR "Looking for grabbers...\n";
+  XMLTV::Config_file::check_no_overwrite( $opt->{'config-file'} );
+
+  print "Looking for grabbers...\n";
   my @result = qx/tv_find_grabbers baseline manualconfig/;
   my %grabbers;
 
-  XMLTV::Config_file::check_no_overwrite( $opt->{'config-file'} );
-
-  foreach (@result) { 
+  foreach (reverse @result) { 
     chomp;
     chomp;
     my($g, $t) = split( /\|/, $_ ); 
