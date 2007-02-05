@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.292 2007/01/05 06:02:59 rmeden Exp $
+# $Id: Makefile.PL,v 1.293 2007/02/05 11:06:17 betlit Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -317,6 +317,21 @@ my @opt_components
        grab_need_share => [ 'ch_bluewin' ],
        prereqs => { 'HTML::Entities' => 1.27,
 		    'HTML::TreeBuilder' => 0 },
+     },
+     
+     { name     => 'tv_grab_ch_search',
+	   blurb    => 'Grabber for Switzerland',
+	   exes     => [ 'grab/ch_search/tv_grab_ch_search' ],
+	   deps     => [ 'grab/ch_search/tv_grab_ch_search' 
+	   	        => [ 'grab/ch_search/tv_grab_ch_search.in' ] ],
+	   pl_files => { 'grab/ch_search/tv_grab_ch_search.PL' 
+	   		    => 'grab/ch_search/tv_grab_ch_search' },
+	   to_clean => [ 'grab/ch_search/tv_grab_ch_search' ],
+	   share_files => { 'grab/ch_search/channel_ids' 
+	    	    => 'tv_grab_ch_search/channel_ids' },
+	   grab_need_share => [ 'ch_search' ],
+	   prereqs  => { 'HTML::Entities' => 1.27,
+	        'HTML::TreeBuilder' => 0 },
      },
 
      { name => 'tv_grab_uk_rt',
