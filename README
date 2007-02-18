@@ -31,6 +31,13 @@ And lots of bugfixes and polish.
 
 * Installation
 
+Note: Windows users are strongly advised to use the pre-build EXE as installing
+all the prerequisites is non-trivial. For those want to give it a go,
+instructions are in doc/exe_build.html. Those instructions can be used for both
+building xmltv.exe as well as a local install.
+
+Basically installation instructions (unix):
+
 % perl Makefile.PL
 % make
 % make test
@@ -129,4 +136,4 @@ You ought to subscribe to the announce list at least.  Contact the
 users list with most problems.
 
 -- Robert Eden, rmeden@yahoo.com, 2006-12-02
-$Id: README,v 1.142 2006/12/02 17:11:30 rmeden Exp $
+$Id: README,v 1.143 2007/02/18 15:36:10 rmeden Exp $
