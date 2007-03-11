@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.293 2007/02/05 11:06:17 betlit Exp $
+# $Id: Makefile.PL,v 1.294 2007/03/11 06:52:27 ecastelnau Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -578,6 +578,13 @@ my @opt_components
        exes => [ 'grab/re/tv_grab_re' ],
        prereqs => { 'HTML::TreeBuilder' => 0 ,
                     'HTML::Entities'    => 0 } },
+    );
+
+    { name => 'tv_grab_nc',
+      blurb => 'Grabber for Nouvelle Caledonie Island (France)',
+      exes => [ 'grab/nc/tv_grab_nc' ],
+      prereqs => { 'HTML::TreeBuilder' => 0 ,
+                   'HTML::Entities'    => 0 } },
     );
 
 # Now we need to prompt about each optional component.  The style of
