@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.296 2007/03/25 14:51:32 rmeden Exp $
+# $Id: Makefile.PL,v 1.297 2007/03/27 03:01:09 knowledgejunkie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -335,7 +335,7 @@ my @opt_components
      },
 
      { name => 'tv_grab_uk_rt',
-       blurb => 'Alternative grabber for Britain',
+       blurb => 'Grabber for the UK',
        exes => [ 'grab/uk_rt/tv_grab_uk_rt' ],
        pl_files => { 'grab/uk_rt/tv_grab_uk_rt.PL' => 'grab/uk_rt/tv_grab_uk_rt' },
        share_files => { 'grab/uk_rt/channel_ids' => 'tv_grab_uk_rt/channel_ids' },
