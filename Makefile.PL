@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.297 2007/03/27 03:01:09 knowledgejunkie Exp $
+# $Id: Makefile.PL,v 1.298 2007/03/29 17:23:46 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -381,6 +381,8 @@ my @opt_components
        to_clean => [ 'grab/it/tv_grab_it', 'grab/it/tv_grab_it.in2' ],
        deps => [ 'grab/it/tv_grab_it' => [ 'grab/it/tv_grab_it.in' ] ],
        grab_need_share => [ 'it' ],
+       prereqs => { 'XML::Simple' => 0, }
+
      },
 
      { name     => 'tv_grab_na_dd',
