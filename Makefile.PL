@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.299 2007/03/30 13:42:47 rmeden Exp $
+# $Id: Makefile.PL,v 1.300 2007/03/30 20:29:24 ma_begaj Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -488,8 +488,7 @@ my @opt_components
 		 => [ 'grab/de_tvtoday/tv_grab_de_tvtoday.in' ] ],
        grab_need_share => [ 'de_tvtoday' ],
        prereqs => { 'HTML::Entities' => 1.27,
-  		            'HTML::TreeBuilder' => 0 ,
-  		            'Time::Local'=> 0 },
+  		            'HTML::TreeBuilder' => 0 }, 
      },
 
      { name => 'tv_grab_se_swedb',
