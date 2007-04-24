@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.300 2007/03/30 20:29:24 ma_begaj Exp $
+# $Id: Makefile.PL,v 1.301 2007/04/24 17:44:41 mattiasholmlund Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -513,6 +513,21 @@ my @opt_components
 		     => 'grab/hr/tv_grab_hr' },
        to_clean => [ 'grab/hr/tv_grab_hr' ],
        deps => [ 'grab/hr/tv_grab_hr'
+		 => [ 'grab/se_swedb/tv_grab_se_swedb.in' ] ],
+       prereqs => { 'XML::LibXML' => 0,
+                    'Compress::Zlib' => 0,
+                    'IO::Stringy' => 0,
+		    'HTTP::Cache::Transparent' => 0,
+                  },
+     },
+
+     { name => 'tv_grab_no_gfeed',
+       blurb => 'Grabber for Norway (gfeed.info)',
+       exes => [ 'grab/no_gfeed/tv_grab_no_gfeed' ],
+       pl_files => { 'grab/no_gfeed/tv_grab_no_gfeed.PL'
+		     => 'grab/no_gfeed/tv_grab_no_gfeed' },
+       to_clean => [ 'grab/no_gfeed/tv_grab_no_gfeed' ],
+       deps => [ 'grab/no_gfeed/tv_grab_no_gfeed'
 		 => [ 'grab/se_swedb/tv_grab_se_swedb.in' ] ],
        prereqs => { 'XML::LibXML' => 0,
                     'Compress::Zlib' => 0,
