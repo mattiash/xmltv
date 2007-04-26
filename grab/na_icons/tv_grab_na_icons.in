@@ -75,11 +75,11 @@ use Data::Dumper;
 use File::Basename;
 use WWW::Mechanize 1.02;
 use HTML::TreeBuilder;
-use XML::Twig;
+use XML::Twig 3.28;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.10 2007/04/25 06:08:13 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.11 2007/04/26 19:57:39 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
