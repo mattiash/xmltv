@@ -109,7 +109,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.68 2006/10/27 20:34:02 reudeudeu Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.69 2007/05/10 19:53:21 reudeudeu Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -139,7 +139,7 @@ my $SHEET_URL = "http://telepoche.guidetele.com/fiche/emi_";
 my $ROOT_URL  = "http://telepoche.guidetele.com";
 my $LANG = "fr";
 my $MAX_STARS = 4;
-my $VERSION   = "271006-01";
+my $VERSION   = "100507-01";
 
 # FIXME: Temporary avoid XML warnings (to be investigated)
 no warnings;
@@ -151,7 +151,8 @@ my %GridType = (  "HERTZIENNE" => "EMWD-66DGBM",
                   "TPS"        => "EMWD-66DJQG",
                   "CANAL SAT"  => "EMWD-66DJEA",
                   "FREEBOX"    => "EMWD-66DJXL",
-                  "ETRANGERES" => "EMWD-66DJAL" );
+                  "ETRANGERES" => "EMWD-66DJAL",
+                  "NOUVEAU CANAL SAT" => "MDFA-6ZYMXB" );
 
 # Slot of hours according to the website (needed to build the URL)
 my @offsets = (2, 3, 4, 5, 6, 7);
