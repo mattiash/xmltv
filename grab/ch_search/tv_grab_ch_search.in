@@ -84,7 +84,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.2 2007/02/20 08:26:13 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.3 2007/05/11 16:55:47 betlit Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Switzerland (tv.search.ch)';
 use Getopt::Long;
@@ -146,7 +146,7 @@ my $head = {
 
 
 
-## the timezone fernsehen.ch lives in is, CET/CEST
+## the timezone tv.search.ch lives in is, CET/CEST
 my constant $TZ = "+0100";
 my constant $lang = "de";
 
@@ -583,6 +583,8 @@ sub get_details ($) {
 			{
 				## description
 				$result[5] = (($_->look_down('_tag' => 'td', 'class' => 'text' ))[1])->as_trimmed_text();
+				$result[5] =~ s/([\x00-\x1F])//g;
+
 			}
 
 			if ($_->as_text() =~ m/Besetzung:/)
