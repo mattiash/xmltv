@@ -88,7 +88,7 @@ web page may cause this grabber to stop working.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_ar,v 1.4 2007/05/22 16:33:52 car_unlp Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ar,v 1.5 2007/05/31 22:29:01 car_unlp Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Argentina';
 use Getopt::Long;
@@ -119,6 +119,8 @@ To show capabilities: $0 --capabilities
 To show version: $0 --version
 END
   ;
+# We don't need random delays
+$XMLTV::Get_nice::Delay=0;
 
 # Attributes of the root element in output.
 my $HEAD = { 'source-info-url'     => 'http://www.buscadormulticanal.com.ar/',
