@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.302 2007/04/26 19:57:34 rmeden Exp $
+# $Id: Makefile.PL,v 1.303 2007/06/27 02:18:27 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -262,12 +262,6 @@ my @opt_components
        prereqs => { 'HTML::TreeBuilder' => 0,
                     'HTML::Entities'    => 0 } },
 
-# tv_grab_de not currently working
-#     { name => 'tv_grab_de',
-#       blurb => 'Grabber for Germany and Austria',
-#       exes => [ 'grab/de/tv_grab_de' ],
-#     },
-
 # Disabled 2006-04-12 since it doesn't provide data anymore.
 #     { name     => 'tv_grab_au',
 #       blurb    => 'Grabber for Australia',
@@ -475,21 +469,6 @@ my @opt_components
        exes => [ 'grab/jp/tv_grab_jp' ],
        prereqs => { 'HTML::TreeBuilder' => 0,
 		    'Text::Kakasi' => 0 } },
-
-     { name => 'tv_grab_de_tvtoday',
-       blurb => 'Grabber for Germany',
-       exes => [ 'grab/de_tvtoday/tv_grab_de_tvtoday' ],
-       pl_files => { 'grab/de_tvtoday/tv_grab_de_tvtoday.PL'
-		     => 'grab/de_tvtoday/tv_grab_de_tvtoday' },
-       share_files => { 'grab/de_tvtoday/channel_ids'
-			=> 'tv_grab_de_tvtoday/channel_ids' },
-       to_clean => [ 'grab/de_tvtoday/tv_grab_de_tvtoday' ],
-       deps => [ 'grab/de_tvtoday/tv_grab_de_tvtoday'
-		 => [ 'grab/de_tvtoday/tv_grab_de_tvtoday.in' ] ],
-       grab_need_share => [ 'de_tvtoday' ],
-       prereqs => { 'HTML::Entities' => 1.27,
-  		            'HTML::TreeBuilder' => 0 }, 
-     },
 
      { name => 'tv_grab_se_swedb',
        blurb => 'Grabber for Sweden',
