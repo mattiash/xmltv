@@ -2,7 +2,7 @@
 
 use strict;
 
-use XMLTV::Version '$Id: tv_validate_file.in,v 1.1 2006/01/30 20:43:28 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_validate_file.in,v 1.2 2007/06/28 20:54:41 mattiasholmlund Exp $';
 use XMLTV::ValidateFile qw/LoadDtd ValidateFile/;
 use Getopt::Long;
 
@@ -60,10 +60,16 @@ if (not LoadDtd( $opt->{'dtd-file'} )) {
     exit 1;
 }
 
-my $errors = ValidateFile( $file );
+my @errors = ValidateFile( $file );
 
-if ($errors) {
-    print "$errors errors found.\n";
+if (scalar @errors) {
+    if (grep(/^not(well|valid)$/, @errors)) {
+      print "The file did not validate as well-formed XML, so no further\nprocessing was performed.\n";
+      exit 1;
+    }
+
+    my $errors = scalar @errors;
+    print "$errors error" . ($errors > 1 ? "s" : "") . " found.\n";
     exit 1;
 } 
 else {
