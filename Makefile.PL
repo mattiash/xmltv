@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.307 2007/08/02 00:20:05 rmeden Exp $
+# $Id: Makefile.PL,v 1.308 2007/08/11 17:39:18 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -395,6 +395,17 @@ my @opt_components
        prereqs => { 'SOAP::Lite' => 0.67,
 		    'Term::ReadKey' => 0 },
        grab_need_share => [ 'na_dd' ],
+     },
+
+     { name     => 'tv_grab_na_sd',
+       blurb => 'Grabber for North America using SchedulesDirect.org',
+       exes     => [ 'grab/na_sd/tv_grab_na_sd' ],
+       pl_files => { 'grab/na_sd/tv_grab_na_sd.PL' => 'grab/na_sd/tv_grab_na_sd' },
+       deps     => [ 'grab/na_sd/tv_grab_na_sd' => [ 'grab/na_sd/tv_grab_na_sd.in' ] ],
+       to_clean => [ 'grab/na_sd/tv_grab_na_sd' ],
+       prereqs => { 'SOAP::Lite' => 0.67,
+		    'Term::ReadKey' => 0 },
+       grab_need_share => [ 'na_sd' ],
      },
 
      { name     => 'tv_grab_na_icons',
