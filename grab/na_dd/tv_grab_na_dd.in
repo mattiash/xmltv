@@ -313,7 +313,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.56 2007/08/22 17:04:56 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.57 2007/08/26 05:28:53 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -545,6 +545,7 @@ Sign up at http://www.schedulesdirect.org
 
     ");
         $dd_user=ask("Username ($dd_user):")|| $dd_user || die "ERROR: Schedules Direct Username Required\n";
+        $dd_user=lc($dd_user); # force lower-case on username
         $dd_pass=ask_password("
 WARNING: Storing the password in the config file is not secure
 If password is blank, it will be prompted as needed(more secure)
@@ -1121,7 +1122,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.56 2007/08/22 17:04:56 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.57 2007/08/26 05:28:53 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
