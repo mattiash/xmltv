@@ -73,7 +73,7 @@ Grabber Site : http://bat.is-a-geek.com/XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.42 2007/07/23 12:56:47 gawen Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.43 2007/09/04 09:42:49 gawen Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Portugal';
 use Getopt::Long;
@@ -352,15 +352,12 @@ sub tidy( $ ) {
 
 sub today_offset {
     return $today_offset if defined($today_offset);
-    
+
     #we need to find today index
     my $td = get_nice_tree $HEAD->{"source-data-url"}, \&tidy;
-    my $days_s      = $td->find_by_attribute('id','days');
-    my $days_offset = $days_s->find_by_attribute('selected','selected');
-    my $td_offset   = $days_offset->attr('value');
-
+    my $days_s = $td->find_by_attribute( 'id', 'SelectedDay' );
+    my $td_offset = $days_s->attr('value');
     $today_offset = $td_offset;
-
     $td->delete;
     return $today_offset;
 }
