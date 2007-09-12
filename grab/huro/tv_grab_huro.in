@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.19 2007/09/12 22:45:45 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.20 2007/09/12 22:54:07 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.19 2007/09/12 22:45:45 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.20 2007/09/12 22:54:07 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Hungary/Romania';
 use Getopt::Long;
@@ -465,6 +465,7 @@ sub process_table( $$$$ ) {
 				$_ = join(' ', @tmp);
 				s/  +/ /g;
 				s/[^\w]*putbox\(\"[0-9][0-9]\"\)[\s\n\r]*//g;
+				s/Megvásárolható (DVD[ ]?-n|VHS[ ]?-en)//g;
 				$program{desc} = $_ if length($_);
 				foreach my $a ($col->look_down("_tag"=>"a")) {
 					push @urls,	$a->attr(q(href));
