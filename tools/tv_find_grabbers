@@ -2,7 +2,7 @@
 
 use strict;
 
-use XMLTV::Version '$Id: tv_find_grabbers,v 1.1 2006/01/28 16:21:36 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_find_grabbers,v 1.2 2007/09/21 18:26:05 mattiasholmlund Exp $';
 
 use Getopt::Long;
 
@@ -37,19 +37,22 @@ vertical bar.
 -I <dir>  Include a directory in the search for grabbers. May be used
           multiple times. The default is to search the PATH.
 
+--verbose Print progress information.
+
 =head1 AUTHOR
 
 Mattias Holmlund, mattias -at- holmlund -dot- se. 
 
 =cut
 my $opt = { "include" => [],
-	    "keep-files" => 0,
             help => 0,
+            verbose => 0,
           };
 
 my $res = GetOptions( $opt, qw/
                       include|I=s
                       help|h
+                      verbose|v
                       / );
 
 if( (not $res) or $opt->{help} )
@@ -67,11 +70,20 @@ my( @req_cap ) = ("baseline", @ARGV);
 my @paths = split( ":", $ENV{PATH} );
 push @paths, @{$opt->{include}};
 
-foreach my $p (@paths)
+# Find only unique entries in PATH to avoid investigating the same 
+# grabber twice. From "perldoc -q duplicate".
+my %seen = ();
+my @unique = grep { ! $seen{ $_ }++ } @paths;
+
+foreach my $p (@unique)
 {
+    print STDERR "Searching in $p\n" if $opt->{verbose};
+
     my @grabbers = <$p/tv_grab_*>;
     foreach my $grabber (@grabbers)
     {
+	print "Investigating $grabber\n" if $opt->{verbose};
+
 	my $cap = run_capture( "$grabber --capabilities 2>/dev/null" );
 
 	if ( not defined $cap )
@@ -133,6 +145,7 @@ sub run_capture {
 
     if( $killed )
     {
+	print STDERR "Timeout from: $cmd\n";
 	return undef;
     }
 
