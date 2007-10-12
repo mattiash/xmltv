@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.314 2007/10/12 04:20:37 rmeden Exp $
+# $Id: Makefile.PL,v 1.315 2007/10/12 17:49:56 sunsetsystems Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -600,6 +600,17 @@ my @opt_components
       exes => [ 'grab/nc/tv_grab_nc' ],
       prereqs => { 'HTML::TreeBuilder' => 0 ,
                    'HTML::Entities'    => 0 } },
+
+     { name => 'tv_grab_na_dtv',
+       blurb => 'Grabber for DirecTV in North America',
+       exes => [ 'grab/na_dtv/tv_grab_na_dtv' ],
+       prereqs => {
+         'WWW::Mechanize' => 0,
+         'HTML::TokeParser' => 0,
+         'Date::Parse' => 0,
+         'Time::Local' => 0
+       },
+     },
 
     );
 
