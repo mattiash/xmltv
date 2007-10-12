@@ -343,7 +343,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.67 2007/09/26 01:40:00 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.68 2007/10/12 04:21:23 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -359,7 +359,8 @@ use XMLTV::Ask;
 use XMLTV::Config_file;
 use XMLTV::ProgressBar;
 use XMLTV::Usage <<END
-$0: get listings via Schedules Direct (http://schedulesdirect.org in XMLTV format
+$0: get listings via Schedules Direct (http://schedulesdirect.org)
+in XMLTV format
 
     tv_grab_na_dd --help
 
@@ -1173,7 +1174,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.67 2007/09/26 01:40:00 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.68 2007/10/12 04:21:23 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
