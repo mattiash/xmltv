@@ -81,7 +81,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.34 2006/02/03 19:45:57 mattiasholmlund Exp $
+$Id: xmltv.dtd,v 1.35 2007/10/25 18:48:12 knowledgejunkie Exp $
 
 -->
 
@@ -493,13 +493,14 @@ stuff.
 <!ELEMENT new EMPTY>
 
 <!-- Subtitles.  These can be either 'teletext' (sent digitally, and
-displayed at the viewer's request) or 'onscreen' (superimposed on the
-picture and impossible to get rid of).  You can have multiple subtitle
+displayed at the viewer's request), 'onscreen' (superimposed on the
+picture and impossible to get rid of), or 'deaf-signed' (in-vision 
+signing for users of sign language). You can have multiple subtitle
 streams to handle different languages.  Language for subtitles is
 specified in the same way as for programmes.
 -->
 <!ELEMENT subtitles (language?)>
-<!ATTLIST subtitles type (teletext | onscreen) #IMPLIED>
+<!ATTLIST subtitles type (teletext | onscreen | deaf-signed) #IMPLIED>
 
 <!-- Rating.  Various bodies decide on classifications for films -
 usually a minimum age you must be to see it.  In principle the same
