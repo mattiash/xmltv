@@ -68,7 +68,7 @@ my %cap_options = (
                              cache:s
                              /],
 		   share => [qw/
-			     share:se
+			     share=s
 			     /],
 		   preferredmethod => [qw/
 				       preferredmethod
@@ -119,7 +119,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.13 2006/11/30 19:36:30 mattiasholmlund Exp $',
+    version => '$Id: Options.pm,v 1.14 2007/10/28 06:25:16 mattiasholmlund Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -262,7 +262,7 @@ parameter. Example:
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.13 2006/11/30 19:36:30 mattiasholmlund Exp $',
+    version => '$Id: Options.pm,v 1.14 2007/10/28 06:25:16 mattiasholmlund Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,
