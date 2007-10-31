@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_huro.PL,v 1.3 2006/06/03 19:29:39 epaepa Exp $
+# $Id: tv_grab_huro.PL,v 1.4 2007/10/31 06:43:48 mattiasholmlund Exp $
 #
 
 use IO::File;
@@ -18,19 +18,8 @@ my $seen = 0;
 # example line: 
 #     my $SHARE_DIR = undef;
 while (<$in_fh>) {
-    s/^(\s*)my *\$SHARE_DIR *=.*$/$1my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;
     print $out_fh $_;
 }
-if ($seen == 0) {
-    die "did not see SHARE_DIR line in $in";
-}
-elsif ($seen == 1) {
-    # Okay.
-}
-elsif ($seen >= 2) {
-    warn "more than one SHARE_DIR line in $in";
-}
-else { die }
 close $out_fh or die "cannot close $out: $!";
 close $in_fh or die "cannot close $in: $!";
 
