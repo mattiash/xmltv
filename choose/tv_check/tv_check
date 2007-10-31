@@ -69,7 +69,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.72 2007/09/23 20:26:10 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.73 2007/10/31 21:22:38 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -84,7 +84,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.72 $ ' . <<END
+' tv_check v $Revision: 1.73 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -271,7 +271,11 @@ load_shows($SHOW_XML);
 #
 # do we need to get shows from MYREPLAYTV? ----------------------------------------
 #
-foreach (@MYREPLAY_LIST) {
+if (@MYREPLAY_LIST) {
+    print STDERR "**WARNING** Replay has discontinued the MyReplayTV service. Ignoring -myreplay\n";
+}
+# foreach (@MYREPLAY_LIST) {
+if (0) {
     $MYREPLAY_UNIT=$MYREPLAY_USER=$MYREPLAY_PASS=$MYREPLAY_NONG=$MYREPLAY_DEBUG=undef;
     ($MYREPLAY_UNIT,$MYREPLAY_USER,$MYREPLAY_PASS,$MYREPLAY_NONG,$MYREPLAY_DEBUG)=split(/,/,$_);
     $MYREPLAY_NONG=0  unless defined $MYREPLAY_NONG;
@@ -316,7 +320,7 @@ if ($MYREPLAY_DEBUG != 2)
     unless ( $res->is_success && $res->title eq 'ReplayGuideRecordings' )
     {
        open(FILE,">error.html") && print(FILE $res -> as_string);
-       die "MyReplayTV login error. Debug info in 'error.html'\n";
+       die "MyReplayTV login error!. Debug info in 'error.html'\n";
     }
 
 #
@@ -1506,7 +1510,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.72 $
+tv_check $Revision: 1.73 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
