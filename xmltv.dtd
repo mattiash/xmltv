@@ -81,7 +81,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.37 2007/11/02 00:21:31 knowledgejunkie Exp $
+$Id: xmltv.dtd,v 1.38 2007/11/02 20:03:47 rmeden Exp $
 
 -->
 
@@ -527,7 +527,7 @@ Whitespace between the numbers and slash is ignored.
 -->
 
 <!ELEMENT star-rating (value, icon*)>
-<!ATTLIST rating system CDATA #IMPLIED>
+<!ATTLIST star-rating system CDATA #IMPLIED>
 <!-- (Why are things like 'stereo', which must be one of a small
 number of values, stored as the contents of elements rather than as
 attributes?  Because they are data rather than metadata.  Attributes
