@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.21 2007/10/31 06:43:48 mattiasholmlund Exp $
+# $Id: tv_grab_huro.in,v 1.22 2007/11/04 20:28:15 mattiasholmlund Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.21 2007/10/31 06:43:48 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.22 2007/11/04 20:28:15 mattiasholmlund Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1277,6 +1277,8 @@ sub load_configs() {
 	$line_num = 0;
 	foreach (split( /\n/, $jobmap_str )) {
 		++ $line_num;
+		tr/\r//d;
+		
 		s/#.*//;
 		next if m/^\s*$/;
 
@@ -1297,6 +1299,7 @@ sub load_configs() {
 	$line_num = 0;
 	foreach (split( /\n/, $catmap_str )) {
 		++ $line_num;
+		tr/\r//d;
 		s/#.*//;
 		next if m/^\s*$/;
 

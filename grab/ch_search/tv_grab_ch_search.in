@@ -90,7 +90,7 @@ at http://sourceforge.net/projects/xmltv/.
 use warnings;
 use strict;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.5 2007/10/31 06:43:48 mattiasholmlund Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.6 2007/11/04 20:28:15 mattiasholmlund Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Switzerland (tv.search.ch)';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -241,6 +241,8 @@ my (%chid_mapping, %seen);
 my $line_num = 0;
 foreach (split( /\n/, $str )) {
     ++ $line_num;
+    tr/\r//d;
+
     s/#.*//;
     next if m/^\s*$/;
 
