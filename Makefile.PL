@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.316 2007/10/21 18:19:22 mattiasholmlund Exp $
+# $Id: Makefile.PL,v 1.317 2007/11/04 19:07:30 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -26,7 +26,7 @@ $SIG{__WARN__} = sub {
 # given explicitly -
 # <http://article.gmane.org/gmane.comp.tv.xmltv.devel/3634>.
 #
-unless ($ExtUtils::MakeMaker::VERSION >= 6.21) {
+unless ($ExtUtils::MakeMaker::VERSION ge 6.21) {
     if (not grep /^PREFIX=/, @ARGV) {
 	warn "You may want to explicitly give PREFIX to work around MakeMaker bugs.\n";
     }
