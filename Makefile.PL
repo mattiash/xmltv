@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.319 2007/11/05 08:14:13 rmeden Exp $
+# $Id: Makefile.PL,v 1.320 2007/11/05 15:24:16 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -1002,7 +1002,7 @@ windows_dist ::
         #
 	perl -MExtUtils::Command -e rm_rf $location/bin/ $location/lib/ $(INSTMANDIR) $(INSTALLMAN3DIR)
 	perl -MExtUtils::Command -e cp xmltv.dtd $location
-	perl -MExtUtils::Command -e cp ChangeLog $location
+	perl -MExtUtils::Command -e cp ChangeLog $location/ChangeLog.txt
 	# The following command will not be necessary when the source
 	# tree was checked out on a DOSish system.  It may not even
 	# work properly when run on a DOSish system - should check.
