@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.317 2007/11/04 19:07:30 rmeden Exp $
+# $Id: Makefile.PL,v 1.318 2007/11/05 02:37:06 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -1012,7 +1012,7 @@ windows_dist ::
 	#
 	perl -MFile::Find -e "find(sub { print qq[\\$$File::Find::name\n] if -f and not /[.]jpg/ }, '$location')" | perl -e 'chomp(@ARGV = (@ARGV, <STDIN>)); exec @ARGV' perl -i -pe 'BEGIN { binmode STDIN } s/\r*\n*$$/\r\n/'
 	perl -MExtUtils::Command -e mv $location/doc/README* $location
-	perl -MExtUtils::Command -e mv $location/README.win32 $location/README
+	perl -MExtUtils::Command -e mv $location/README.win32 $location/README.txt
 	@echo
 	@echo Part of a Windows distribution tree has been made in $location/.
 	@echo Now copy in the executables!
