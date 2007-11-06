@@ -81,7 +81,7 @@ Nick Morrott, knowledgejunkie@gmail.com (maintainer)
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.121 2007/11/04 04:49:16 knowledgejunkie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.122 2007/11/06 11:03:31 knowledgejunkie Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache preferredmethod/;
 use XMLTV::Description 'United Kingdom/Republic of Ireland (Radio Times)';
 use XMLTV::PreferredMethod qw/allatonce/;
@@ -465,6 +465,7 @@ foreach my $ch (@wanted_chs) {
         s/\xC3\xFA/\xA3/g;      # -> pound sign
 
         # Replace bad chars prefixed with E-grave (xC8)
+        s/\xC8[\xC6\xF4]/'/g;   # -> '
         s/\xC8\x98/\xF1/g;      # -> n-tilde
         s/\xC8\xA1/\xED/g;      # -> i-acute
         s/\xC8\xA6/\xFA/g;      # -> u-acute
