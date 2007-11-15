@@ -343,7 +343,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.68 2007/10/12 04:21:23 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.69 2007/11/15 05:19:21 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -523,6 +523,11 @@ if (-e $config_file && ( !$opt_configure || -s $config_file ))
 #           print STDERR "\nWARNING: Password in config file, protect as required\n\n" unless $opt_quiet;
         }
         elsif ( $setting eq 'timezone' )
+        {
+            $opt_tz_offset  = $val;
+            $opt_tz_offset='+0000'  if $opt_tz_offset =~ /UTC/i;
+        }
+        elsif ( $setting eq 'timeoffset' )
         {
             $opt_tz_offset  = $val;
             $opt_tz_offset='+0000'  if $opt_tz_offset =~ /UTC/i;
@@ -1094,7 +1099,7 @@ Do you want to skip some channels?",0);
     open(CONF,">$config_file") or die "ERROR: can't open config file: $config_file\n";
     print CONF "username: $dd_user\n";
     print CONF "password: $dd_pass\n" if $dd_pass;
-    print CONF "timezone: $opt_tz_offset\n";
+    print CONF "timeoffset: $opt_tz_offset\n";
     print CONF "lineup:   $dd_lineup\n";
 
     foreach (@{$lineups{$dd_lineup}{map}})
@@ -1174,7 +1179,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.68 2007/10/12 04:21:23 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.69 2007/11/15 05:19:21 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
