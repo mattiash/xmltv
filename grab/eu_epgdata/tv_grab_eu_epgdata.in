@@ -184,7 +184,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata.in,v 1.3 2007/11/04 17:35:41 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata.in,v 1.4 2007/11/19 06:10:23 rmeden Exp $',
     description => "@@desc",
 } );
 
@@ -196,7 +196,7 @@ our $tz = $conf->{tz}->[0];
 # Oops. Looks like the line below will result in a warning
 # telling us that we're declaring $tz twice. However, this does not seem to 
 # be an issue.
-our $tz = '+0100' unless defined($tz);
+$tz = '+0100' unless defined($tz);
 
 
 sub config_stage {
