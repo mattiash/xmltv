@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.320 2007/11/05 15:24:16 rmeden Exp $
+# $Id: Makefile.PL,v 1.321 2007/11/24 03:27:27 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -441,12 +441,14 @@ my @opt_components
        blurb => 'Alternative grabber for Spain',
        exes => [ 'grab/es_laguiatv/tv_grab_es_laguiatv' ],
        prereqs => { 'HTML::TreeBuilder' => 0 } },
-
-     { name => 'tv_grab_nl',
-       blurb => 'Grabber for the Netherlands',
-       exes => [ 'grab/nl/tv_grab_nl' ],
-       prereqs => { 'HTML::TreeBuilder' => 0 },
-     },
+#
+# 10/23/2007 - removed due to active agent-string blocking
+#
+#     { name => 'tv_grab_nl',
+#       blurb => 'Grabber for the Netherlands',
+#       exes => [ 'grab/nl/tv_grab_nl' ],
+#       prereqs => { 'HTML::TreeBuilder' => 0 },
+#     },
 
      { name => 'tv_grab_nl_wolf',
        blurb => 'Alternative grabber for the Netherlands',
