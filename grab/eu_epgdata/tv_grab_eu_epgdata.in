@@ -184,7 +184,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata.in,v 1.5 2007/11/29 21:01:31 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata.in,v 1.6 2007/11/29 21:07:24 mihaas Exp $',
     description => "@@desc",
 } );
 
@@ -528,13 +528,9 @@ sub list_channels {
         }
  
         my $name = $channel->first_child('ch0')->text;
-    $xmltv_channel_list = <<END;
-    $xmltv_channel_list
-    <channel id="$chanid">
-    <display-name>$name</display-name> 
-    </channel>
-END
+        my %ch = (id => $chanid, 'display-name' => [ [ $name ] ]); 
+        $writer->write_channel(\%ch);
+
      }
-     $xmltv_channel_list = $xmltv_channel_list . "</tv>";
-     return $xmltv_channel_list
+    $writer->end;
 }
