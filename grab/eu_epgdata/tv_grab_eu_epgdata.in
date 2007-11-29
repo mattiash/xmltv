@@ -184,7 +184,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata.in,v 1.6 2007/11/29 21:07:24 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata.in,v 1.7 2007/11/29 21:29:30 mihaas Exp $',
     description => "@@desc",
 } );
 
@@ -515,6 +515,10 @@ sub list_channels {
     my @channels= $channel_list->children;
 
     my $xmltv_channel_list = "<tv generator-info-name=\"@@name\">\n";
+
+    my $writer = new XMLTV::Writer();
+    # there should be a global variable for these attributes
+    $writer->start({ 'generator-info-name' => '@@name' });
 
     foreach my $channel  (@channels) {
         my $internalchanid = $channel->first_child('ch4')->text;
