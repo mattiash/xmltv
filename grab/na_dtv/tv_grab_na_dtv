@@ -328,7 +328,7 @@ sub numerically { $a <=> $b }
 sub update_list_url {
   my ($url, $day, $hour) = @_;
   # I'm not sure about this next statement, need to test at EOY:
-  $$day -= $daysinyear if ($$day > $daysinyear);
+  # $$day -= $daysinyear if ($$day > $daysinyear);
   $$url =~ s/&gd=\d+/&gd=$$day/;
   $$url =~ s/&gh=\d+/&gh=$$hour/;
   $$hour += 2;
@@ -348,7 +348,7 @@ sub prepare_queue {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_na_dtv,v 1.6 2007/11/02 00:43:14 sunsetsystems Exp $',
+    version => '$Id: tv_grab_na_dtv,v 1.7 2007/12/31 17:18:01 sunsetsystems Exp $',
     description => "North America using www.directv.com",
   } );
 
