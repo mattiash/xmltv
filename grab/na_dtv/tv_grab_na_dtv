@@ -348,7 +348,7 @@ sub prepare_queue {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_na_dtv,v 1.8 2008/01/05 13:44:42 sunsetsystems Exp $',
+    version => '$Id: tv_grab_na_dtv,v 1.9 2008/01/11 06:51:46 sunsetsystems Exp $',
     description => "North America using www.directv.com",
   } );
 
@@ -489,6 +489,10 @@ sub scrape_list {
     $tag = $parser->get_tag("td");
     next if ($tag->[1]{class} ne 'chcs');
     my $channel_name = $parser->get_trimmed_text("/td");
+
+    # Skip channel numbers that are not all digits.  Seems that some HD
+    # channels are now coming through with numbers like "229-1".
+    next unless ($channel_number =~ /^\d+$/);
 
     # Check for duplicate rows.  Should not happen, but does.
     next if ($channel_number eq $previous_channel);
