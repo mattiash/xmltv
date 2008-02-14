@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.324 2008/01/22 17:56:35 rmeden Exp $
+# $Id: Makefile.PL,v 1.325 2008/02/14 03:10:24 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -611,11 +611,15 @@ my @opt_components
        prereqs => { 'HTML::TreeBuilder' => 0 ,
                     'HTML::Entities'    => 0 } },
 
-    { name => 'tv_grab_nc',
-      blurb => 'Grabber for Nouvelle Caledonie Island (France)',
-      exes => [ 'grab/nc/tv_grab_nc' ],
-      prereqs => { 'HTML::TreeBuilder' => 0 ,
-                   'HTML::Entities'    => 0 } },
+# rmeden 2008-02-13
+# not working due to site changes
+# disabling
+#
+#    { name => 'tv_grab_nc',
+#      blurb => 'Grabber for Nouvelle Caledonie Island (France)',
+#      exes => [ 'grab/nc/tv_grab_nc' ],
+#      prereqs => { 'HTML::TreeBuilder' => 0 ,
+#                   'HTML::Entities'    => 0 } },
 
      { name => 'tv_grab_na_dtv',
        blurb => 'Grabber for DirecTV in North America',
