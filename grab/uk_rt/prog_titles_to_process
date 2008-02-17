@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.4 2008/02/17 08:26:19 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.5 2008/02/17 09:22:25 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -153,6 +153,6 @@
 3|Storyville
 3|E! True Hollywood Story
 #
-# reversed_$title and $subtitle entries seen in source data
+# reversed $title and $subtitle entries seen in source data
 #
 4|Timewatch
