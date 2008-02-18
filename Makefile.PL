@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.327 2008/02/17 07:08:59 rmeden Exp $
+# $Id: Makefile.PL,v 1.328 2008/02/18 03:58:09 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -341,7 +341,7 @@ my @opt_components
                     'HTML::Form'    => 0 } },
 
      { name => 'tv_grab_uk_rt',
-       blurb => 'Grabber for United Kingdom and Republic of Ireland (Radio Times)',
+       blurb => 'Grabber for UK and Ireland (Radio Times)',
        exes => [ 'grab/uk_rt/tv_grab_uk_rt' ],
        pl_files => { 'grab/uk_rt/tv_grab_uk_rt.PL' => 'grab/uk_rt/tv_grab_uk_rt' },
        share_files => { 'grab/uk_rt/channel_ids' => 'tv_grab_uk_rt/channel_ids',
