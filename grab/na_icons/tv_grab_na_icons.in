@@ -79,7 +79,7 @@ use XML::Twig 3.28;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.11 2007/04/26 19:57:39 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.12 2008/02/24 15:46:55 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
@@ -206,7 +206,7 @@ my $twig=XML::Twig->new(
 		         td  => sub {
                                   my $img_el;
                                   if (defined  $_->att('class')
-                                            && $_->att('class') eq 'zc-station ') {
+                                            && $_->att('class') =~ /zc-station/ ) {
                                       my $name=$_ -> parent_trimmed_text;
                                       $name=~s/^([\.\d]+) //; # trim leading channel number
                                       
