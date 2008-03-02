@@ -73,7 +73,7 @@ Grabber Site : http://bat.is-a-geek.com/XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.43 2007/09/04 09:42:49 gawen Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.44 2008/03/02 17:55:31 gawen Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Portugal';
 use Getopt::Long;
@@ -435,7 +435,10 @@ sub process_table {
         next unless $span;    # ??
 
         my $date = trim( $span->as_trimmed_text() );
-        $date =~ /(\d+) (\w+?)$/;
+
+        print STDERR "$date\n";
+
+        $date =~ /(\d+) (.+)$/;
         my ( $day, $month ) = ( $1, $2 );
         $month = $month_conv{$month};
 
