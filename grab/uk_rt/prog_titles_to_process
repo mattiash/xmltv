@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.8 2008/03/10 06:48:55 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.9 2008/03/12 09:30:31 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -159,6 +159,7 @@
 2|Timewatch
 2|Top 5
 2|Top Five
+2|Top Gear
 2|Top of the Pops
 2|Travel Spies
 2|True Stories
