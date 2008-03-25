@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.22 2007/11/04 20:28:15 mattiasholmlund Exp $
+# $Id: tv_grab_huro.in,v 1.23 2008/03/25 22:49:50 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.22 2007/11/04 20:28:15 mattiasholmlund Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.23 2008/03/25 22:49:50 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -541,6 +541,15 @@ sub process_table( $$$$ ) {
 			}
 		}
 		worker("base-parsing");
+		
+		# Setting stop date for the previous programm
+		# Last program in the grabbed list has no stop attribute, sorry.
+		# Port.hu uses a virtual program as the last programme
+		# anyway
+		if ((defined($prev)) && $prev->{start} ne $prog->{start}) {
+			$prev->{stop} = $prog->{start};
+		}
+		
 		push @r, $prog;
 
 		if ((defined($prev)) && $prev->{start} eq $prog->{start}) {
