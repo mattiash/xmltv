@@ -86,7 +86,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.53 2007/12/25 15:35:49 va1210 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.54 2008/03/31 20:17:26 va1210 Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Finland';
 use Getopt::Long;
@@ -467,7 +467,10 @@ sub make_programme_hash {
 	($cur->{desc} =~ s/^\s*([^.]+)\.\s*//)) {
 	my $episode = $1;
 	t "series $cur->{title}, episode title $episode"; 
-	$prog{'sub-title'} = [ [ $episode, $LANG ] ];	
+	$prog{'sub-title'} = [ [ $episode, $LANG ] ];
+
+	# Make sure the description is not left empty
+	$cur->{desc} = "TBA" if ($cur->{desc} =~ /^\s*$/);
     }
     $prog{desc}=[ [ $cur->{desc}, $LANG ] ] if defined $cur->{desc};
 
