@@ -2,7 +2,7 @@
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.170 2008/04/13 07:21:47 knowledgejunkie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_uk_rt.in,v 1.171 2008/04/13 07:54:37 knowledgejunkie Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache preferredmethod/;
 use XMLTV::Description '@@country (Radio Times)';
 use XMLTV::PreferredMethod qw/allatonce/;
@@ -218,7 +218,7 @@ my %tv_credits = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => 'http://xmltv.radiotimes.com/xmltv/channels.dat',
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.170 2008/04/13 07:21:47 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.171 2008/04/13 07:54:37 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -1165,9 +1165,10 @@ foreach my $ch (@wanted_chs) {
         if (defined $desc) {
             $desc =~ s/\s+/ /g;
             # Remove any last-minute scheduling info inserted into description
-            if ($desc =~ s/\s*UPDATED LISTING:\s*(.*)$//) {
-                $updated_listing_info = $1;
-                t("  Removed updated listing information from description");
+            if ($desc =~ s/\s?UPDATED LISTING(\s?:\s?|\s?-\s?|\s?)(.*)$//) {
+                $updated_listing_info = $2;
+                t("  Removed updated listing information from description:");
+                t("    '$updated_listing_info'");
             }
             $p{desc} = [ [ $desc, 'en' ] ];
         }
