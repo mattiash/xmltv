@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.11 2008/03/29 04:08:52 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.12 2008/04/13 06:45:29 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -49,6 +49,7 @@
 #
 1|4 Music
 1|Action Heroes Season
+1|Action Movie Season
 1|Arnie Season
 1|Basketball
 1|BBC Four on BBC Two
