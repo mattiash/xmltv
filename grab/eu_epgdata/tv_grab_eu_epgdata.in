@@ -171,9 +171,6 @@ my $chanids = GetSupplement( '@@name', 'channel_ids' );
 
 our $channelgroup;
 
-# names of files downloaded from epgdata.com
-our @filenames;
-
 our %chanid;
 my @lines = split( /[\n\r]+/, $chanids );
 foreach my $line (@lines) {
@@ -189,7 +186,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata.in,v 1.12 2008/04/19 19:32:49 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata.in,v 1.13 2008/04/19 19:43:18 mihaas Exp $',
     description => "@@desc",
 } );
 
@@ -264,7 +261,8 @@ sub downloadepg {
     my $days = shift;
     my $offset = shift;
     my $pin = shift;
-    my $i='0'; 	
+    my $i='0';
+    my @filenames;
     # we've got to start counting at 0
     # if we did "$i <= $days", we'd end up with one zip file too much
     while ( $i < $days) {    
@@ -476,20 +474,6 @@ sub printepg {
 }
 
 
-
-
-
-# we need to extract some information from the xml filename supplied
-# by epgdata.com
-# the last letter tells us which channel_?.xml we need
-
-sub findchannelcode {
-    # let's just use the first xml file name for that
-    # thanks to Dagmar for the regexp
-    my ($filename, $tmp) = @_;
-    $filename =~ s/.*(.)\.xml$/$1/;;
-    return $filename;
-}
 
 # this is called as a handler for the channels twig
 # which is in turn called by processxml()
