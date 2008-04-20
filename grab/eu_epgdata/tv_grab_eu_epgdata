@@ -187,16 +187,16 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata,v 1.18 2008/04/20 10:33:10 mihaas Exp $',
-    description => "@@desc",
+    version => '$Id: tv_grab_eu_epgdata,v 1.19 2008/04/20 11:25:24 mihaas Exp $',
+    description => "Parts of Europe (commercial) (www.epgdata.com)",
 } );
 
 my $pin = $conf->{pin}->[0];
-die 'Sorry, your PIN is not defined. Run tv_grab_eu_epgdata --configure to fix this.' unless defined($pin);
+die 'Sorry, your PIN is not defined. Run tv_grab_eu_epgdata --configure to fix this.' unless $pin;
 
 our $tz = $conf->{tz}->[0];
-if (not defined($tz)) {
-    $tz = '+0100' unless defined($tz);
+if (not $tz) {
+    $tz = '+0100';
     warn "Time zone is not set. Run tv_grab_eu_epgdata --configure to fix this" unless $opt->{quiet}
 }
 
