@@ -139,7 +139,7 @@ END
 use warnings;
 use strict;
 use utf8;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.80 2008/02/28 20:10:00 reudeudeu Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.81 2008/05/24 20:22:24 reudeudeu Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use Getopt::Long;
@@ -903,7 +903,10 @@ sub process_fucking_damned_page( $$$$$ ) {
       $lastshowview = $showview;
     }
 
-    my $img=$show->look_down('_tag', 'img', 'onerror', qr/this\.src=/);
+##patch: aauzi: fix image identification
+##    my $img=$show->look_down('_tag', 'img', 'onerror', qr/this\.src=/);
+    my $img=$show->look_down('_tag', 'img', 'src', qr%/c_img/v/%);
+##/patch
     if ($img) {
       my $url=$img->attr('src');
       # Get the big icon
