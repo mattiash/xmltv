@@ -3,7 +3,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_uk_rt.PL,v 1.6 2008/03/28 04:40:02 knowledgejunkie Exp $
+# $Id: tv_grab_uk_rt.PL,v 1.7 2008/06/01 07:19:10 knowledgejunkie Exp $
 #
 
 use IO::File;
@@ -17,9 +17,10 @@ my $seen = 0;
 while (<$in_fh>) {
 #    s/^my \$SHARE_DIR =.*/my \$SHARE_DIR='$share_dir'; \# by $0/ && $seen++;
     s/\@\@name/tv_grab_uk_rt/;
+    s/\@\@desc/\@\@country (Radio Times)/;
     s/\@\@nspc/             /;
     s/\@\@country/United Kingdown\/Republic of Ireland/;
-    s%\@\@rt_url%http://xmltv.radiotimes.com/xmltv/channels.dat%;
+    s%\@\@rt_root_dir%http://xmltv.radiotimes.com/xmltv%;
 print $out_fh $_;
 }
 #if ($seen == 0) {
