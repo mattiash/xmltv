@@ -349,7 +349,7 @@ sub prepare_queue {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_na_dtv,v 1.10 2008/05/24 04:41:07 sunsetsystems Exp $',
+    version => '$Id: tv_grab_na_dtv,v 1.11 2008/06/03 09:57:58 sunsetsystems Exp $',
     description => "North America using www.directv.com",
   } );
 
@@ -753,7 +753,7 @@ sub scrape_program {
       }
     }
     elsif ($attname eq 'Duration') {
-      if ($attval =~ /(\d+)\s+minutes/i) {
+      if ($attval =~ /^(\d+).+minutes/i) {
         if (@stt) {
           # Compute stop time as start time + duration.
           my @tmp = gmtime($1 * 60 + timegm(@stt[0..5]));
