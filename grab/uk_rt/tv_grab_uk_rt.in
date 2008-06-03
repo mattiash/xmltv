@@ -2,10 +2,8 @@
 
 use warnings;
 use strict;
-use XMLTV::Get_nice;
 use XMLTV::ProgressBar;
-# FIXME
-use XMLTV::Memoize; XMLTV::Memoize::check_argv 'get_nice';
+use XMLTV::Memoize; XMLTV::Memoize::check_argv('get');
 use XMLTV::DST;
 use XMLTV::Supplement qw/GetSupplement SetSupplementRoot/;
 use XMLTV::Options qw/ParseOptions/;
@@ -46,13 +44,9 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.179 2008/06/03 07:55:33 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.180 2008/06/03 08:50:23 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
-
-# FIXME
-# This script is intended for grabbing
-$XMLTV::Get_nice::Delay = 0;
 
 # Get default location to store cached listings data
 my $default_cachedir = get_default_cachedir();
@@ -72,7 +66,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.179 2008/06/03 07:55:33 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.180 2008/06/03 08:50:23 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
