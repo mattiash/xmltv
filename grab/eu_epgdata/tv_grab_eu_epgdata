@@ -190,7 +190,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache preferredmethod/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata,v 1.23 2008/05/15 20:42:43 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata,v 1.24 2008/06/06 10:38:42 mihaas Exp $',
     description => "Parts of Europe (commercial) (www.epgdata.com)",
     preferredmethod => "allatonce",
 } );
@@ -527,7 +527,7 @@ sub list_channels {
         else {
             $chanid = $internalchanid;
             warn "New channel with ID $internalchanid found. Please update chann
-el_ids file!" unless $opt->quiet;
+el_ids file!" unless $opt->{quiet};
         }
 
     my $name = decode_entities($channel->first_child('ch0')->text);
