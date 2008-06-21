@@ -46,7 +46,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.189 2008/06/21 06:00:37 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.190 2008/06/21 06:06:48 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -68,7 +68,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.189 2008/06/21 06:00:37 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.190 2008/06/21 06:06:48 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -2041,6 +2041,12 @@ where to store the cache directory for retrieved listings.
 B<--list-channels> Outputs a list of every channel available to the grabber
 in XMLTV format.
 
+=head1 CHARACTER ENCODING
+
+During configuration, the software asks the user to choose the character
+encoding for the channel and listings data output. Current supported encodings
+are UTF-8 (Unicode) and ISO-8859-1 (Latin-1).
+
 =head1 REGIONAL CHANNELS
 
 During configuration, the software asks for postcode information. The first
@@ -2051,11 +2057,14 @@ during configuration to disable regional channel filtering. Users in the
 Republic of Ireland should use the pseudo-postcode 'EIRE' to enable filtering
 of regional channels.
 
-=head1 CHARACTER ENCODING
+=head1 TV PLATFORMS
 
-During configuration, the software asks the user to choose the character
-encoding for the channel and listings data output. Current supported encodings
-are UTF-8 (Unicode) and ISO-8859-1 (Latin-1).
+After specifying a postcode, the software will ask the user to select their
+TV service platform (Freeview, analogue, Sky etc) from a list. Selecting one of
+these entries will filter the channel selection list (shown at the end of the
+configuration phase) to show only those channels available on the chosen 
+platform. If the user has entered a valid postcode, the channel list will 
+also only include those regional channels available in the user's locality.
 
 =head1 ERROR HANDLING
 
