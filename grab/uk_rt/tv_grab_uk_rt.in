@@ -46,7 +46,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.195 2008/07/13 09:01:19 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.196 2008/07/13 11:30:28 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -65,7 +65,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.195 2008/07/13 09:01:19 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.196 2008/07/13 11:30:28 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -152,6 +152,10 @@ my $warnings = 0;
 my $available_channels = load_available_channels();
 # Now ensure configured channels are still available to download
 my $wanted_chs = check_configured_channels($available_channels);
+
+###############################################
+############### GRAB THE DATA #################
+###############################################
 
 # Configure output and write XMLTV data - header, channels, listings, and footer
 my $writer;
@@ -2178,6 +2182,12 @@ to use for output, and also regional and TV platform information.
 
 B<--list-channels> Outputs a list of every channel available to the grabber
 in XMLTV format.
+
+-head1 SOURCE DATA
+
+The source data for the grabber is obtained from, and copyrighted by, the 
+Radio Times. As such, the use of this data is restricted to personal use
+only. L<http://www.radiotimes.com/>
 
 =head1 CHARACTER ENCODING
 
