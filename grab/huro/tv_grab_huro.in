@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.24 2008/07/17 21:27:04 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.25 2008/07/19 17:32:34 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.24 2008/07/17 21:27:04 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.25 2008/07/19 17:32:34 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -575,7 +575,7 @@ sub process_table( $$$$ ) {
 		}
 		
 		# We skip those programs, that are out of the requested time frame
-		if ($program->{day} > $opt_days || $program->{day}<1) {
+		if ($program->{day} > $opt_days+$opt_offset || $program->{day}<1+$opt_offset) {
 			$prev = undef;
 			next;
 		}
