@@ -190,7 +190,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache preferredmethod/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata,v 1.24 2008/06/06 10:38:42 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata,v 1.25 2008/07/26 20:27:30 mihaas Exp $',
     description => "Parts of Europe (commercial) (www.epgdata.com)",
     preferredmethod => "allatonce",
 } );
@@ -307,8 +307,6 @@ sub prepareinclude {
         . "&dataType=xml";
     warn "Downloading include zip file\n" unless $opt->{quiet};
     getstore($includeurl, $tmp . "includezip");
-    # make sure we know $channelgroup
-    downloadepg('1','0',$pin);
     warn "Your PIN will expire around ",  time2str("%C", $expiry_date),"\n" unless $opt->{quiet};
     my @zipfiles=( $tmp . "includezip");
     unzip(@zipfiles)
@@ -510,6 +508,9 @@ sub printchannels {
 # independent from printchannels which will print list of configured channels
 sub list_channels {
     my ( $conf, $opt ) = @_;
+    my $pin = $conf->{pin}->[0];
+    # make sure we know $channelgroup
+    downloadepg('1','0',$pin);
     prepareinclude($conf, $opt);
     # borrowed from http://www.xmltwig.com/xmltwig/ex_fm1
     $channels->parsefile($tmp . 'channel_' . $channelgroup . '.xml');
