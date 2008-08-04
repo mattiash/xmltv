@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.21 2008/07/13 09:01:19 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.22 2008/08/04 03:17:33 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -287,3 +287,4 @@
 5|Hercules: the Legendary Journeys~Hercules: The Legendary Journeys
 5|Penn and Teller: Bullsh--t!~Penn and Teller: Bullsh**t!
 5|Dragon's Den~Dragons' Den
+5|New Yankee Workshop~The New Yankee Workshop
