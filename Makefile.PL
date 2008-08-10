@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.337 2008/07/26 20:07:35 mihaas Exp $
+# $Id: Makefile.PL,v 1.338 2008/08/10 01:03:43 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -106,6 +106,7 @@ our @docs;
 # Executables to be installed.
 my @exes
   = qw(filter/tv_extractinfo_en
+       filter/tv_extractinfo_ar
        filter/tv_grep
        filter/tv_sort
        filter/tv_to_latex
