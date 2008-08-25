@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.338 2008/08/10 01:03:43 rmeden Exp $
+# $Id: Makefile.PL,v 1.339 2008/08/25 06:14:15 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -385,10 +385,12 @@ my @opt_components
        prereqs => { 'HTML::Entities' => 1.27 } ,
      },
 
-#     { name => 'tv_grab_is',
-#       blurb => 'Grabber for Iceland',
-#       exes => [ 'grab/is/tv_grab_is' ],
-#     },
+     { name => 'tv_grab_is',
+       blurb => 'Grabber for Iceland',
+       exes => [ 'grab/is/tv_grab_is' ],
+       prereqs => { 'XML::LibXSLT' => 0,
+                    'XML::DOM'     => 0 } ,
+     },
 
      { name => 'tv_grab_it',
        blurb => 'Grabber for Italy',
