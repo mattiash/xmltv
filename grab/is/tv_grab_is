@@ -77,7 +77,7 @@ backwards compatibility.
 
 =cut
 use strict;
-use XMLTV::Version '$Id: tv_grab_is,v 1.11 2008/08/25 21:11:13 eggertthor Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.12 2008/08/26 13:29:51 eggertthor Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Iceland';
 use Getopt::Long;
@@ -658,5 +658,8 @@ sub get_icon {
         "ST2BIO" => "2bio",
     );
 
-    return "http://www.sjonvarp.is/images/logos/".$logos{$ch_did}.".gif";
+    if (defined($logos{$ch_did})) {
+        return "http://www.sjonvarp.is/images/logos/".$logos{$ch_did}.".gif";
+    }
+    return "";
 }
