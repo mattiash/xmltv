@@ -350,7 +350,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.70 2008/03/03 15:21:41 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.71 2008/08/28 16:00:28 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -552,6 +552,10 @@ if (-e $config_file && ( !$opt_configure || -s $config_file ))
                 print STDERR "WARNING: Lineup IDs have changed. Please run --configure\n";
                 $dd_lineup = $old_lineups{$dd_lineup};
             }
+        }
+        elsif ( $setting eq 'auto-config' )
+        {
+            $opt_auto_config = $val;
         }
         else
         {
@@ -1034,7 +1038,7 @@ if ($opt_configure)
                                            
         $val = ask_choice("\nWhich Lineup? ($dd_lineup)",$val,@choices);
         $dd_lineup = (split(/\|/,$val))[0];
-    }
+    } # !opt_auto_config
 
         $opt_auto_config='add' if !$opt_auto_config && !ask_boolean("
 The preferred method for controlling the channel lineup is through
@@ -1101,8 +1105,20 @@ Do you want to skip some channels?",0);
             $chan_config{$key4} = $answers[$i];
             $i++;
         }
+    } # --auto-config during configure
+
+#
+# ask about auto-config for the config file
+#
+    my $config_autoconfig=0;
+    if (ask_boolean("Lineups change periodically. The default for new stations is to notify you.\n".
+                    "Do you want new stations to be automatically added?")) {
+       $config_autoconfig="add";
     }
-    
+    elsif (ask_boolean("Do you want new stations to be ignored?")) {
+       $config_autoconfig="ignore";
+    }
+   
 #
 # Write the config file
 #
@@ -1111,6 +1127,7 @@ Do you want to skip some channels?",0);
     print CONF "password: $dd_pass\n" if $dd_pass;
     print CONF "timeoffset: $opt_tz_offset\n";
     print CONF "lineup:   $dd_lineup\n";
+    print CONF "auto-config: $config_autoconfig\n" if $config_autoconfig;
 
     foreach (@{$lineups{$dd_lineup}{map}})
     {  
@@ -1189,7 +1206,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.70 2008/03/03 15:21:41 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.71 2008/08/28 16:00:28 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
