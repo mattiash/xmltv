@@ -77,7 +77,7 @@ backwards compatibility.
 
 =cut
 use strict;
-use XMLTV::Version '$Id: tv_grab_is,v 1.12 2008/08/26 13:29:51 eggertthor Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.13 2008/08/30 11:46:25 eggertthor Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Iceland';
 use Getopt::Long;
@@ -389,7 +389,7 @@ sub process_xml_channel( $$$$$ ) {
     my @programmeElem = $results->getDocumentElement->getElementsByTagName('programme');
     foreach my $programme (@programmeElem) {
         my $myDate = ParseDate($programme->getAttribute('start'));
-        if ((Date_Cmp($myDate, $fromdate) >= 0) && (Date_Cmp($myDate, $enddate) <= 0)) {
+        if ((Date_Cmp($myDate, $fromdate) >= 0) && (Date_Cmp($myDate, $enddate) < 0)) {
             $myDate = UnixDate($myDate,'%q');   # Convert date to "20081231235900 +0000"
             $myDate .= " +0000";
             $programme->setAttribute('start', $myDate);
