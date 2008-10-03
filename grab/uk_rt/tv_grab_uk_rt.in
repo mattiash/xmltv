@@ -46,7 +46,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.198 2008/08/25 02:30:28 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.199 2008/10/03 15:24:57 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -65,7 +65,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.198 2008/08/25 02:30:28 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.199 2008/10/03 15:24:57 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -704,7 +704,7 @@ sub load_available_channels {
     # channel_ids processing finished
 
     die "Error: No usable XMLTV channel definitions seen in channel_ids, exiting"
-        if ($num_good_channels < 1);
+        if (!defined $num_good_channels || $num_good_channels < 1);
 
 
     # Read in the Radio Times channels.dat file, which is supplied in UTF-8
@@ -833,7 +833,7 @@ sub load_available_channels {
     }
 
     die "Error: No usable Radio Times channel definitions available, exiting"
-        if ($num_good_rt_channels < 1);
+        if (!defined $num_good_rt_channels || $num_good_rt_channels < 1);
 
     if (defined $chans_bar) {
         # Only update the progress bar to 100% if we need to
@@ -896,7 +896,7 @@ sub check_configured_channels {
     }
     my $num_req_chans = scalar @wanted_chs;
     die "Error: No configured channels are available, exiting"
-        if ($num_req_chans < 1);
+        if (!defined $num_req_chans || $num_req_chans < 1);
     t("Finished reading $num_req_chans configured channels");
 
     return \@wanted_chs;
