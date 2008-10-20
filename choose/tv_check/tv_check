@@ -74,7 +74,7 @@ Robert Eden; manpage by Kenneth J. Pronovici.
 =cut 
 
 use strict;
-use XMLTV::Version '$Id: tv_check,v 1.74 2008/10/04 18:51:15 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_check,v 1.75 2008/10/20 19:05:14 rmeden Exp $ ';
 
 use Tk;
 use Tk::TableMatrix;
@@ -89,7 +89,7 @@ use LWP::UserAgent;
 use XMLTV qw(best_name);
 use XMLTV::Date;
 use XMLTV::Usage
-' tv_check v $Revision: 1.74 $ ' . <<END
+' tv_check v $Revision: 1.75 $ ' . <<END
 
  part of the xmltv toolkit ( http://xmltv.sourceforge.net )
 
@@ -151,7 +151,7 @@ my $DDMM     = 0;
 my $DAYS     = 7;
 my $NOTRUNCATE = 0;
 my $BLUENEW   = 0;
-my $SEASON-RESET =0;
+my $SEASON_RESET =0;
 my $GUIDE_XML= 'guide.xml';
 my $SHOW_XML = 'shows.xml';
 my $OUTPUT_FILE = undef;
@@ -254,7 +254,7 @@ $COL_VALUE[$_] = "" foreach (0..$#COL);
    	       'days=i'           => \$DAYS,
    	       'notruncate'       => \$NOTRUNCATE,
  	       'bluenew'          => \$BLUENEW,
-               'season-reset'       => \$SEASON-RESET,
+               'season-reset'     => \$SEASON_RESET,
 	       'help'             => \$help)
       or usage();
     usage(1) if $help;
@@ -528,7 +528,7 @@ load_show_table(); # build indexes
 #
 if ($CONFIGURE)
 {
-   if ($SEASON-RESET) {     # season-reset is an experiemtnal way to reset for a new season
+   if ($SEASON_RESET) {     # season-reset is an experiemtnal way to reset for a new season
 	   for my $show (@SHOWS)
 	    {
 	      for my $key (keys %$show) {
@@ -1533,7 +1533,7 @@ sub help_about
                 -justify    => 'left',
                 -text       => '
 
-tv_check $Revision: 1.74 $
+tv_check $Revision: 1.75 $
 (C) 2002 Robert Eden
 reden@cpan.org
 
