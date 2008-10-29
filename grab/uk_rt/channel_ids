@@ -1,6 +1,6 @@
 # channel_ids
 #
-# $Id: channel_ids,v 1.90 2008/10/18 22:39:37 knowledgejunkie Exp $
+# $Id: channel_ids,v 1.91 2008/10/29 14:39:38 knowledgejunkie Exp $
 #
 # This file maps Radio Times channel IDs to XMLTV IDs for use with the
 # tv_grab_uk_rt XMLTV grabber. One channel entry per line. Comments are allowed 
@@ -404,3 +404,4 @@ hd2.movies.sky.com|2064|Sky Movies Screen 2 HD|http://www.lyngsat-logo.com/logo/
 alba.bbc.co.uk|2098|BBC Alba|http://www.lyngsat-logo.com/logo/tv/bb/bbc_alba.jpg||
 watch.uktv.co.uk|2115|Watch|http://www.lyngsat-logo.com/logo/tv/ww/watch.jpg||
 plus-1.watch.uktv.co.uk|2116|Watch +1 (RT)|http://www.lyngsat-logo.com/logo/tv/ww/watch.jpg||
+hd.itv.co.uk|2118|ITV HD|http://www.lyngsat-logo.com/logo/tv/ii/itv_hd.jpg||
