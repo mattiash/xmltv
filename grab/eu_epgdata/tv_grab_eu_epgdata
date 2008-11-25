@@ -190,7 +190,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache preferredmethod/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata,v 1.26 2008/08/30 21:28:30 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata,v 1.27 2008/11/25 19:38:12 mihaas Exp $',
     description => "Parts of Europe (commercial) (www.epgdata.com)",
     preferredmethod => "allatonce",
 } );
@@ -285,6 +285,7 @@ sub downloadepg {
         if ($response->{"_headers"}{"x-epgdata-packageavailable"} == 1) {
             warn "Downloading zip file for day ", $dataoffset + 1, "\n" unless $opt->{quiet};
             open(F,">$tmp" . $filename);
+            binmode(F);
             print F $response->content;
             close(F);
             push @filenames, $tmp . $filename;
