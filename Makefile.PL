@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.341 2008/11/09 22:40:44 rmeden Exp $
+# $Id: Makefile.PL,v 1.342 2008/12/01 10:28:25 knowledgejunkie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -359,7 +359,8 @@ my @opt_components
                     => [ 'grab/uk_rt/tv_grab_uk_rt.in' ] ],
        grab_need_share => [ 'uk_rt' ],
        prereqs => { 'HTTP::Cache::Transparent' => 1.0, 
-                    'LWP::Simple' => 0 } ,
+                    'LWP::Simple' => 0,
+                    'HTML::Entities' => 1.27 } ,
      },
 
      { name => 'tv_grab_uk_bleb',
