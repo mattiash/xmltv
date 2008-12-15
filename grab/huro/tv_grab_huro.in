@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.25 2008/07/19 17:32:34 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.26 2008/12/15 08:57:25 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.25 2008/07/19 17:32:34 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.26 2008/12/15 08:57:25 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -424,7 +424,7 @@ sub process_table( $$$$ ) {
 
 		# check whether if we are first in lower tables ... -> reset date
 		if (! ref($row) && $row eq "lower region") {
-			if ($region eq "upper") {
+			if ($region eq "upper" && @programs) {
 				t "upper/lower delimiter found, setting date back to startdate ($basedate)";
 				$startdate = $basedate;
 				$lasttime = 0;
