@@ -77,7 +77,7 @@ backwards compatibility.
 
 =cut
 use strict;
-use XMLTV::Version '$Id: tv_grab_is,v 1.13 2008/08/30 11:46:25 eggertthor Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.14 2009/01/03 10:07:13 eggertthor Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Iceland';
 use Getopt::Long;
@@ -516,7 +516,7 @@ EOF
     # data.  If we don't, tv_validate_grabber will fail
     my $dayBefore = UnixDate(DateCalc($fromdate, "- 1 days"), '%Y-%m-%d');
     my $dayAfter = UnixDate(DateCalc($fromdate, "+ " . ($num_days + 1) . " days"), '%Y-%m-%d');
-    my $url = "http://dagskra.ruv.is/files/xml.aspx?channel=1&date-from=$dayBefore&date-to=$dayAfter";
+    my $url = "http://muninn.ruv.is/files/xml/sjonvarpid/$dayBefore/$dayAfter/";
     
     my  $xml = get_nice( $url ); die( "Failed to fetch $url" ) unless defined( $xml );
     
