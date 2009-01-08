@@ -350,7 +350,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.73 2008/11/30 06:48:34 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.74 2009/01/08 02:07:27 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -1206,7 +1206,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.73 2008/11/30 06:48:34 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.74 2009/01/08 02:07:27 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
@@ -1246,8 +1246,10 @@ for my $map (@{$lineups{$dd_lineup}{map}})
        $chan_config{$key}=0; # default ignore
        if ($opt_auto_config)
        {
-          $chan_config{$key}=1 if $opt_auto_config eq 'add';
-          print STDERR ( $opt_auto_config eq 'add' ? "Adding" : "Ignoring" )," new channel: $key\n";
+          if ($opt_auto_config eq 'add') {
+		$chan_config{$key}=1;
+                print STDERR "Adding new channel: $key\n";
+           }
 
           open(CONF,">>$config_file") or die "ERROR: can't open config file for update: $config_file\n";
           print CONF ( $chan_config{$key} ? '' : 'not ' ), "channel: $key\n";
