@@ -81,7 +81,7 @@ package, which is a set of programs to generate and manipulate files
 conforming to this DTD.  Written by Ed Avis (ed@membled.com) and
 Gottfried Szing, thanks to others for suggestions.
 
-$Id: xmltv.dtd,v 1.38 2007/11/02 20:03:47 rmeden Exp $
+$Id: xmltv.dtd,v 1.39 2009/02/11 01:27:43 rmeden Exp $
 
 -->
 
@@ -265,6 +265,7 @@ should be separate, but if so how would 'translator' fit in with the
                    presenter*, commentator*, guest* )>
 <!ELEMENT director    (#PCDATA)>
 <!ELEMENT actor       (#PCDATA)>
+<!ATTLIST actor role #CDATA #IMPLIED>
 <!ELEMENT writer      (#PCDATA)>
 <!ELEMENT adapter     (#PCDATA)>
 <!ELEMENT producer    (#PCDATA)>

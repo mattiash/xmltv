@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.26 2008/12/15 08:57:25 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.27 2009/02/11 01:27:43 rmeden Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -121,7 +121,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.26 2008/12/15 08:57:25 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.27 2009/02/11 01:27:43 rmeden Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -188,7 +188,10 @@ my ($opt_days, $opt_offset, $opt_help, $opt_output,
 our $FETCHOFFSET = 0;
 our ($DAYSPERPAGE, $TZ, $COUNTRY, $CONFIG_FILE, $WNAME, $WSTIME);
 our (%CATMAP, %JOBMAP, %CHANNELS, %WTIMES);
-our %COUNTRIES = (Hungary => [ 'hu', '+0100' ], Romania => [ 'ro', '+0200' ],);
+our %COUNTRIES = (Hungary => [ 'hu', '+0100' ], 
+                  Czech   => [ 'cz', '+0100' ], 
+                  Romania => [ 'ro', '+0200' ], 
+                 Slovakia => [ 'sk', '+0100' ]);
 our %WORDS = (
 		hu => {	episode => "rész",
 				minute =>  "perc",
@@ -658,7 +661,7 @@ sub parse_short_desc ($) {
 	}
 
 	t "parse_short_desc: text: '$cont'";
-
+        $WORDS{$COUNTRY}->{episode}="zdontmatchz" unless exists $WORDS{$COUNTRY}->{episode};
 	if (m/\s*([0-9\/]+)\. $WORDS{$COUNTRY}->{episode}/) { $episode = $1; }
 	if (m/\s*(\d+)'/)           { $minutes = $1; }
 	if (m/\s*([12][0-9]{3})/)    { $year = $1 }
@@ -1335,7 +1338,10 @@ sub load_configs() {
 	# read the file with category mappings.
 	# cat_en:cat_hu:regexp
 	my $catmap_file = "catmap.$COUNTRY";
-	my $catmap_str = GetSupplement( 'tv_grab_huro', $catmap_file );
+	my $catmap_str="";	
+if ($COUNTRY ne 'cz' && $COUNTRY ne 'sk') {
+         $catmap_str = GetSupplement( 'tv_grab_huro', $catmap_file );
+}
 
 	$line_num = 0;
 	foreach (split( /\n/, $catmap_str )) {
