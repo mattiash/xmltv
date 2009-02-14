@@ -47,7 +47,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.204 2009/02/14 00:49:35 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.205 2009/02/14 22:07:11 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -66,7 +66,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.204 2009/02/14 00:49:35 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.205 2009/02/14 22:07:11 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -2252,7 +2252,7 @@ machine-readable files made available from the Radio Times website.
 
 First run B<tv_grab_uk_rt --configure> to choose which channels you want to 
 receive listings for.  Then run B<tv_grab_uk_rt> with no arguments to get
-about 14 days of listings for the configured channels.
+14 days of listings for the configured channels.
 
 =head1 OPTIONS
 
@@ -2300,7 +2300,7 @@ to use for output, and also regional and TV platform information.
 B<--list-channels> Outputs a list of every channel available to the grabber
 in XMLTV format.
 
--head1 SOURCE DATA
+=head1 SOURCE DATA
 
 The source data for the grabber is obtained from, and copyrighted by, the 
 Radio Times. As such, the use of this data is restricted to personal use
@@ -2397,14 +2397,21 @@ L<xmltv(5)>, L<http://wiki.xmltv.org>, L<http://www.radiotimes.com/>
 
 =head1 BUGS
 
+If you encounter a reproducible bug, please report it on the XMLTV bug 
+tracker at L<http://sourceforge.net/projects/xmltv/>, making sure you 
+assign the bug to the @@name category.
+
 There is an ongoing issue with the Radio Times source data containing
 mis-encoded UTF-8 characters, which we currently try to handle on a 
 case-by-case basis when observed. The issue has been reported to the Radio 
 Times who are investigating the problem.
 
-If you encounter a reproducible bug, please report it on the XMLTV bug 
-tracker at L<http://sourceforge.net/projects/xmltv/>, making sure you 
-assign the bug to the @@name category.
+The source data on the Radio Times website is regenerated nightly. 
+Occasionally the source data may not get recreated leaving the source files
+empty. Users are encouraged to wait at least a day before reporting an issue
+with missing listings, as they normally reappear during the next night. If
+listings continue to be missing from the Radio Times website, please report
+it.
 
 =head1 AUTHOR
 
