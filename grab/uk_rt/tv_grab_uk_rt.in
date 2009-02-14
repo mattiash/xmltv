@@ -47,7 +47,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.203 2009/01/12 19:32:17 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.204 2009/02/14 00:49:35 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -66,7 +66,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.203 2009/01/12 19:32:17 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.204 2009/02/14 00:49:35 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -1713,7 +1713,7 @@ sub write_listings_data {
                     }
                 }
             }
-            if ($have_title_data && $title =~ /:/) {
+            if ($have_title_data && $title =~ /:|-/) {
                 # Remove any non-title information found in the title. This information
                 # is placed at the start of the 'real' title, separated by a colon.
                 #
