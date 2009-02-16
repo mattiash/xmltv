@@ -62,7 +62,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.65 2009/02/14 13:48:32 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.66 2009/02/16 21:23:14 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1874,7 +1874,7 @@ sub mediasetpremium_fetch_data {
     #when you grab data every two-three days, but you don't want to miss schedule changes
     #this string is ignored by the server
     if ($opt_cache_slow) {
-	    my $cachestring = "&pippo=".UnixDate("today","%Y%m%d%H");
+	    my $cachestring = "?pippo=".UnixDate("today","%Y%m%d%H");
 		$url.=$cachestring;
 	}
     warn ($DEF_LANG eq 'eng' ? 
