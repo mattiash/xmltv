@@ -62,7 +62,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.66 2009/02/16 21:23:14 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.67 2009/02/16 22:09:07 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1391,10 +1391,10 @@ sub skylife_parse_data_slow {
 			     $strseason.= 'Episodio '.$episode ;
 	      }
 
-    		if ($strseason and $subtitle){
+    		if ($strseason ne '' and $subtitle){
     			$subtitle="$strseason - ".$subtitle ;
     		}
-    		else {
+    		elsif ($strseason ne '') {
     			$subtitle=$strseason;
     		};
     		
