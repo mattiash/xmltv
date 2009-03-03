@@ -65,7 +65,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.68 2009/03/02 16:40:07 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.69 2009/03/03 07:16:28 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -2294,7 +2294,7 @@ sub raiit_fetch_data {
 	    
 	    my $temptitle = $title;
 	    	    
-	    my ($subtitle, $category, $desc, $season, $episode, $desc);
+	    my ($subtitle, $category, $season, $episode, $desc);
 
       if ($title=~/title=\"(.*?)\"/){
 	       $title = $1;
