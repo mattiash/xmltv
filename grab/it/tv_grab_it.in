@@ -65,7 +65,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.70 2009/03/03 22:08:52 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.71 2009/03/03 22:20:09 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1476,7 +1476,8 @@ sub skylife_parse_data_slow {
                   }
       	}
 	
-       $content=~s/[\n|\r]+//gm;	
+       $content=~s/[\n|\r]+//gm;
+        undef $season if (defined $season and $season!~/\d+/);
 
        $programme->{length}= $length*60 if ($length);
        $programme->{date}= $year if ($year);
