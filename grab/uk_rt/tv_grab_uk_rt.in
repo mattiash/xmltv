@@ -47,7 +47,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.207 2009/03/03 02:07:42 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/' . "$XMLTV::VERSION" . ' $Id: tv_grab_uk_rt.in,v 1.208 2009/03/03 02:38:48 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -66,7 +66,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.207 2009/03/03 02:07:42 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.208 2009/03/03 02:38:48 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
