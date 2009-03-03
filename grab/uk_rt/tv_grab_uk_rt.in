@@ -47,7 +47,7 @@ my %tv_attributes = (
     'source-info-name'    => 'Radio Times XMLTV Service',
     'source-info-url'     => 'http://www.radiotimes.com',
     'source-data-url'     => "$rt_channels_uri",
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.205 2009/02/14 22:07:11 knowledgejunkie Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_uk_rt.in,v 1.206 2009/03/03 01:47:55 knowledgejunkie Exp $',
     'generator-info-url'  => 'http://www.xmltv.org',
 );
 
@@ -66,7 +66,7 @@ my $need_final_update;
 # Read all command line options 
 my ( $opt, $conf ) = ParseOptions( {
     grabber_name => "$grabber_name",
-    version => '$Id: tv_grab_uk_rt.in,v 1.205 2009/02/14 22:07:11 knowledgejunkie Exp $',
+    version => '$Id: tv_grab_uk_rt.in,v 1.206 2009/03/03 01:47:55 knowledgejunkie Exp $',
     description => "@@desc",
     capabilities => [qw/baseline manualconfig cache preferredmethod tkconfig apiconfig/],
     stage_sub => \&config_stage,
@@ -1877,7 +1877,9 @@ sub write_listings_data {
             # as a regular cast member, not the programme's director
             if (defined $cast && $cast !~ /^\s*$/) {
                 my @cast;
-                $cast =~ s/\s+/ /g;
+                $cast =~ s/\s+/ /g; # remove extra spaces
+                $cast =~ s/\|\|/\|/g;  # remove empty pipe-separated fields
+                $cast =~ s/,,/,/g;  # remove empty comma-separated fields
                 
                 # First we check for 'character*actor' entries
                 if ($cast =~ tr/*//) {
