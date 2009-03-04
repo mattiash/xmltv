@@ -65,7 +65,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.71 2009/03/03 22:20:09 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.72 2009/03/04 08:27:53 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1301,6 +1301,7 @@ sub skylife_parse_data_slow {
     my $slowurl;
     
     #if ($opt_slow and tidy($cat) ne '' and tidy($cat2) ne '') {
+    if ($opt_slow) {
 #        queste categorie sono nel .js di sky ma in realta' la descrizione c'e' per quasi tutti
 #        if (($cat eq 'intrattenimento') and 
 #             ($cat2 eq 'fiction' or
@@ -1321,8 +1322,7 @@ sub skylife_parse_data_slow {
     }
     $content=~/description\":\"(.*?)\"/;
     $desc = $1;
-                   
-#}
+   }
 #}
      $desc = '' if ($id eq '-1');
      if ($opt_slow and ($cat2 eq ' ' and $content eq '')){
