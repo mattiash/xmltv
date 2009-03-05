@@ -67,7 +67,7 @@ Grabber Site : http://bat.is-a-geek.com/XMLGrabPt
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_pt,v 1.45 2008/07/22 16:55:46 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_pt,v 1.46 2009/03/05 22:21:17 gawen Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Portugal';
 use Getopt::Long;
@@ -662,7 +662,7 @@ sub get_channels {
 
     foreach my $elem (@menus) {
         my $cname = $elem->attr('name');
-        next unless $cname eq 'channels';
+        next unless $cname eq 'ctl00$Middle$channels';
         my @ocanals = $elem->find_by_tag_name( "_tag" => "option" );
         my $chanpos = 0;
         foreach my $sigla (@ocanals) {
