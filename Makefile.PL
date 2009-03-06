@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.344 2009/02/16 01:20:13 rmeden Exp $
+# $Id: Makefile.PL,v 1.345 2009/03/06 05:41:23 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -507,11 +507,14 @@ my @opt_components
        exes => [ 'grab/dk_dr/tv_grab_dk_dr' ],
        prereqs => { 'HTML::TreeBuilder' => 0 } },
 
-     { name => 'tv_grab_jp',
-       blurb => 'Grabber for Japan',
-       exes => [ 'grab/jp/tv_grab_jp' ],
-       prereqs => { 'HTML::TreeBuilder' => 0,
-		    'Text::Kakasi' => 0 } },
+     #
+     # 2009-03-05 rmeden - source site seems to be blocking our agent string
+     #
+     #{ name => 'tv_grab_jp',
+     #  blurb => 'Grabber for Japan',
+     #  exes => [ 'grab/jp/tv_grab_jp' ],
+     #  prereqs => { 'HTML::TreeBuilder' => 0,
+	#	    'Text::Kakasi' => 0 } },
 
      { name => 'tv_grab_se_swedb',
        blurb => 'Grabber for Sweden',
