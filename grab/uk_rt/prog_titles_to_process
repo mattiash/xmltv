@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.34 2009/03/12 05:11:03 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.35 2009/03/12 08:49:14 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -108,7 +108,6 @@
 2|After the War
 2|Arena
 2|Autopsy
-2|Baroque!
 2|BBC Four Sessions
 2|BBC Proms 2008
 2|Behind Bars
