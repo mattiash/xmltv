@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.35 2009/03/12 08:49:14 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.36 2009/03/14 07:10:01 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -57,6 +57,7 @@
 # Non-title information to remove from beginning of titles
 #
 1|4 Music
+1|4Sport
 1|Action Heroes Season
 1|Action Movie Season
 1|Arnie Season
@@ -240,6 +241,7 @@
 2|Shades of Love
 2|Sherlock Holmes
 2|Shipwrecked 2008
+2|Shockwaves Album Chart Show
 2|Sin Cities 4
 2|Six on the Beach
 2|Songbook
@@ -357,3 +359,5 @@
 5|Boots N All~Boots 'n' All
 5|Super League Show~The Super League Show
 5|Shaun The Sheep~Shaun the Sheep
+5|Auschwitz: The Nazis and The Final Solution~Auschwitz: The Nazis and the Final Solution
+5|Kimora: Life In The Fab Lane~Kimora: Life in the Fab Lane
