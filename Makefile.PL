@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.346 2009/03/09 05:26:43 rmeden Exp $
+# $Id: Makefile.PL,v 1.347 2009/03/14 06:42:16 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -588,11 +588,14 @@ my @opt_components
 		  }
      },
 
-     { name => 'tv_grab_za',
-       blurb => 'Grabber for South Africa',
-       exes => [ 'grab/za/tv_grab_za' ],
-       prereqs => { 'HTML::TreeBuilder' => 0,
-                    'HTML::Entities' => 1.27 } },
+     #
+     # remove broken grabber, hopefully temporarily
+     #
+     #{ name => 'tv_grab_za',
+     #  blurb => 'Grabber for South Africa',
+     #  exes => [ 'grab/za/tv_grab_za' ],
+     #  prereqs => { 'HTML::TreeBuilder' => 0,
+     #               'HTML::Entities' => 1.27 } },
 
      { name => 'tv_grab_eu_epgdata',
        blurb => 'Grabber for some European countries (epgdata.com)',
