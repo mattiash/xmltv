@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.30 2009/03/14 15:18:43 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.31 2009/04/01 09:45:29 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.30 2009/03/14 15:18:43 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.31 2009/04/01 09:45:29 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -342,6 +342,9 @@ sub process_table( $$$$ ) {
 			if ((($COUNTRY eq 'hu') && (m/^\s*\S+\s+\(\s*\S+\s+(\d+)\.\s*\)\s*$/))
 				||
 				(($COUNTRY eq 'ro') && (m/^\s*\S+\s+\(\s*(\d+)\s+\S+\s*\)\s*$/))) {
+				||
+				(($COUNTRY eq 'sk' || $COUNTRY eq 'cz') && (m/^\s*\S+\s+\(\s*(\d+)\.\s+\S+\s*\)\s*$/))
+			{
 				t "added founded date of the month on the grabbed page: $1";
 				push @daysonpage, $1;
 			}
