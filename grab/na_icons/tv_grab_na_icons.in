@@ -79,7 +79,7 @@ use XML::Twig 3.28;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.13 2008/08/10 02:28:24 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.14 2009/04/09 19:27:41 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
@@ -203,7 +203,7 @@ my $twig=XML::Twig->new(
          twig_roots    => { html => 1},
 		 twig_handlers => 
 		      {
-		         th  => sub {
+		         td  => sub {
                                   my $img_el;
                                   if (defined  $_->att('class')
                                             && $_->att('class') =~ /zc-st/ ) {
