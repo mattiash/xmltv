@@ -65,7 +65,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.72 2009/03/04 08:27:53 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.73 2009/05/09 12:59:14 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -831,7 +831,8 @@ sub boingtv_fetch_data {
     die ($DEF_LANG eq 'eng' ? 'date calculation failed' : 'errore di calcolo di data') if not defined $date_grab;
     $date_grab = UnixDate($date_grab, '%Y%m%d');
 
-    my $url = $backend_info{boingtv}{base_data};
+    my $cachestring = "?pippo=".UnixDate("today","%Y%m%d%H") if ($offset == 0);
+    my $url = $backend_info{boingtv}{base_data}.$cachestring;
 
 	warn ($DEF_LANG eq 'eng' ?
                   "VERBOSE: fetching $url\n" :
