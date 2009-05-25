@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.38 2009/05/14 07:59:42 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.39 2009/05/25 17:17:25 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -384,3 +384,4 @@
 5|Auschwitz: The Nazis and The Final Solution~Auschwitz: The Nazis and the Final Solution
 5|Kimora: Life In The Fab Lane~Kimora: Life in the Fab Lane
 5|PEB~Party Election Broadcast
+5|Have I Got a Little Bit More News for You~Have I Got a Bit More News for You
