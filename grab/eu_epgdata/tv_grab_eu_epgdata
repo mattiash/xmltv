@@ -190,7 +190,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache preferredmethod/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_eu_epgdata,v 1.28 2009/05/29 13:39:11 mihaas Exp $',
+    version => '$Id: tv_grab_eu_epgdata,v 1.29 2009/05/29 15:04:11 mihaas Exp $',
     description => "Parts of Europe (commercial) (www.epgdata.com)",
     preferredmethod => "allatonce",
 } );
@@ -283,12 +283,15 @@ sub downloadepg {
 	my $baseurl="http://www.epgdata.com";
 	my $url=$baseurl . '/index.php?action=sendPackage&iOEM=&pin=' . $pin . '&dayOffset=' . $dataoffset . '&dataType=xml';
         # get file name from content-disposition header
-        my $response = $ua->request(GET $url);
-        my $filename = sanitize($response->{"_headers"}{"content-disposition"});
-        $expiry_date = $response->{"_headers"}{"x-epgdata-timeout"};
-        $channelgroup = sanitize($response->{"_headers"}{"x-epgdata-channelgroup"});
-        $filename =~  s/^.*=//;
+    	warn "url=", $url, "\n" if $opt->{debug};
+    	my $response = $ua->request(GET $url);
         if ($response->{"_headers"}{"x-epgdata-packageavailable"} == 1) {
+            my $filename = sanitize($response->{"_headers"}{"content-disposition"});
+            $expiry_date = $response->{"_headers"}{"x-epgdata-timeout"};
+            $channelgroup = sanitize($response->{"_headers"}{"x-epgdata-channelgroup"});
+            $filename =~  s/^.*=//;
+
+            warn "filename=", $filename, "\n" if $opt->{debug};
             warn "Downloading zip file for day ", $dataoffset + 1, "\n" unless $opt->{quiet};
             open(F,">$tmp" . $filename);
             binmode(F);
