@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.32 2009/04/01 12:02:02 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.33 2009/05/31 15:30:44 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.32 2009/04/01 12:02:02 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.33 2009/05/31 15:30:44 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -199,7 +199,8 @@ our %WORDS = (
 				links => "Linkek" },
 		ro => { episode =>  "no such info on webpage",
 				minute => "minute",
-				links => "Linkuri" }
+				links => "Linkuri" },
+		sk => { episode => "Epizóda"}
 	) ;
 
 sub domain();
@@ -673,6 +674,7 @@ sub parse_short_desc ($) {
 	t "parse_short_desc: text: '$cont'";
         $WORDS{$COUNTRY}->{episode}="zdontmatchz" unless exists $WORDS{$COUNTRY}->{episode};
 	if (m/\s*([0-9\/]+)\. $WORDS{$COUNTRY}->{episode}/) { $episode = $1; }
+	elsif (m/$WORDS{$COUNTRY}->{episode} \s*([0-9\/]+)/) { $episode = $1; }
 	if (m/\s*(\d+)'/)           { $minutes = $1; }
 	if (m/\s*([12][0-9]{3})/)    { $year = $1 }
 
