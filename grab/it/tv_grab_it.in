@@ -65,7 +65,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.75 2009/05/15 11:36:29 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.76 2009/06/16 22:02:47 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1787,7 +1787,14 @@ sub mediasetpremium_get_channels_list {
           "Playhouse", "KP",
           "Cartoon Network", "KN", 
           "Hiro", "KU",
+"Cartoon Network", "KN",
+"Premium Cinema", "KE",
+"Studio Universal", "KR",
       );
+
+
+
+
 
     foreach (keys %chan_hash) {
 	my $xmltv_id = xmltv_chanid('mediasetpremium', $_);
