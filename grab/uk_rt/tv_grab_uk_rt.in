@@ -26,7 +26,7 @@ use HTML::Entities;
 my $grabber_name='@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.211 2009/06/27 05:53:10 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.212 2009/06/27 06:21:51 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1855,6 +1855,12 @@ sub write_listings_data {
             # later debugging
             if (!$film) {
                 $prog_titles{$title} = $title;
+            }
+
+            # Occasionally film listings contain the title duplicated in the 
+            # $episode field, so we remove it here
+            if ($film && uc $title eq uc $episode) {
+                $episode = undef;
             }
 
             # Write out the programme's episode title ($episode) if present
