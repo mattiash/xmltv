@@ -26,7 +26,7 @@ use HTML::Entities;
 my $grabber_name='@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.212 2009/06/27 06:21:51 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.213 2009/06/29 17:58:32 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1667,16 +1667,8 @@ sub write_listings_data {
                 }
 
                 # check for potential episode info that we miss above
-                elsif ($episode =~
-                    /
-                      \s*               # ignore any whitespace
-                      (\d+)             # CAPTURE the first number(s) found ($episode_num)
-                      \s*               # ignore any whitespace
-                      \/                # forward slash
-                      \s*               # ignore any whitespace
-                      (\d+)             # CAPTURE the second number(s) found ($num_episodes)
-                    /ix ) {
-                        t("  Possible episode number seen: $episode");
+                elsif ($episode =~ /\d+/) {
+                    t("  Possible episode number seen: $episode");
                 }
 
                 # Set $episode to undefined if empty/whitespace
@@ -1924,14 +1916,14 @@ sub write_listings_data {
                 $episode_num = '';
             }
             if (defined $num_episodes) {
-                $num_episodes = "/ $num_episodes";
+                $num_episodes = "/$num_episodes";
             }
             else {
                 $num_episodes = '';
             }
             # Write out the details if we have the series and/or episode numbers
             if ($series_num ne '' || $episode_num ne '') {
-                $p{'episode-num'} = [ [ " ${series_num} . ${episode_num} ${num_episodes} . ", "xmltv_ns" ] ];
+                $p{'episode-num'} = [ [ "${series_num}.${episode_num}${num_episodes}.", "xmltv_ns" ] ];
             }
 
             if (defined $director && $director !~ /^\s*$/) {
