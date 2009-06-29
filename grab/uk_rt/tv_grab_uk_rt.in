@@ -26,7 +26,7 @@ use HTML::Entities;
 my $grabber_name='@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.213 2009/06/29 17:58:32 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.214 2009/06/29 22:58:08 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1955,8 +1955,14 @@ sub write_listings_data {
                         push @cast, $cast;
                     }
                     
-                    # We remove the 'character*' portion of the entry
+                    # Process the list of cast entries
                     foreach my $cast (@cast) {
+                        # Replace any actor given as Himself/Herself with the
+                        # character name given
+                        if ($cast =~ /^(.*)[*](Himself|Herself)$/) {
+                            $cast = "$1*$1";
+                        }
+                        # Remove the 'character*' portion of the entry
                         if ($cast !~ s/^.*[*]//) {
                             t("  Bad cast entry for '$title': $cast");
                         }
