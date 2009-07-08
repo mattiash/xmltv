@@ -79,7 +79,7 @@ use XML::Twig 3.28;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.14 2009/04/09 19:27:41 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.15 2009/07/08 05:50:30 rmeden Exp $ ';
 use XMLTV::Usage <<END
 tv_grab_na_icons [--images]
 
@@ -107,7 +107,9 @@ GetOptions(
 usage(1) if $opt_help;
 
 die "ERROR:Share directory '$SHARE_DIR' not found\n" unless -d $SHARE_DIR;
+die "ERROR:Share directory '$SHARE_DIR' not writable\n" unless -w $SHARE_DIR;
 mkdir "$SHARE_DIR/icons" unless -d "$SHARE_DIR/icons";
+die "ERROR:directory '$SHARE_DIR/icons' not writable\n" unless -w "$SHARE_DIR/icons";
 #
 # create our agent
 #
