@@ -79,9 +79,12 @@ use XML::Twig 3.28;
 
 use XMLTV;
 use XMLTV::Ask;
-use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.15 2009/07/08 05:50:30 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_icons.in,v 1.16 2009/07/08 05:58:57 rmeden Exp $ ';
 use XMLTV::Usage <<END
-tv_grab_na_icons [--images]
+
+$0 - Grab channel icon images or links from zap2it.com
+
+tv_grab_na_icons [--links]
 
 END
 ;
