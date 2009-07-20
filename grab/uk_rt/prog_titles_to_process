@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.43 2009/07/15 20:49:21 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.44 2009/07/20 08:35:13 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -400,4 +400,4 @@
 5|Ace Of Cakes~Ace of Cakes
 5|Tour De France 2009 Live~Tour de France 2009 Live
 5|Tour De France 2009~Tour de France 2009
-5|Monarchy by David Starkey~Monarchy with David Starkey
+5|Monarchy with David Starkey~Monarchy by David Starkey
