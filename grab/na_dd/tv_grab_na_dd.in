@@ -350,7 +350,7 @@ and of course everyone else I forgot to mention. :)
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.75 2009/05/05 01:11:11 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_na_dd.in,v 1.76 2009/07/28 04:47:22 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig share/;
 use XMLTV::Description 'North America (Data Direct)';
 use Data::Dumper;
@@ -1206,7 +1206,7 @@ $writer = new XMLTV::Writer(%w_args);
 $writer->start( {
               'source-info-name'     => 'Schedules Direct',
               'source-info-url'      => 'http://www.schedulesdirect.org/',
-              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.75 2009/05/05 01:11:11 rmeden Exp $',
+              'generator-info-name'  => 'XMLTV/$Id: tv_grab_na_dd.in,v 1.76 2009/07/28 04:47:22 rmeden Exp $',
       	      'generator-info-url'   => 'http://www.xmltv.org/',
             });
 
@@ -1219,15 +1219,6 @@ my $got_multi_chan=0;
 for my $map (@{$lineups{$dd_lineup}{map}})
 {
     my $sid = $map->{station};
-
-    if ($seen_station{$sid}++)
-    {
-    warn "WARNING: multiple channel mappings for '$station{$sid}{callSign}'\n";
-    $got_multi_chan=1;
-	next;
-    }
-    my $myid = sprintf("I%d.labs.zap2it.com",$sid);
-
     my $station=$station{$sid};
 
     unless ($station->{callSign})
@@ -1236,6 +1227,13 @@ for my $map (@{$lineups{$dd_lineup}{map}})
        next;
     }
 
+    if ($seen_station{$sid}++)
+    {
+    warn "WARNING: multiple channel mappings for '$station{$sid}{callSign}'\n";
+    $got_multi_chan=1;
+	next;
+    }
+    my $myid = sprintf("I%d.labs.zap2it.com",$sid);
     my $key=sprintf("%s %s",$map->{channel},$station->{callSign});
 
 #
