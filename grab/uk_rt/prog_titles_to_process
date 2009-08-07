@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.47 2009/07/30 14:09:20 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.48 2009/08/07 22:58:56 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -144,6 +144,7 @@
 2|Criminal Underworld Histories
 2|Curriculum Bites
 2|Cutting Edge
+2|Monarchy by David Starkey
 2|Deadly Dozen
 2|Diagnosis Murder
 2|Diagnosis X
@@ -413,3 +414,4 @@
 5|3 Minute Wonders: Farewell Darcey Bussell~3 Minute Wonder: Farewell Darcey Bussell
 5|Elizabeth David: a Life in Recipes~Elizabeth David: A Life in Recipes
 5|Russia - A Journey With Jonathan Dimbleby~Russia - A Journey with Jonathan Dimbleby
+5|David Starkey's Monarchy~Monarchy by David Starkey
