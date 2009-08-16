@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.49 2009/08/15 19:34:25 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.50 2009/08/16 23:56:03 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -429,3 +429,4 @@
 5|Xtra Factor~The Xtra Factor
 5|Xtra Factor Results~The Xtra Factor Results
 5|VH1's Greatest Superstar~VH1's Greatest Superstars
+5|The X Factor - The Result~The X Factor Results
