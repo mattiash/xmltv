@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.50 2009/08/16 23:56:03 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.51 2009/08/17 01:30:41 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -153,6 +153,7 @@
 2|Dispatches
 2|Doctor Who Greatest Moments
 2|Dom's on the Case
+2|Dragons' Den
 2|Drama Trails
 2|Drive Thru
 2|E! Entertainment Special
@@ -430,3 +431,4 @@
 5|Xtra Factor Results~The Xtra Factor Results
 5|VH1's Greatest Superstar~VH1's Greatest Superstars
 5|The X Factor - The Result~The X Factor Results
+5|Best of Cold Case~Cold Case
