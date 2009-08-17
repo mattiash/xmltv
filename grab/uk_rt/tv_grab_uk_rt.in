@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.222 2009/08/16 06:14:08 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.223 2009/08/17 02:39:38 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2560,12 +2560,11 @@ sub write_lineup_channels {
     
     my %ch = ( 'id' => 'bbc1.bbc.co.uk',
                'old-id' => [ 'old.bbc1.bbc.co.uk', 'evenolder.bbc1.bbc.co.uk' ],
-               'display-name' => [ [ 'BBC One', 'en' ] ],
+               'display-name' => [ [ 'BBC ONE', 'en' ] ],
                'preferred-preset' => '1',
-               'service-id' => '1111',
-               'network-id' => '9999',
-               'provider-name' => [ 'BBC', 'en' ],
-               'service-name' => [ 'BBC ONE', 'en' ],
+               'service-id' => '4165',
+               'transport-id' => '4101',
+               'network-id' => '9018',
                'icon' => [ { 'src' => 'http://www.bbc.co.uk/bbcone.jpg' } ],
                'homepage-url' => "http://www.bbc.co.uk/bbcone", );
 
