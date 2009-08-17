@@ -25,13 +25,13 @@ mean in the middle of someone's name or whatever.  Leading and
 trailing whitespace in element content is not significant.
 
 The contents of this DTD correspond to the lineups proposal written by
-Mattias Holmlund and available at http://xmltv.org/wiki/lineupproposal.html,
+Mattias Holmlund and available at http://wiki.xmltv.org/index.php/LineupProposal
 and to discussions held on the xmltv-dev mailing list. Some comments
 were taken from the xmltv DTD.
 
 Written by Nick Morrott (knowledgejunkie@gmail.com)
 
-$Id: xmltv-lineup.dtd,v 1.1 2009/08/16 06:14:08 knowledgejunkie Exp $
+$Id: xmltv-lineup.dtd,v 1.2 2009/08/17 01:09:02 knowledgejunkie Exp $
 
 -->
 
