@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.51 2009/08/17 01:30:41 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.52 2009/08/19 07:14:44 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -372,6 +372,7 @@
 3|MTV Live
 3|New Heroes of Comedy
 3|Omnibus
+3|Real Crime
 3|Storyville
 3|Style Star
 3|T4 Movie Special
