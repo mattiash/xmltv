@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.223 2009/08/17 02:39:38 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.224 2009/08/19 11:21:41 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1641,9 +1641,6 @@ sub write_listings_data {
             }
         }
 
-        # Decode any HTML entities seen in the UTF-8 text to their Unicode equivalent
-        decode_entities($page);
-
         # In-place convert source UTF-8 into configured output format
         #
         # We need to ensure that text processing after this point does not depend
@@ -1656,6 +1653,9 @@ sub write_listings_data {
         #
         t("  Converting listings data to \"" . $xml_encoding . "\" for output\n");
         from_to($page, $source_encoding, $xml_encoding);
+
+        # Decode any HTML entities seen in the UTF-8 text to their Unicode equivalent
+        decode_entities($page);
 
         # Start to process individual programme entries found in listings
         t("  Started writing <programme> elements for channel '$rt_name'\n");
