@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.55 2009/08/24 19:45:37 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.56 2009/08/26 00:26:51 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -439,4 +439,4 @@
 5|VH1's Greatest Superstar~VH1's Greatest Superstars
 5|The X Factor - The Result~The X Factor Results
 5|Best of Cold Case~Cold Case
-2|Total Wipeout: Champion of Champions~Total Wipeout
+5|Total Wipeout: Champion of Champions~Total Wipeout
