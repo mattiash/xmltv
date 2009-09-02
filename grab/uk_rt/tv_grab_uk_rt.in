@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.227 2009/08/31 11:03:23 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.228 2009/09/02 22:04:42 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1885,7 +1885,7 @@ sub write_listings_data {
                     s{
                       ^                    # start at beginning of episode details
                       \s*                  # ignore any whitespace
-                      (?:Episode)?         # ignore "Episode" text
+                      (?:Episode)          # ignore "Episode" text
                       \s*                  # ignore any whitespace
                       (\d+)                # CAPTURE the first number(s) found ($episode_num)
                       \s*                  # ignore any whitespace
