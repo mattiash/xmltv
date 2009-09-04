@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.228 2009/09/02 22:04:42 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.229 2009/09/04 17:46:07 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -1859,7 +1859,7 @@ sub write_listings_data {
                       \s*                  # ignore any whitespace
                       (\d+)                # CAPTURE the second number(s) found ($num_episodes)
                       \s*                  # ignore any whitespace
-                      (?:\.|,|;)?          # check for punctuation characters
+                      (?:\.|\/|,|;)?       # check for punctuation characters
                       \s*                  # ignore any whitespace
                       -?                   # check for hyphen
                       \s*                  # ignore any whitespace
