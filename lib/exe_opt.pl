@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.16 2009/07/24 04:06:54 rmeden Exp $
+# $Id: exe_opt.pl,v 1.17 2009/09/16 03:34:37 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -26,6 +26,9 @@ print '-nologo
 -bind=libxml2.dll[file=\perl\bin\libxml2.dll,extract]
 -trim="Apache::Const;Apache::RequestIO;DIME::Payload;MIME::Entity;Apache::RequestRec;DIME::Message;I18N::Langinfo"
 -trim="Apache2::RequestUtil;APR::Table;Apache2::Const;Apache2::RequestRec;Apache2::RequestIO"
+-trim=DateTime::Format
+-trim=DateTime::Locale
+-trim=grab/eu_epgdata/tv_grab_eu_epgdata
 -info CompanyName="XMLTV Project http://www.xmltv.org"
 -info FileDescription="EXE bundle of XMLTV tools to manage TV Listings"
 -info InternalName=xmltv.exe

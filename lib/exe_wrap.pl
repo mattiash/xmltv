@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_wrap.pl,v 1.83 2009/08/10 05:22:04 rmeden Exp $
+# $Id: exe_wrap.pl,v 1.84 2009/09/16 03:34:37 rmeden Exp $
 # This is a quick XMLTV shell routing to use with the windows exe
 #
 # A single EXE is needed to allow sharing of modules and dlls of all the
@@ -78,7 +78,7 @@ if (index('--version', $cmd) == 0 and length $cmd >= 3) {
 #
 # some grabbers aren't included
 #
-if ($cmd =~ /^tv_grab_(?:nz|jp)$/) {
+if ($cmd =~ /^tv_grab_(?:nz|jp|epgdata)$/) {
     die <<END
 Sorry, $cmd is not available in this Windows binary release, although
 it is included in xmltv source releases.
