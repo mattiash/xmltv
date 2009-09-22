@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.358 2009/09/22 00:17:37 rmeden Exp $
+# $Id: Makefile.PL,v 1.359 2009/09/22 00:50:07 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -462,8 +462,6 @@ my @opt_components
 #       exes => [ 'grab/es/tv_grab_es' ],
 #       prereqs => { 'HTML::TreeBuilder' => 0 } },
 
-# 2008-07-12 rmeden - site "down for maintanence" for over a month.. goodbye
-#
      { name => 'tv_grab_il',
        blurb => 'Grabber for Israel',
        exes => [ 'grab/il/tv_grab_il' ],
