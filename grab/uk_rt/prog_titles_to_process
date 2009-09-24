@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.67 2009/09/24 02:40:52 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.68 2009/09/24 04:11:58 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -224,6 +224,8 @@
 2|Influenced by Jacko
 2|Influenced by Madonna
 2|Inside
+2|Inside Story
+2|Inside Story Special
 2|Inside Track
 2|Inspector Wexford
 2|IPL
