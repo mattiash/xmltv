@@ -1,6 +1,6 @@
 # channel_ids
 #
-# $Id: channel_ids,v 1.127 2009/09/04 19:44:07 knowledgejunkie Exp $
+# $Id: channel_ids,v 1.128 2009/09/25 06:50:57 knowledgejunkie Exp $
 #
 # This file maps Radio Times channel IDs to XMLTV IDs for use with the
 # tv_grab_uk_rt XMLTV grabber. One channel entry per line. Comments are allowed 
@@ -439,3 +439,4 @@ hd.2.sports.sky.com|2175|Sky Sports HD 2|http://www.lyngsat-logo.com/logo/tv/ss/
 hd.3.sports.sky.com|2176|Sky Sports HD 3|http://www.lyngsat-logo.com/logo/tv/ss/sky_sports_hd3.jpg||
 zoneromantica.tv|2177|Zone Romantica|http://www.lyngsat-logo.com/logo/tv/zz/zone_romantica_uk.jpg||
 zonethriller.tv|2178|Zone Thriller|http://www.lyngsat-logo.com/logo/tv/zz/zone_thriller.jpg||
+quest.discoveryeurope.com|2179|Quest|http://www.lyngsat-logo.com/logo/tv/qq/quest.jpg||
