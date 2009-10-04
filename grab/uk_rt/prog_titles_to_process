@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.73 2009/10/03 09:50:08 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.74 2009/10/04 21:45:50 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -373,7 +373,7 @@
 2|The South Bank Show
 2|The Third Reich in Colour
 2|The Tower
-2|The Twenties in Colour
+2|The Twenties in Colour: The Wonderful World of Albert Kahn
 2|The Weakest Link
 2|The Wild West
 2|The World Stands Up
