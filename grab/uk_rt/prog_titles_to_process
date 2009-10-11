@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.74 2009/10/04 21:45:50 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.75 2009/10/11 00:49:25 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -280,6 +280,7 @@
 2|Nightwatch with Steve Scott
 2|Murder, She Wrote
 2|Naked
+2|Nature Shock
 2|Nature Unleashed
 2|NRL
 2|Number 1s
@@ -604,6 +605,8 @@
 5|KNTV - Philosophy~KNTV: Philosophy
 5|Dolphins - Deep Thinkers?~Dolphins: Deep Thinkers?
 5|Fringe: Access all Areas~Fringe: Access All Areas
+5|Build a New Life in the Country - Was It Worth It?~Build a New Life in the Country: Was It Worth It?
+5|Golf - European Seniors Tour~Golf: European Seniors Tour
 #
 # programme titles and programme categories (genre)
 #
