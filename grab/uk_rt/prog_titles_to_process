@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.81 2009/10/28 05:29:59 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.82 2009/10/28 05:43:06 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -716,3 +716,5 @@
 7|Smith and Sweetman Workshops~Dining Table 2~Dining Table (Part 2)
 7|Smith and Sweetman Workshops~Side Table~Side Table (Part 1)
 7|Smith and Sweetman Workshops~Side Table 2~Side Table (Part 2)
+7|Buffy the Vampire Slayer~What's My Line? 1~What's My Line? (Part 1)
+7|Buffy the Vampire Slayer~What's My Line? 2~What's My Line? (Part 2)
