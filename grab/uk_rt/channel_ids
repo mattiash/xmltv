@@ -1,6 +1,6 @@
 # channel_ids
 #
-# $Id: channel_ids,v 1.130 2009/10/28 04:57:58 knowledgejunkie Exp $
+# $Id: channel_ids,v 1.131 2009/10/29 02:17:56 knowledgejunkie Exp $
 #
 # This file maps Radio Times channel IDs to XMLTV IDs for use with the
 # tv_grab_uk_rt XMLTV grabber. One channel entry per line. Comments are allowed 
@@ -82,7 +82,6 @@ blank.tv.classicfm.com|1763|Classic FM TV (Do Not Use)|http://www.lyngsat-logo.c
 blank.celtictv.setanta.com|1853|Celtic TV (Do Not Use)|http://www.lyngsat-logo.com/logo/tv/cc/celtic_tv.jpg|||SDTV
 blank.rangerstv.setanta.com|1854|Rangers TV (Do Not Use)|http://www.lyngsat-logo.com/logo/tv/rr/rangers_tv.jpg|||SDTV
 blank.btv.screenshop.co.uk|1877|bid tv (Do Not Use)|http://www.lyngsat-logo.com/logo/tv/ss/screenshop.jpg|||SDTV
-blank.tmf.nl|1501|TMF: The Music Factory|http://www.lyngsat-logo.com/logo/tv/tt/tmf.jpg|||SDTV
 #
 # Timeshifted channels
 #
