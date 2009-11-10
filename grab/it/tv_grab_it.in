@@ -49,8 +49,8 @@
 # 02/03/2009
 # piccoli fix per skylife
 # aggiunto backend rai.it (che include rai4, rai gulp e altri canali 'inediti')
-# 23/10/2009
-# fix per rai.it, migliorato parsing di episodio / stagione
+# 10/11/2009
+# sistemato boingtv (grazie r.ghetta)
 #################################################
 # TODO
 # - add more informative errors in xml
@@ -67,7 +67,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.78 2009/10/23 20:00:43 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.79 2009/11/10 13:47:07 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -160,9 +160,9 @@ my %backend_info
 
      'boingtv' =>
      { domain => 'boingtv.it',
-       base_chan => 'http://www.boingtv.it/palinsesto/dati/palinsesto.xml',
-       base_data => 'http://www.boingtv.it/palinsesto/dati/palinsesto.xml',
-       rturl => "http://www.boingtv.it/palinsesto/dati/palinsesto.xml",
+       base_chan => 'http://www.boingtv.it/xml/palinsesto.xml',
+       base_data => 'http://www.boingtv.it/xml/palinsesto.xml',
+       rturl => "http://www.boingtv.it/xml/palinsesto.xml",
        needs_login => 0,
        needs_cookies => 0,
        fetch_data_sub =>   \&boingtv_fetch_data,
