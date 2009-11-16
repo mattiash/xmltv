@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.257 2009/10/31 03:55:23 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.258 2009/11/16 22:37:47 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2190,7 +2190,7 @@ sub write_listings_data {
             # Second, replace inconsistent episodes. The 
             # %replacement_episodes data structure is a hash of hashes.
             #
-            if ($have_title_data && %replacement_episodes) {
+            if ($have_title_data && %replacement_episodes && defined $episode) {
                 REPLACEMENT_EPISODE:
                 foreach my $bad_episode_title (keys %replacement_episodes) {
                     # First, check whether we have matched the programme title
