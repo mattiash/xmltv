@@ -4,7 +4,7 @@
 # The second argument is the share directory for the final
 # installation.
 #
-# $Id: tv_grab_it.PL,v 1.12 2009/05/19 21:03:05 mnbjhguyt Exp $
+# $Id: tv_grab_it.PL,v 1.13 2009/11/17 20:00:07 mnbjhguyt Exp $
 #
 
 # 15/07/2005
@@ -160,7 +160,7 @@ L<xmltv(5)>.
 
 Davide Chiarini, davide.chiarini\@gmail.com
 
-you can find some more help at http://lnx.htpcpoint.it/forum/
+you can find some more help at http://www.htpcpoint.it/forum/
 
 =cut
 END
@@ -298,7 +298,7 @@ L<xmltv(5)>.
 
 Davide Chiarini, davide.chiarini\@gmail.com
 
-puoi anche trovare varie informazioni nel forum http://lnx.htpcpoint.it/forum/
+puoi anche trovare varie informazioni nel forum http://www.htpcpoint.it/forum/
 
 =cut
 END
