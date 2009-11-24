@@ -71,7 +71,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.81 2009/11/23 13:31:21 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.82 2009/11/24 13:43:44 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -861,7 +861,7 @@ sub boingtv_fetch_data {
 
     #split the lines
     foreach my $line (@lines) {
-		next unless $line=~/^<EVENT/;
+		next unless $line=~/^\s+<EVENT/;
 		$line=~/timestamp="(.*?)".*name="(.*?)".*description="(.*?)"/;
 
         my %programme = ();
