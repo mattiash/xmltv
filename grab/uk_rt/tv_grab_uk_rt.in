@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.263 2009/12/08 08:06:32 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.264 2009/12/08 08:45:58 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2093,7 +2093,7 @@ sub write_listings_data {
                                 last MIXED_TITLE_SUBTITLE;
                             }
                             # concat subtitle after any episode numbering (x/y)
-                            elsif ($episode =~ /^\d+\s*(?:&\d+)?\s*\/\s*\d+$/) {
+                            elsif ($episode =~ /^\d+\s*(?:&\d+)?\s*\/\s*\d+\s*(?:\.|\/|,|;|:)?\s*-?\s*(?:series\s*(\w+)\s*(?:;|\.)?)?\s*$/) {
                                 t("  Concatenating sub-title '" . $new_episode 
                                   . "' seen in title after existing episode numbering '" 
                                   . $episode . "'");
@@ -2142,7 +2142,7 @@ sub write_listings_data {
                                 last MIXED_SUBTITLE_TITLE;
                             }
                             # concat subtitle after any episode numbering (x/y)
-                            elsif ($episode =~ /^\d+\s*(?:&\d+)?\s*\/\s*\d+$/) {
+                            elsif ($episode =~ /^\d+\s*(?:&\d+)?\s*\/\s*\d+\s*(?:\.|\/|,|;|:)?\s*-?\s*(?:series\s*(\w+)\s*(?:;|\.)?)?\s*$/) {
                                 t("  Concatenating sub-title '" . $new_episode 
                                   . "' seen in title after existing episode numbering '" 
                                   . $episode . "'");
