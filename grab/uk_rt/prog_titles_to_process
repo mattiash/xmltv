@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.95 2009/12/08 09:47:12 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.96 2009/12/09 22:35:37 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -264,6 +264,7 @@
 2|International Football
 2|IPL
 2|It Takes Two
+2|The ITV2 Panto
 2|James Bond Themes
 2|Jane Doe
 2|JD Set Presents
@@ -506,6 +507,7 @@
 2|World Touring Car Championship Highlights
 2|World's Biggest Airliner
 2|Yvette and Karl
+2|Zoo Days
 #
 # $subtitle:$title seen in source data title
 #
@@ -706,6 +708,7 @@
 5|Pussycat Dolls: Girlicious~Pussycat Dolls Present: Girlicious
 5|Medium: Season Finale~Medium
 5|Supernatural: Season Finale~Supernatural
+5|Royal Institution Christmas Lectures~The Royal Institution Christmas Lectures
 #
 # programme titles and programme categories (genre)
 #
