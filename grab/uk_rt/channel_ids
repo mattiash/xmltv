@@ -1,6 +1,6 @@
 # channel_ids
 #
-# $Id: channel_ids,v 1.141 2009/12/10 08:01:06 knowledgejunkie Exp $
+# $Id: channel_ids,v 1.142 2009/12/10 08:06:58 knowledgejunkie Exp $
 #
 # This file maps Radio Times channel IDs to XMLTV IDs for use with the
 # tv_grab_uk_rt XMLTV grabber. One channel entry per line. Comments are allowed 
@@ -446,3 +446,4 @@ tvmovies24.com|2187|Movies 24|http://www.lyngsat-logo.com/logo/tv/mm/movies_24.j
 2.livingtv.co.uk|2189|Livingit|http://www.lyngsat-logo.com/logo/tv/ll/living_tv_uk.jpg|||SDTV
 plus-1.2.livingtv.co.uk|2190|Livingit +1 (RT)|http://www.lyngsat-logo.com/logo/tv/ll/living_tv_uk.jpg|||SDTV
 entertainment.truemovies.tv|2191|True Entertainment|http://www.lyngsat-logo.com/logo/tv/tt/true_entertainment.jpg|||SDTV
+2.truemovies.tv|2192|True Movies 2|http://www.lyngsat-logo.com/logo/tv/tt/true_movies2.jpg|||SDTV
