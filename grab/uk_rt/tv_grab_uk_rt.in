@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.264 2009/12/08 08:45:58 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.265 2009/12/11 23:26:31 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -118,7 +118,7 @@ die "Error: You cannot specify --quiet with --debug, exiting"
     if ($opt->{quiet} && $opt->{debug});
 
 # Make sure that we are _really_ using a GMT (+0000) timezone
-check_xmltv_tz();
+# check_xmltv_tz();
 
 if (not defined( $conf->{'channel'} )) {
     print STDERR "No channels selected in configfile " .
@@ -218,7 +218,8 @@ if (!$opt->{quiet}) {
     say("Program/library version information:\n");
     say("XMLTV library version: $XMLTV::VERSION");
     say("$grabber_name version: $grabber_version");
-    say("  libwww-perl version: $LWP::VERSION\n");
+    say("  libwww-perl version: $LWP::VERSION");
+    say("  Date::Manip version: " . DateManipVersion(1) . "\n");
 }
 
 # Retrieve list of all channels currently available
