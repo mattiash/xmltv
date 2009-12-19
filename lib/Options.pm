@@ -128,7 +128,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.16 2009/08/11 05:06:34 knowledgejunkie Exp $',
+    version => '$Id: Options.pm,v 1.17 2009/12/19 03:19:06 knowledgejunkie Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig lineups/],
     stage_sub => \&config_stage,
@@ -302,7 +302,7 @@ Optional. A value to return when the grabber is called with the
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.16 2009/08/11 05:06:34 knowledgejunkie Exp $',
+    version => '$Id: Options.pm,v 1.17 2009/12/19 03:19:06 knowledgejunkie Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,
@@ -508,8 +508,7 @@ sub ParseOptions
 	    print STDERR "You need to provide a valid lineup ID.\n";
 	    exit 1;
 	}
-
-        print &{$p->{get_lineup_sub}}( $opt->{lineup} );
+        print &{$p->{get_lineup_sub}}($opt);
 
         exit 0;
     }
