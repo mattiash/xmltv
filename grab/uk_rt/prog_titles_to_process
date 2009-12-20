@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.102 2009/12/20 17:36:24 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.103 2009/12/20 18:37:31 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -196,6 +196,7 @@
 2|Criminal Underworld Histories
 2|Curriculum Bites
 2|Cutting Edge
+2|Dancing
 2|Daredevils
 2|Deadly Dozen
 2|Deal or No Deal
@@ -469,6 +470,7 @@
 2|The Wild West
 2|The World Stands Up
 2|The Xtra Factor
+2|This Is Your Life
 2|This Week's Number 1
 2|This World
 2|Those Were the Days
@@ -548,7 +550,9 @@
 3|E! True Hollywood Story
 3|Electric Proms 2009
 3|In My Life
+3|Met
 3|MTV Live
+3|Must See TV
 3|My Shocking Story
 3|New Heroes of Comedy
 3|Omnibus
