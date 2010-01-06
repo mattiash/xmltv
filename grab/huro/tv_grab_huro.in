@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.37 2009/12/22 23:35:25 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.38 2010/01/06 10:33:45 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.37 2009/12/22 23:35:25 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.38 2010/01/06 10:33:45 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -409,7 +409,7 @@ sub process_table( $$$$ ) {
 		}
 	
 		# look for line.gif as separator as well, per zolih@hotmail.com
-		elsif ($_->look_down("_tag"=>"img", "src" => "/cc/line.gif")) {
+		elsif ($_->look_down("_tag"=>"img", "src" => qr/\/line.gif$/)) {
 			# ther is the "vonal.gif" in the table?
 			t "+ most inner row containing vonal.gif found";
 			
