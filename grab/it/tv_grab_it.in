@@ -67,7 +67,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.84 2009/12/01 21:35:09 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.85 2010/01/07 21:45:07 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -1785,17 +1785,17 @@ sub mediasetpremium_get_channels_list {
 		  "Premium  Calcio 24", "KC",
 		  "Steel +1", "KY",
 		  "Steel", "KS",
-          "Playhouse", "KP",
-          "Cartoon Network", "KN", 
-          "Hiro", "KU",
-"Cartoon Network", "KN",
-"Premium Cinema", "KE",
-"Studio Universal", "KR",
+        	  "Playhouse", "KP",
+            	  "Cartoon Network", "KN", 
+                  "Hiro", "KU",
+                  "Cartoon Network", "KN",
+                  "Premium Cinema", "KE",
+                  "Studio Universal", "KR",
+                  "Premium Cinema Emotion", "KO",
+                  "Premium Cinema Energy", "KG",
+                  "Premium Extra", "K8",
+                  "Premium Extra 2", "K9",
       );
-
-
-
-
 
     foreach (keys %chan_hash) {
 	my $xmltv_id = xmltv_chanid('mediasetpremium', $_);
