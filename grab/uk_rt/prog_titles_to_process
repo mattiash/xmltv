@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.108 2010/01/16 13:07:04 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.109 2010/01/18 21:08:25 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -322,6 +322,7 @@
 2|Live IPL
 2|Live MLB
 2|Live NBA
+2|Live NFL
 2|Live NHL
 2|Live NRL
 2|Live Rugby
@@ -369,7 +370,9 @@
 2|NBA
 2|Never Mind the Buzzcocks
 2|Newsround Special
+2|NFL
 2|NFL Game Of The Week
+2|NFL Highlights
 2|Nitro Circus
 2|NHL
 2|Nigella's Christmas Kitchen
