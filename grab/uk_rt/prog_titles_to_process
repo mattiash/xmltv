@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.111 2010/01/22 01:30:42 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.112 2010/01/24 00:38:15 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -818,6 +818,9 @@
 5|Phil Taylor - The Power and the Glory~Phil Taylor: The Power and the Glory
 5|Thomas Hampson - Hamlet~Thomas Hampson: Hamlet
 5|Go - A Film About Moby~Go: A Film About Moby
+5|Game Of The Week - CBB~Game Of The Week: CBB
+5|Lost On Everest - The Search for Mallory and Irvine~Lost On Everest: The Search for Mallory and Irvine
+5|Road Warriors - The Extra Mile~Road Warriors: The Extra Mile
 #
 # programme titles and programme categories (genre)
 #
