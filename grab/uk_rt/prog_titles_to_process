@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.118 2010/02/01 14:19:39 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.119 2010/02/01 21:52:10 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -573,6 +573,8 @@
 2|What To Eat Now
 2|Wimbledon
 2|Winter Olympics
+2|Wintersport
+2|Wintersports
 2|Wish You Were Here: Now and Then
 2|Wonderland
 2|Word Explosion
