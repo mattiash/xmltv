@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.117 2010/02/01 13:48:22 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.118 2010/02/01 14:19:39 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -857,6 +857,7 @@
 5|FLYING THROUGH TIME~Flying Through Time
 5|HOW DO THEY DO IT?~How Do They Do It?
 5|HOW DO THEY DO IT? 6~How Do They Do It? (Season 6)
+5|FISHING ADVENTURER 2~Fishing Adventurer (Season 2)
 #
 # programme titles and programme categories (genre)
 #
