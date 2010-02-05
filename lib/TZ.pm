@@ -2,7 +2,7 @@
 # these for handling summer time conventions.  This should
 # probably be moved into Date::Manip somehow.
 #
-# $Id: TZ.pm,v 1.13 2004/04/10 22:00:32 epaepa Exp $
+# $Id: TZ.pm,v 1.14 2010/02/05 05:33:33 rmeden Exp $
 #
 
 package XMLTV::TZ;
@@ -59,8 +59,12 @@ sub ParseDate_PreservingTZ($) {
     my $p = ParseDate($u);
     die "cannot parse $u" if not $p;
     my $tz = gettz($u) || 'UTC';
+
+    my $ltz=Date_TimeZone(); # avoid bug in Date::Manip 6.05
+    $ltz=$tz if $ltz eq "1"; # if Date_TimeZone returns a bad value, use something ok
+
 #    print STDERR "date $u parsed to $p (timezone read as $tz)\n";
-    $p = Date_ConvTZ($p, undef, $tz);
+    $p = Date_ConvTZ($p, $ltz, $tz);
 #    print STDERR "...converted to $p\n";
     return $p;
 }
