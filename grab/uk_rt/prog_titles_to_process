@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.123 2010/02/07 17:35:28 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.124 2010/02/09 00:43:26 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -177,7 +177,6 @@
 2|Body Spectacular
 2|Bone Detectives
 2|BOOKtalk
-2|Boots 'n' All
 2|Bowling
 2|Bowls
 2|Bremner, Bird and Fortune
