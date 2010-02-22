@@ -67,7 +67,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.85 2010/01/07 21:45:07 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.86 2010/02/22 16:28:28 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -2136,7 +2136,7 @@ sub iris_fetch_data {
 			 my $time_start2 = $time_start;
 			 $time_start2=~s/:/\./;		
 			 my $next_day_start = 0;		
-			 if ($time_start2 < 6) {
+			 if ($time_start2 < 7) {
 			     $next_day_start = 1;
 			 }
 		         
