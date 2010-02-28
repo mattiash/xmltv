@@ -27,7 +27,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.271 2010/02/23 10:10:31 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.272 2010/02/28 06:25:19 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2087,7 +2087,7 @@ sub write_listings_data {
 
             # Remove production year information from $episode for films
             if (defined $episode) {
-                if ($film && $episode =~ s/Prod Year (\d{4})//) {
+                if ($film && $episode =~ s/Prod Year (\d{4})//i) {
                     t("  Removed production year info from episode details");
                     $episode = undef;
                     if (!defined $year) {
