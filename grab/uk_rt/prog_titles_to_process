@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.137 2010/03/05 07:16:50 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.138 2010/03/06 12:11:38 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -387,6 +387,7 @@
 2|My Unique Family
 2|My Life as an Animal
 2|My Life With Animals
+2|My Life with Animals
 2|My Music
 2|Mysteries and Legends
 2|Mysteries of the Universe
@@ -919,6 +920,7 @@
 5|A Salaried Wit - Grossmith, Gilbert and Sullivan~A Salaried Wit: Grossmith, Gilbert and Sullivan
 5|Blur - No Distance Left to Run~Blur: No Distance Left to Run
 5|Clive James Talking~Clive James Talking in the Library
+5|My Life with Animals~My Life With Animals
 #
 # programme titles and programme categories (genre)
 #
