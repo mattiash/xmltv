@@ -2,7 +2,7 @@
 # these for handling summer time conventions.  This should
 # probably be moved into Date::Manip somehow.
 #
-# $Id: TZ.pm,v 1.14 2010/02/05 05:33:33 rmeden Exp $
+# $Id: TZ.pm,v 1.15 2010/03/10 09:21:28 knowledgejunkie Exp $
 #
 
 package XMLTV::TZ;
@@ -102,9 +102,8 @@ sub tz_to_num( $ ) {
     # A timezone difference must be less than one day, and must be a
     # whole number of minutes.
     #
-    $delta =~ /^([+-])0:0:0:0:(\d\d?):(\d\d?):0$/ or die "bad delta $delta";
-    t "turned timezone $tz into delta $1 $2 $3";
-    return sprintf('%s%02d%02d', $1, $2, $3);
+    my @df = Delta_Format($delta, 0, "%hv", "%Mv");
+    return sprintf('%s%02d%02d', ($df[0] < 0) ? '-' : '+', abs($df[0]), $df[1]);
 }
 
 
