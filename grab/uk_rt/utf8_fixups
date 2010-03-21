@@ -1,6 +1,6 @@
 # utf8_fixups
 #
-# $Id: utf8_fixups,v 1.37 2010/03/06 12:11:38 knowledgejunkie Exp $
+# $Id: utf8_fixups,v 1.38 2010/03/21 15:07:38 knowledgejunkie Exp $
 #
 # This file contains fixups for mis-encoded UTF-8 characters that are 
 # frequently seen in the source data from the Radio Times.
@@ -160,6 +160,8 @@
 \xEF\xBF\xBD\x75\x6E\x77\x72\x69\x74\x74\x65\x6E\xEF\xBF\xBD|\x22\x75\x6E\x77\x72\x69\x74\x74\x65\x6E\x22
 # "Women's"
 \x57\x6F\x6D\x65\x6E\xEF\xBF\xBD\x73|\x57\x6F\x6D\x65\x6E\x27\x73
+# "Deafhood" "
+\xEF\xBF\xBD\x44\x65\x61\x66\x68\x6F\x6F\x64\xEF\xBF\xBD|\x22\x44\x65\x61\x66\x68\x6F\x6F\x64\x22
 #
 #
 # 4) Characters represented with doubly-encoded [EF][BF][BD] bytes which are
