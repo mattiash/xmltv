@@ -136,7 +136,7 @@ END
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.86 2010/02/28 00:02:34 knowledgejunkie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.87 2010/03/23 17:42:57 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use XMLTV;
@@ -677,7 +677,9 @@ sub process_program_table( $$$$ ) {
         $line =~ /showmenu\(\'(.*)\',\'(.*)\'\)/;
         my $tgdata = trim($1); # time/genre data
         debug_print("        Time/genre info: '" . $tgdata . "'");
-        my $title = trim($2); # title data
+        my $title = trim($2);  # title data
+        $title =~ s%\\\'%\'%g; # unescape the quotes
+        $title =~ s%\\\\%\\%g; # and backslashes
         debug_print("        Title info (original): '" . $title . "'");
         # Ignore empty programming cells
         next if ( ($title =~ /Fin de.* programme.*/) or ($title =~ /Pas de programme/) );
