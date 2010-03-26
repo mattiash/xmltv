@@ -136,7 +136,7 @@ END
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.87 2010/03/23 17:42:57 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.88 2010/03/26 15:13:39 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use XMLTV;
@@ -672,9 +672,11 @@ sub process_program_table( $$$$ ) {
 
         # The trimmed onmouseover attribute will contain something like:
         # showmenu('23h25-00h20<br />&nbsp;Série/Feuilleton, Thriller','Dexter - Deux en un')
+	# However some contain badly escaped double-quotes which causes this
+	# string to be truncated. That should really only happen in the title.
         my $line = trim($link->attr('onmouseover'));
         #debug_print("        RAWDATA: '" . $line . "'");
-        $line =~ /showmenu\(\'(.*)\',\'(.*)\'\)/;
+        $line =~ /showmenu\(\'(.*)\',\'((?:[^\\\']|\\.)*)(?:\'|$)/;
         my $tgdata = trim($1); # time/genre data
         debug_print("        Time/genre info: '" . $tgdata . "'");
         my $title = trim($2);  # title data
