@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.145 2010/03/26 01:41:43 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.146 2010/03/27 17:57:02 knowledgejunkie Exp $
 #
 # This file contains programme titles that should be processed in order to 
 # produce more consistent programme titles and subtitles. Some programme
@@ -328,7 +328,6 @@
 2|James Bond Themes
 2|Jane Doe
 2|JD Set Presents
-2|Justin Lee Collins
 2|Kalahari
 2|Key Stage 3 Bitesize Revision
 2|Kids by the Dozen
