@@ -16,7 +16,7 @@ use LWP::UserAgent;
 use HTTP::Cache::Transparent;
 use Getopt::Long;
 use Encode qw/decode encode/;
-use Date::Manip; Date_Init('TZ=+0000'); # UTC required for XMLTV::DST
+use Date::Manip; Date_Init('TZ=UTC'); # UTC required for XMLTV::DST
 use HTML::Entities;
 
 ##############################################
@@ -62,7 +62,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.277 2010/03/27 17:59:15 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.278 2010/03/28 02:00:39 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
