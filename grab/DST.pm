@@ -1,4 +1,4 @@
-# $Id: DST.pm,v 1.9 2010/03/28 04:24:29 knowledgejunkie Exp $
+# $Id: DST.pm,v 1.10 2010/03/28 04:40:09 knowledgejunkie Exp $
 #
 # Timezone stuff, including routines to guess timezones in European
 # (and other) countries that have daylight saving time.
@@ -167,7 +167,7 @@ sub parse_local_date($$) {
 	# During summer time.
 	$summer = 1;
     }
-    elsif (Date_Cmp($dp, $end_dst_backfrom) <= 0) {
+    elsif (Date_Cmp($dp, $end_dst_backfrom) < 0) {
 #	warn("$date is ambiguous "
 #	     . "(clocks go back from $end_dst_backfrom $summer_tz to $end_dst $winter_tz), "
 #	     . "assuming $summer_tz" );
