@@ -116,9 +116,11 @@ Write xml to I<file> rather than standard output.
 
 Same as B<--days> 0
 
+=back
+
 =head1 SEE ALSO
 
-L<xmltv(5)>.
+L<xmltv>.
 
 =head1 Author
 
@@ -130,7 +132,7 @@ Author/Maintainer: Robert Eden, rmeden@yahoo.com
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_in,v 1.4 2010/01/12 05:48:24 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_in,v 1.5 2010/03/31 06:27:34 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Description 'India (Whats On)';
 use Data::Dumper;

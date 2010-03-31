@@ -28,8 +28,6 @@ of functionality that is common to all XMLTV grabbers.
 
 All these functions are exported on demand.
 
-=over 4
-
 =cut
 
 use XMLTV;
@@ -120,6 +118,8 @@ my %cap_defaults = (
 
 =head1 USAGE
 
+=over
+
 =item B<ParseOptions>
 
 ParseOptions shall be called by a grabber to parse the command-line
@@ -128,7 +128,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.17 2009/12/19 03:19:06 knowledgejunkie Exp $',
+    version => '$Id: Options.pm,v 1.18 2010/03/31 06:27:42 rmeden Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig lineups/],
     stage_sub => \&config_stage,
@@ -171,7 +171,7 @@ ParseOptions handles the following options automatically without returning:
 
 Handled automatically if the preferredmethod capability has been set and
 the preferredmethod option has been specified in the call to ParseOptions.
- 
+
 =back
 
 ParseOptions also takes care of the following options without returning,
@@ -302,7 +302,7 @@ Optional. A value to return when the grabber is called with the
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.17 2009/12/19 03:19:06 knowledgejunkie Exp $',
+    version => '$Id: Options.pm,v 1.18 2010/03/31 06:27:42 rmeden Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,
@@ -323,6 +323,8 @@ Getopt::Long (See "Storing options in a hash" in  L<Getopt::Long>).
 Optional. Default []. An arrayref containing option definitions in the
 format accepted by Getopt::Long. This can be used to support grabber-specific
 options. The use of grabber-specific options is discouraged.
+
+=back
 
 =back
 
