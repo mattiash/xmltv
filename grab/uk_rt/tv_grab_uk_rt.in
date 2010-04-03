@@ -57,7 +57,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.280 2010/04/02 05:50:14 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.281 2010/04/03 00:01:54 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -259,7 +259,7 @@ if (!$opt->{quiet}) {
 # Determine the modification time of the source data on the RT servers
 my $rt_mod_time = get_mod_time($rt_channels_uri);
 if ( $rt_mod_time ) {
-    say("\nSource data last updated on: " . $rt_mod_time . "\n");
+    say("\nSource data last updated on: " . $rt_mod_time . "\n") if (!$opt->{quiet});
     $tv_attributes{'date'} = $rt_mod_time;
 }
 
