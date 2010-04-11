@@ -136,7 +136,7 @@ END
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_fr,v 1.88 2010/03/26 15:13:39 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fr,v 1.89 2010/04/11 07:52:10 fgouget Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'France';
 use XMLTV;
@@ -1063,7 +1063,7 @@ sub process_prog_details_page( $$$ ) {
             undef $histoire;
             debug_print("        Programme summary and description match, dropping summary");
         }
-        elsif (lc($resume) =~ /$histoire/i) {
+        elsif ($resume =~ /\Q$histoire\E/i) {
             undef $histoire;
             debug_print("        Programme summary is included in description, dropping summary");
         }
