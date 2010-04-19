@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.156 2010/04/19 14:54:36 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.157 2010/04/19 17:48:50 knowledgejunkie Exp $
 #
 # NOTE: The Radio Times (and others) have copyright over the description
 #       text used in listings
@@ -1017,6 +1017,8 @@
 5|Hollywood, Here Comes Joel: A Blue Peter Special~Hollywood, Here Comes Joel: Blue Peter Special
 5|Andy's World Cup Goal: A Blue Peter Special~Andy's World Cup Goal: Blue Peter Special
 5|UB40 - Homegrown in Holland~UB40 - Homegrown in Holland
+5|Police Camera Action!~Police, Camera, Action!
+5|Murder, She Said~Murder She Said
 #
 # programme titles and programme categories (genre)
 #
