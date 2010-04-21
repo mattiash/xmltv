@@ -70,7 +70,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.283 2010/04/21 02:56:25 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.284 2010/04/21 03:04:17 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -3706,7 +3706,7 @@ sub print_uc_titles_post {
     if (%prog_titles) {
         say("\nStart of list of uppercase titles after processing");
         foreach my $title (sort keys %prog_titles) {
-            if ($title eq uc($title)) {
+            if ($title eq uc($title) && $title !~ /^\d+$/) {
                 say("  $title");
             }
         }
