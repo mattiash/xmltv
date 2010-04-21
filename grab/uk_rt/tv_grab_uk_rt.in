@@ -54,13 +54,6 @@ use HTML::Entities;
 # - include review details where available
 #
 # - ensure lang output for relevant elements
-#
-# - check whether programmes are being flagged
-#   with multiple categories (debug)
-#
-# - check for variations in a programme's title
-#   solely due to punctuation/spelling that could
-#   be corrected
 
 ###############################################
 ################## VARIABLES ##################
@@ -70,7 +63,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.285 2010/04/21 04:39:00 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.286 2010/04/21 05:24:40 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
