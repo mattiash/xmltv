@@ -60,7 +60,7 @@ with every source of anglophone TV listings.
 =cut
 
 use strict;
-use XMLTV::Version '$Id: tv_extractinfo_en,v 1.66 2010/03/28 01:59:41 knowledgejunkie Exp $ ';
+use XMLTV::Version '$Id: tv_extractinfo_en,v 1.67 2010/04/23 01:02:47 knowledgejunkie Exp $ ';
 use XMLTV::Date;
 use Date::Manip; Date_Init('TZ=UTC');
 use Carp;
@@ -252,7 +252,7 @@ sub list_names( $ ) {
     s/^($NAME_RE)\s*// or die "bad 'names' '$_'";
     push @r, $1;
 
-    while (s/^,?\s*(?:and)?\s+($NAME_RE)\s*//) {
+    while (s/^,?\s*(?:and\s+)?($NAME_RE)\s*//) {
 	push @r, $1;
     }
     die "unmatched bit of names $_" unless $_ eq '';
@@ -266,6 +266,8 @@ my @tests =
    [ 'show presented by Jonathan Ross, with', [ 'Jonathan Ross' ] ],
    [ 'Shane Richie, Michael Starke and Scott Wright',
      [ 'Shane Richie', 'Michael Starke', 'Scott Wright' ] ],
+   [ 'Basil Brush,Barney Harwood and Ugly Yetty present',
+     [ 'Basil Brush', 'Barney Harwood', 'Ugly Yetty'] ],
   );
 foreach (@tests) {
     my ($in, $expected) = @$_;
