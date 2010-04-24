@@ -1,10 +1,10 @@
-# $Id: Gunzip.pm,v 1.6 2004/01/03 14:52:53 epaepa Exp $
+# $Id: Gunzip.pm,v 1.7 2010/04/24 12:28:22 crispygoth Exp $
 
 =pod
 
 =head1 NAME
 
-    XMLTV::Gunzip - wrapper to Compress::Zlib or gzip(1)
+    XMLTV::Gunzip - Wrapper to Compress::Zlib or gzip(1)
 
 =head1 SYNOPSIS
 

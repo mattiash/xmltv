@@ -17,7 +17,7 @@ our @EXPORT_OK;
 
 =head1 NAME
 
-XMLTV::Options
+XMLTV::Options - Command-line parsing for XMLTV grabbers
 
 =head1 DESCRIPTION
 
@@ -128,7 +128,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.18 2010/03/31 06:27:42 rmeden Exp $',
+    version => '$Id: Options.pm,v 1.19 2010/04/24 12:28:22 crispygoth Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig lineups/],
     stage_sub => \&config_stage,
@@ -302,7 +302,7 @@ Optional. A value to return when the grabber is called with the
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.18 2010/03/31 06:27:42 rmeden Exp $',
+    version => '$Id: Options.pm,v 1.19 2010/04/24 12:28:22 crispygoth Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,

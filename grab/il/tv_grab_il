@@ -7,7 +7,7 @@ eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
 
 =head1 NAME
 
-tv_grab_il - Grab TV listings for Estonia.
+tv_grab_il - Grab TV listings for Israel.
 
 =head1 SYNOPSIS
 
@@ -118,7 +118,7 @@ my ($opt, $conf) = ParseOptions({
   capabilities => [qw/baseline manualconfig apiconfig/],
   stage_sub => \&config_stage,
   listchannels_sub => \&fetch_channels,
-  version => '$Id: tv_grab_il,v 1.19 2010/02/14 15:50:43 knowledgejunkie Exp $',
+  version => '$Id: tv_grab_il,v 1.20 2010/04/24 12:28:22 crispygoth Exp $',
   description => "Israel (tv.walla.co.il)"
 });
 

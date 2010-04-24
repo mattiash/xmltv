@@ -1,12 +1,12 @@
 =head1 NAME
 
-XMLTV::Version
+XMLTV::Version - Adds a --version argument to XMLTV grabbers
 
 =head1 DESCRIPTION
 
 Add a --version argument to your program, eg
 
-  use XMLTV::Version '$Id: Version.pm,v 1.2 2006/11/30 19:13:37 mattiasholmlund Exp $';
+  use XMLTV::Version '$Id: Version.pm,v 1.3 2010/04/24 12:28:22 crispygoth Exp $';
 
 If a --version parameter is supplied on the command-line, it will
 be caught already by the "use" statement, a message will be printed
