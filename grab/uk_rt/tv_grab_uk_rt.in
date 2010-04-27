@@ -63,7 +63,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.288 2010/04/27 01:28:14 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.289 2010/04/27 01:31:11 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -4030,7 +4030,7 @@ If you want the grabber to use customised local copies of the supplemental
 files, you should set XMLTV_SUPPLEMENT to the path of the directory containing
 a @@name/ directory containing the supplement files. For example, if
 your local supplement files are stored in /usr/local/share/xmltv/@@name/
-you should 'export XMLTV_SUPPLEMENT=/usr/local/share/xmltv/' before running the
+you should `export XMLTV_SUPPLEMENT="/usr/local/share/xmltv/"` before running the
 grabber.
 
 =head1 RADIO LISTINGS
