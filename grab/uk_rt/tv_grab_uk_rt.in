@@ -63,7 +63,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.287 2010/04/21 16:33:24 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.288 2010/04/27 01:28:14 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2132,6 +2132,17 @@ sub write_listings_data {
                 $explicit_tz = $1;
             }
 
+            # Remove any last-minute scheduling info inserted into regular 
+            # description that will affect later regexes.
+            if (defined $desc) {
+                $desc =~ s/\s+/ /g;
+                if ($desc =~ s/\s?(?:UPDATED|UPADTED)\s+LISTING\s?(?:-|:|@)\s?(.*)$//i) {
+                    $updated_listing_info = $1;
+                    t("  Removed updated listing information:\n"
+                      . "    '$updated_listing_info'");
+                }
+            }
+            
             # Prefer $episode over $sub_title if both given in source data.
             # Retain episode $sub_title data if $episode contains only episode
             # numbering.
@@ -3039,12 +3050,6 @@ sub write_listings_data {
             # Check episode description if present
             if (defined $desc) {
                 $desc =~ s/\s+/ /g;
-                # Remove any last-minute scheduling info inserted into description
-                if ($desc =~ s/\s?UPDATED LISTING(?:\s?:\s?|\s?-\s?|\s?)(.*)$//) {
-                    $updated_listing_info = $1;
-                    t("  Removed updated listing information from description:\n"
-                      . "    '$updated_listing_info'");
-                }
 
                 # Extract series information if seen at start or end of description
                 # "(Series one) ..."
