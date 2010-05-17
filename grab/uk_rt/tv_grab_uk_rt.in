@@ -63,7 +63,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.290 2010/04/27 02:18:26 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.291 2010/05/17 14:26:31 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -2174,6 +2174,13 @@ sub write_listings_data {
                         $year = $1;
                     }
                 }
+            }
+
+            # Remove vertical bar/colon from end of title string. The v-bar
+            # can interfere with title fixups (fixup file uses the v-bar as
+            # as delimiter
+            if ($title =~ s/([|:])$//) {
+                t("  Removed '" . $1 . "' from end of title");
             }
 
             # Title and episode processing. We process titles if the user has 
