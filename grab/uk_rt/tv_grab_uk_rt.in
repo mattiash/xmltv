@@ -45,6 +45,9 @@ use HTML::Entities;
 #   and that attempts are made to handle incorrectly
 #   flagged programmes
 #
+# - if a programme lengths is wildly wrong, override
+#   the ignoring of later programs
+#
 # - look forward more than 1 programme when
 #   looking for and correcting overlapping
 #   programmes
@@ -63,7 +66,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.292 2010/05/17 17:11:55 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.293 2010/05/24 15:46:17 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
