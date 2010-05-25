@@ -23,6 +23,11 @@ use HTML::Entities;
 #################### TODO ####################
 ##############################################
 
+# - allow renaming of title based on given title and desc
+#   (some doc series (Time Shift/Storyville) may drop the series 
+#   title and use the episode/subtitle instead as the title.
+#   This can break PVR rules.
+#
 # - refactor title processing routines to take \%prog
 #
 # - case insensitive matching during title
@@ -66,7 +71,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.293 2010/05/24 15:46:17 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.294 2010/05/25 23:31:02 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
