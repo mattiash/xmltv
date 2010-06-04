@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.363 2010/05/23 13:46:30 crispygoth Exp $
+# $Id: Makefile.PL,v 1.364 2010/06/04 17:43:36 crispygoth Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -775,7 +775,7 @@ END
 	# Guess a default value for {install} based on whether
 	# prerequisites were found.
 	#
-	$info->{install} = not $info->{exclude} && ($opt_yes || not $info->{missing});
+	$info->{install} = (not $info->{exclude}) && ($opt_yes || not $info->{missing});
 
 	print STDERR ($s, ' ' x (1 + $width - length $s),
 		      $info->{install} ? '[yes]' : '[no]',
