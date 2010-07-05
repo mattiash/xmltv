@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.38 2010/01/06 10:33:45 attila_nagy Exp $
+# $Id: tv_grab_huro.in,v 1.39 2010/07/05 22:43:05 attila_nagy Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.38 2010/01/06 10:33:45 attila_nagy Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.39 2010/07/05 22:43:05 attila_nagy Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -453,7 +453,7 @@ sub process_table( $$$$ ) {
 			if ($region eq "upper" && @programs) {
 				t "upper/lower delimiter found, setting date back to startdate ($basedate)";
 				$startdate = $basedate;
-				$lasttime = 0;
+				$lasttime = 12 * 60; # bottom row start after 18 o'clock, this gives us some safety, if the current show indicator is around
 				$currday = $baseday + $FETCHOFFSET - 1;
 				$region = "lower";
 				
