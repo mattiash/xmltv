@@ -1,6 +1,6 @@
 # utf8_fixups
 #
-# $Id: utf8_fixups,v 1.65 2010/07/23 00:33:44 knowledgejunkie Exp $
+# $Id: utf8_fixups,v 1.66 2010/07/28 01:05:30 knowledgejunkie Exp $
 #
 # This file contains fixups for mis-encoded UTF-8 characters that are 
 # frequently seen in the source data from the Radio Times.
@@ -134,6 +134,8 @@
 \x43\x61\x6C\x6C\x6F\x6F\xEF\xBF\xBD\x73|\x43\x61\x6C\x6C\x6F\x6F\x27\x73
 # "Europe's"
 \x45\x75\x72\x6F\x70\x65\xEF\xBF\xBD\x73|\x45\x75\x72\x6F\x70\x65\x27\x73
+# "Let's"
+\x4C\x65\x74\xEF\xBF\xBD\x73|\x4C\x65\x74\x27\x73
 # "Luke's"
 \x4C\x75\x6B\x65\xEF\xBF\xBD\x73|\x4C\x75\x6B\x65\x27\x73
 # "Naomi's"
