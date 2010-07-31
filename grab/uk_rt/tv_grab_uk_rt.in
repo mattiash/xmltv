@@ -59,7 +59,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.299 2010/06/29 23:43:16 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.300 2010/07/31 09:10:12 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -462,8 +462,8 @@ sub check_content_length {
             return 0;
         }
         # an empty source file containing only the RT disclaimer has a length
-        # of 307 bytes
-        elsif ($rt_file->content_length == 307) {
+        # of approx 300 bytes
+        elsif ($rt_file->content_length < 400) {
             return 0;
         }
         # reject a likely HTML error page
