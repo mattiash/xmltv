@@ -1,6 +1,6 @@
 # regional_channels_by_postcode
 #
-# $Id: regional_channels_by_postcode,v 1.18 2010/07/31 05:17:06 knowledgejunkie Exp $
+# $Id: regional_channels_by_postcode,v 1.19 2010/07/31 07:30:53 knowledgejunkie Exp $
 #
 # This file contains mappings of XMLTV IDs to postcodes for the BBC/ITV
 # regional channels, where such data is available. It also includes details
@@ -113,7 +113,7 @@ city.ie|EIRE
 #
 # Channel 9 TV (Derry/Limavady/Coleraine/Strabane, Northern Ireland)
 #
-c9tv.tv|BT47,BT48,BT49,BT51,BT52,BT82
+#c9tv.tv|BT47,BT48,BT49,BT51,BT52,BT82
 #
 # Setanta Ireland
 #
