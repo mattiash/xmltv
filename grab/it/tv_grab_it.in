@@ -71,7 +71,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.89 2010/03/28 13:18:27 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.90 2010/08/09 13:28:18 mnbjhguyt Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -129,7 +129,7 @@ my $date_today = UnixDate("today", '%Y-%m-%d');
 
 #searchch is experimental
 #my @default_backends = ('raisat', 'skylife', 'raiit', 'mtvit', 'mediasetpremium', 'iris', 'boingtv', 'searchch', 'sitcom1');
-my @default_backends = ('raisat', 'skylife', 'raiit', 'mtvit', 'mediasetpremium', 'iris', 'boingtv', 'sitcom1');
+my @default_backends = ('skylife', 'raiit', 'mediasetpremium', 'iris');
 
 
 my %channels; #to store display names
