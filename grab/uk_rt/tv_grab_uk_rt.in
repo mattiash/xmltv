@@ -52,7 +52,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.306 2010/08/01 14:17:00 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.307 2010/08/13 12:46:20 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
@@ -3338,7 +3338,8 @@ sub write_listings_data {
 
             # Occasionally film listings contain the title duplicated in the 
             # $episode field, so we remove it here
-            if ($prog{'_film'} && uc $prog{'_title'} eq uc $prog{'_episode'}) {
+            if ($prog{'_film'} && defined $prog{'_episode'} 
+                               && (uc $prog{'_title'} eq uc $prog{'_episode'})) {
                 $prog{'_episode'} = undef;
             }
 
