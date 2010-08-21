@@ -1,6 +1,5 @@
 #!/usr/bin/perl -w
 
-use warnings;
 use strict;
 use XMLTV::ProgressBar;
 use XMLTV::Memoize; XMLTV::Memoize::check_argv('get_octets');
@@ -52,7 +51,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.308 2010/08/16 01:26:44 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.309 2010/08/21 22:20:29 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ( $grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)! ) {
