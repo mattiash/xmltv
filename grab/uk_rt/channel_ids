@@ -1,6 +1,6 @@
 # channel_ids
 #
-# $Id: channel_ids,v 1.170 2010/08/09 09:48:31 knowledgejunkie Exp $
+# $Id: channel_ids,v 1.171 2010/08/26 05:13:46 knowledgejunkie Exp $
 #
 # This file maps Radio Times channel IDs to XMLTV IDs for use with the
 # tv_grab_uk_rt XMLTV grabber. One channel entry per line. Comments are allowed 
@@ -189,6 +189,7 @@ tsod.plus-1.mtv.co.uk|202|MTV +1|http://www.lyngsat-logo.com/logo/tv/mm/mtv_uk.j
 tsod.plus-1.nationalgeographic.co.uk|213|National Geographic +1|http://www.lyngsat-logo.com/logo/tv/nn/natgeochannel_plus1.jpg|+1hour||SDTV
 tsod.plus-1.playhouse.disney.co.uk|421|Playhouse Disney +1|http://www.lyngsat-logo.com/logo/tv/dd/disney_playhouse.jpg|+1hour||SDTV
 tsod.plus-1.quest.discoveryeurope.com|2179|Quest +1|http://www.lyngsat-logo.com/logo/tv/qq/quest.jpg|+1hour||SDTV
+tsod.plus-1.sky-three.sky.com|1963|Sky3 +1|http://www.lyngsat-logo.com/logo/tv/ss/sky_three.jpg|+1hour||SDTV
 tsod.plus-1.premiere.movies.sky.com|249|Sky Movies Premiere +1|http://www.lyngsat-logo.com/logo/tv/ss/sky_uk_movies_premiere_plus1.jpg|+1hour||SDTV
 tsod.plus-1.reallives.sky.com|266|Sky Real Lives +1|http://www.lyngsat-logo.com/logo/tv/ss/sky_real_lives_plus1.jpg|+1hour||SDTV
 tsod.plus-1.uk.syfy.com|2212|Syfy +1|http://www.lyngsat-logo.com/logo/tv/ss/syfy.jpg|+1hour||SDTV
