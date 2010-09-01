@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.365 2010/06/04 18:24:24 rmeden Exp $
+# $Id: Makefile.PL,v 1.366 2010/09/01 08:27:06 knowledgejunkie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -1272,6 +1272,9 @@ sub targets( $ ) {
 	    # Commands for the target.
 	    push @$curr_target, $_;
 	}
+        elsif (/^$/) {
+            # Blank lines are legal in a target definition
+        }
 	elsif (/^\s*(?:\#.*)?$/) {
 	    undef $curr_target;
 	}
