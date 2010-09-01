@@ -69,7 +69,7 @@ Originally based on tv_grab_fi by Matti Airas.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_nl,v 1.72 2010/09/01 08:02:18 knowledgejunkie Exp $ ';
+use XMLTV::Version '$Id: tv_grab_nl,v 1.73 2010/09/01 08:05:22 knowledgejunkie Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Holland';
 use Getopt::Long;
@@ -164,9 +164,6 @@ if( defined $opt_days && ( $opt_days < 1 || $opt_days + $opt_offset > 7 ) ) {
 	print '!! Days must be between 1-7, using default (7)',"\n";
 	$opt_days = 7 - $opt_offset;
 }
-
-# Days excludes the current day
-$opt_days--;
 
 usage(1) if $opt_help;
 
@@ -326,7 +323,7 @@ my @to_get;
 
 # We now fetch a complete page per channel
 # This page contains all the program links for the specified days
-for( my $i = $opt_offset; $i <= $opt_days && $i < 7; $i++ )
+for( my $i = $opt_offset; $i < ($opt_days+$opt_offset); $i++ )
 {
     foreach $ch_did (@channels) {
         my $ch_xid = "$ch_did.tvgids.nl";
