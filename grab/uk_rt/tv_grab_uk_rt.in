@@ -52,7 +52,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.314 2010/08/26 06:27:09 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.315 2010/09/01 05:50:16 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -65,6 +65,7 @@ else {
 # Set up LWP::UserAgent
 my $ua = LWP::UserAgent->new;
 $ua->agent("xmltv/$XMLTV::VERSION");
+$ua->env_proxy;
 
 # Lineup writer
 my $lineup_writer;
