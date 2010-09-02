@@ -83,7 +83,7 @@ The data source may not suit recommended XMLTV DTD format.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_jp,v 1.12 2006/04/12 08:19:16 fgouget Exp $ ';
+use XMLTV::Version '$Id: tv_grab_jp,v 1.13 2010/09/02 05:07:40 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Japan';
 use Getopt::Long;
@@ -120,7 +120,7 @@ END
 my $HEAD = { 'source-info-url'     => 'http://www.ontvjapan.com/',
 	     'source-data-url'     => "http://www.ontvjapan.com/program/",
 	     'generator-info-name' => 'XMLTV',
-	     'generator-info-url'  => 'http://membled.com/work/apps/xmltv/',
+	     'generator-info-url'  => 'http://xmltv.org/',
 	   };
 
 # The timezone in Japan.

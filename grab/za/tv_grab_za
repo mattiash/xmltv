@@ -70,7 +70,7 @@ Does not automatically update itself, when DSTV changes their site
 
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_za,v 1.38 2010/01/12 21:43:56 igitur Exp $ ';
+use XMLTV::Version '$Id: tv_grab_za,v 1.39 2010/09/02 05:07:40 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'South Africa';
 
@@ -117,7 +117,7 @@ END
 my $HEAD = { 'source-info-url'	 => 'http://www.dstv.com/',
 			 'source-data-url'	 => "http://www.dstv.com/dstv-guide/default.asp",
 			 'generator-info-name' => 'XMLTV',
-			 'generator-info-url'  => 'http://membled.com/work/apps/xmltv/',
+			 'generator-info-url'  => 'http://xmltv.org/',
 		   };
 
 # The timezone in South Africa.

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# $Id: tv_grab_br_net,v 1.20 2008/07/23 02:43:27 b4max Exp $
+# $Id: tv_grab_br_net,v 1.21 2010/09/02 05:07:40 rmeden Exp $
 
 =pod
 
@@ -129,7 +129,7 @@ my constant $retry_sleep = 10;
 my constant $lang = 'pt_BR';
 my constant $maxrating = 5; # maximum star-rating
 
-my $rev = q$Revision: 1.20 $; # set from CVS-revision
+my $rev = q$Revision: 1.21 $; # set from CVS-revision
 $rev =~ s|^.*?(\d+(\.\d+)+).*?$|sprintf("%d." . "%s" x9, map sprintf("%03d", $_), split /\./, $1)|e;
 
 # XML-encoding
@@ -146,7 +146,7 @@ my ($opt, $conf) = ParseOptions( {
     capabilities => [qw(baseline manualconfig tkconfig apiconfig)],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_br_net,v 1.20 2008/07/23 02:43:27 b4max Exp $',
+    version => '$Id: tv_grab_br_net,v 1.21 2010/09/02 05:07:40 rmeden Exp $',
     description => "Brazil (NET)",
     extra_options => [ "slow"    => \$slow,
 		       "fast"    => \$fast,
@@ -604,7 +604,7 @@ sub build_writer {
     # write header
     $writer->start( {
 	'generator-info-name'  => "$grabbername/$rev",
-	'generator-info-url'   => 'http://membled.com/work/apps/xmltv/',
+	'generator-info-url'   => 'http://xmltv.org/',
 	'source-data-url'      => "$base/NETServ/br/prog/canais.jsp?$pname_sel=$conf->{selection}->[0]",
 	'source-info-url'      => "$base/",
 	'source-info-name'     => 'NET website',

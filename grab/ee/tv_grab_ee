@@ -64,7 +64,7 @@ B<--list-channels> Write output giving <channel> elements for every
 channel available (ignoring the config file), but no programmes.
 
 B<--capabilities> Show which capabilities the grabber supports. For more
-information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
+information, see L<http://wiki.xmltv.org/index.php/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
@@ -143,7 +143,7 @@ my ($opt, $conf) = ParseOptions({
 	stage_sub		=> \&config_stage,
 	listchannels_sub	=> \&list_channels,
 	load_old_config_sub	=> \&load_old_config,
-	version			=> '$Id: tv_grab_ee,v 1.14 2010/04/07 04:29:01 knowledgejunkie Exp $',
+	version			=> '$Id: tv_grab_ee,v 1.15 2010/09/02 05:07:40 rmeden Exp $',
 	description		=> "Estonia (www.kava.ee)",
 	defaults		=> { days => -999 },	# all days
 	preferredmethod		=> 'allatonce',
@@ -208,7 +208,7 @@ foreach my $channel_id (@{$conf->{channel}}) {
                         # correct invalid channel ID
                         $xmlstr =~ s/channel=\"\d+\.xmltv\.kava\.ee\"/channel="$channel_id"/g;
 			my $data = XMLTV::parse($xmlstr);
-                        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.14 2010/04/07 04:29:01 knowledgejunkie Exp $';
+                        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.15 2010/09/02 05:07:40 rmeden Exp $';
                         $data->[1]{'generator-info-url'} = 'mailto:cougar@random.ee';
 			push @alldata, $data;
 		}
@@ -284,7 +284,7 @@ sub fetch_channels
 		or die 'Failed to fetch ' . $conf->{'root-url'}->[0] . '/channels.xml.gz';
 	my $xmlstr = Compress::Zlib::memGunzip(\$compressed);
 	my $data = XMLTV::parse($xmlstr);
-        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.14 2010/04/07 04:29:01 knowledgejunkie Exp $';
+        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.15 2010/09/02 05:07:40 rmeden Exp $';
         $data->[1]{'generator-info-url'} = 'mailto:cougar@random.ee';
 	return @$data;
 }

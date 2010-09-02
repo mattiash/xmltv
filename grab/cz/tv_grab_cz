@@ -57,7 +57,7 @@ B<--list-channels>    Output a list of all channels that data is available
                       for. The list is in xmltv-format.
 
 B<--capabilities> Show which capabilities the grabber supports. For more
-information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
+information, see L<http://wiki.xmltv.org/index.php/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
@@ -111,7 +111,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/baseline manualconfig tkconfig apiconfig cache/],
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
-    version => '$Id: tv_grab_cz,v 1.8 2006/04/12 08:19:15 fgouget Exp $',
+    version => '$Id: tv_grab_cz,v 1.9 2010/09/02 05:07:40 rmeden Exp $',
     description => "The Czech Republic (www.webstep.net)",
 } );
 

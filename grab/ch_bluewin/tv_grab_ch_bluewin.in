@@ -58,7 +58,7 @@ B<--list-channels> Write output giving <channel> elements for every
 channel available (ignoring the config file), but no programmes.
 
 B<--capabilities> Show which capabilities the grabber supports. For more
-information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
+information, see L<http://wiki.xmltv.org/index.php/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
@@ -86,7 +86,7 @@ use warnings;
 use strict;
 use Time::Local;
 use Date::Manip;
-use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.5 2006/11/30 09:02:38 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_bluewin.in,v 1.6 2010/09/02 05:07:40 rmeden Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache share/;
 use XMLTV::Description 'Switzerland (www.bluewin.ch)';
 use Getopt::Long;
@@ -143,7 +143,7 @@ my $head = {
     'source-data-url'      => 'http://epg.sso.bluewin.ch/de/index.php/channelview/',
     'source-info-url'      => 'http://epg.sso.bluewin.ch/de/detailview.php?action=DetailView&BroadcastID=',
     'generator-info-name'  => 'XMLTV',
-    'generator-info-url'   => 'http://membled.com/work/apps/xmltv/',
+    'generator-info-url'   => 'http://xmltv.org/',
 };
 
 my @groupid = ('10','11','12','13','14','15','16','17','18','20','22','25');

@@ -3,7 +3,7 @@
 eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
     if 0; # not running under some shell
 
-# $Id: tv_grab_dk_dr,v 1.6 2010/04/16 10:26:47 thh Exp $
+# $Id: tv_grab_dk_dr,v 1.7 2010/09/02 05:07:40 rmeden Exp $
 
 =pod
 
@@ -56,7 +56,7 @@ B<--quiet> Suppress the progress messages normally written to standard
 error.
 
 B<--capabilities> Show which capabilities the grabber supports. For more
-information, see L<http://membled.com/twiki/bin/view/Main/XmltvCapabilities>
+information, see L<http://wiki.xmltv.org/index.php/XmltvCapabilities>
 
 B<--version> Show the version of the grabber.
 
@@ -131,7 +131,7 @@ sub main()
 	stage_sub => \&config_stage,
 	listchannels_sub => \&list_channels,
 	#load_old_config_sub => \&load_old_config,
-	version => '$Id: tv_grab_dk_dr,v 1.6 2010/04/16 10:26:47 thh Exp $',
+	version => '$Id: tv_grab_dk_dr,v 1.7 2010/09/02 05:07:40 rmeden Exp $',
 	description => "TV Oversigten fra Danmarks Radios ".
 	    "(www.dr.dk/tjenester/programoversigt)",
 				      } );

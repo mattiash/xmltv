@@ -132,7 +132,7 @@ ask.  The Windows executable distribution was created by Robert Eden;
 for details of the many contributors to the project please download
 the source code.
 
-There is a web page at <http://membled.com/work/apps/xmltv/> and a
+There is a web page at <http://xmltv.org/> and a
 Sourceforge project 'XMLTV', where you can download the source code.
 Sourceforge also hosts the following mailing lists
     xmltv-announce - low volume announcements. Please join this at least.
@@ -140,4 +140,4 @@ Sourceforge also hosts the following mailing lists
     xmltv-devel    - detailed discussions among developers
 
 -- Robert Eden, rmeden@yahoo.com, 2010-04-18
-$Id: README.win32,v 1.88 2010/04/19 15:09:52 knowledgejunkie Exp $
+$Id: README.win32,v 1.89 2010/09/02 05:07:39 rmeden Exp $

@@ -1,5 +1,5 @@
 # -*- perl -*-
-# $Id: XMLTV.pm.in,v 1.147 2010/04/19 04:52:12 rmeden Exp $
+# $Id: XMLTV.pm.in,v 1.148 2010/09/02 05:07:40 rmeden Exp $
 package XMLTV;
 
 use strict;
@@ -2592,7 +2592,7 @@ the xmltv package along with this module.  It should be installed in
 your systemE<39>s standard place for SGML and XML DTDs.
 
 The xmltv package has a web page at
-<http://membled.com/work/apps/xmltv/> which carries
+<http://xmltv.org/> which carries
 information about the file format and the various tools and apps which
 are distributed with this module.
 
