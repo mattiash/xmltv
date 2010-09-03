@@ -108,6 +108,7 @@ use LWP;
 my $ua;
 $ua = LWP::UserAgent->new();
 $ua->agent("xmltv/$XMLTV::VERSION");
+$ua->env_proxy();
 
 use HTTP::Cache::Transparent;
 
@@ -128,7 +129,7 @@ my( $opt, $conf ) = ParseOptions( {
     stage_sub => \&config_stage,
     listchannels_sub => \&list_channels,
     load_old_config_sub => \&load_old_config,
-    version => '$Id: tv_grab_se_swedb.in,v 1.6 2010/08/08 19:09:08 mattiasholmlund Exp $',
+    version => '$Id: tv_grab_se_swedb.in,v 1.7 2010/09/03 20:23:09 mattiasholmlund Exp $',
     description => "@@desc",
 
 } );
