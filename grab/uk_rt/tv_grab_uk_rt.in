@@ -52,7 +52,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.315 2010/09/01 05:50:16 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.316 2010/09/04 10:28:44 dekarl Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -4196,7 +4196,7 @@ B<--version> Show the versions of the XMLTV libraries, the grabber and of
 key modules used for processing listings.
 
 B<--capabilities> Show which capabilities the grabber supports. For more
-information, see L<http://xmltv.org/wiki/xmltvcapabilities.html>
+information, see L<http://wiki.xmltv.org/index.php/XmltvCapabilities>
 
 B<--description> Show a brief description of the grabber.
 
@@ -4392,7 +4392,7 @@ Since 2007 the maintainer has been Nick Morrott (knowledgejunkie at gmail dot co
 
 The original author was Ed Avis (ed at membled dot com). Parts of this code
 were copied from tv_grab_se_swedb by Mattias Holmlund, and from the XMLTV
-wiki L<http://www.xmltv.org/wiki/>. Regional postcode information was kindly
+wiki L<http://wiki.xmltv.org/>. Regional postcode information was kindly
 made available from L<http://www.ukfree.tv>.
 
 =cut
