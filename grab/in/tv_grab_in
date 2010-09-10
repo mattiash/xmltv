@@ -139,7 +139,7 @@ Author/Maintainer: Robert Eden, rmeden@yahoo.com
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_in,v 1.8 2010/09/04 10:28:44 dekarl Exp $ ';
+use XMLTV::Version '$Id: tv_grab_in,v 1.9 2010/09/10 13:41:59 dekarl Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Description 'India (Whats On)';
 use Data::Dumper;
@@ -483,7 +483,8 @@ $guide_data=get_nice_gzip(
     if (defined $opt_output){
         open(STDOUT,">$opt_output") or die "ERROR: cannot write to $opt_output\n";
     }
-    print '<tv source-info-url="http://zipazap.com/" source-info-name="Whats on India" generator-info-name="XMLTV/$Id: tv_grab_in," generator-info-url="http://www.xmltv.org/">'."\n";
+    print '<?xml version="1.0" encoding="utf-8"?>'."\n";
+    print '<tv source-info-url="http://zipazap.com/" source-info-name="Whats on India" generator-info-name="XMLTV/$Id: tv_grab_in,v 1.9 2010/09/10 13:41:59 dekarl Exp $" generator-info-url="http://www.xmltv.org/">'."\n";
 
 #
 # ok, let's walk through the data
