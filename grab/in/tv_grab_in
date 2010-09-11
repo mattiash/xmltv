@@ -139,9 +139,10 @@ Author/Maintainer: Robert Eden, rmeden@yahoo.com
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_in,v 1.10 2010/09/11 09:19:53 dekarl Exp $ ';
-use XMLTV::Capabilities qw/baseline manualconfig/;
+use XMLTV::Version '$Id: tv_grab_in,v 1.11 2010/09/11 09:30:19 dekarl Exp $ ';
+use XMLTV::Capabilities qw/baseline manualconfig preferredmethod/;
 use XMLTV::Description 'India (Whats On)';
+use XMLTV::PreferredMethod 'allatonce';
 use Data::Dumper;
 use Date::Manip;
 use Getopt::Long;
@@ -484,7 +485,7 @@ $guide_data=get_nice_gzip(
         open(STDOUT,">$opt_output") or die "ERROR: cannot write to $opt_output\n";
     }
     print '<?xml version="1.0" encoding="utf-8"?>'."\n";
-    print '<tv source-info-url="http://zipazap.com/" source-info-name="Whats on India" generator-info-name="XMLTV/$Id: tv_grab_in,v 1.10 2010/09/11 09:19:53 dekarl Exp $" generator-info-url="http://www.xmltv.org/">'."\n";
+    print '<tv source-info-url="http://zipazap.com/" source-info-name="Whats on India" generator-info-name="XMLTV/$Id: tv_grab_in,v 1.11 2010/09/11 09:30:19 dekarl Exp $" generator-info-url="http://www.xmltv.org/">'."\n";
 
 #
 # set up start and stop filter (aka earliest start time and latest start time)
