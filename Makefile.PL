@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.369 2010/09/25 06:21:04 dekarl Exp $
+# $Id: Makefile.PL,v 1.370 2010/09/25 07:59:42 dekarl Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -624,6 +624,11 @@ my @opt_components
      { name => 'tv_grab_pt_meo',
        blurb => 'Grabber for Portugal (MEO)',
        exes => [ 'grab/pt_meo/tv_grab_pt_meo' ],
+       prereqs => { 'CGI' => 0,
+                    'DateTime' => 0,
+                    'XML::LibXML' => 0,
+                    'LWP' => 0,
+                  },
      },
 
      { name => 'tv_grab_za',
