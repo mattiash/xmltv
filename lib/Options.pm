@@ -128,7 +128,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.19 2010/04/24 12:28:22 crispygoth Exp $',
+    version => '$Id: Options.pm,v 1.20 2010/10/01 16:17:27 dekarl Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig lineups/],
     stage_sub => \&config_stage,
@@ -302,7 +302,7 @@ Optional. A value to return when the grabber is called with the
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.19 2010/04/24 12:28:22 crispygoth Exp $',
+    version => '$Id: Options.pm,v 1.20 2010/10/01 16:17:27 dekarl Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,
@@ -438,14 +438,15 @@ sub ParseOptions
 
     if( defined( $opt->{output} ) )
     {
-	if( not open( $fd, "> $opt->{output}" ) )
+	# Redirect STDOUT to the file.
+	if( not open( STDOUT, "> $opt->{output}" ) )
 	{
 	    print STDERR "Cannot write to $opt->{output}.";
 	    exit 1;
 	}
 	
-	# Redirect STDOUT to the file.
-	select( $fd );
+        # Redirect default output to STDOUT
+	select( STDOUT );
     }
 
     if( $opt->{configure} )

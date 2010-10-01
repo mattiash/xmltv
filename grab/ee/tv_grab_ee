@@ -140,7 +140,7 @@ my ($opt, $conf) = ParseOptions({
         stage_sub               => \&config_stage,
         listchannels_sub        => \&list_channels,
         load_old_config_sub     => \&load_old_config,
-        version                 => '$Id: tv_grab_ee,v 1.17 2010/09/04 07:06:43 knowledgejunkie Exp $',
+        version                 => '$Id: tv_grab_ee,v 1.18 2010/10/01 16:17:27 dekarl Exp $',
         description             => "Estonia (www.kava.ee)",
         defaults                => { days => -999 },	# all days
         preferredmethod         => 'allatonce',
@@ -205,7 +205,7 @@ foreach my $channel_id (@{$conf->{channel}}) {
                         # correct invalid channel ID
                         $xmlstr =~ s/channel=\"\d+\.xmltv\.kava\.ee\"/channel="$channel_id"/g;
 			my $data = XMLTV::parse($xmlstr);
-                        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.17 2010/09/04 07:06:43 knowledgejunkie Exp $';
+                        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.18 2010/10/01 16:17:27 dekarl Exp $';
                         $data->[1]{'generator-info-url'} = 'mailto:cougar@random.ee';
 			push @alldata, $data;
 		}
@@ -222,13 +222,6 @@ if (($opt->{offset} != 0) || ($opt->{days} != -999)) {
 	$w_args{offset} = $opt->{offset};
 	$w_args{days} = ($opt->{days} == -999) ? 100 : $opt->{days};
 	$w_args{cutoff} = '000000';
-}
-
-# XML::Writer doesn't use default output but STDOUT directly if not specified.
-# In case of --output option, select() returns $XMLTV::Options::fd
-if (defined $opt->{output}) {
-	my $fd = select();		# in case of --output option, this
-	$w_args{OUTPUT} = $fd;		# is $XMLTV::Options::fd
 }
 
 my $data;
@@ -281,7 +274,7 @@ sub fetch_channels
 		or die 'Failed to fetch ' . $conf->{'root-url'}->[0] . '/channels.xml.gz';
 	my $xmlstr = Compress::Zlib::memGunzip(\$compressed);
 	my $data = XMLTV::parse($xmlstr);
-        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.17 2010/09/04 07:06:43 knowledgejunkie Exp $';
+        $data->[1]{'generator-info-name'} = '$Id: tv_grab_ee,v 1.18 2010/10/01 16:17:27 dekarl Exp $';
         $data->[1]{'generator-info-url'} = 'mailto:cougar@random.ee';
 	return @$data;
 }

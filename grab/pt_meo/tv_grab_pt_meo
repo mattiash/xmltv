@@ -114,7 +114,7 @@ my( $opt, $conf ) = ParseOptions( {
     capabilities => [qw/apiconfig baseline manualconfig preferredmethod/],
     listchannels_sub => \&list_channels,
     stage_sub => \&config_stage,
-    version => '$Id: tv_grab_pt_meo,v 1.2 2010/09/25 07:59:42 dekarl Exp $',
+    version => '$Id: tv_grab_pt_meo,v 1.3 2010/10/01 16:17:27 dekarl Exp $',
     description => "Portugal (MEO)",
     preferredmethod => 'allatonce',
     defaults => { days => $maxdays, offset => 0, quiet => 0, debug => 0 },
@@ -171,16 +171,9 @@ my %w_args = (
     offset => $opt->{offset}
 );
 
-# FIXME everybody and their mom handle --output themselfes, why???
-if (defined $opt->{output}) {
-    my $fh = new IO::File(">$opt->{output}");
-    die "cannot write to $opt->{output}: $!" if not defined $fh;
-    $w_args{OUTPUT} = $fh;
-}
-
 my $writer = new XMLTV::Writer( %w_args );
 $writer->start({
-    'generator-info-name' => 'XMLTV/$Id: tv_grab_pt_meo,v 1.2 2010/09/25 07:59:42 dekarl Exp $',
+    'generator-info-name' => 'XMLTV/$Id: tv_grab_pt_meo,v 1.3 2010/10/01 16:17:27 dekarl Exp $',
     'generator-info-url' => 'http://www.xmltv.org/',
     'source-info-name' => 'SAPO EPG Service for MEO',
     'source-info-url' => 'http://services.sapo.pt/Metadata/Service/EPG?culture=EN',
