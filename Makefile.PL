@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.371 2010/10/01 17:49:29 dekarl Exp $
+# $Id: Makefile.PL,v 1.372 2010/10/01 18:18:21 dekarl Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -620,7 +620,6 @@ my @opt_components
        blurb => 'Grabber for Portugal',
        exes => [ 'grab/pt/tv_grab_pt' ],
        prereqs => { 'HTML::TreeBuilder' => 0,
-		    'Unicode::UTF8simple' => 0,
 		  }
      },
 
@@ -641,7 +640,7 @@ my @opt_components
                     'HTML::Entities' => 1.27 } },
 
      { name => 'tv_grab_eu_epgdata',
-       blurb => 'Grabber for some European countries (epgdata.com)',
+       blurb => '$$ Grabber for some European countries (epgdata.com)',
        exes => [ 'grab/eu_epgdata/tv_grab_eu_epgdata' ],
        share_files => { 'grab/eu_epgdata/channel_ids' => 'tv_grab_eu_epgdata/channel_ids' },
        prereqs => { 'XML::Twig' => 0,
