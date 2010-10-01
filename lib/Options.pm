@@ -2,7 +2,6 @@ package XMLTV::Options;
 
 use strict;
 use warnings;
-use vars qw($fd);
 
 BEGIN {
     use Exporter   ();
@@ -35,8 +34,6 @@ use XMLTV::Configure qw/LoadConfig Configure SelectChannelsStage/;
 
 use Getopt::Long;
 use Carp qw/croak/;
-use IO::Wrap qw/wraphandle/;
-use IO::Scalar;
 
 my %cap_options = (
 		   all => [qw/
@@ -128,7 +125,7 @@ The entries in the hash configure the behaviour of ParseOptions.
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.20 2010/10/01 16:17:27 dekarl Exp $',
+    version => '$Id: Options.pm,v 1.21 2010/10/01 17:49:30 dekarl Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig lineups/],
     stage_sub => \&config_stage,
@@ -302,7 +299,7 @@ Optional. A value to return when the grabber is called with the
 
   my( $opt, $conf ) = ParseOptions( {
     grabber_name => 'tv_grab_test',
-    version => '$Id: Options.pm,v 1.20 2010/10/01 16:17:27 dekarl Exp $',
+    version => '$Id: Options.pm,v 1.21 2010/10/01 17:49:30 dekarl Exp $',
     description => 'Sweden (tv.swedb.se)',
     capabilities => [qw/baseline manualconfig apiconfig preferredmethod/],
     stage_sub => \&config_stage,
