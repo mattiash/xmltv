@@ -77,7 +77,7 @@ backwards compatibility.
 
 =cut
 use strict;
-use XMLTV::Version '$Id: tv_grab_is,v 1.20 2010/09/29 08:08:29 dekarl Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.21 2010/10/02 15:41:18 dekarl Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Iceland';
 use Getopt::Long;
@@ -503,10 +503,10 @@ sub process_ruv_is ( $$$$$$ ){
             <xsl:copy-of select="." />
         </xsl:template>
 
-        <!-- Two matches for <category>. FIXME -->
+        <!-- Two matches for <category>. With funky lookup as explained at http://www.ibm.com/developerworks/library/x-xsltip.html#h2 -->
         <xsl:template match="category[\@value]">
             <category>
-                <xsl:variable name="category_value" select="\@value"/>
+                <xsl:variable name="category_value"><xsl:value-of select="\@value" /></xsl:variable>
                 <xsl:value-of select="document('')/*/data:category/entry[\@key = \$category_value]"/>
              </category>
         </xsl:template>
