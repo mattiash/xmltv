@@ -3,7 +3,7 @@
 eval 'exec /usr/bin/perl -w -S $0 ${1+"$@"}'
     if 0; # not running under some shell
 
-# $Id: tv_grab_dk_dr,v 1.7 2010/09/02 05:07:40 rmeden Exp $
+# $Id: tv_grab_dk_dr,v 1.8 2010/10/04 20:54:13 dekarl Exp $
 
 =pod
 
@@ -81,6 +81,7 @@ use XMLTV::Options qw/ParseOptions/;
 use XMLTV::Configure::Writer;
 
 use Data::Dumper;
+use IO::Scalar;
 use Parse::RecDescent;
 use LWP;
 
@@ -131,7 +132,7 @@ sub main()
 	stage_sub => \&config_stage,
 	listchannels_sub => \&list_channels,
 	#load_old_config_sub => \&load_old_config,
-	version => '$Id: tv_grab_dk_dr,v 1.7 2010/09/02 05:07:40 rmeden Exp $',
+	version => '$Id: tv_grab_dk_dr,v 1.8 2010/10/04 20:54:13 dekarl Exp $',
 	description => "TV Oversigten fra Danmarks Radios ".
 	    "(www.dr.dk/tjenester/programoversigt)",
 				      } );

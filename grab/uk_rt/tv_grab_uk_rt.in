@@ -17,6 +17,7 @@ use HTTP::Cache::Transparent;
 use Encode qw/decode encode/;
 use Date::Manip;
 use HTML::Entities;
+use IO::Scalar; # used for configuration to write channels to string
 
 ##############################################
 #################### TODO ####################
@@ -51,7 +52,7 @@ use HTML::Entities;
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.317 2010/09/04 21:13:15 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.318 2010/10/04 20:54:13 dekarl Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
