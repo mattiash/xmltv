@@ -75,7 +75,7 @@ my $DEF_LANG = 'eng';
 use warnings;
 use strict;
 
-use XMLTV::Version '$Id: tv_grab_it.in,v 1.93 2010/09/14 21:56:14 mnbjhguyt Exp $';
+use XMLTV::Version '$Id: tv_grab_it.in,v 1.94 2010/10/14 07:53:10 dekarl Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Italy';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -799,6 +799,8 @@ sub tidy($) {
     s/^\s*//;
     # Remove trailing white space
     s/\s*$//;
+    # FIXME handle a with a grave accent encoded as utf-8 (fallout from LWP::Simple?)
+    s/\xc3\xa0/\xe0/g;
     return decode_entities($_);
     }
 }
