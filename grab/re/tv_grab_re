@@ -64,7 +64,8 @@ END
 
 use warnings;
 use strict;
-use XMLTV::Version '$Id: tv_grab_re,v 1.23 2010/09/04 06:04:48 rmeden Exp $ ';
+use utf8;
+use XMLTV::Version '$Id: tv_grab_re,v 1.24 2010/10/14 07:19:21 dekarl Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig/;
 use XMLTV::Description 'Reunion Island';
 use Getopt::Long;
