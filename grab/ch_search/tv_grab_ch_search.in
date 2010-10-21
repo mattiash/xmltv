@@ -86,7 +86,7 @@ use strict;
 use Date::Manip;
 use LWP::Simple;
 use HTTP::Cookies;
-use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.10 2010/10/21 08:20:49 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.11 2010/10/21 22:54:14 betlit Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Switzerland (tv.search.ch)';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -366,6 +366,7 @@ sub channel_id($) {
 	#$_ = "C$_" if /^\d/;
 	#return $_;
     #}
+    $s =~ s|^tv_||;
     return "$s.search.ch"
 }
 
@@ -402,7 +403,7 @@ sub grab_channels
     foreach ( $_->look_down('_tag' => 'tr', sub { ($_[0]->as_HTML() =~ m{tv_b_}) && !($_[0]->as_HTML() =~ m{tv_before})  && !($_[0]->as_HTML() =~ m{tv_timegroup}) } ) )
     {
      my %show;
-     $show{channel} = channel_id($channel_id) ."\n";
+     $show{channel} = channel_id($channel_id);
      my $tmp = substr($grabDate,0,4) . substr($grabDate,4,2) .  substr($grabDate,6,2) .(($_->look_down('_tag', 'td'))[0])->as_text();
      $tmp =~ s/://;
      my $start = "$tmp"."00 $TZ";
