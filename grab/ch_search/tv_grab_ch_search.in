@@ -86,7 +86,7 @@ use strict;
 use Date::Manip;
 use LWP::Simple;
 use HTTP::Cookies;
-use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.12 2010/10/22 14:07:53 betlit Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ch_search.in,v 1.13 2010/10/23 10:51:20 dekarl Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Switzerland (tv.search.ch)';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -341,7 +341,7 @@ my $url=$head->{q(source-data-url)};
 
 	
 my $ua = LWP::UserAgent->new(keep_alive => 300);	
-$ua->cookie_jar(HTTP::Cookies->new(file => "lwpcookies.txt", autosave => 1));
+$ua->cookie_jar(HTTP::Cookies->new());
 $ua->agent("xmltv/$XMLTV::VERSION");
 $ua->env_proxy;
 	
@@ -349,7 +349,9 @@ my $req = HTTP::Request->new(POST => $url);
 $req->content_type('application/x-www-form-urlencoded');
 $req->content(substr ( $paramstr, 1));
 
-my $res = $ua->request($req);
+# FIXME what is this request doing? It fills the cookie jar
+$ua->request($req);
+$ua->request($req);
 
 ## write out <programme> tags
 grab_channels();
