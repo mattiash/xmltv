@@ -111,7 +111,7 @@ use Time::HiRes;
 use IO::Select;
 
 
-use XMLTV::Version '';
+use XMLTV::Version '$Id: tv_grab_it_dvb.in,v 1.4 2010/11/01 17:59:29 dekarl Exp $';
 #use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'SkyEPG Italy';
 use XMLTV::Supplement qw/GetSupplement/;

@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.373 2010/10/21 21:06:18 dekarl Exp $
+# $Id: Makefile.PL,v 1.374 2010/11/01 17:59:28 dekarl Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -426,9 +426,10 @@ my @opt_components
        to_clean => [ 'grab/it_dvb/tv_grab_it_dvb' ],
        deps => [ 'grab/it_dvb/tv_grab_it_dvb' => [ 'grab/it_dvb/tv_grab_it_dvb.in' ] ],
        grab_need_share => [ 'it_dvb' ],
-       prereqs => { 'Linux::DVB' => 0, 
-                    'Time::HiRes' => 0,
-                    'IO::Select' => 0 } ,
+       prereqs => { 'Data::Dump' => 0,
+                    'IO::Select' => 0,
+                    'Linux::DVB' => 0, 
+                    'Time::HiRes' => 0 } ,
      },
 
      { name     => 'tv_grab_in',
