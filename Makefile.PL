@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.374 2010/11/01 17:59:28 dekarl Exp $
+# $Id: Makefile.PL,v 1.375 2010/11/04 19:42:18 dekarl Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -468,6 +468,16 @@ my @opt_components
        blurb => 'Grabber for Finland',
        exes => [ 'grab/fi/tv_grab_fi' ],
        prereqs => { 'HTML::TreeBuilder' => 0 } },
+
+     { name     => 'tv_grab_fi_sv',
+       blurb    => 'Grabber for Finland (Swedish)',
+       exes     => [ 'grab/fi_sv/tv_grab_fi_sv' ],
+       prereqs  => {
+                     'Date::Manip' => 6.00,
+                     'IO::Stringy' => 0,
+                     'XML::LibXML' => 0,
+          },
+     },
 
 # 2009-03-08 removed due to breakage after source site changes
 #     { name => 'tv_grab_es',
