@@ -202,7 +202,7 @@ my ($opt, $conf) = ParseOptions(
      capabilities => [qw/baseline manualconfig apiconfig/],
      stage_sub => \&config_stage,
      listchannels_sub => \&list_channels,
-     version => '$Id: tv_grab_fi_sv,v 1.1 2010/11/04 19:42:18 dekarl Exp $',
+     version => '$Id: tv_grab_fi_sv,v 1.2 2010/11/04 20:16:51 dekarl Exp $',
      description => "Finland (Swedish)",
 });
 
@@ -396,14 +396,14 @@ sub write_listings_data
 	# been fetched.
 	my $channel_group = $channels->{$channel}->{group};
 	
-	if (defined($channel_groups->{channel_group}))
+	if (defined($channel_groups->{$channel_group}))
 	{
 	    # Group has been fetched already - ignoring it.
 	    next;
 	}
 
 	# Mark the group as fetched.
-	$channel_groups->{channel_group} = 1;
+	$channel_groups->{$channel_group} = 1;
 
 	my $today = new Date::Manip::Date("today");
      
@@ -499,7 +499,7 @@ sub write_listings_data
 		# If it doesn't, ignore it. (Since the data is provided to us in
 		# channel groups, we cannot do it much better than this.)
 		my $channel_id = $channel_name_map->{$channel_name};		    
-                # TODO this could be done with a lookup to a hash
+                # TODO this could be done with a lookup to a hash, just like the channel groups
 		unless ($channel_id ~~ @channels)
 		{
 		    next;
