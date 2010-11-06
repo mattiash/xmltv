@@ -79,7 +79,7 @@ CandU, candu_sf@sourceforge.net, based on tv_grab_es, from Ramon Roca.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_es_laguiatv,v 1.14 2010/09/02 05:07:40 rmeden Exp $ ';
+use XMLTV::Version '$Id: tv_grab_es_laguiatv,v 1.15 2010/11/06 09:32:32 candu_sf Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Spain (laguiatv.com)';
 use Getopt::Long;
@@ -132,6 +132,22 @@ sub debug_print
 #	my ($str) = @_;
 #	print $str;
 }
+
+# hard-coded list of TDT channels since laguia dont list them separately
+my @tdt_channels = (
+    "La 10",
+    "Antena.neox",
+    "Antena.nova",
+    "Factor{icute}a de Ficci{ocute}n Telecinco",
+    "Boing",
+    "Gol TV",
+    "La Siete",
+    "Veo7",
+    "LaSexta2",
+    "Canal 24 horas",
+    "CNN+"
+);
+
 
 
 ######################################################################
@@ -708,16 +724,23 @@ sub get_channels
     my $url="http://www.laguiatv.com/programacion.php";
     t $url;
 
+	my $channel_id;
+	my $channel_name;
+	my $elem;
+
     my $tree = get_nice_tree $url;
 
+    # Addd hard-coded TDT channels (bad chris)
+   foreach $channel_name (@tdt_channels)
+   {
+        $channel_id = convert_name_to_id($channel_name);
+        debug_print "Channel $channel_name, id $channel_id\n";
+        $channels{$channel_id}=$channel_name;
+    }
 
 # <input type="checkbox" name="nacionales1" value="TVE 1"
 	# find the channels that are in check boxes
     my @options = $tree->find_by_tag_name("_tag"=>"input");
-
-	my $channel_id;
-	my $channel_name;
-	my $elem;
 
     foreach $elem (@options) 
 	{
