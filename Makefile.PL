@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.375 2010/11/04 19:42:18 dekarl Exp $
+# $Id: Makefile.PL,v 1.376 2010/11/12 19:11:21 knowledgejunkie Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -363,7 +363,11 @@ my @opt_components
                         'grab/uk_rt/channels_platforms'
                            => 'tv_grab_uk_rt/channels_platforms',
                         'grab/uk_rt/utf8_fixups'
-                           => 'tv_grab_uk_rt/utf8_fixups', },
+                           => 'tv_grab_uk_rt/utf8_fixups',
+                        'grab/uk_rt/lineups/freeview.map'
+                           => 'tv_grab_uk_rt/lineups/freeview.map',
+                        'grab/uk_rt/lineups/freesat.map'
+                           => 'tv_grab_uk_rt/lineups/freesat.map', },
        to_clean => [ 'grab/uk_rt/tv_grab_uk_rt' ],
        deps => [ 'grab/uk_rt/tv_grab_uk_rt' 
                     => [ 'grab/uk_rt/tv_grab_uk_rt.in' ] ],
