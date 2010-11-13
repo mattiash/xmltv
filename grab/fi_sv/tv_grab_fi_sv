@@ -72,7 +72,6 @@ like tv_grab_uk_rt, tv_grab_se_swedb and tv_grab_fi.
 =cut
 
 use strict;
-use 5.010; 	# We need this for the ~~ operator.
 
 use Date::Manip::Date;
 use IO::Scalar;
@@ -202,7 +201,7 @@ my ($opt, $conf) = ParseOptions(
      capabilities => [qw/baseline manualconfig apiconfig/],
      stage_sub => \&config_stage,
      listchannels_sub => \&list_channels,
-     version => '$Id: tv_grab_fi_sv,v 1.3 2010/11/10 23:36:20 dekarl Exp $',
+     version => '$Id: tv_grab_fi_sv,v 1.4 2010/11/13 11:03:46 dekarl Exp $',
      description => "Finland (Swedish)",
 });
 
@@ -389,6 +388,9 @@ sub write_listings_data
     }
     
     my $channel_groups = {};
+    # create hash of wanted channels
+    my %wanted;
+    @wanted{ @channels } = ();
     
     foreach my $channel (@channels)
     {
@@ -499,8 +501,7 @@ sub write_listings_data
 		# If it doesn't, ignore it. (Since the data is provided to us in
 		# channel groups, we cannot do it much better than this.)
 		my $channel_id = $channel_name_map->{$channel_name};		    
-                # TODO this could be done with a lookup to a hash, just like the channel groups
-		unless ($channel_id ~~ @channels)
+		unless( exists( $wanted{ $channel_id } ) )
 		{
 		    next;
 		}
