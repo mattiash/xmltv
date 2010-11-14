@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.318 2010/10/04 20:54:13 dekarl Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.319 2010/11/14 17:17:53 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -292,6 +292,7 @@ if ($opt->{debug}) {
 
         print_uc_titles_post();
         print_title_variants();
+        print_titles_inc_years();
         print_flagged_title_eps();
 
         print_categories();
@@ -4011,6 +4012,18 @@ sub print_uc_titles_post {
     }
 }
 
+sub print_titles_inc_years {
+    if (%prog_titles) {
+        say("\nStart of list of titles including possible years");
+        foreach my $title (sort keys %prog_titles) {
+            if ($title =~ m/\d{4}/) {
+                say("  $title");
+            }
+        }
+        say("End of list of titles including possible years");
+    }
+}
+
 sub print_title_variants {
     if (%prog_titles) {
         say("\nStart of possible title variations");
@@ -4022,7 +4035,7 @@ sub print_title_variants {
                 say("");
             }
         }
-        say("\nEnd of possible title variations");
+        say("End of possible title variations");
     }
 }
 
