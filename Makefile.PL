@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.377 2010/11/13 13:21:31 dekarl Exp $
+# $Id: Makefile.PL,v 1.378 2010/11/14 05:54:51 rmeden Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -440,7 +440,7 @@ my @opt_components
        blurb => 'Grabber for India (zipazap.com)',
        exes     => [ 'grab/in/tv_grab_in' ],
        prereqs => { 'XML::LibXML' => 0,
-                    'IO::Stringy' => 0,
+                    'IO::Scalar' => 0,
                   },
      },
 
@@ -492,7 +492,7 @@ my @opt_components
      { name => 'tv_grab_il',
        blurb => 'Grabber for Israel',
        exes => [ 'grab/il/tv_grab_il' ],
-       prereqs => {'Text::Iconv' => 0 } },
+     },
 #
 #
 # tv_grab_es_digital no longer functioning due to site changes
