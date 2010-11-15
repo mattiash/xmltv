@@ -77,7 +77,7 @@ backwards compatibility.
 
 =cut
 use strict;
-use XMLTV::Version '$Id: tv_grab_is,v 1.24 2010/10/13 22:48:52 dekarl Exp $ ';
+use XMLTV::Version '$Id: tv_grab_is,v 1.25 2010/11/15 17:13:40 eggertthor Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Iceland';
 use Getopt::Long;
@@ -578,10 +578,10 @@ sub process_skjarinn_is ( $$$$$$ ){
                     <xsl:value-of select='translate(\@start-time,"- :","")'/>
                 </xsl:attribute>
                 <title>
-                    <xsl:apply-templates select="short-event-descriptor/event-name"/>
+                    <xsl:apply-templates select="title"/>
                 </title>
                 <desc>
-                    <xsl:apply-templates select="extended-event-descriptor/extended-description"/>
+                    <xsl:apply-templates select="description"/>
                 </desc>
                 <credits/>
             </programme>
@@ -589,7 +589,7 @@ sub process_skjarinn_is ( $$$$$$ ){
         
         </xsl:stylesheet>
 EOF
-    my $url = "http://vefur.skjarinn.is/WebData/xml/Dagskra/S1-XmlSchedule.xml";
+    my $url = "http://skjareinn.is/einn/dagskrarupplysingar/?channel_id=7&weeks=2&output_format=xml";
 
     my  $xml = get_nice( $url ); die( "Failed to fetch $url" ) unless defined( $xml );
     
