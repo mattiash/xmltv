@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.323 2010/11/16 05:00:15 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.324 2010/11/16 06:01:22 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -3846,6 +3846,14 @@ sub print_titles_with_hyphens {
         foreach my $title (sort keys %prog_titles) {
             if ($title =~ m/\s+-\s+/) {
                 say("  $title");
+                my $idx_hyphen = index($title, "-");
+                my $idx_colon = index($title, ":"); # -1 = no colon
+                # Do not suggest title fixup if colon precedes hyphen
+                if ($idx_colon == -1 || $idx_hyphen < $idx_colon) {
+                    my $rec_title = $title;
+                    $rec_title =~ s/\s+-\s+/: /;
+                    say("    => \"5|" . $title . "~" . $rec_title . "\" (suggested fixup)");
+                }
             }
         }
         say("End of list of titles containing hyphens");
