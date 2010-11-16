@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.322 2010/11/16 04:06:11 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.323 2010/11/16 05:00:15 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -4082,8 +4082,18 @@ sub print_cats_per_prog {
         foreach my $title (sort keys %cats_per_prog) {
             if (scalar keys %{$cats_per_prog{$title}} > 1) {
                 say("  '" . $title . "' is categorised as:");
+                my $best_cat_cnt = 1;
+                my $best_cat = '';
                 foreach my $cat (sort keys %{$cats_per_prog{$title}}) {
                     say("    $cat (" . $cats_per_prog{$title}{$cat} . " occurences)");
+                    if ($cats_per_prog{$title}{$cat} > $best_cat_cnt) {
+                        $best_cat = $cat;
+                        $best_cat_cnt = $cats_per_prog{$title}{$cat};
+                    }
+                }
+                if ($best_cat_cnt > 1) {
+                    say("");
+                    say("    => \"6|" . $title . "~" . $best_cat . "\" (suggested fixup)");
                 }
                 say("");
             }
