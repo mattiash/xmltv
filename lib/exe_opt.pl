@@ -1,6 +1,6 @@
 #!perl -w
 #
-# $Id: exe_opt.pl,v 1.18 2010/06/04 18:24:24 rmeden Exp $
+# $Id: exe_opt.pl,v 1.19 2010/11/21 18:10:23 rmeden Exp $
 #
 # This is a simple script to generate options so PerlApp can make the EXE
 # it needs time values, so might as well put it in a perl script!
@@ -22,10 +22,12 @@ print '-nologo
 -add="Class::MethodMaker::scalar"
 -add "DateTime::Locale::en_US"
 -add "DateTime::TimeZone::Europe::Copenhagen"
+-add "DateTime::TimeZone::Europe::Helsinki"
+-add "DateTime::TimeZone::Asia::Jerusalem"
+-add "DateTime::TimeZone::Asia::Kolkata"
 -add="Tk::ProgressBar"
 -trim="Net::FTP::A"
 -trim="B"
--bind=libxml2.dll[file=\perl\bin\libxml2.dll,extract]
 -trim="Apache::Const;Apache::RequestIO;DIME::Payload;MIME::Entity;Apache::RequestRec;DIME::Message;I18N::Langinfo"
 -trim="Apache2::RequestUtil;APR::Table;Apache2::Const;Apache2::RequestRec;Apache2::RequestIO"
 -trim=DateTime::Format
