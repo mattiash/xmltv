@@ -1,6 +1,6 @@
 # prog_titles_to_process
 #
-# $Id: prog_titles_to_process,v 1.267 2010/11/29 14:23:41 knowledgejunkie Exp $
+# $Id: prog_titles_to_process,v 1.268 2010/11/30 20:40:03 knowledgejunkie Exp $
 #
 # NOTE: The Radio Times (and others) have copyright over the description
 #       text used in listings
@@ -783,6 +783,7 @@
 2|Waldbuhne 2008
 2|Waldbuhne 2009
 2|Walking with Dinosaurs Special
+2|Wallander
 2|Wanderers of the Deep
 2|Warriors
 2|Watching the Wild
@@ -2180,6 +2181,7 @@
 6|The Adventures of Bottle Top Bill and His Best Friend Corky~Children
 6|The Adventure Travel Show 2006~Travel
 6|The Andrew Marr Show~Current affairs
+6|The Apprentice~Reality
 6|The Baby Bunch~Documentary
 6|The Beach Boys: Endless Harmony~Music and Arts
 6|The Beckhams: Real Stories~Entertainment
