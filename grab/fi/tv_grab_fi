@@ -86,7 +86,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.58 2010/11/30 18:22:57 va1210 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.59 2010/12/02 10:14:49 va1210 Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Finland';
 use Encode qw(decode_utf8);
@@ -234,6 +234,8 @@ my %w_args = (
 if (defined $opt_output) {
     open($w_args{OUTPUT}, ">:utf8", $opt_output)
       or die "cannot write to $opt_output: $!";
+} else {
+    binmode(STDOUT, ":utf8");
 }
 my $writer = new XMLTV::Writer(%w_args);
 $writer->start($HEAD);
