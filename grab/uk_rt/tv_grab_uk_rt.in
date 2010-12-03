@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.331 2010/11/19 11:31:00 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.332 2010/12/03 18:28:46 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -3943,6 +3943,25 @@ sub print_new_titles {
                 say("");
             }
             say("End of list of titles containing \"Day/Night/Week\"");
+        }
+        
+        my @titles_christmas;
+        my @titles_newyear;
+        foreach my $title (sort keys %prog_titles) {
+            push(@titles_christmas, $title) if ($title =~ m/\bChristmas\b/i);
+            push(@titles_newyear, $title) if ($title =~ m/\bNew\s+Year/i);
+        }
+        if (@titles_christmas || @titles_newyear) {
+            say("\nStart of list of titles containing \"Christmas/New Year\"");
+            if (@titles_christmas) {
+                say("  " . $_) foreach @titles_christmas;
+                say("");
+            }
+            if (@titles_newyear) {
+                say("  " . $_) foreach @titles_newyear;
+                say("");
+            }
+            say("End of list of titles containing \"Christmas/New Year\"");
         }
         
         my @titles_bestof;
