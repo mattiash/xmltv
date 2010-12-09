@@ -2,7 +2,7 @@
 # vi:noet:ts=4
 
 #-------------------------------------------------------------------------------
-# $Id: tv_grab_huro.in,v 1.41 2010/10/14 06:43:18 dekarl Exp $
+# $Id: tv_grab_huro.in,v 1.42 2010/12/09 19:01:39 dekarl Exp $
 #-------------------------------------------------------------------------------
 
 #-------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ recommended by the XMLTV DTD.
 #-------------------------------------------------------------------------------
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_huro.in,v 1.41 2010/10/14 06:43:18 dekarl Exp $';
+use XMLTV::Version '$Id: tv_grab_huro.in,v 1.42 2010/12/09 19:01:39 dekarl Exp $';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Hungary/Romania';
 use XMLTV::Supplement qw/GetSupplement/;
@@ -332,6 +332,11 @@ sub process_table( $$$$ ) {
 		worker("base-downloading");
 		$XMLTV::Get_nice::FailOnError = 1;
 		my $data=get_nice($url);
+		# FIXME strip sponsored links, they don't work in xmltv anyway
+		$data =~ s|\x0D||g; # strip carriage return
+		$data =~ s|<span class=\"spons_link.*?</span>||g;
+		$data =~ s|<div style=\"display:none\">.*?</div>||g;
+
 		$tree = HTML::TreeBuilder->new_from_content($data) or 
 			die "could not fetch/parse $url (progamtable)\n";
 		worker("base-parsing");
