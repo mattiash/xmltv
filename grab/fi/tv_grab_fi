@@ -83,7 +83,7 @@ recommended by the XMLTV DTD.
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_fi,v 1.63 2010/12/11 10:42:55 va1210 Exp $ ';
+use XMLTV::Version '$Id: tv_grab_fi,v 1.64 2010/12/13 19:12:31 stefanb2 Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Finland';
 use Encode qw(decode_utf8);
@@ -546,7 +546,15 @@ sub process_table {
 #
 sub epoch_to_xmltv_time($) {
   my($time) = @_;
-  return(strftime("%Y%m%d%H%M00 %z", localtime($time)));
+
+  # Unfortunately strftime()'s %z is not portable...
+  #
+  # return(strftime("%Y%m%d%H%M00 %z", localtime($time));
+  #
+  # ...so we have to roll our own:
+  #
+  my @time = localtime($time); #               is_dst
+  return(strftime("%Y%m%d%H%M00 +0", @time) . ($time[8] ? "3": "2") . "00");
 }
 
 sub make_programme_hash {
