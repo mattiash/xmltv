@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.334 2010/12/03 19:26:13 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.335 2011/01/08 05:06:48 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -2341,6 +2341,52 @@ sub extract_numbering_from_sub_title($) {
                 if (defined $3) {
                     t("    Series number found: series $3 (subtitle, x/y)");
                     $prog->{'_series_num'} = $3 - 1;
+                }
+                $prog->{'_processed'} = 1;
+        }
+        
+        # ) check for special case of "x/y/z, series n" format where two parts of a series have
+        # been edited into a single programme for transmission. Only the first episode number
+        # given is output in episode-num
+        #
+        # "1/2/6, series 1"
+        #            
+        if ($prog->{'_sub_title'} =~
+            s{
+              ^                       # start at beginning of sub_title details
+              (\d+)                   # CAPTURE the first number(s) found ($episode_num)
+              \s*                     # ignore any whitespace
+              \/                      # forward slash
+              \s*                     # ignore any whitespace
+              (\d+)                   # CAPTURE the second number(s) found (unused at present)
+              \s*                     # ignore any whitespace
+              \/                      # forward slash
+              \s*                     # ignore any whitespace
+              (\d+)                   # CAPTURE the third number(s) found ($num_episodes)
+              \s*                     # ignore any whitespace
+              ,                       # check for punctuation characters
+              \s*                     # ignore any whitespace
+              series\s*(\d+)          # check for series number information ($series_num)
+              \s*                     # ignore any whitespace
+              $                       # stop at end of sub_title details
+            }
+            {}ix ) {
+                $prog->{'_episode_num'} = $1 - 1;
+                # Check that source episode number is not greater than number of episodes
+                # Rather than discard the episode number, we discard the total instead which
+                # is more likely to be incorrect based on observation.
+                if (defined $3 {
+                    if ($1 <= $3) {
+                        $prog->{'_num_episodes'} = $3;
+                        t("    Episode number/total found: episode $1 of $3 (subtitle, x/y/z. series n)");
+                    }
+                    else {
+                        t("    Bad episode total found: episode $1 of $3, discarding total (subtitle, x/y/z, series n)");
+                    }
+                }
+                if (defined $4) {
+                    t("    Series number found: series $4 (subtitle, x/y/z, series n)");
+                    $prog->{'_series_num'} = $4 - 1;
                 }
                 $prog->{'_processed'} = 1;
         }
