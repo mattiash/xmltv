@@ -52,7 +52,7 @@ use IO::Scalar; # used for configuration to write channels to string
 my $grabber_name = '@@name';
 
 # Grabber version
-my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.335 2011/01/08 05:06:48 knowledgejunkie Exp $';
+my $grabber_cvs_id = '$Id: tv_grab_uk_rt.in,v 1.336 2011/01/08 09:02:28 knowledgejunkie Exp $';
 my $grabber_version;
 
 if ($grabber_cvs_id =~ m!\$Id: [^,]+,v (\S+) ([0-9/: -]+)!) {
@@ -2351,7 +2351,7 @@ sub extract_numbering_from_sub_title($) {
         #
         # "1/2/6, series 1"
         #            
-        if ($prog->{'_sub_title'} =~
+        elsif ($prog->{'_sub_title'} =~
             s{
               ^                       # start at beginning of sub_title details
               (\d+)                   # CAPTURE the first number(s) found ($episode_num)
