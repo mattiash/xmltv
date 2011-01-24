@@ -1,5 +1,5 @@
 #!/usr/bin/perl -w
-# $Id: Makefile.PL,v 1.379 2010/11/22 06:04:58 rmeden Exp $
+# $Id: Makefile.PL,v 1.380 2011/01/24 23:44:13 dekarl Exp $
 
 use ExtUtils::MakeMaker;
 use Config;
@@ -268,12 +268,11 @@ END
 my @opt_components
   = (
 
-# Disabled 2010-09-05 doesn't work due to site changes
-#  { name => 'tv_grab_ar',
-#       blurb => 'Grabber for Argentina',
-#       exes => [ 'grab/ar/tv_grab_ar' ],
-#       prereqs => { 'HTML::TreeBuilder' => 0,
-#                    'HTML::Entities'    => 0 } },
+     { name => 'tv_grab_ar',
+       blurb => 'Grabber for Argentina',
+       exes => [ 'grab/ar/tv_grab_ar' ],
+       prereqs => { 'HTML::TreeBuilder' => 0,
+                    'HTML::Entities'    => 0 } },
 
 # Disabled 2006-04-12 since it doesn't provide data anymore.
 #     { name     => 'tv_grab_au',
