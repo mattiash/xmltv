@@ -137,7 +137,7 @@ my $urlRoot="http://www.buscador" . $CableCompany . ".com.ar/";
 # initializations
 
 use strict;
-use XMLTV::Version '$Id: tv_grab_ar,v 1.10 2011/01/24 22:59:37 marianok Exp $ ';
+use XMLTV::Version '$Id: tv_grab_ar,v 1.11 2011/01/25 21:55:29 dekarl Exp $ ';
 use XMLTV::Capabilities qw/baseline manualconfig cache/;
 use XMLTV::Description 'Argentina';
 use Getopt::Long;
@@ -323,7 +323,7 @@ if (defined $opt_output) {
     die "cannot write to $opt_output: $!" if not defined $fh;
     $w_args{OUTPUT} = $fh;
 }
-$w_args{encoding} = 'ISO-8859-15';
+$w_args{encoding} = 'utf-8';
 my $writer = new XMLTV::Writer(%w_args);
 $writer->start($HEAD);
 
